@@ -17,6 +17,7 @@ import csv
 import os
 import sys
 import time
+from datetime import datetime, timezone
 
 import requests
 
@@ -70,6 +71,7 @@ query TopRepositories($queryString: String!, $perPage: Int!, $after: String) {
           totalCount
         }
         updatedAt
+        pushedAt
       }
     }
   }
@@ -123,6 +125,19 @@ def fetch_top_repos(total=TOTAL_REPOS, page_size=PAGE_SIZE):
     return repos
 
 
+# RQ04: a metrica pedida e o tempo ate a ultima atualizacao, entao guardamos
+# tambem a diferenca em dias, e nao so o timestamp cru devolvido pela API.
+#
+# Coletamos updatedAt e pushedAt. O updatedAt e a leitura literal do enunciado,
+# mas ele sobe a cada estrela ou watch recebido: nos 100 repositorios mais
+# populares ele deu 0 dia para todos, o que nao responde a RQ04. O pushedAt so
+# sobe quando ha push de codigo, entao e ele que separa um repositorio ativo de
+# um parado. Os dois ficam no CSV para a analise poder comparar.
+def dias_desde(timestamp):
+    momento = datetime.strptime(timestamp, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+    return (datetime.now(timezone.utc) - momento).days
+
+
 def extract_row(repo):
     total_issues = repo["issues"]["totalCount"]
     closed_issues = repo["closedIssues"]["totalCount"]
@@ -137,6 +152,9 @@ def extract_row(repo):
         "pull_requests_aceitas": repo["mergedPullRequests"]["totalCount"],
         "total_releases": repo["releases"]["totalCount"],
         "ultima_atualizacao": repo["updatedAt"],
+        "dias_desde_ultima_atualizacao": dias_desde(repo["updatedAt"]),
+        "ultimo_push": repo["pushedAt"],
+        "dias_desde_ultimo_push": dias_desde(repo["pushedAt"]),
     }
 
 
