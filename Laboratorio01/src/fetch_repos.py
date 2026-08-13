@@ -54,6 +54,7 @@ query TopRepositories($queryString: String!, $perPage: Int!, $after: String) {
     nodes {
       ... on Repository {
         nameWithOwner
+        createdAt
         stargazerCount
         primaryLanguage {
           name
@@ -144,6 +145,7 @@ def extract_row(repo):
 
     return {
         "repositorio": repo["nameWithOwner"],
+        "created_at": repo["createdAt"],
         "estrelas": repo["stargazerCount"],
         "linguagem_primaria": repo["primaryLanguage"]["name"] if repo["primaryLanguage"] else "Nao informada",
         "issues_total": total_issues,

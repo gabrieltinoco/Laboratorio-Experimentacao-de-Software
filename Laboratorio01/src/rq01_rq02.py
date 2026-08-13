@@ -1,4 +1,4 @@
-from _future_ import annotations
+from __future__ import annotations
 
 import csv
 import statistics
@@ -25,7 +25,7 @@ def localizar_csv(argv: list[str]) -> Path:
             return caminho
         raise SystemExit(f"Arquivo nao encontrado: {caminho}")
 
-    raiz_projeto = Path(_file_).resolve().parent.parent  # sobe de src/ para a raiz
+    raiz_projeto = Path(__file__).resolve().parent.parent  # sobe de src/ para a raiz
     candidatos = [
         raiz_projeto / "data" / "repositorios_top100.csv",
         raiz_projeto / "data" / "repositorios_top100" / "repositorios_top100.csv",
