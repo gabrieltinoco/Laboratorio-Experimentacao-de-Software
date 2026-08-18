@@ -10,7 +10,7 @@ import csv
 import sys
 
 DEFAULT_SAMPLE_SIZE = 8
-CSV_PATH = "data/repositorios_top100.csv"
+CSV_PATH = "data/repositorios_top1000.csv"
 
 
 def load_sample(path, sample_size):

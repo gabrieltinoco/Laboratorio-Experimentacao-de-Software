@@ -1,4 +1,4 @@
-data/
+data/repositorios_top100.csv
 .env
 __pycache__/
 *.pyc

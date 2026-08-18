@@ -24,7 +24,7 @@ import requests
 GITHUB_GRAPHQL_URL = "https://api.github.com/graphql"
 
 PAGE_SIZE = 10
-TOTAL_REPOS = 100
+TOTAL_REPOS = 1000
 MAX_RETRIES = 5
 
 
@@ -165,7 +165,7 @@ def main():
     rows = [extract_row(repo) for repo in repos]
 
     os.makedirs("data", exist_ok=True)
-    output_path = os.path.join("data", "repositorios_top100.csv")
+    output_path = os.path.join("data", "repositorios_top1000.csv")
 
     with open(output_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=rows[0].keys())
