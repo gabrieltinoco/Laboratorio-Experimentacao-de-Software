@@ -59,6 +59,9 @@ query TopRepositories($queryString: String!, $perPage: Int!, $after: String) {
         primaryLanguage {
           name
         }
+        licenseInfo {
+          spdxId
+        }
         issues {
           totalCount
         }
@@ -148,6 +151,10 @@ def extract_row(repo):
         "created_at": repo["createdAt"],
         "estrelas": repo["stargazerCount"],
         "linguagem_primaria": repo["primaryLanguage"]["name"] if repo["primaryLanguage"] else "Nao informada",
+        # RQ08 (bonus, fora das RQs do enunciado): licenca SPDX, para cruzar
+        # licenca permissiva/restritiva/sem licenca com popularidade e
+        # contribuicao externa (RQ02).
+        "licenca": repo["licenseInfo"]["spdxId"] if repo["licenseInfo"] else "Sem licenca",
         "issues_total": total_issues,
         "issues_fechadas": closed_issues,
         "percentual_issues_fechadas": round(closed_issues / total_issues, 4) if total_issues > 0 else "",
