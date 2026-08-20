@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import statistics
 import sys
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -116,12 +117,15 @@ def main() -> int:
         nomes_idades: list[str] = []
         prs_aceitas: list[int] = []
         nomes_prs: list[str] = []
+        nomes_repositorios: list[str] = []
         ausentes_data = 0
         ausentes_prs = 0
         linhas_com_problema = 0
 
         for i, linha in enumerate(leitor, start=1):
             nome = linha.get(col_nome, f"linha {i}") if col_nome else f"linha {i}"
+            if col_nome:
+                nomes_repositorios.append(linha.get(col_nome, "").strip())
 
             data_criacao = parse_data(linha.get(col_data, ""))
             if data_criacao is None:
@@ -149,6 +153,16 @@ def main() -> int:
     total_linhas = len(prs_aceitas) + ausentes_prs
     print(f"Valores ausentes/invalidos em pull_requests_aceitas: {ausentes_prs} ({ausentes_prs / total_linhas * 100:.1f}%)")
     print(f"Linhas com problema (ignoradas na respectiva metrica): {linhas_com_problema}")
+    if col_nome:
+        nomes_vazios = sum(1 for nome in nomes_repositorios if not nome)
+        duplicados = {nome: quantidade for nome, quantidade in Counter(nomes_repositorios).items() if nome and quantidade > 1}
+        print(f"Identificadores de repositorio vazios: {nomes_vazios}")
+        print(f"Repositorios distintos: {len(set(nomes_repositorios))}/{len(nomes_repositorios)}")
+        print(f"Nomes duplicados: {len(duplicados)}")
+        for nome, quantidade in sorted(duplicados.items()):
+            print(f"  [duplicata] {nome}: {quantidade} ocorrencias")
+    else:
+        print("Nomes duplicados: nao verificaveis (coluna de repositorio ausente)")
     print()
 
     print("=== RQ01 - Sistemas populares sao maduros/antigos? ===")
