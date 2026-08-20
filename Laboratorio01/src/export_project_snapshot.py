@@ -6,12 +6,20 @@ do grupo e o status atual de cada um (coluna do board) para um CSV. As
 execucoes se acumulam no mesmo arquivo (uma linha por item por sprint), para
 servir de base de dados historica aos Labs 04 e 05.
 
+A coluna 'sprint' identifica a execucao que capturou aquele estado do board,
+e nao a sprint a que cada cartao pertence. O arquivo nunca deve ser editado a
+mao: se um snapshot saiu errado (por exemplo, capturado antes de o board ser
+atualizado), a correcao e reexportar com --substituir, que apaga as linhas
+daquele identificador e grava a leitura nova.
+
 Uso:
     1. O token em .env precisa do escopo read:project (classic PAT) ou do
        escopo Projects (fine-grained), alem de acesso de leitura ao repo -
        diferente da consulta da Parte 1, a API de Projects exige esse escopo
        mesmo para board publico.
     2. Rode: python src/export_project_snapshot.py --sprint Lab01S01
+    3. Para refazer um snapshot ja exportado:
+       python src/export_project_snapshot.py --sprint Lab01S01 --substituir
 """
 
 import argparse
@@ -157,6 +165,13 @@ def extract_row(item, sprint, snapshot_date):
     }
 
 
+def ler_snapshots_existentes(path):
+    if not os.path.exists(path):
+        return []
+    with open(path, newline="", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -169,26 +184,56 @@ def main():
         default=os.path.join("data", "project_snapshots.csv"),
         help="Arquivo CSV acumulado de snapshots (default: data/project_snapshots.csv)",
     )
+    parser.add_argument(
+        "--substituir",
+        action="store_true",
+        help="Apaga as linhas do identificador informado antes de gravar, "
+             "para refazer um snapshot que saiu errado",
+    )
     args = parser.parse_args()
+
+    anteriores = ler_snapshots_existentes(args.output)
+    ja_exportado = [linha for linha in anteriores if linha["sprint"] == args.sprint]
+
+    # Sem essa guarda, rodar duas vezes o mesmo identificador duplica o estado
+    # do board no historico, e a serie deixa de servir de base para os Labs 04
+    # e 05. Reexportar e a operacao certa; editar o CSV a mao nao e.
+    if ja_exportado and not args.substituir:
+        datas = sorted({linha["data_snapshot"] for linha in ja_exportado})
+        sys.exit(
+            f"O snapshot '{args.sprint}' ja foi exportado para {args.output} "
+            f"({len(ja_exportado)} itens, capturado em {', '.join(datas)}).\n"
+            f"Para refazer, rode de novo com --substituir. Nao edite o CSV a mao."
+        )
 
     items = fetch_all_items()
     snapshot_date = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     rows = [extract_row(item, args.sprint, snapshot_date) for item in items]
 
+    fieldnames = [
+        "sprint", "data_snapshot", "item_id", "tipo", "issue_numero",
+        "titulo", "status_board", "estado_issue", "responsaveis", "url",
+    ]
+
+    if args.substituir:
+        # Reescreve o arquivo inteiro preservando os outros identificadores.
+        mantidas = [linha for linha in anteriores if linha["sprint"] != args.sprint]
+        modo, escrever_header, linhas = "w", True, mantidas + rows
+    else:
+        modo = "a"
+        escrever_header = not os.path.exists(args.output)
+        linhas = rows
+
     os.makedirs(os.path.dirname(args.output) or ".", exist_ok=True)
-    file_exists = os.path.exists(args.output)
 
-    with open(args.output, "a", newline="", encoding="utf-8") as f:
-        fieldnames = rows[0].keys() if rows else [
-            "sprint", "data_snapshot", "item_id", "tipo", "issue_numero",
-            "titulo", "status_board", "estado_issue", "responsaveis", "url",
-        ]
+    with open(args.output, modo, newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
-        if not file_exists:
+        if escrever_header:
             writer.writeheader()
-        writer.writerows(rows)
+        writer.writerows(linhas)
 
-    print(f"{len(rows)} itens do sprint '{args.sprint}' adicionados a {args.output}")
+    acao = "regravados" if args.substituir else "adicionados"
+    print(f"{len(rows)} itens do sprint '{args.sprint}' {acao} em {args.output}")
 
 
 if __name__ == "__main__":

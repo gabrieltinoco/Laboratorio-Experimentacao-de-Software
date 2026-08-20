@@ -1,12 +1,12 @@
 sprint,data_snapshot,item_id,tipo,issue_numero,titulo,status_board,estado_issue,responsaveis,url
-Lab01S02,2026-08-14T21:11:23Z,PVTI_lAHOCKgV4s4BgGdJzg2mTJ4,Issue,12,Paginação (consulta 1000 repositórios),To do,OPEN,gabitolage,https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/12
-Lab01S02,2026-08-14T21:11:23Z,PVTI_lAHOCKgV4s4BgGdJzg2mR3w,Issue,5,Validar RQ01 para 1000 repositorios,To do,OPEN,gabrieltinoco,https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/5
-Lab01S02,2026-08-14T21:11:23Z,PVTI_lAHOCKgV4s4BgGdJzg2mSDY,Issue,6,Validar RQ02 para 1000 repositorios,To do,OPEN,gabrieltinoco,https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/6
-Lab01S02,2026-08-14T21:11:23Z,PVTI_lAHOCKgV4s4BgGdJzg2mSN0,Issue,7,Validar RQ03 para 1000 repositorios,To do,OPEN,art1544,https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/7
-Lab01S02,2026-08-14T21:11:23Z,PVTI_lAHOCKgV4s4BgGdJzg2mST8,Issue,8,Validar RQ04 para 1000 repositorios,To do,OPEN,art1544,https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/8
-Lab01S02,2026-08-14T21:11:23Z,PVTI_lAHOCKgV4s4BgGdJzg2mSX0,Issue,9,Validar RQ05 para 1000 repositorios,To do,OPEN,gabitolage,https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/9
-Lab01S02,2026-08-14T21:11:23Z,PVTI_lAHOCKgV4s4BgGdJzg2mSl0,Issue,10,Validar RQ06 para 1000 repositorios,To do,OPEN,gabitolage,https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/10
-Lab01S02,2026-08-14T21:11:23Z,PVTI_lAHOCKgV4s4BgGdJzg2mSsE,Issue,11,Validar RQ07 para 1000 repositorios,To do,OPEN,gabitolage,https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/11
+Lab01S01,2026-08-14T21:11:23Z,PVTI_lAHOCKgV4s4BgGdJzg2mTJ4,Issue,12,Paginação (consulta 1000 repositórios),To do,OPEN,gabitolage,https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/12
+Lab01S01,2026-08-14T21:11:23Z,PVTI_lAHOCKgV4s4BgGdJzg2mR3w,Issue,5,Validar RQ01 para 1000 repositorios,To do,OPEN,gabrieltinoco,https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/5
+Lab01S01,2026-08-14T21:11:23Z,PVTI_lAHOCKgV4s4BgGdJzg2mSDY,Issue,6,Validar RQ02 para 1000 repositorios,To do,OPEN,gabrieltinoco,https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/6
+Lab01S01,2026-08-14T21:11:23Z,PVTI_lAHOCKgV4s4BgGdJzg2mSN0,Issue,7,Validar RQ03 para 1000 repositorios,To do,OPEN,art1544,https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/7
+Lab01S01,2026-08-14T21:11:23Z,PVTI_lAHOCKgV4s4BgGdJzg2mST8,Issue,8,Validar RQ04 para 1000 repositorios,To do,OPEN,art1544,https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/8
+Lab01S01,2026-08-14T21:11:23Z,PVTI_lAHOCKgV4s4BgGdJzg2mSX0,Issue,9,Validar RQ05 para 1000 repositorios,To do,OPEN,gabitolage,https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/9
+Lab01S01,2026-08-14T21:11:23Z,PVTI_lAHOCKgV4s4BgGdJzg2mSl0,Issue,10,Validar RQ06 para 1000 repositorios,To do,OPEN,gabitolage,https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/10
+Lab01S01,2026-08-14T21:11:23Z,PVTI_lAHOCKgV4s4BgGdJzg2mSsE,Issue,11,Validar RQ07 para 1000 repositorios,To do,OPEN,gabitolage,https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/11
 Lab01S01,2026-08-14T21:11:23Z,PVTI_lAHOCKgV4s4BgGdJzg2b6-k,Issue,2,Fazer mineração dos dados e RQ05-07,Done,CLOSED,gabitolage,https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/2
 Lab01S01,2026-08-14T21:11:23Z,PVTI_lAHOCKgV4s4BgGdJzg2dvW4,Issue,3,Extrair e validar as métricas das RQ03 e RQ04,Done,CLOSED,art1544,https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/3
 Lab01S01,2026-08-14T21:11:23Z,PVTI_lAHOCKgV4s4BgGdJzg2eU7I,Issue,4,Extração e Validação RQ01 e RQ02,Done,CLOSED,gabrieltinoco,https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/4
