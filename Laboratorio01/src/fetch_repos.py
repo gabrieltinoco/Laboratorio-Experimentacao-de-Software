@@ -1,8 +1,11 @@
 """
-Lab01S01 - Mineracao de dados via GitHub GraphQL API.
+Lab01S01/S02 - Mineracao de dados via GitHub GraphQL API.
 
-Busca os 100 repositorios com mais estrelas no GitHub e salva os
-campos necessarios para essas RQs em um CSV.
+Busca os 1000 repositorios com mais estrelas no GitHub, paginando a busca
+por cursor, e salva num CSV todos os campos necessarios as RQs do
+laboratorio. Na S01 a coleta ia ate 100 repositorios; a S02 ampliou o
+alcance para 1000, que e tambem o teto de resultados que o endpoint
+search devolve para uma mesma query.
 
 Uso:
     1. Gere um Personal Access Token no GitHub (nao precisa de nenhum
@@ -23,9 +26,22 @@ import requests
 
 GITHUB_GRAPHQL_URL = "https://api.github.com/graphql"
 
-PAGE_SIZE = 10
+# Com 10 por pagina, coletar 1000 repositorios custava 100 requisicoes. Com 25
+# cai para 40, o que reduz a exposicao ao limite de uso da API sem inflar o
+# custo de cada requisicao: a query tem varias conexoes aninhadas (issues,
+# pullRequests, releases), e paginas muito grandes aumentam a chance de a
+# propria consulta estourar o tempo do lado do GitHub.
+PAGE_SIZE = 25
 TOTAL_REPOS = 1000
 MAX_RETRIES = 5
+
+# Espera entre tentativas depois de erro 5xx, multiplicada pelo numero da
+# tentativa.
+RETRY_WAIT_SECONDS = 2
+
+# Espera usada quando o GitHub barra por limite de uso e nao informa em quanto
+# tempo o limite volta.
+RATE_LIMIT_WAIT_SECONDS = 60
 
 
 def load_dotenv(path=".env"):
@@ -83,6 +99,25 @@ query TopRepositories($queryString: String!, $perPage: Int!, $after: String) {
 """
 
 
+def espera_do_limite_de_uso(response, attempt):
+    """Quantos segundos esperar quando o GitHub barra por limite de uso.
+
+    O GitHub informa a espera de duas formas, e as duas sao respeitadas aqui:
+    o cabecalho Retry-After (limite secundario, em segundos) e o par
+    x-ratelimit-remaining / x-ratelimit-reset (limite primario, em epoch).
+    Sem nenhum dos dois, cai numa espera fixa progressiva.
+    """
+    retry_after = response.headers.get("Retry-After", "")
+    if retry_after.isdigit():
+        return int(retry_after)
+
+    reset = response.headers.get("x-ratelimit-reset", "")
+    if response.headers.get("x-ratelimit-remaining") == "0" and reset.isdigit():
+        return max(1, int(reset) - int(time.time()) + 1)
+
+    return RATE_LIMIT_WAIT_SECONDS * attempt
+
+
 def run_query(query_string, per_page, after=None):
     if not TOKEN:
         sys.exit("Defina a variavel de ambiente GITHUB_TOKEN antes de rodar o script.")
@@ -100,13 +135,33 @@ def run_query(query_string, per_page, after=None):
 
         if response.status_code >= 500 and attempt < MAX_RETRIES:
             print(f"  aviso: {response.status_code} do GitHub, tentando de novo...")
-            time.sleep(2 * attempt)
+            time.sleep(RETRY_WAIT_SECONDS * attempt)
+            continue
+
+        # 403 e 429 sao como a API responde ao limite de uso. Sem este trecho,
+        # uma coleta de 1000 repositorios que encosta no limite morre no meio e
+        # tem de ser refeita do zero.
+        if response.status_code in (403, 429) and attempt < MAX_RETRIES:
+            espera = espera_do_limite_de_uso(response, attempt)
+            print(f"  aviso: {response.status_code} (limite de uso), esperando {espera}s...")
+            time.sleep(espera)
             continue
 
         response.raise_for_status()
         payload = response.json()
 
         if "errors" in payload:
+            # O limite de uso do GraphQL tambem chega como erro dentro de uma
+            # resposta 200, e nesse caso vale esperar e repetir em vez de
+            # abortar. Qualquer outro erro e da consulta em si e nao melhora
+            # com nova tentativa.
+            tipos = {erro.get("type") for erro in payload["errors"]}
+            if "RATE_LIMITED" in tipos and attempt < MAX_RETRIES:
+                espera = RATE_LIMIT_WAIT_SECONDS * attempt
+                print(f"  aviso: RATE_LIMITED no GraphQL, esperando {espera}s...")
+                time.sleep(espera)
+                continue
+
             sys.exit(f"Erro na consulta GraphQL: {payload['errors']}")
 
         return payload["data"]["search"]
