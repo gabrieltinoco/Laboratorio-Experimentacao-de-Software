@@ -1,0 +1,275 @@
+# Relatório — Laboratório 01: Características de repositórios populares
+
+**Versão 1 (entrega da Lab01S02).** Esta versão traz a introdução com as
+hipóteses informais, a metodologia de coleta e a configuração do processo. Os
+resultados numéricos consolidados e as visualizações das 7 RQs são a entrega da
+Lab01S03; as seções de resultado abaixo já registram o que a validação de
+consistência dos 1000 repositórios revelou em cada parte.
+
+- **Repositório:** https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software
+- **GitHub Projects (v2):** https://github.com/users/gabrieltinoco/projects/2
+- **Integrantes:** Arthur Miranda Pacher (`art1544`), Gabriel Lage Silva (`gabitolage`), Gabriel Lucas Tinoco de Aguiar (`gabrieltinoco`)
+
+---
+
+## 1. Introdução e hipóteses informais
+
+O objeto de estudo são os 1.000 repositórios com maior número de estrelas no
+GitHub. A pergunta de fundo é se "popular" implica um conjunto de características
+de engenharia — maturidade, contribuição externa, cadência de release,
+manutenção ativa, escolha de linguagem e disciplina no tratamento de issues.
+
+A hipótese geral do grupo é que **estrela mede acervo, não atividade**: o
+contador de estrelas é cumulativo e nunca decresce, então o top 1000 tende a
+reunir tanto projetos vivos quanto projetos que foram muito populares no passado.
+Se isso for verdade, cada RQ deve mostrar uma distribuição com cauda longa, e a
+mediana — não a média — é o valor central a reportar.
+
+Uma segunda hipótese, que atravessa várias RQs, é que o top 1000 **não é
+composto só de software**. Listas "awesome", roteiros de estudo e coleções de
+material didático são extremamente estreladas sem serem software distribuível, e
+isso deve distorcer qualquer métrica que pressuponha um ciclo de
+desenvolvimento (releases, pull requests, linguagem primária).
+
+As hipóteses específicas por RQ, cada uma registrada na Issue do integrante
+responsável:
+
+| RQ | Métrica | Hipótese informal | Responsável / Issue |
+|---|---|---|---|
+| RQ01 | Idade do repositório | *a preencher* | `gabrieltinoco` — [#5](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/5) |
+| RQ02 | Total de pull requests aceitas | *a preencher* | `gabrieltinoco` — [#6](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/6) |
+| RQ03 | Total de releases | Sistemas populares lançam releases com frequência | `art1544` — [#7](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/7) |
+| RQ04 | Tempo até a última atualização | Sistemas populares são atualizados com frequência | `art1544` — [#8](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/8) |
+| RQ05 | Linguagem primária | *a preencher* | `gabitolage` — [#9](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/9) |
+| RQ06 | Razão issues fechadas / total | *a preencher* | `gabitolage` — [#10](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/10) |
+| RQ07 | RQ02, RQ03 e RQ04 por linguagem | *a preencher* | `gabitolage` — [#11](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/11) |
+| RQ08 (bônus) | Licença SPDX | *a preencher* | `gabitolage` — [#13](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/13) |
+
+### RQ03 — Sistemas populares lançam releases com frequência?
+
+**Hipótese.** Um projeto com dezenas de milhares de estrelas tende a ser
+consumido como dependência por terceiros, e quem é consumido como dependência
+precisa de versionamento publicado. Esperamos, portanto, mediana de releases alta
+e pouquíssimos repositórios sem nenhuma release.
+
+### RQ04 — Sistemas populares são atualizados com frequência?
+
+**Hipótese.** A visibilidade gera um fluxo constante de issues e pull requests, e
+esse fluxo mantém o repositório em movimento. Esperamos tempo curto desde a
+última atualização para praticamente todos os repositórios.
+
+---
+
+## 2. Metodologia de coleta
+
+### 2.1 Fonte e recorte
+
+Os dados vêm da **API GraphQL v4 do GitHub**, consultada por script próprio do
+grupo (`Laboratorio01/src/fetch_repos.py`). Não é usada nenhuma biblioteca de
+terceiros que consulte a API do GitHub: a query é escrita à mão e enviada por
+requisição HTTP direta.
+
+O recorte é a busca `stars:>1 sort:stars-desc` no tipo `REPOSITORY`, tomando os
+**1.000 primeiros resultados** — que é também o teto de resultados que o endpoint
+`search` devolve para uma mesma query.
+
+### 2.2 Paginação
+
+A busca é paginada por cursor, usando `pageInfo.hasNextPage` e
+`pageInfo.endCursor` do próprio `search`, com o cursor da página anterior sendo
+passado no argumento `after` da requisição seguinte. O laço para quando 1.000
+repositórios foram coletados ou quando a API sinaliza que não há próxima página.
+Respostas com erro 5xx são repetidas com espera progressiva.
+
+### 2.3 Campos coletados
+
+Uma única query traz todos os campos necessários às 7 RQs, para não haver risco
+de o mesmo repositório ser lido em momentos diferentes:
+
+| Campo GraphQL | Coluna no CSV | RQ |
+|---|---|---|
+| `nameWithOwner` | `repositorio` | identificação |
+| `stargazerCount` | `estrelas` | recorte e RQ08 |
+| `createdAt` | `created_at` | RQ01 |
+| `pullRequests(states: MERGED).totalCount` | `pull_requests_aceitas` | RQ02, RQ07 |
+| `releases.totalCount` | `total_releases` | RQ03, RQ07 |
+| `updatedAt` | `ultima_atualizacao`, `dias_desde_ultima_atualizacao` | RQ04, RQ07 |
+| `pushedAt` | `ultimo_push`, `dias_desde_ultimo_push` | RQ04, RQ07 |
+| `primaryLanguage.name` | `linguagem_primaria` | RQ05, RQ07 |
+| `issues.totalCount` | `issues_total` | RQ06 |
+| `issues(states: CLOSED).totalCount` | `issues_fechadas`, `percentual_issues_fechadas` | RQ06 |
+| `licenseInfo.spdxId` | `licenca` | RQ08 (bônus) |
+
+As colunas derivadas (`dias_desde_*`, `percentual_issues_fechadas`) são
+calculadas no momento da coleta, a partir dos campos brutos, e os campos brutos
+são preservados no CSV para permitir recálculo e auditoria.
+
+Saída: `Laboratorio01/data/repositorios_top1000.csv`, uma linha por repositório.
+
+### 2.4 Definição de "linguagens mais populares" (RQ05 e RQ07)
+
+A referência adotada é o **GitHub Octoverse 2025**, e é a mesma em todo o
+laboratório: TypeScript, Python, JavaScript, Java e C#. A lista está fixada em
+`src/validate_sample.py` (constante `LINGUAGENS_POPULARES`), para que a RQ05 e a
+RQ07 usem exatamente o mesmo conjunto.
+
+### 2.5 Validação dos dados
+
+Cada integrante valida a sua parte das RQs em script próprio, verificando
+consistência estrutural campo a campo, distribuição, outliers e valores
+ausentes nos 1.000 repositórios:
+
+| Script | Cobertura |
+|---|---|
+| `src/rq01_rq02.py` | RQ01, RQ02 |
+| `src/validate_sample_rq03_rq04.py` | RQ03, RQ04 |
+| `src/validate_sample.py` | RQ05, RQ06, RQ07, RQ08 |
+
+### 2.6 Limitações conhecidas da coleta
+
+- **`releases.totalCount` satura em 1.000.** 21 repositórios do top 1000 marcam
+  exatamente 1.000 releases; nesses casos o valor é um limite inferior, não a
+  contagem real.
+- **`updatedAt` não mede atividade de código.** O campo sobe a cada estrela ou
+  watch recebido. Nesta população ele fica saturado (detalhado na RQ04).
+- **A coleta não é atômica.** As 1.000 linhas são lidas ao longo de várias
+  requisições, então um repositório que recebe push durante a coleta pode ficar
+  com contagem de dias negativa por questão de minutos. Ocorreu em 1 caso.
+- **`pullRequests(states: MERGED)` conta PR aceita de qualquer autor**, inclusive
+  de mantenedores. É uma aproximação de "contribuição externa", não a medida
+  exata.
+
+---
+
+## 3. Resultados por RQ
+
+> Os valores consolidados e os gráficos das 7 RQs são a entrega da Lab01S03. As
+> seções abaixo registram o que a validação de consistência dos 1.000
+> repositórios já mostrou.
+
+### RQ01 — Idade do repositório
+
+*A preencher — [#5](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/5), `gabrieltinoco`.*
+
+### RQ02 — Total de pull requests aceitas
+
+*A preencher — [#6](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/6), `gabrieltinoco`.*
+
+### RQ03 — Total de releases
+
+Nenhuma inconsistência estrutural em 1.000 repositórios e nenhum valor ausente.
+
+| Estatística | Valor |
+|---|---|
+| Mediana | 39 releases |
+| Média | 126,6 |
+| Q1 / Q3 | 0 / 147 |
+| Mínimo / máximo | 0 / 1.000 |
+
+Distribuição:
+
+| Faixa | Repositórios |
+|---|---|
+| Nenhuma release | 286 (28,6%) |
+| 1 a 10 releases | 76 (7,6%) |
+| Acima de 100 releases | 343 (34,3%) |
+
+A distribuição é **bimodal**: um bloco de 28,6% sem release nenhuma e um bloco de
+34,3% acima de 100. Como Q1 = 0, a média de 126,6 não descreve nada e a mediana
+de 39 é o único valor central defensável.
+
+Os 21 repositórios travados em 1.000 releases (entre eles
+`langchain-ai/langchain`, `vercel/next.js`, `electron/electron`) precisam ser
+lidos como ">= 1000" na análise da S03.
+
+### RQ04 — Tempo até a última atualização
+
+Nenhuma inconsistência estrutural e nenhum valor ausente nas quatro colunas
+envolvidas.
+
+**A métrica literal do enunciado não discrimina nesta população.** Usando
+`updatedAt`: mediana 0 dia, Q1 = Q3 = 0, amplitude total de 0 a 2 dias, com 984
+dos 1.000 repositórios (98,4%) em 0 dia e 100% na faixa "até 7 dias". A causa é
+conhecida: o `updatedAt` sobe a cada estrela ou watch, e os repositórios mais
+estrelados do GitHub recebem estrelas continuamente.
+
+**Métrica efetiva: `pushedAt`**, que só sobe com push de código.
+
+| Faixa desde o último push | Repositórios |
+|---|---|
+| Até 7 dias | 616 (61,6%) |
+| 8 a 30 dias | 111 (11,1%) |
+| 31 a 90 dias | 64 (6,4%) |
+| 91 a 365 dias | 94 (9,4%) |
+| Mais de 365 dias | **115 (11,5%)** |
+
+Mediana 2 dias, Q1 = 0, Q3 = 49, máximo 2.451 dias. Os mais parados são
+`exacity/deeplearningbook-chinese` (2.451 dias), `GitSquared/edex-ui` (1.764),
+`lib-pku/libpku` (1.687), `adobe/brackets` (1.529) e
+`floodsung/Deep-Learning-Papers-Reading-Roadmap` (1.361).
+
+### RQ05 — Linguagem primária
+
+*A preencher — [#9](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/9), `gabitolage`.*
+
+### RQ06 — Percentual de issues fechadas
+
+*A preencher — [#10](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/10), `gabitolage`.*
+
+### RQ07 — RQ02, RQ03 e RQ04 por linguagem
+
+*A preencher — [#11](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/11), `gabitolage`.*
+
+### RQ08 (bônus) — Licença e popularidade/contribuição
+
+*A preencher — [#13](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/13), `gabitolage`.*
+
+---
+
+## 4. Discussão: hipótese vs. resultado
+
+### RQ03 — parcialmente confirmada
+
+Entre os repositórios que de fato são software distribuível, a hipótese se
+sustenta com folga: 34,3% do top 1000 passa de 100 releases. Mas quase um terço
+(28,6%) não publica release nenhuma, o que confirma a segunda hipótese geral do
+grupo: "repositório popular no GitHub" e "software distribuível" não são a mesma
+coisa. A conclusão de método é que a RQ03 deve ser reportada separando os dois
+grupos, e não em um único número agregado.
+
+### RQ04 — confirmada para a maioria, com uma correção de método
+
+A hipótese se confirma para a maior parte da população: 61,6% recebeu push na
+última semana. Mas 11,5% está sem push há mais de um ano, o que sustenta a
+hipótese geral de que estrela é métrica de acervo. O caso mais eloquente é o
+`adobe/brackets`, um editor oficialmente descontinuado que segue no top 1000 por
+estrelas acumuladas.
+
+A correção de método é que a métrica literal da RQ04 (`updatedAt`) tem de ser
+substituída pelo `pushedAt` na análise da S03: reportar a mediana de 0 dia do
+`updatedAt` como resposta da RQ04 seria reportar um artefato da API, e não uma
+característica dos sistemas estudados.
+
+### Demais RQs
+
+*A preencher pelos responsáveis, conforme a tabela da seção 1.*
+
+---
+
+## 5. Configuração do processo
+
+O fluxo de trabalho no GitHub Projects (v2), com o critério de entrada e saída de
+cada coluna, o limite de WIP e sua justificativa, e a rotina de snapshot, está
+documentado em [`PROCESSO.md`](PROCESSO.md). Em resumo:
+
+- **Colunas (campo Status):** `Backlog → To do → Doing → Review → Done`.
+- **Limite de WIP em Doing:** 2 cartões por integrante, 6 no board com o trio
+  completo. O número acompanha a divisão de duas RQs por integrante por sprint e
+  a janela semanal de trabalho, e segue a sugestão das regras da disciplina.
+- **Cartões = Issues** do repositório, sempre com Assignee. Não há draft issues.
+- **Commits** referenciam o número da Issue correspondente.
+- **Snapshots:** exportados por `src/export_project_snapshot.py` no fechamento de
+  cada sprint e acumulados em `data/project_snapshots.csv`.
+
+O print do board com o fluxo completo do Lab01 é anexado na entrega do relatório
+final, conforme o enunciado.
