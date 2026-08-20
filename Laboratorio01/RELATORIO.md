@@ -107,22 +107,23 @@ Respostas com erro 5xx são repetidas com espera progressiva.
 
 ### 2.3 Campos coletados
 
-Uma única query traz todos os campos necessários às 7 RQs, para não haver risco
+Uma única query traz todos os campos necessários a todas as RQs, para não haver
+risco
 de o mesmo repositório ser lido em momentos diferentes:
 
 | Campo GraphQL | Coluna no CSV | RQ |
 |---|---|---|
 | `nameWithOwner` | `repositorio` | identificação |
 | `stargazerCount` | `estrelas` | recorte e RQ08 |
-| `createdAt` | `created_at` | RQ01 |
+| `createdAt` | `created_at` | RQ01, RQ09 |
 | `pullRequests(states: MERGED).totalCount` | `pull_requests_aceitas` | RQ02, RQ07 |
-| `releases.totalCount` | `total_releases` | RQ03, RQ07 |
+| `releases.totalCount` | `total_releases` | RQ03, RQ07, RQ09 |
 | `updatedAt` | `ultima_atualizacao`, `dias_desde_ultima_atualizacao` | RQ04, RQ07 |
 | `pushedAt` | `ultimo_push`, `dias_desde_ultimo_push` | RQ04, RQ07 |
 | `primaryLanguage.name` | `linguagem_primaria` | RQ05, RQ07 |
 | `issues.totalCount` | `issues_total` | RQ06 |
 | `issues(states: CLOSED).totalCount` | `issues_fechadas`, `percentual_issues_fechadas` | RQ06 |
-| `licenseInfo.spdxId` | `licenca` | RQ08 (bônus) |
+| `licenseInfo.spdxId` | `licenca` | RQ08 |
 
 As colunas derivadas (`dias_desde_*`, `percentual_issues_fechadas`) são
 calculadas no momento da coleta, a partir dos campos brutos, e os campos brutos
@@ -168,7 +169,8 @@ ausentes nos 1.000 repositórios:
 
 ## 3. Resultados por RQ
 
-> Os valores consolidados e os gráficos das 7 RQs são a entrega da Lab01S03. As
+> Os valores consolidados e os gráficos das 7 RQs do enunciado e das 2 propostas
+> pelo grupo são a entrega da Lab01S03. As
 > seções abaixo registram o que a validação de consistência dos 1.000
 > repositórios já mostrou.
 
