@@ -894,10 +894,36 @@ documentado em [`PROCESSO.md`](PROCESSO.md). Em resumo:
 | Lab01S02 | #7, #8 (consistência RQ03/RQ04), #18 (RQ09), #14 (relatório v1), #15 (colunas e WIP), #16, #17 (snapshot e coleta) | #9, #10, #11 (consistência RQ05–07), #13 (RQ08), #12 (paginação) | #5, #6 (consistência RQ01/RQ02), #19 (reprodutibilidade e integridade) |
 | Lab01S03 | **#22 (RQ03), #23 (RQ04), #28 (RQ09)** | #24, #25, #26, #27 (RQ05–08) | #20 (RQ01), #21 (RQ02) |
 
-### 6.2 Print do board
+### 6.2 Snapshots exportados
+
+| Sprint | Data do snapshot | Itens |
+|---|---|---:|
+| Lab01S01 | 2026-08-14 | 11 |
+| Lab01S02 | 2026-08-20 | 17 |
+| **Lab01S03** | **2026-08-27** | **27** |
+
+O snapshot da Lab01S03 foi exportado no fechamento da sprint, com o board já
+atualizado: 25 dos 27 itens em `Done`. Os dois restantes — [#20](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/20)
+e [#21](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/21),
+análise e visualização das RQ01 e RQ02 — estavam em `To do` no momento da
+captura, e o snapshot registra isso. A série é a evidência objetiva da evolução
+do board, então ela precisa refletir o estado real, e não o desejado; se essas
+duas Issues forem concluídas, a correção é reexportar com `--substituir`, nunca
+editar o CSV à mão.
+
+Nenhum cartão ficou em `Review` no fechamento, como exige a política de WIP
+documentada em [`PROCESSO.md`](PROCESSO.md), e o limite de 2 cartões por
+integrante em `Doing` foi respeitado durante toda a sprint.
+
+### 6.3 Print do board
 
 O print do board com o fluxo completo do Lab01 e a política de WIP em uso é
 anexado na entrega do relatório final, conforme o enunciado.
+
+O print deve ser tirado da aba **Board** do Project, com as cinco colunas
+(`Backlog`, `To do`, `Doing`, `Review`, `Done`) visíveis e com a contagem de
+cartões de cada uma legível — é isso que evidencia ao mesmo tempo o fluxo
+completo e o respeito ao limite de WIP.
 
 ---
 
