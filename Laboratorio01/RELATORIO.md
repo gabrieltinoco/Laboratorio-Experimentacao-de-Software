@@ -917,13 +917,10 @@ integrante em `Doing` foi respeitado durante toda a sprint.
 
 ### 6.3 Print do board
 
-O print do board com o fluxo completo do Lab01 e a política de WIP em uso é
-anexado na entrega do relatório final, conforme o enunciado.
+Print da aba Board do GitHub Projects no fechamento da Lab01S03, com as cinco
+colunas do fluxo e o limite de WIP de cada uma visíveis:
 
-O print deve ser tirado da aba **Board** do Project, com as cinco colunas
-(`Backlog`, `To do`, `Doing`, `Review`, `Done`) visíveis e com a contagem de
-cartões de cada uma legível — é isso que evidencia ao mesmo tempo o fluxo
-completo e o respeito ao limite de WIP.
+![Board do grupo no fechamento da Lab01S03, com as colunas Backlog, To do, Doing, Review e Done](board_lab01s03.jpeg)
 
 ---
 
