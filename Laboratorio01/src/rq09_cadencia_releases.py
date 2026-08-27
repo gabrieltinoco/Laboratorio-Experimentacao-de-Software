@@ -17,26 +17,33 @@ sobrevive, e amarra tres RQs que hoje sao respondidas isoladamente: idade
 Nao precisa de campo novo na consulta nem de recoletar o CSV: usa created_at e
 total_releases, que ja estao na base validada da S02.
 
+A carga do CSV, a correlacao de postos e o limite de ruido vinham duplicados
+aqui e em src/analise_base.py. Desde a S03 vem so da base comum, para que este
+script e a analise final da RQ09 (src/analise_rq09.py) nunca reportem numeros
+diferentes para a mesma pergunta. Um efeito colateral desejado: a idade passou a
+ser derivada da data da coleta reconstruida do proprio CSV, e nao de
+datetime.now(), entao a saida deixou de mudar a cada dia de execucao.
+
 Uso:
     python src/rq09_cadencia_releases.py
 """
 
-import csv
 import statistics
 import sys
-from datetime import datetime, timezone
 
-CSV_PATH = "data/repositorios_top1000.csv"
+from analise_base import (
+    TETO_RELEASES,
+    carregar_base,
+    correlacao_de_postos,
+    em_faixa,
+    limite_de_significancia,
+)
 
 # Abaixo de 1 ano de vida, dividir o total de releases por uma fracao de ano
 # infla a cadencia de forma artificial (um repositorio de 4 meses com 900
 # releases vira "2182 releases/ano"). Esses casos entram no resultado geral,
 # mas o teste de robustez roda tambem sem eles.
 IDADE_MINIMA_ROBUSTEZ = 1.0
-
-# Teto do campo releases.totalCount na API, ja identificado na validacao da
-# RQ03: nesses repositorios o total e limite inferior, nao valor real.
-TETO_RELEASES = 1000
 
 FAIXAS_IDADE = [
     ("ate 3 anos", 0, 3),
@@ -52,78 +59,6 @@ FAIXAS_ATIVIDADE = [
 ]
 
 
-def carregar(path):
-    with open(path, newline="", encoding="utf-8") as f:
-        rows = list(csv.DictReader(f))
-
-    agora = datetime.now(timezone.utc)
-    repos = []
-
-    for row in rows:
-        criado = datetime.strptime(row["created_at"], "%Y-%m-%dT%H:%M:%SZ")
-        criado = criado.replace(tzinfo=timezone.utc)
-        idade = (agora - criado).days / 365.25
-        releases = int(row["total_releases"])
-
-        repos.append({
-            "nome": row["repositorio"],
-            "idade": idade,
-            "releases": releases,
-            # Sem release, a cadencia nao esta definida (e nao e zero: e
-            # ausencia de versionamento publicado). Fica None de proposito.
-            "cadencia": releases / idade if releases > 0 and idade > 0 else None,
-            "dias_sem_push": int(row["dias_desde_ultimo_push"]),
-        })
-
-    return repos
-
-
-def postos(valores):
-    """Postos de 1 a n, com media dos postos em caso de empate."""
-    ordem = sorted(range(len(valores)), key=lambda i: valores[i])
-    resultado = [0.0] * len(valores)
-
-    i = 0
-    while i < len(ordem):
-        j = i
-        while j + 1 < len(ordem) and valores[ordem[j + 1]] == valores[ordem[i]]:
-            j += 1
-        media_posto = (i + j) / 2 + 1
-        for k in range(i, j + 1):
-            resultado[ordem[k]] = media_posto
-        i = j + 1
-
-    return resultado
-
-
-def correlacao_de_postos(x, y):
-    """Correlacao de Spearman, calculada na mao para nao depender de biblioteca.
-
-    E a correlacao de Pearson aplicada sobre os postos. Usamos a de postos, e
-    nao a linear, porque as duas variaveis tem cauda longa e outliers extremos,
-    que dominariam uma correlacao linear.
-    """
-    px, py = postos(x), postos(y)
-    mx, my = statistics.mean(px), statistics.mean(py)
-
-    numerador = sum((a - mx) * (b - my) for a, b in zip(px, py))
-    denominador = (
-        sum((a - mx) ** 2 for a in px) * sum((b - my) ** 2 for b in py)
-    ) ** 0.5
-
-    return numerador / denominador if denominador else 0.0
-
-
-def limite_de_significancia(n):
-    """Valor de correlacao a partir do qual o resultado nao e ruido, a 5%.
-
-    Aproximacao valida para amostra grande: |r| > 1.96 / raiz(n - 1). Serve para
-    dizer se a correlacao encontrada e forte o suficiente para o tamanho da
-    amostra, sem precisar de biblioteca de estatistica.
-    """
-    return 1.96 / ((n - 1) ** 0.5) if n > 2 else float("inf")
-
-
 def resumo(valores, unidade=""):
     q1, _, q3 = statistics.quantiles(valores, n=4)
     return (
@@ -132,14 +67,6 @@ def resumo(valores, unidade=""):
         f"Q1={q1:.2f}  Q3={q3:.2f}  "
         f"min={min(valores):.2f}  max={max(valores):.2f}"
     )
-
-
-def em_faixa(valor, minimo, maximo):
-    if minimo is None:
-        return valor <= maximo
-    if maximo is None:
-        return valor >= minimo
-    return minimo <= valor <= maximo
 
 
 def secao_distribuicao(com_cadencia, sem_release, total):
@@ -203,7 +130,7 @@ def secao_por_idade(com_cadencia):
             f"{statistics.median([r['cadencia'] for r in grupo]):17.2f}"
         )
 
-    print("  o total de releases quase nao muda entre as faixas, mas a cadencia")
+    print("  o total de releases nao tem tendencia com a idade, mas a cadencia")
     print("  cai a cada faixa - o que a RQ03 mede como volume e, na verdade,")
     print("  pratica de release diferente entre geracoes de projeto.")
 
@@ -213,7 +140,7 @@ def secao_por_atividade(com_cadencia):
     print(f"  {'grupo':22s} {'n':>5s} {'mediana cadencia':>17s} {'idade mediana':>14s}")
 
     for rotulo, minimo, maximo in FAIXAS_ATIVIDADE:
-        grupo = [r for r in com_cadencia if em_faixa(r["dias_sem_push"], minimo, maximo)]
+        grupo = [r for r in com_cadencia if em_faixa(r["dias_push"], minimo, maximo)]
         if not grupo:
             continue
         print(
@@ -230,10 +157,10 @@ def secao_sem_release(sem_release, total):
         print("  nenhum repositorio sem release.")
         return
 
-    ativos = [r for r in sem_release if r["dias_sem_push"] <= 90]
+    ativos = [r for r in sem_release if r["dias_push"] <= 90]
     print(f"  n = {len(sem_release)} ({len(sem_release) / total * 100:.1f}% da base)")
     print(f"  idade mediana ..............................: {statistics.median([r['idade'] for r in sem_release]):.1f} anos")
-    print(f"  dias sem push (mediana) ....................: {statistics.median([r['dias_sem_push'] for r in sem_release]):.0f}")
+    print(f"  dias sem push (mediana) ....................: {statistics.median([r['dias_push'] for r in sem_release]):.0f}")
     print(f"  ativos (push nos ultimos 90 dias) ..........: {len(ativos)} ({len(ativos) / len(sem_release) * 100:.1f}%)")
     print("  nao sao projetos mortos: mais da metade recebeu push recente. Sao")
     print("  repositorios mantidos que simplesmente nao versionam releases -")
@@ -267,18 +194,15 @@ def secao_extremos(com_cadencia):
 
 def main():
     try:
-        repos = carregar(CSV_PATH)
-    except FileNotFoundError:
-        sys.exit(f"Arquivo {CSV_PATH} nao encontrado. Rode src/fetch_repos.py primeiro.")
-
-    if not repos:
-        sys.exit(f"Arquivo {CSV_PATH} esta vazio.")
+        repos, referencia = carregar_base()
+    except (FileNotFoundError, ValueError) as erro:
+        sys.exit(f"{erro}\nRode src/fetch_repos.py primeiro.")
 
     com_cadencia = [r for r in repos if r["cadencia"] is not None]
     sem_release = [r for r in repos if r["cadencia"] is None]
 
     print("RQ09 - a cadencia de releases se mantem ao longo da vida do projeto?")
-    print(f"Base: {CSV_PATH}\n")
+    print(f"Base: data/repositorios_top1000.csv  |  coleta de {referencia:%Y-%m-%d}\n")
 
     secao_distribuicao(com_cadencia, sem_release, len(repos))
     secao_correlacao(com_cadencia, repos)
