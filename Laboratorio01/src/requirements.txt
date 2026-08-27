@@ -1,1 +1,9 @@
+# Coleta (fetch_repos.py, export_project_snapshot.py): requisicao HTTP direta a
+# API GraphQL do GitHub. A query e escrita e consumida por script proprio do
+# grupo - nenhuma biblioteca de terceiros consulta a API, como exige o enunciado.
 requests
+
+# Analise e visualizacao da Lab01S03 (analise_rq*.py): usado apenas para
+# desenhar os PNGs. Toda a estatistica (mediana, quartis, Tukey, correlacao de
+# postos) e calculada na mao em src/analise_base.py.
+matplotlib
