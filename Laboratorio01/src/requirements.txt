@@ -3,7 +3,12 @@
 # grupo - nenhuma biblioteca de terceiros consulta a API, como exige o enunciado.
 requests
 
-# Analise e visualizacao da Lab01S03 (analise_rq*.py): usado apenas para
-# desenhar os PNGs. Toda a estatistica (mediana, quartis, Tukey, correlacao de
-# postos) e calculada na mao em src/analise_base.py.
+# Analise e visualizacao das RQ03, RQ04 e RQ09 (src/analise_rq*.py): usado apenas
+# para desenhar os PNGs. Toda a estatistica (mediana, quartis, Tukey, correlacao
+# de postos) e calculada na mao em src/analise_base.py.
 matplotlib
+
+# Analise e visualizacao das RQ05 a RQ08 (notebooks/analise_rq05_rq08.ipynb):
+# o notebook tabula com pandas e desenha com matplotlib e seaborn.
+pandas
+seaborn
