@@ -7,6 +7,11 @@ e a configuração do processo. Esta versão acrescenta a estrutura GQM
 7 RQs do enunciado mais as 2 propostas pelo grupo, e fecha a discussão hipótese
 vs. resultado.
 
+Os gráficos das RQ03, RQ04 e RQ09 são gerados pelos scripts `src/analise_rq*.py`
+e salvos em [`graficos/`](graficos); os das RQ05 a RQ08, pelo notebook
+[`notebooks/analise_rq05_rq08.ipynb`](notebooks/analise_rq05_rq08.ipynb) e salvos
+em `notebooks/figuras/`.
+
 - **Repositório:** https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software
 - **GitHub Projects (v2):** https://github.com/users/gabrieltinoco/projects/2
 - **Integrantes:** Arthur Miranda Pacher (`art1544`), Gabriel Lage Silva (`gabitolage`), Gabriel Lucas Tinoco de Aguiar (`gabrieltinoco`)
@@ -42,10 +47,10 @@ responsável:
 | RQ02 | Total de pull requests aceitas | Repositórios populares tendem a receber muita contribuição externa: esperamos mediana alta de PRs aceitas e a maioria com pelo menos 500 PRs. | `gabrieltinoco` — [#6](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/6) |
 | RQ03 | Total de releases | Sistemas populares lançam releases com frequência: mediana alta e pouquíssimos repositórios sem release. | `art1544` — [#7](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/7) |
 | RQ04 | Tempo até a última atualização | Sistemas populares são atualizados com frequência: tempo curto desde a última atualização para praticamente todos. | `art1544` — [#8](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/8) |
-| RQ05 | Linguagem primária | *a preencher* | `gabitolage` — [#9](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/9) |
-| RQ06 | Razão issues fechadas / total | *a preencher* | `gabitolage` — [#10](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/10) |
-| RQ07 | RQ02, RQ03 e RQ04 por linguagem | *a preencher* | `gabitolage` — [#11](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/11) |
-| RQ08 (proposta pelo grupo) | Licença SPDX | *a preencher* | `gabitolage` — [#13](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/13) |
+| RQ05 | Linguagem primária | Repositórios populares concentram-se nas linguagens mais populares do mercado (top 5 do GitHub Octoverse 2025): esperamos que a maioria caia nessas 5 linguagens, com uma cauda longa de linguagens de nicho. | `gabitolage` — [#9](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/9) |
+| RQ06 | Razão issues fechadas / total | Repositórios populares mantêm um alto percentual de issues fechadas, reflexo de um processo de triagem ativo: esperamos mediana acima de 80% e poucos repositórios no extremo inferior. | `gabitolage` — [#10](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/10) |
+| RQ07 | RQ02, RQ03 e RQ04 por linguagem | Repositórios escritos nas linguagens mais populares recebem mais contribuição externa, lançam mais releases e são atualizados com mais frequência que os demais, pois um ecossistema maior atrai mais colaboradores e mais automação de CI/CD. | `gabitolage` — [#11](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/11) |
+| RQ08 (proposta pelo grupo) | Licença SPDX | Repositórios com licença permissiva (MIT, Apache-2.0, BSD...) recebem mais contribuição externa (mais PRs aceitas) que os com licença copyleft ou sem licença, porque a permissividade reduz a barreira legal para quem quer contribuir. | `gabitolage` — [#13](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/13) |
 | RQ09 (proposta pelo grupo) | Cadência de releases (releases por ano de vida) | A cadência se mantém ao longo da vida do projeto, e o total de releases da RQ03 cresce com a idade. | `art1544` — [#18](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/18) |
 
 As RQ08 e RQ09 não estão no enunciado: são questões propostas pelo próprio
@@ -124,10 +129,10 @@ coluna explica a exclusão — nenhuma linha foi removida do CSV.
 | O2 | **RQ03** | Sistemas populares lançam releases com frequência? | Total de releases | `releases.totalCount` → `total_releases` | Mediana, média, Q1/Q3, contagem por faixa, outliers de Tukey, saturação no teto da API | 1.000 | `src/analise_rq03.py` · § 4.3 · Fig. 1–3 |
 | O2 | **RQ04** | Sistemas populares são atualizados com frequência? | *Métrica do enunciado:* dias desde a última atualização | `updatedAt` → `ultima_atualizacao`, `dias_desde_ultima_atualizacao` | Mediana, Q1/Q3, amplitude, % saturado em 0 dia | 1.000 | `src/analise_rq04.py` · § 4.4 · Fig. 4 |
 | O2 | **RQ04** | *(idem)* | *Métrica efetiva adotada:* dias desde o último push de código | `pushedAt` → `ultimo_push`, `dias_desde_ultimo_push` | Mediana, média, Q1/Q3, contagem por faixa, outliers de Tukey | 1.000 | `src/analise_rq04.py` · § 4.4 · Fig. 4–6 |
-| O3 | **RQ05** | Sistemas populares são escritos nas linguagens mais populares? | Linguagem primária | `primaryLanguage.name` → `linguagem_primaria` (`"Nao informada"` quando nula) | Contagem e percentual por linguagem; % nas 5 linguagens do Octoverse 2025 | 1.000 | `src/validate_sample.py` · § 4.5 |
-| O3 | **RQ06** | Sistemas populares possuem um alto percentual de issues fechadas? | Razão issues fechadas / issues totais | `issues.totalCount` e `issues(states: CLOSED).totalCount` → `issues_total`, `issues_fechadas`, `percentual_issues_fechadas` | Mediana, média, Q1/Q3, faixas de percentual | ≤ 1.000 (razão indefinida para repositório sem issue) | `src/validate_sample.py` · § 4.6 |
-| O3 | **RQ07** | Sistemas em linguagens mais populares recebem mais contribuição, lançam mais releases e são atualizados com mais frequência? | RQ02, RQ03 e RQ04 estratificadas por `linguagem_primaria` | As mesmas três colunas, agrupadas por linguagem | Mediana por linguagem das três métricas | 1.000 | `src/validate_sample.py` · § 4.7 |
-| O3 | **RQ08** *(grupo)* | A licença afeta popularidade e contribuição? | Identificador de licença SPDX | `licenseInfo.spdxId` → `licenca` (`"Sem licenca"` quando nula) | Mediana de estrelas e de PRs aceitas por licença | 1.000 | `src/validate_sample.py` · § 4.8 |
+| O3 | **RQ05** | Sistemas populares são escritos nas linguagens mais populares? | Linguagem primária | `primaryLanguage.name` → `linguagem_primaria` (`"Nao informada"` quando nula) | Contagem e percentual por linguagem; % nas 5 linguagens do Octoverse 2025 | 1.000 | `notebooks/analise_rq05_rq08.ipynb` · § 4.5 · Fig. 10–11 |
+| O3 | **RQ06** | Sistemas populares possuem um alto percentual de issues fechadas? | Razão issues fechadas / issues totais | `issues.totalCount` e `issues(states: CLOSED).totalCount` → `issues_total`, `issues_fechadas`, `percentual_issues_fechadas` | Mediana, média, Q1/Q3, faixas de percentual | ≤ 1.000 (razão indefinida para repositório sem issue) | `notebooks/analise_rq05_rq08.ipynb` · § 4.6 · Fig. 12 |
+| O3 | **RQ07** | Sistemas em linguagens mais populares recebem mais contribuição, lançam mais releases e são atualizados com mais frequência? | RQ02, RQ03 e RQ04 estratificadas por `linguagem_primaria` | As mesmas três colunas, agrupadas por linguagem | Mediana por linguagem das três métricas | 1.000 | `notebooks/analise_rq05_rq08.ipynb` · § 4.7 · Fig. 13–14 |
+| O3 | **RQ08** *(grupo)* | A licença afeta popularidade e contribuição? | Identificador de licença SPDX | `licenseInfo.spdxId` → `licenca` (`"Sem licenca"` quando nula) | Mediana de estrelas e de PRs aceitas por licença | 1.000 | `notebooks/analise_rq05_rq08.ipynb` · § 4.8 · Fig. 15–16 |
 | O2 | **RQ09** *(grupo)* | A cadência de releases se mantém ao longo da vida do projeto? | Cadência = `total_releases` / idade em anos | Derivada de `total_releases` e `created_at`; nenhum campo novo na consulta | Mediana, média, Q1/Q3; correlação de postos idade × cadência e idade × total de releases; medianas por faixa de idade e por grupo de atividade | 714 (os 286 sem release têm cadência **indefinida**, não zero) | `src/analise_rq09.py` · § 4.9 · Fig. 7–9 |
 
 ### 2.3 Decisões de medição que precisam ficar registradas
@@ -229,12 +234,19 @@ resultados e geram as figuras.
 | **`src/analise_rq03.py`** | **S03** | **Análise e visualização da RQ03** |
 | **`src/analise_rq04.py`** | **S03** | **Análise e visualização da RQ04** |
 | **`src/analise_rq09.py`** | **S03** | **Análise e visualização da RQ09** |
+| **`notebooks/analise_rq05_rq08.ipynb`** | **S03** | **Análise e visualização das RQ05, RQ06, RQ07 e RQ08** |
 | `src/export_project_snapshot.py` | todas | Snapshot de fechamento de sprint do GitHub Projects |
 
-A estatística é toda calculada nos scripts do grupo — mediana, quartis, cercas de
-Tukey, distribuição cumulativa empírica e correlação de postos de Spearman. A
-única dependência externa da análise é o `matplotlib`, e ela é usada apenas para
-desenhar.
+A estatística é toda calculada pelo grupo — mediana, quartis, cercas de Tukey,
+distribuição cumulativa empírica e correlação de postos de Spearman. As
+dependências externas da análise são o `matplotlib` (nos scripts das RQ03, RQ04 e
+RQ09) e o `pandas`, o `matplotlib` e o `seaborn` (no notebook das RQ05 a RQ08),
+usados para tabular e desenhar.
+
+Os dois caminhos partem do mesmo `data/repositorios_top1000.csv` e das mesmas
+convenções da § 2.4, o que é o que garante que os números das nove RQs sejam
+comparáveis entre si. A diferença de formato — script para umas, notebook para
+outras — é de preferência de trabalho de cada integrante, e não de método.
 
 ### 3.6 Reprodutibilidade da análise
 
@@ -245,9 +257,10 @@ deste relatório deixariam de ser verificáveis.
 Por isso a **data de referência é reconstruída a partir do próprio CSV**, somando
 `ultima_atualizacao` com `dias_desde_ultima_atualizacao` e tomando o máximo entre
 as 1.000 linhas — o que devolve o instante da coleta, `2026-08-19T15:14:50Z`.
-Toda a seção 4 usa essa referência, e rodar os scripts em qualquer data futura
-reproduz exatamente os mesmos valores. O procedimento completo de reprodução está
-em [`REPRODUCAO.md`](REPRODUCAO.md).
+As RQ03, RQ04 e RQ09 usam essa referência, e rodar os seus scripts em qualquer
+data futura reproduz exatamente os mesmos valores. As RQ05 a RQ08 não dependem de
+data: as suas métricas são contagens e razões já presentes no CSV. O procedimento
+completo de reprodução está em [`REPRODUCAO.md`](REPRODUCAO.md).
 
 ### 3.7 Limitações conhecidas da coleta
 
@@ -269,6 +282,9 @@ em [`REPRODUCAO.md`](REPRODUCAO.md).
 ---
 
 ## 4. Resultados por RQ
+
+> Valores consolidados e gráficos das 7 RQs do enunciado e das 2 propostas pelo
+> grupo, calculados sobre os 1.000 repositórios validados na Lab01S02.
 
 ### 4.1 RQ01 — Idade do repositório
 
@@ -426,19 +442,177 @@ para.
 
 ### 4.5 RQ05 — Linguagem primária
 
-*A preencher — [#9](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/9), `gabitolage`.*
+Nenhuma inconsistência estrutural nos 1.000 repositórios. `linguagem_primaria`
+tem **44 valores distintos**, incluindo `Nao informada` para os casos em que a
+API não retorna `primaryLanguage` (por exemplo, repositórios só com Markdown).
+
+| Linguagem | Repositórios | % | Top 5 Octoverse |
+|---|---:|---:|:---:|
+| Python | 228 | 22,8% | * |
+| TypeScript | 174 | 17,4% | * |
+| JavaScript | 111 | 11,1% | * |
+| Nao informada | 87 | 8,7% | |
+| Go | 76 | 7,6% | |
+| Rust | 57 | 5,7% | |
+| C++ | 41 | 4,1% | |
+| Java | 41 | 4,1% | * |
+| Jupyter Notebook | 24 | 2,4% | |
+| C | 21 | 2,1% | |
+| C# | 8 | 0,8% | * |
+
+![RQ05 - top linguagens](notebooks/figuras/rq05_top_linguagens.png)
+
+**Figura 10 — RQ05: repositórios por linguagem primária.**
+
+As 5 linguagens do top 5 Octoverse 2025 somam **56,2%** dos 1.000 repositórios
+(Python sozinho já é 22,8%). C#, apesar de estar no top 5 do Octoverse, aparece
+em só 8 repositórios (0,8%) do top 1000 por estrelas — é uma linguagem
+corporativa/empresarial, com forte presença em código fechado, o que não se
+reflete no ranking de estrelas do GitHub. Há uma cauda longa relevante: **12
+linguagens aparecem em um único repositório** (`Batchfile`, `Assembly`, `Blade`,
+`Roff`, `Julia`, `Nunjucks`, `Svelte`, `Lua`, `LLVM`, `V`, `Elixir`,
+`Objective-C`).
+
+![RQ05 - participação do top 5](notebooks/figuras/rq05_participacao_top5.png)
+
+**Figura 11 — RQ05: participação das 5 linguagens do Octoverse 2025.**
+
+Os 87 repositórios (8,7%) sem `primaryLanguage` reforçam a segunda hipótese
+geral do grupo: boa parte do top 1000 não é software tradicional (listas
+"awesome", coleções de material, roteiros de estudo), então não tem uma
+linguagem primária previsível pela API.
 
 ### 4.6 RQ06 — Percentual de issues fechadas
 
-*A preencher — [#10](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/10), `gabitolage`.*
+Nenhuma inconsistência estrutural. 43 repositórios (4,3%) têm `issues_total =
+0` e ficam sem `percentual_issues_fechadas` definido; os demais 957 formam a
+base desta RQ.
+
+| Estatística | Valor |
+|---|---:|
+| n | 957 |
+| Mediana | 87,6% |
+| Média | 80,3% |
+| Q1 / Q3 | 70,5% / 96,8% |
+| IQR | 26,3 pontos |
+| Mínimo / máximo | 7,7% / 100,0% |
+
+![RQ06 - percentual de issues fechadas](notebooks/figuras/rq06_percentual_issues_fechadas.png)
+
+**Figura 12 — RQ06: distribuição do percentual de issues fechadas.**
+
+Distribuição por faixa:
+
+| Faixa | Repositórios |
+|---|---:|
+| 0% a 25% | 22 (2,3%) |
+| 25% a 50% | 86 (9,0%) |
+| 50% a 75% | 175 (18,3%) |
+| 75% a 99% | 649 (67,8%) |
+| 100% | 28 (2,9%) |
+
+A média (80,3%) fica abaixo da mediana (87,6%), sinal de **assimetria à
+esquerda**: a maioria dos repositórios fecha quase todas as issues, e uma
+minoria de valores baixos puxa a média para baixo. Pelo critério de Tukey (Q1 =
+70,5, Q3 = 96,8, IQR = 26,3), o limite inferior é 31,0% — abaixo disso há **39
+outliers (4,1%)**, todos no sentido inferior (o limite superior, 136,3%,
+excede o teto de 100% da métrica, então não há outlier superior possível). Os
+cinco valores mais baixos são `ComposioHQ/awesome-claude-skills` (7,7%),
+`floodsung/Deep-Learning-Papers-Reading-Roadmap` (8,6%),
+`anthropics/prompt-eng-interactive-tutorial` (9,5%), `elder-plinius/CL4R1T4S`
+(10,1%) e `anthropics/financial-services` (10,2%) — repositórios de listas,
+tutoriais e prompts, onde "issue" tende a significar pedido de conteúdo, não
+bug a corrigir, e por isso se acumula sem ser fechada.
+
+Não foi encontrado nenhum outlier em 0% (nenhum repositório com issues fecha
+zero delas), mas **28 repositórios (2,9%) fecham 100%** das suas issues; os de
+maior volume nessa faixa são `nodejs/node-v0.x-archive` (6.379 issues, projeto
+arquivado — faz sentido estar 100% fechado), `localstack/localstack` (6.178),
+`Homebrew/brew` (5.272), `nilbuild/developer-roadmap` (3.185) e
+`filebrowser/filebrowser` (2.975).
 
 ### 4.7 RQ07 — RQ02, RQ03 e RQ04 por linguagem
 
-*A preencher — [#11](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/11), `gabitolage`.*
+Repositórios foram divididos em dois grupos pela mesma regra da RQ05: **562
+(56,2%)** em linguagem do top 5 Octoverse ("populares") e **438 (43,8%)** nas
+demais ("outras").
+
+| Grupo | n | Mediana PRs (RQ02) | Mediana releases (RQ03) | Sem releases | Mediana dias sem push (RQ04) |
+|---|---:|---:|---:|---:|---:|
+| Populares (Octoverse) | 562 | **920** | **52** | 21,5% | **1** |
+| Outras | 438 | 646 | 28 | 37,7% | 4 |
+
+![RQ07 - medianas por grupo](notebooks/figuras/rq07_medianas_por_grupo.png)
+
+**Figura 13 — RQ07: medianas das RQ02, RQ03 e RQ04 por grupo de linguagem.**
+
+![RQ07 - boxplots por grupo](notebooks/figuras/rq07_boxplots_por_grupo.png)
+
+**Figura 14 — RQ07: dispersão das três métricas por grupo de linguagem.**
+
+Como a coluna `dias_desde_ultima_atualizacao` (`updatedAt`) está saturada em 0
+para os dois grupos — a mesma limitação identificada na RQ04, porque
+`updatedAt` sobe a cada estrela recebida —, a comparação de atividade usa
+`dias_desde_ultimo_push` (`pushedAt`), coerente com a correção de método já
+adotada na RQ04.
+
+Nas três métricas o grupo de linguagens populares sai na frente: mediana de
+PRs aceitas 42% maior (920 vs. 646), quase o dobro de releases (52 vs. 28),
+menos da metade da proporção de repositórios sem nenhuma release (21,5% vs.
+37,7%) e push mais recente (mediana de 1 dia vs. 4 dias). Os dois outliers já
+identificados nas RQs anteriores caem em grupos diferentes: o máximo de PRs
+aceitas, `firstcontributions/first-contributions` (103.354), está no grupo
+"outras" (`linguagem_primaria` = `Nao informada`); o máximo de releases,
+`langchain-ai/langchain` (1.000, no teto da API), está no grupo "populares"
+(Python).
 
 ### 4.8 RQ08 (proposta pelo grupo) — Licença e popularidade/contribuição
 
-*A preencher — [#13](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/13), `gabitolage`.*
+Nenhuma inconsistência estrutural. A coluna `licenca` tem **21 valores
+distintos** (identificadores SPDX, `NOASSERTION` ou `Sem licenca`).
+
+| Licença | Repositórios | % |
+|---|---:|---:|
+| MIT | 394 | 39,4% |
+| Apache-2.0 | 181 | 18,1% |
+| NOASSERTION | 149 | 14,9% |
+| Sem licenca | 83 | 8,3% |
+| GPL-3.0 | 50 | 5,0% |
+| AGPL-3.0 | 48 | 4,8% |
+| BSD-3-Clause | 21 | 2,1% |
+| CC0-1.0 | 16 | 1,6% |
+| GPL-2.0 | 12 | 1,2% |
+| MPL-2.0 | 9 | 0,9% |
+
+![RQ08 - contagem de licenças](notebooks/figuras/rq08_contagem_licencas.png)
+
+**Figura 15 — RQ08: repositórios por licença SPDX.**
+
+Agrupando pela classificação permissiva/copyleft de `validate_sample.py`
+(`classificar_licenca`) e cruzando com a mediana de estrelas e de PRs aceitas
+(mediana geral: 48.643 estrelas e 768 PRs aceitas):
+
+| Grupo de licença | n | Mediana de estrelas | Mediana de PRs aceitas |
+|---|---:|---:|---:|
+| Não mapeada (NOASSERTION) | 149 | 51.375 | **1.228** |
+| Permissiva | 612 | 49.107 | 914 |
+| Copyleft | 122 | 45.974 | 963 |
+| Outra | 34 | 49.437 | 431 |
+| **Sem licença** | 83 | 47.009 | **108** |
+
+![RQ08 - medianas por licença](notebooks/figuras/rq08_medianas_por_licenca.png)
+
+**Figura 16 — RQ08: medianas de estrelas e de PRs aceitas por grupo de licença.**
+
+A mediana de estrelas quase não varia entre grupos (45.974 a 51.375): licença
+não parece influenciar quantas estrelas um repositório recebe. Já a mediana de
+PRs aceitas varia muito mais: o grupo **sem licença** fica bem abaixo dos
+demais (108 PRs, sétimo da mediana geral), enquanto o grupo **copyleft**
+(963) fica levemente acima do **permissivo** (914) — na direção oposta à da
+hipótese. O grupo `NOASSERTION` (licença que o GitHub não conseguiu
+classificar automaticamente, geralmente por o texto de licença ser
+não-padrão) tem a maior mediana de PRs aceitas (1.228) de todos.
+**83 repositórios (8,3%) não têm licença nenhuma.**
 
 ### 4.9 RQ09 (proposta pelo grupo) — Cadência de releases
 
@@ -537,10 +711,10 @@ todos projetos recentes, quase todos de ferramental de IA. Na base,
 | RQ02 | Mediana alta de PRs aceitas | **Confirmada** | Mediana de 768; 58,4% acima de 500. A cauda extrema torna a média inútil. |
 | RQ03 | Mediana alta e quase ninguém sem release | **Parcialmente refutada** | Mediana de 39 e 34,3% acima de 100 releases, mas 28,6% não publica release nenhuma. |
 | RQ04 | Tempo curto para praticamente todos | **Confirmada para a maioria, com correção de método** | 61,6% com push na última semana, mas 11,5% parado há mais de um ano; a métrica literal teve de ser substituída. |
-| RQ05 | *a preencher* | — | — |
-| RQ06 | *a preencher* | — | — |
-| RQ07 | *a preencher* | — | — |
-| RQ08 | *a preencher* | — | — |
+| RQ05 | A maioria está nas 5 linguagens do Octoverse 2025 | **Confirmada, com ressalva** | 56,2% nas 5 linguagens, mas C# aparece em só 0,8% — a métrica pega o que é aberto e visível, não o mercado inteiro. |
+| RQ06 | Mediana acima de 80% de issues fechadas | **Confirmada** | Mediana de 87,6% (n = 957); 67,8% entre 75% e 99%. Os 39 outliers inferiores são listas e tutoriais. |
+| RQ07 | Linguagem popular ⇒ mais PRs, mais releases, mais atividade | **Confirmada nas três métricas** | 920 vs. 646 PRs; 52 vs. 28 releases; 1 vs. 4 dias sem push. As quatro comparações apontam na mesma direção. |
+| RQ08 | Permissiva > copyleft em contribuição | **Refutada entre permissiva e copyleft, confirmada para ausência de licença** | Copyleft 963 vs. permissiva 914 PRs — direção oposta. Mas sem licença: 108 PRs, um sétimo da mediana geral. |
 | RQ09 | O total cresce com a idade **e** a cadência é estável | **Refutada nas duas partes** | ρ(idade, total) = +0,062 (ruído); ρ(idade, cadência) = −0,417 — a cadência cai por um fator de 6,6. |
 
 ### RQ03 — parcialmente refutada
@@ -581,6 +755,77 @@ Vale registrar que a substituição tem custo. O `pushedAt` sobe com push em
 qualquer branch, inclusive commit automático de bot ou atualização de dependência
 por robô, então ele superestima a atividade humana. É uma medida melhor que o
 `updatedAt`, não uma medida perfeita.
+
+### RQ05 — confirmada, com uma ressalva sobre o que "linguagem primária" mede
+
+A hipótese se confirma: 56,2% do top 1000 está em uma das 5 linguagens do
+Octoverse 2025, puxado principalmente por Python (22,8%) e TypeScript (17,4%).
+Mas o resultado tem duas rachaduras. Primeira: C#, apesar de estar no top 5 do
+Octoverse, é a linguagem menos representada do grupo (0,8%) — o índice do
+Octoverse mede atividade em todo o GitHub, inclusive código fechado e
+corporativo, enquanto o recorte deste laboratório é só o topo por estrelas,
+um viés para projetos abertos e de maior visibilidade pública. Segunda: os
+8,7% sem `primaryLanguage` reforçam a segunda hipótese geral do grupo — parte
+do top 1000 não é software com uma linguagem dominante identificável.
+
+### RQ06 — confirmada
+
+A hipótese de alto percentual de issues fechadas se confirma com folga:
+mediana de 87,6%, e 67,8% dos repositórios entre 75% e 99% fechadas. A
+diferença entre mediana (87,6%) e média (80,3%) mostra que a cauda de baixo
+percentual existe mas é pequena (39 outliers pelo critério de Tukey, 4,1%), e
+concentrada num tipo específico de repositório: listas, tutoriais e prompts
+(`ComposioHQ/awesome-claude-skills`,
+`floodsung/Deep-Learning-Papers-Reading-Roadmap`), onde "issue" costuma ser
+pedido de conteúdo em vez de defeito a corrigir, e por isso tende a se
+acumular sem ser fechada. Isso é, de novo, a segunda hipótese geral do grupo
+aparecendo: quando o resultado foge do esperado, é porque o repositório não é
+software tradicional.
+
+### RQ07 — confirmada nas três métricas
+
+A hipótese se confirma de forma consistente: o grupo de linguagens populares
+supera o grupo "outras" em PRs aceitos (920 vs. 646), em releases (52 vs. 28),
+em proporção de repositórios sem nenhuma release (21,5% vs. 37,7%) e em
+atividade recente medida por `pushedAt` (mediana de 1 dia vs. 4 dias sem
+push). As quatro comparações apontam na mesma direção, o que dá mais
+confiança ao resultado do que se fosse uma métrica isolada. Como já discutido
+na RQ04, a comparação de atualização usou `dias_desde_ultimo_push`, não
+`dias_desde_ultima_atualizacao` — a métrica literal do enunciado (`updatedAt`)
+está saturada em 0 dia para os dois grupos e não discrimina nada nesta
+população.
+
+### RQ08 (proposta pelo grupo) — refutada entre permissiva e copyleft, confirmada só para ausência de licença
+
+A hipótese original — permissiva > copyleft em contribuição externa — **não se
+confirma**: a mediana de PRs aceitas do grupo copyleft (963) é levemente
+*maior* que a do permissivo (914), o oposto do esperado. A licença não parece
+ser, sozinha, uma barreira relevante à contribuição entre esses dois grupos
+nesta população de repositórios já populares — o que sugere que, uma vez que
+um projeto atinge visibilidade suficiente para entrar no top 1000, a escolha
+entre um tipo de licença aberta e outro pesa menos do que outros fatores
+(maturidade, presença de mantenedores ativos, documentação).
+
+O achado mais forte da RQ08 apareceu em um lugar que a hipótese original não
+previa: repositórios **sem nenhuma licença** têm mediana de PRs aceitas de
+108 — cerca de 1/9 da mediana geral (768) e muito abaixo de todos os outros
+grupos — apesar de ter mediana de estrelas (47.009) próxima da média geral
+(48.643). Isso é consistente com a explicação legal: sem uma licença
+explícita, o direito de copiar, modificar ou distribuir o código não está
+concedido por padrão, o que desincentiva pull requests mesmo em projetos
+muito estrelados. Estrela mede descoberta/interesse; PR aceita mede permissão
+real de colaborar — e a licença separa essas duas coisas de um jeito que o
+número de estrelas sozinho não mostra.
+
+Um resultado secundário chama atenção: o grupo `NOASSERTION` (licença que o
+GitHub não conseguiu classificar automaticamente a partir do texto) tem a
+maior mediana de PRs aceitas de todos os grupos (1.228). Isso sugere que
+projetos grandes e antigos o suficiente para ter um arquivo de licença
+não-padrão (ou fora do formato que o GitHub reconhece) tendem a já ter uma
+comunidade de contribuição estabelecida antes de a checagem automática de
+licença existir — uma leitura que se soma à hipótese geral de que "popular no
+GitHub" mistura eras diferentes de prática de engenharia, já discutida a
+seguir na RQ09.
 
 ### RQ09 — as duas hipóteses refutadas, e uma métrica da RQ03 posta em dúvida
 
@@ -624,10 +869,6 @@ publica de forma constante. Responder isso exigiria a data de cada release
 individual, que a consulta atual não coleta — fica registrado como próximo passo,
 e não como resultado desta entrega.
 
-### Demais RQs
-
-*A preencher pelos responsáveis, conforme a tabela da seção 1.*
-
 ---
 
 ## 6. Configuração do processo
@@ -662,24 +903,32 @@ anexado na entrega do relatório final, conforme o enunciado.
 
 ## 7. Anexo — índice das figuras
 
-Todas as figuras são geradas pelos scripts do grupo e gravadas em
-[`graficos/`](graficos). Nenhuma foi editada à mão; para recriá-las, basta rodar
-os três scripts de análise (ver [`REPRODUCAO.md`](REPRODUCAO.md)).
+Todas as figuras são geradas pelo próprio código do grupo, nenhuma foi editada à
+mão, e todas podem ser recriadas a partir do CSV versionado (ver
+[`REPRODUCAO.md`](REPRODUCAO.md)). As das RQ03, RQ04 e RQ09 estão em
+[`graficos/`](graficos); as das RQ05 a RQ08, em `notebooks/figuras/`.
 
 | Fig. | Arquivo | RQ | O que mostra |
 |---|---|---|---|
-| 1 | `rq03_releases_por_faixa.png` | RQ03 | Contagem por faixa de total de releases; distribuição bimodal |
-| 2 | `rq03_ecdf_releases.png` | RQ03 | Distribuição cumulativa em escala log, com mediana, Q3 e teto da API |
-| 3 | `rq03_releases_por_tipo_de_repositorio.png` | RQ03 | Releases por presença de linguagem primária |
-| 4 | `rq04_updatedat_x_pushedat.png` | RQ04 | `updatedAt` × `pushedAt` nas mesmas faixas — a evidência da troca de métrica |
-| 5 | `rq04_ecdf_dias_sem_push.png` | RQ04 | Distribuição cumulativa do tempo desde o último push |
-| 6 | `rq04_mais_tempo_sem_push.png` | RQ04 | Os 10 repositórios do top 1000 com mais tempo sem push |
-| 7 | `rq09_idade_x_cadencia.png` | RQ09 | Dispersão idade × cadência, com a mediana por faixa de idade |
-| 8 | `rq09_cadencia_por_faixa_de_idade.png` | RQ09 | Total de releases e cadência pelas mesmas faixas de idade |
-| 9 | `rq09_cadencia_por_atividade.png` | RQ09 | Cadência por grupo de atividade da RQ04 |
+| 1 | `graficos/rq03_releases_por_faixa.png` | RQ03 | Contagem por faixa de total de releases; distribuição bimodal |
+| 2 | `graficos/rq03_ecdf_releases.png` | RQ03 | Distribuição cumulativa em escala log, com mediana, Q3 e teto da API |
+| 3 | `graficos/rq03_releases_por_tipo_de_repositorio.png` | RQ03 | Releases por presença de linguagem primária |
+| 4 | `graficos/rq04_updatedat_x_pushedat.png` | RQ04 | `updatedAt` × `pushedAt` nas mesmas faixas — a evidência da troca de métrica |
+| 5 | `graficos/rq04_ecdf_dias_sem_push.png` | RQ04 | Distribuição cumulativa do tempo desde o último push |
+| 6 | `graficos/rq04_mais_tempo_sem_push.png` | RQ04 | Os 10 repositórios do top 1000 com mais tempo sem push |
+| 7 | `graficos/rq09_idade_x_cadencia.png` | RQ09 | Dispersão idade × cadência, com a mediana por faixa de idade |
+| 8 | `graficos/rq09_cadencia_por_faixa_de_idade.png` | RQ09 | Total de releases e cadência pelas mesmas faixas de idade |
+| 9 | `graficos/rq09_cadencia_por_atividade.png` | RQ09 | Cadência por grupo de atividade da RQ04 |
+| 10 | `notebooks/figuras/rq05_top_linguagens.png` | RQ05 | Repositórios por linguagem primária |
+| 11 | `notebooks/figuras/rq05_participacao_top5.png` | RQ05 | Participação das 5 linguagens do Octoverse 2025 |
+| 12 | `notebooks/figuras/rq06_percentual_issues_fechadas.png` | RQ06 | Distribuição do percentual de issues fechadas |
+| 13 | `notebooks/figuras/rq07_medianas_por_grupo.png` | RQ07 | Medianas das RQ02, RQ03 e RQ04 por grupo de linguagem |
+| 14 | `notebooks/figuras/rq07_boxplots_por_grupo.png` | RQ07 | Dispersão das três métricas por grupo de linguagem |
+| 15 | `notebooks/figuras/rq08_contagem_licencas.png` | RQ08 | Repositórios por licença SPDX |
+| 16 | `notebooks/figuras/rq08_medianas_por_licenca.png` | RQ08 | Medianas de estrelas e de PRs aceitas por grupo de licença |
 
-As figuras seguem uma paleta única, validada para visão normal e para as três
-formas de daltonismo (a diferença perceptual do pior par é 9,2 em CVD e 24,0 em
-visão normal, acima dos pisos adotados). Toda barra e todo ponto de mediana
-levam **rótulo direto com o valor**, e cada figura tem a tabela equivalente no
-texto — a leitura nunca depende de distinguir cores.
+As figuras 1 a 9 seguem uma paleta única, validada para visão normal e para as
+três formas de daltonismo (a diferença perceptual do pior par é 9,2 em CVD e 24,0
+em visão normal, acima dos pisos adotados). Nelas, toda barra e todo ponto de
+mediana levam **rótulo direto com o valor**. Em todas as 16, cada figura tem a
+tabela equivalente no texto, então nenhuma leitura depende de distinguir cores.
