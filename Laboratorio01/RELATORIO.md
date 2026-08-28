@@ -7,8 +7,8 @@ e a configuração do processo. Esta versão acrescenta a estrutura GQM
 7 RQs do enunciado mais as 2 propostas pelo grupo, e fecha a discussão hipótese
 vs. resultado.
 
-Os gráficos das RQ03, RQ04 e RQ09 são gerados pelos scripts `src/analise_rq*.py`
-e salvos em [`graficos/`](graficos); os das RQ05 a RQ08, pelo notebook
+Os gráficos das RQ01, RQ02, RQ03, RQ04 e RQ09 são gerados pelos scripts
+`src/analise_rq*.py` e salvos em [`graficos/`](graficos); os das RQ05 a RQ08, pelo notebook
 [`notebooks/analise_rq05_rq08.ipynb`](notebooks/analise_rq05_rq08.ipynb) e salvos
 em `notebooks/figuras/`.
 
@@ -124,8 +124,8 @@ coluna explica a exclusão — nenhuma linha foi removida do CSV.
 
 | Objetivo | RQ | Questão | Métrica | Operacionalização (campo GraphQL → coluna do CSV) | Estatística reportada | n | Evidência |
 |---|---|---|---|---|---|---|---|
-| O1 | **RQ01** | Sistemas populares são maduros/antigos? | Idade do repositório, em anos | `createdAt` → `created_at`; idade = (data da coleta − `created_at`) / 365,25 | Mediana, média, Q1/Q3, faixas de idade, outliers de Tukey | 1.000 | `src/rq01_rq02.py` · § 4.1 |
-| O1 | **RQ02** | Sistemas populares recebem muita contribuição externa? | Total de pull requests aceitas | `pullRequests(states: MERGED).totalCount` → `pull_requests_aceitas` | Mediana, média, Q1/Q3, faixas, outliers de Tukey | 1.000 | `src/rq01_rq02.py` · § 4.2 |
+| O1 | **RQ01** | Sistemas populares são maduros/antigos? | Idade do repositório, em anos | `createdAt` → `created_at`; idade = (data da coleta − `created_at`) / 365,25 | Mediana, média, Q1/Q3, faixas de idade, outliers de Tukey | 1.000 | `src/rq01_rq02.py`, `src/analise_rq01_rq02.py` · § 4.1 |
+| O1 | **RQ02** | Sistemas populares recebem muita contribuição externa? | Total de pull requests aceitas | `pullRequests(states: MERGED).totalCount` → `pull_requests_aceitas` | Mediana, média, Q1/Q3, faixas, outliers de Tukey | 1.000 | `src/rq01_rq02.py`, `src/analise_rq01_rq02.py` · § 4.2 |
 | O2 | **RQ03** | Sistemas populares lançam releases com frequência? | Total de releases | `releases.totalCount` → `total_releases` | Mediana, média, Q1/Q3, contagem por faixa, outliers de Tukey, saturação no teto da API | 1.000 | `src/analise_rq03.py` · § 4.3 · Fig. 1–3 |
 | O2 | **RQ04** | Sistemas populares são atualizados com frequência? | *Métrica do enunciado:* dias desde a última atualização | `updatedAt` → `ultima_atualizacao`, `dias_desde_ultima_atualizacao` | Mediana, Q1/Q3, amplitude, % saturado em 0 dia | 1.000 | `src/analise_rq04.py` · § 4.4 · Fig. 4 |
 | O2 | **RQ04** | *(idem)* | *Métrica efetiva adotada:* dias desde o último push de código | `pushedAt` → `ultimo_push`, `dias_desde_ultimo_push` | Mediana, média, Q1/Q3, contagem por faixa, outliers de Tukey | 1.000 | `src/analise_rq04.py` · § 4.4 · Fig. 4–6 |
@@ -226,7 +226,8 @@ resultados e geram as figuras.
 | Script | Sprint | Cobertura |
 |---|---|---|
 | `src/fetch_repos.py` | S01/S02 | Coleta paginada dos 1.000 repositórios |
-| `src/rq01_rq02.py` | S02/S03 | RQ01, RQ02 |
+| `src/rq01_rq02.py` | S02 | Validação de consistência das RQ01 e RQ02 |
+| **`src/analise_rq01_rq02.py`** | **S03** | **Análise e visualização das RQ01 e RQ02** |
 | `src/validate_sample_rq03_rq04.py` | S02 | Validação de consistência das RQ03 e RQ04 |
 | `src/validate_sample.py` | S02/S03 | RQ05, RQ06, RQ07, RQ08 |
 | `src/rq09_cadencia_releases.py` | S02 | Validação e resultado numérico da RQ09 |
@@ -288,15 +289,32 @@ completo de reprodução está em [`REPRODUCAO.md`](REPRODUCAO.md).
 
 ### 4.1 RQ01 — Idade do repositório
 
-Não foram encontrados valores ausentes ou inválidos em `created_at` (0/1000). A idade mediana foi de **7,75 anos**, com média de 7,67, mínimo de 0,02 e máximo de 18,36 anos. Em relação à distribuição, 323 repositórios (32,3%) têm menos de 5 anos, 331 (33,1%) têm entre 5 e 10 anos e 346 (34,6%) têm 10 anos ou mais. Ao todo, 677 (67,7%) têm pelo menos 5 anos.
+Não foram encontrados valores ausentes ou inválidos em `created_at` (0/1000). A idade mediana foi de **7,75 anos**, com média de 7,66, mínimo de 0,02 e máximo de 18,35 anos. Em relação à distribuição, 323 repositórios (32,3%) têm menos de 5 anos, 331 (33,1%) têm entre 5 e 10 anos e 346 (34,6%) têm 10 anos ou mais. Ao todo, 677 (67,7%) têm pelo menos 5 anos.
 
-Pelo critério de Tukey, usando 1,5 x IQR, Q1 = 3,52 e Q3 = 11,36 anos, não foram identificados outliers. O resultado apoia a hipótese informal de maturidade para a maioria, mas a presença de 323 repositórios com menos de 5 anos impede tratá-la como universal.
+Pelo critério de Tukey, usando 1,5 x IQR, Q1 = 3,51 e Q3 = 11,36 anos, não foram identificados outliers. O resultado apoia a hipótese informal de maturidade para a maioria, mas a presença de 323 repositórios com menos de 5 anos impede tratá-la como universal.
+
+![RQ01: distribuição da idade por faixa](graficos/rq01_idade_por_faixa.png)
+
+**Figura 17 — RQ01: distribuição da idade.** A população está distribuída entre
+projetos recentes e maduros, mas dois terços têm pelo menos 5 anos. O boxplot
+conjunto da RQ01 e RQ02 está na Figura 19.
 
 ### 4.2 RQ02 — Total de pull requests aceitas
 
 Não foram encontrados valores ausentes ou inválidos em `pull_requests_aceitas` (0/1000). A mediana foi de **768 PRs aceitas**, com média de 4.237,1, mínimo de 0 e máximo de 103.354. A distribuição foi: 20 repositórios (2,0%) com 0 PR, 396 (39,6%) entre 1 e 499, 398 (39,8%) entre 500 e 4.999 e 186 (18,6%) com 5.000 ou mais. Ao todo, 584 (58,4%) têm pelo menos 500 PRs aceitas.
 
-A distribuição é fortemente assimétrica à direita: Q1 = 175, Q3 = 3416 e IQR = 3241. Pelo critério de Tukey, os valores acima de 8277 são outliers; foram identificados 124 (12,4%), incluindo `firstcontributions/first-contributions`, `llvm/llvm-project`, `elastic/elasticsearch`, `getsentry/sentry` e `home-assistant/core`. Esses valores não devem ser removidos, mas a mediana deve ser priorizada na interpretação. A mediana alta e 58,4% acima do corte apoiam a hipótese informal, enquanto a cauda extrema explica por que a média não é representativa.
+A distribuição é fortemente assimétrica à direita: Q1 = 175, Q3 = 3415,75 e IQR = 3240,75. Pelo critério de Tukey, os valores acima de 8276,88 são outliers; foram identificados 124 (12,4%), incluindo `firstcontributions/first-contributions`, `llvm/llvm-project`, `elastic/elasticsearch`, `getsentry/sentry` e `home-assistant/core`. Esses valores não devem ser removidos, mas a mediana deve ser priorizada na interpretação. A mediana alta e 58,4% acima do corte apoiam a hipótese informal, enquanto a cauda extrema explica por que a média não é representativa.
+
+![RQ02: distribuição de PRs por faixa](graficos/rq02_prs_por_faixa.png)
+
+**Figura 18 — RQ02: distribuição das PRs aceitas por faixa.** 58,4% dos
+repositórios têm pelo menos 500 PRs aceitas, mas 12,4% são outliers superiores.
+
+![RQ01 e RQ02: boxplots](graficos/rq01_rq02_boxplots.png)
+
+**Figura 19 — RQ01 e RQ02: boxplots das métricas.** A RQ02 apresenta cauda
+longa e concentra os outliers; por isso sua mediana é mais informativa que a
+média.
 
 ### 4.3 RQ03 — Total de releases
 
@@ -949,9 +967,12 @@ mão, e todas podem ser recriadas a partir do CSV versionado (ver
 | 14 | `notebooks/figuras/rq07_boxplots_por_grupo.png` | RQ07 | Dispersão das três métricas por grupo de linguagem |
 | 15 | `notebooks/figuras/rq08_contagem_licencas.png` | RQ08 | Repositórios por licença SPDX |
 | 16 | `notebooks/figuras/rq08_medianas_por_licenca.png` | RQ08 | Medianas de estrelas e de PRs aceitas por grupo de licença |
+| 17 | `graficos/rq01_idade_por_faixa.png` | RQ01 | Contagem de repositórios por faixa de idade |
+| 18 | `graficos/rq02_prs_por_faixa.png` | RQ02 | Contagem de repositórios por faixa de PRs aceitas |
+| 19 | `graficos/rq01_rq02_boxplots.png` | RQ01/RQ02 | Boxplots das duas métricas; RQ02 em escala logarítmica |
 
-As figuras 1 a 9 seguem uma paleta única, validada para visão normal e para as
+As figuras 1 a 19 seguem uma paleta única, validada para visão normal e para as
 três formas de daltonismo (a diferença perceptual do pior par é 9,2 em CVD e 24,0
 em visão normal, acima dos pisos adotados). Nelas, toda barra e todo ponto de
-mediana levam **rótulo direto com o valor**. Em todas as 16, cada figura tem a
+mediana levam **rótulo direto com o valor**. Em todas as 19, cada figura tem a
 tabela equivalente no texto, então nenhuma leitura depende de distinguir cores.

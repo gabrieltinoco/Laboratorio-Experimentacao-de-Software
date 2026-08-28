@@ -50,6 +50,7 @@ python src\rq09_cadencia_releases.py
 A análise e os gráficos da Lab01S03 são gerados por:
 
 ```powershell
+python src\analise_rq01_rq02.py
 python src\analise_rq03.py
 python src\analise_rq04.py
 python src\analise_rq09.py
