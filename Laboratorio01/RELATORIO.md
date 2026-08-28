@@ -124,16 +124,16 @@ coluna explica a exclusão — nenhuma linha foi removida do CSV.
 
 | Objetivo | RQ | Questão | Métrica | Operacionalização (campo GraphQL → coluna do CSV) | Estatística reportada | n | Evidência |
 |---|---|---|---|---|---|---|---|
-| O1 | **RQ01** | Sistemas populares são maduros/antigos? | Idade do repositório, em anos | `createdAt` → `created_at`; idade = (data da coleta − `created_at`) / 365,25 | Mediana, média, Q1/Q3, faixas de idade, outliers de Tukey | 1.000 | `src/rq01_rq02.py`, `src/analise_rq01_rq02.py` · § 4.1 |
-| O1 | **RQ02** | Sistemas populares recebem muita contribuição externa? | Total de pull requests aceitas | `pullRequests(states: MERGED).totalCount` → `pull_requests_aceitas` | Mediana, média, Q1/Q3, faixas, outliers de Tukey | 1.000 | `src/rq01_rq02.py`, `src/analise_rq01_rq02.py` · § 4.2 |
-| O2 | **RQ03** | Sistemas populares lançam releases com frequência? | Total de releases | `releases.totalCount` → `total_releases` | Mediana, média, Q1/Q3, contagem por faixa, outliers de Tukey, saturação no teto da API | 1.000 | `src/analise_rq03.py` · § 4.3 · Fig. 1–3 |
-| O2 | **RQ04** | Sistemas populares são atualizados com frequência? | *Métrica do enunciado:* dias desde a última atualização | `updatedAt` → `ultima_atualizacao`, `dias_desde_ultima_atualizacao` | Mediana, Q1/Q3, amplitude, % saturado em 0 dia | 1.000 | `src/analise_rq04.py` · § 4.4 · Fig. 4 |
-| O2 | **RQ04** | *(idem)* | *Métrica efetiva adotada:* dias desde o último push de código | `pushedAt` → `ultimo_push`, `dias_desde_ultimo_push` | Mediana, média, Q1/Q3, contagem por faixa, outliers de Tukey | 1.000 | `src/analise_rq04.py` · § 4.4 · Fig. 4–6 |
+| O1 | **RQ01** | Sistemas populares são maduros/antigos? | Idade do repositório, em anos | `createdAt` → `created_at`; idade = (data da coleta − `created_at`) / 365,25 | Mediana, média, Q1/Q3, faixas de idade, outliers de Tukey | 1.000 | `src/rq01_rq02.py`, `src/analise_rq01_rq02.py` · § 4.1 · Fig. 1 |
+| O1 | **RQ02** | Sistemas populares recebem muita contribuição externa? | Total de pull requests aceitas | `pullRequests(states: MERGED).totalCount` → `pull_requests_aceitas` | Mediana, média, Q1/Q3, faixas, outliers de Tukey | 1.000 | `src/rq01_rq02.py`, `src/analise_rq01_rq02.py` · § 4.2 · Fig. 2–3 |
+| O2 | **RQ03** | Sistemas populares lançam releases com frequência? | Total de releases | `releases.totalCount` → `total_releases` | Mediana, média, Q1/Q3, contagem por faixa, outliers de Tukey, saturação no teto da API | 1.000 | `src/analise_rq03.py` · § 4.3 · Fig. 4–6 |
+| O2 | **RQ04** | Sistemas populares são atualizados com frequência? | *Métrica do enunciado:* dias desde a última atualização | `updatedAt` → `ultima_atualizacao`, `dias_desde_ultima_atualizacao` | Mediana, Q1/Q3, amplitude, % saturado em 0 dia | 1.000 | `src/analise_rq04.py` · § 4.4 · Fig. 7 |
+| O2 | **RQ04** | *(idem)* | *Métrica efetiva adotada:* dias desde o último push de código | `pushedAt` → `ultimo_push`, `dias_desde_ultimo_push` | Mediana, média, Q1/Q3, contagem por faixa, outliers de Tukey | 1.000 | `src/analise_rq04.py` · § 4.4 · Fig. 7–9 |
 | O3 | **RQ05** | Sistemas populares são escritos nas linguagens mais populares? | Linguagem primária | `primaryLanguage.name` → `linguagem_primaria` (`"Nao informada"` quando nula) | Contagem e percentual por linguagem; % nas 5 linguagens do Octoverse 2025 | 1.000 | `notebooks/analise_rq05_rq08.ipynb` · § 4.5 · Fig. 10–11 |
 | O3 | **RQ06** | Sistemas populares possuem um alto percentual de issues fechadas? | Razão issues fechadas / issues totais | `issues.totalCount` e `issues(states: CLOSED).totalCount` → `issues_total`, `issues_fechadas`, `percentual_issues_fechadas` | Mediana, média, Q1/Q3, faixas de percentual | ≤ 1.000 (razão indefinida para repositório sem issue) | `notebooks/analise_rq05_rq08.ipynb` · § 4.6 · Fig. 12 |
 | O3 | **RQ07** | Sistemas em linguagens mais populares recebem mais contribuição, lançam mais releases e são atualizados com mais frequência? | RQ02, RQ03 e RQ04 estratificadas por `linguagem_primaria` | As mesmas três colunas, agrupadas por linguagem | Mediana por linguagem das três métricas | 1.000 | `notebooks/analise_rq05_rq08.ipynb` · § 4.7 · Fig. 13–14 |
 | O3 | **RQ08** *(grupo)* | A licença afeta popularidade e contribuição? | Identificador de licença SPDX | `licenseInfo.spdxId` → `licenca` (`"Sem licenca"` quando nula) | Mediana de estrelas e de PRs aceitas por licença | 1.000 | `notebooks/analise_rq05_rq08.ipynb` · § 4.8 · Fig. 15–16 |
-| O2 | **RQ09** *(grupo)* | A cadência de releases se mantém ao longo da vida do projeto? | Cadência = `total_releases` / idade em anos | Derivada de `total_releases` e `created_at`; nenhum campo novo na consulta | Mediana, média, Q1/Q3; correlação de postos idade × cadência e idade × total de releases; medianas por faixa de idade e por grupo de atividade | 714 (os 286 sem release têm cadência **indefinida**, não zero) | `src/analise_rq09.py` · § 4.9 · Fig. 7–9 |
+| O2 | **RQ09** *(grupo)* | A cadência de releases se mantém ao longo da vida do projeto? | Cadência = `total_releases` / idade em anos | Derivada de `total_releases` e `created_at`; nenhum campo novo na consulta | Mediana, média, Q1/Q3; correlação de postos idade × cadência e idade × total de releases; medianas por faixa de idade e por grupo de atividade | 714 (os 286 sem release têm cadência **indefinida**, não zero) | `src/analise_rq09.py` · § 4.9 · Fig. 17–19 |
 
 ### 2.3 Decisões de medição que precisam ficar registradas
 
@@ -143,8 +143,8 @@ conveniência:
 
 | # | Métrica no enunciado | Problema constatado | Decisão | Evidência |
 |---|---|---|---|---|
-| 1 | RQ04: "tempo até a última atualização" (`updatedAt`) | O campo sobe a cada estrela, watch ou fork, não só com mudança de código. Nesta população fica saturado: 984 de 1.000 (98,4%) marcam 0 dia e a amplitude total é de 0 a 2 dias. | Reportar `updatedAt` para cumprir a métrica literal **e** adotar `pushedAt` como métrica efetiva, que varia de 0 a 2.451 dias. | Fig. 4 · § 4.4 |
-| 2 | RQ03: "total de releases" | `releases.totalCount` satura em 1.000. 21 repositórios (2,1%) marcam exatamente 1.000. | Manter o valor e tratá-lo como **limite inferior** (`>= 1000`), sinalizado em toda figura e tabela da RQ03 e da RQ09. | Fig. 2 · § 4.3 |
+| 1 | RQ04: "tempo até a última atualização" (`updatedAt`) | O campo sobe a cada estrela, watch ou fork, não só com mudança de código. Nesta população fica saturado: 984 de 1.000 (98,4%) marcam 0 dia e a amplitude total é de 0 a 2 dias. | Reportar `updatedAt` para cumprir a métrica literal **e** adotar `pushedAt` como métrica efetiva, que varia de 0 a 2.451 dias. | Fig. 7 · § 4.4 |
+| 2 | RQ03: "total de releases" | `releases.totalCount` satura em 1.000. 21 repositórios (2,1%) marcam exatamente 1.000. | Manter o valor e tratá-lo como **limite inferior** (`>= 1000`), sinalizado em toda figura e tabela da RQ03 e da RQ09. | Fig. 5 · § 4.3 |
 | 3 | RQ09: cadência para repositório sem release | `0 releases / idade` daria cadência zero, misturando "não versiona" com "versiona pouco". | Cadência **indefinida** para os 286 sem release, que são analisados como grupo próprio. | § 4.9 |
 
 ### 2.4 Estatísticas e critérios usados
@@ -295,9 +295,9 @@ Pelo critério de Tukey, usando 1,5 x IQR, Q1 = 3,51 e Q3 = 11,36 anos, não for
 
 ![RQ01: distribuição da idade por faixa](graficos/rq01_idade_por_faixa.png)
 
-**Figura 17 — RQ01: distribuição da idade.** A população está distribuída entre
+**Figura 1 — RQ01: distribuição da idade.** A população está distribuída entre
 projetos recentes e maduros, mas dois terços têm pelo menos 5 anos. O boxplot
-conjunto da RQ01 e RQ02 está na Figura 19.
+conjunto da RQ01 e RQ02 está na Figura 3.
 
 ### 4.2 RQ02 — Total de pull requests aceitas
 
@@ -307,12 +307,12 @@ A distribuição é fortemente assimétrica à direita: Q1 = 175, Q3 = 3415,75 e
 
 ![RQ02: distribuição de PRs por faixa](graficos/rq02_prs_por_faixa.png)
 
-**Figura 18 — RQ02: distribuição das PRs aceitas por faixa.** 58,4% dos
+**Figura 2 — RQ02: distribuição das PRs aceitas por faixa.** 58,4% dos
 repositórios têm pelo menos 500 PRs aceitas, mas 12,4% são outliers superiores.
 
 ![RQ01 e RQ02: boxplots](graficos/rq01_rq02_boxplots.png)
 
-**Figura 19 — RQ01 e RQ02: boxplots das métricas.** A RQ02 apresenta cauda
+**Figura 3 — RQ01 e RQ02: boxplots das métricas.** A RQ02 apresenta cauda
 longa e concentra os outliers; por isso sua mediana é mais informativa que a
 média.
 
@@ -353,14 +353,14 @@ central defensável.
 
 ![Distribuição do total de releases por faixa](graficos/rq03_releases_por_faixa.png)
 
-**Figura 1 — RQ03: contagem por faixa de total de releases.** A distribuição é
+**Figura 4 — RQ03: contagem por faixa de total de releases.** A distribuição é
 **bimodal**: um bloco de 28,6% sem release nenhuma e um bloco de 34,3% acima de
 100, com pouca massa no meio. Um único valor agregado não representa nem um dos
 dois blocos.
 
 ![Distribuição cumulativa do total de releases](graficos/rq03_ecdf_releases.png)
 
-**Figura 2 — RQ03: distribuição cumulativa (ECDF) em escala logarítmica.** A
+**Figura 5 — RQ03: distribuição cumulativa (ECDF) em escala logarítmica.** A
 curva parte de 28,6%, que é a parcela sem release, e sobe suavemente até o teto
 de 1.000 da API. Q1 = 0 não aparece na escala log justamente porque um quarto da
 base está em zero.
@@ -382,7 +382,7 @@ separa duas populações muito diferentes:
 
 ![Total de releases por presença de linguagem primária](graficos/rq03_releases_por_tipo_de_repositorio.png)
 
-**Figura 3 — RQ03: releases por presença de linguagem primária.** Entre os
+**Figura 6 — RQ03: releases por presença de linguagem primária.** Entre os
 repositórios que têm código, 76,8% publicam release. Entre os que não têm,
 apenas 14,9%. **A RQ03 não deve ser respondida com um número agregado:** o
 28,6% sem release não é falta de disciplina de versionamento, é presença de
@@ -409,7 +409,7 @@ código, varia mais de 6 anos na mesma base.
 
 ![updatedAt x pushedAt por faixa](graficos/rq04_updatedat_x_pushedat.png)
 
-**Figura 4 — RQ04: as duas métricas, mesma base e mesmas faixas.** O `updatedAt`
+**Figura 7 — RQ04: as duas métricas, mesma base e mesmas faixas.** O `updatedAt`
 coloca 100% dos repositórios na primeira faixa e deixa as outras quatro vazias.
 Reportar a mediana de 0 dia como resposta da RQ04 seria reportar um artefato da
 API, e não uma característica dos sistemas estudados. **Daqui em diante a RQ04 é
@@ -445,13 +445,13 @@ Ao todo, 727 repositórios (72,7%) receberam push nos últimos 30 dias.
 
 ![ECDF do tempo desde o último push](graficos/rq04_ecdf_dias_sem_push.png)
 
-**Figura 5 — RQ04: distribuição cumulativa do tempo desde o último push.** 43,7%
+**Figura 8 — RQ04: distribuição cumulativa do tempo desde o último push.** 43,7%
 recebeu push no próprio dia da coleta e a mediana é de 2 dias, mas a curva não
 fecha: 11,5% está há mais de um ano sem uma linha de código nova.
 
 ![Os 10 repositórios com mais tempo sem push](graficos/rq04_mais_tempo_sem_push.png)
 
-**Figura 6 — RQ04: os 10 repositórios do top 1000 com mais tempo sem push.**
+**Figura 9 — RQ04: os 10 repositórios do top 1000 com mais tempo sem push.**
 `exacity/deeplearningbook-chinese` está há 6,7 anos sem push e mantém 37.362
 estrelas; `adobe/brackets`, um editor oficialmente descontinuado, está há 4,2
 anos e mantém 33.013. São listas, roteiros de estudo e software descontinuado que
@@ -671,7 +671,7 @@ mantêm.
 
 ![Idade x cadência de releases](graficos/rq09_idade_x_cadencia.png)
 
-**Figura 7 — RQ09: idade do repositório × cadência de releases (escala log).**
+**Figura 17 — RQ09: idade do repositório × cadência de releases (escala log).**
 Cada ponto é um dos 714 repositórios que publicam release; a linha vermelha liga
 a mediana da cadência de cada faixa de idade. A nuvem desce da esquerda para a
 direita ao longo de toda a faixa de idades.
@@ -687,7 +687,7 @@ direita ao longo de toda a faixa de idades.
 
 ![Cadência por faixa de idade](graficos/rq09_cadencia_por_faixa_de_idade.png)
 
-**Figura 8 — RQ09: total de releases e cadência, pelas mesmas faixas de idade.**
+**Figura 18 — RQ09: total de releases e cadência, pelas mesmas faixas de idade.**
 O total mediano de releases não tem tendência com a idade — sobe da primeira para
 a terceira faixa e volta a cair na quarta. A cadência mediana, ao contrário, cai
 em **todas** as faixas, por um fator de 6,6 entre a mais nova e a mais velha.
@@ -702,7 +702,7 @@ em **todas** as faixas, por um fator de 6,6 entre a mais nova e a mais velha.
 
 ![Cadência por grupo de atividade](graficos/rq09_cadencia_por_atividade.png)
 
-**Figura 9 — RQ09: cadência por grupo de atividade da RQ04.** A idade mediana dos
+**Figura 19 — RQ09: cadência por grupo de atividade da RQ04.** A idade mediana dos
 três grupos é próxima (7,3, 9,0 e 9,3 anos), então a diferença de cadência não
 vem de idade: quem está parado hoje publicava release quatro vezes menos ao longo
 de toda a sua vida.
@@ -740,7 +740,7 @@ todos projetos recentes, quase todos de ferramental de IA. Na base,
 Entre os repositórios que de fato são software distribuível, a hipótese se
 sustenta com folga: 76,8% dos 913 com linguagem primária publicam release, e
 34,3% do top 1000 passa de 100 releases. Mas quase um terço da base (28,6%) não
-publica release nenhuma, e a Figura 3 mostra de onde vem essa massa: **85,1% dos
+publica release nenhuma, e a Figura 6 mostra de onde vem essa massa: **85,1% dos
 repositórios sem linguagem primária não têm release**, contra 23,2% dos que têm.
 
 Isso confirma a segunda hipótese geral do grupo: "repositório popular no GitHub"
@@ -765,7 +765,7 @@ top 1000 por estrelas acumuladas.
 A correção de método é a parte que mais importa para o laboratório: a métrica
 literal da RQ04 (`updatedAt`) **não responde à pergunta nesta população**. Com
 98,4% da base marcando 0 dia e uma amplitude total de 2 dias, o campo não tem
-poder de discriminação — ele mede popularidade, não manutenção. A Figura 4 é a
+poder de discriminação — ele mede popularidade, não manutenção. A Figura 7 é a
 evidência dessa troca, e não uma ilustração dela: as quatro faixas vazias do
 `updatedAt` são o resultado.
 
@@ -870,7 +870,7 @@ boa parte, **a prática de release da geração em que o projeto nasceu**.
 
 A consequência prática para o laboratório é direta: **comparar o total de
 releases de um projeto de 2013 com um de 2025 compara duas culturas de
-engenharia, não dois níveis de atividade.** Por isso a Figura 8 põe as duas
+engenharia, não dois níveis de atividade.** Por isso a Figura 18 põe as duas
 métricas lado a lado, e não uma só: qualquer comparação entre repositórios de
 idades muito diferentes precisa dessa ressalva.
 
@@ -914,24 +914,32 @@ documentado em [`PROCESSO.md`](PROCESSO.md). Em resumo:
 
 ### 6.2 Snapshots exportados
 
-| Sprint | Data do snapshot | Itens |
-|---|---|---:|
-| Lab01S01 | 2026-08-14 | 11 |
-| Lab01S02 | 2026-08-20 | 17 |
-| **Lab01S03** | **2026-08-27** | **27** |
+Três exportações acumuladas em [`data/project_snapshots.csv`](data/project_snapshots.csv),
+55 linhas ao todo. Como o GitHub Projects v2 não guarda histórico consultável de
+mudança de coluna, essa série é a única evidência objetiva de como o board
+evoluiu — e é a base de dados dos Labs 04 e 05.
 
-O snapshot da Lab01S03 foi exportado no fechamento da sprint, com o board já
-atualizado: 25 dos 27 itens em `Done`. Os dois restantes — [#20](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/20)
-e [#21](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/21),
-análise e visualização das RQ01 e RQ02 — estavam em `To do` no momento da
-captura, e o snapshot registra isso. A série é a evidência objetiva da evolução
-do board, então ela precisa refletir o estado real, e não o desejado; se essas
-duas Issues forem concluídas, a correção é reexportar com `--substituir`, nunca
-editar o CSV à mão.
+| Sprint | Data do snapshot | Itens | `To do` | `Done` |
+|---|---|---:|---:|---:|
+| Lab01S01 | 2026-08-14 | 11 | 8 | 3 |
+| Lab01S02 | 2026-08-20 | 17 | 2 | 15 |
+| **Lab01S03** | **2026-08-28** | **27** | **0** | **27** |
+
+A progressão de `Done` — 3, 15, 27 — e a de `To do` — 8, 2, 0 — mostram o fluxo
+real do trio ao longo das três sprints, com o board fechando a Lab01S03 sem
+nenhum cartão pendente.
+
+A Lab01S03 foi exportada três vezes ao longo do fechamento: as duas primeiras
+ainda pegavam [#20](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/20)
+e [#21](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/issues/21)
+em `To do`, e a definitiva foi rodada com `--substituir` depois de as duas
+entrarem em `Done`. Só a última consta no CSV, que é o comportamento correto da
+rotina: o arquivo nunca é editado à mão, e um snapshot que saiu antes de o board
+estar atualizado se corrige reexportando.
 
 Nenhum cartão ficou em `Review` no fechamento, como exige a política de WIP
-documentada em [`PROCESSO.md`](PROCESSO.md), e o limite de 2 cartões por
-integrante em `Doing` foi respeitado durante toda a sprint.
+documentada em [`PROCESSO.md`](PROCESSO.md), e o limite de cartões por integrante
+em `Doing` foi respeitado durante toda a sprint.
 
 ### 6.3 Print do board
 
@@ -951,15 +959,15 @@ mão, e todas podem ser recriadas a partir do CSV versionado (ver
 
 | Fig. | Arquivo | RQ | O que mostra |
 |---|---|---|---|
-| 1 | `graficos/rq03_releases_por_faixa.png` | RQ03 | Contagem por faixa de total de releases; distribuição bimodal |
-| 2 | `graficos/rq03_ecdf_releases.png` | RQ03 | Distribuição cumulativa em escala log, com mediana, Q3 e teto da API |
-| 3 | `graficos/rq03_releases_por_tipo_de_repositorio.png` | RQ03 | Releases por presença de linguagem primária |
-| 4 | `graficos/rq04_updatedat_x_pushedat.png` | RQ04 | `updatedAt` × `pushedAt` nas mesmas faixas — a evidência da troca de métrica |
-| 5 | `graficos/rq04_ecdf_dias_sem_push.png` | RQ04 | Distribuição cumulativa do tempo desde o último push |
-| 6 | `graficos/rq04_mais_tempo_sem_push.png` | RQ04 | Os 10 repositórios do top 1000 com mais tempo sem push |
-| 7 | `graficos/rq09_idade_x_cadencia.png` | RQ09 | Dispersão idade × cadência, com a mediana por faixa de idade |
-| 8 | `graficos/rq09_cadencia_por_faixa_de_idade.png` | RQ09 | Total de releases e cadência pelas mesmas faixas de idade |
-| 9 | `graficos/rq09_cadencia_por_atividade.png` | RQ09 | Cadência por grupo de atividade da RQ04 |
+| 1 | `graficos/rq01_idade_por_faixa.png` | RQ01 | Contagem de repositórios por faixa de idade |
+| 2 | `graficos/rq02_prs_por_faixa.png` | RQ02 | Contagem de repositórios por faixa de PRs aceitas |
+| 3 | `graficos/rq01_rq02_boxplots.png` | RQ01/RQ02 | Boxplots das duas métricas; RQ02 em escala logarítmica |
+| 4 | `graficos/rq03_releases_por_faixa.png` | RQ03 | Contagem por faixa de total de releases; distribuição bimodal |
+| 5 | `graficos/rq03_ecdf_releases.png` | RQ03 | Distribuição cumulativa em escala log, com mediana, Q3 e teto da API |
+| 6 | `graficos/rq03_releases_por_tipo_de_repositorio.png` | RQ03 | Releases por presença de linguagem primária |
+| 7 | `graficos/rq04_updatedat_x_pushedat.png` | RQ04 | `updatedAt` × `pushedAt` nas mesmas faixas — a evidência da troca de métrica |
+| 8 | `graficos/rq04_ecdf_dias_sem_push.png` | RQ04 | Distribuição cumulativa do tempo desde o último push |
+| 9 | `graficos/rq04_mais_tempo_sem_push.png` | RQ04 | Os 10 repositórios do top 1000 com mais tempo sem push |
 | 10 | `notebooks/figuras/rq05_top_linguagens.png` | RQ05 | Repositórios por linguagem primária |
 | 11 | `notebooks/figuras/rq05_participacao_top5.png` | RQ05 | Participação das 5 linguagens do Octoverse 2025 |
 | 12 | `notebooks/figuras/rq06_percentual_issues_fechadas.png` | RQ06 | Distribuição do percentual de issues fechadas |
@@ -967,12 +975,26 @@ mão, e todas podem ser recriadas a partir do CSV versionado (ver
 | 14 | `notebooks/figuras/rq07_boxplots_por_grupo.png` | RQ07 | Dispersão das três métricas por grupo de linguagem |
 | 15 | `notebooks/figuras/rq08_contagem_licencas.png` | RQ08 | Repositórios por licença SPDX |
 | 16 | `notebooks/figuras/rq08_medianas_por_licenca.png` | RQ08 | Medianas de estrelas e de PRs aceitas por grupo de licença |
-| 17 | `graficos/rq01_idade_por_faixa.png` | RQ01 | Contagem de repositórios por faixa de idade |
-| 18 | `graficos/rq02_prs_por_faixa.png` | RQ02 | Contagem de repositórios por faixa de PRs aceitas |
-| 19 | `graficos/rq01_rq02_boxplots.png` | RQ01/RQ02 | Boxplots das duas métricas; RQ02 em escala logarítmica |
+| 17 | `graficos/rq09_idade_x_cadencia.png` | RQ09 | Dispersão idade × cadência, com a mediana por faixa de idade |
+| 18 | `graficos/rq09_cadencia_por_faixa_de_idade.png` | RQ09 | Total de releases e cadência pelas mesmas faixas de idade |
+| 19 | `graficos/rq09_cadencia_por_atividade.png` | RQ09 | Cadência por grupo de atividade da RQ04 |
 
-As figuras 1 a 19 seguem uma paleta única, validada para visão normal e para as
-três formas de daltonismo (a diferença perceptual do pior par é 9,2 em CVD e 24,0
-em visão normal, acima dos pisos adotados). Nelas, toda barra e todo ponto de
-mediana levam **rótulo direto com o valor**. Em todas as 19, cada figura tem a
-tabela equivalente no texto, então nenhuma leitura depende de distinguir cores.
+As figuras vêm de dois caminhos, e por isso de duas paletas:
+
+- **Figuras 1 a 9 e 17 a 19** — geradas pelos scripts `src/analise_rq*.py`, que
+  compartilham o estilo de `src/analise_base.py`. A paleta é validada para visão
+  normal e para as três formas de daltonismo: a diferença perceptual do pior par
+  é 9,2 em CVD e 24,0 em visão normal, acima dos pisos adotados.
+- **Figuras 10 a 16** — geradas por `notebooks/analise_rq05_rq08.ipynb`, com uma
+  paleta própria de dois tons de azul (`#2a6f97` e `#a9c9dd`). Esse par separa
+  bem para daltonismo, porque é claro contra escuro do mesmo matiz (diferença de
+  29,2 em CVD e 30,6 em visão normal), mas não passa pelos critérios de banda de
+  luminosidade e de saturação mínima usados nas outras, e o tom claro fica em
+  1,69:1 de contraste contra o fundo.
+
+O que vale para **todas as 19**, e é o que garante a leitura: toda barra e todo
+ponto de mediana levam **rótulo direto com o valor**, e cada figura tem a tabela
+equivalente no texto. Nenhuma conclusão do relatório depende de distinguir cores.
+
+A unificação das duas paletas fica registrada como melhoria para o Lab02, quando
+o grupo já terá um único módulo de estilo desde o começo.

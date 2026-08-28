@@ -10,7 +10,7 @@ Registrar como recriar a coleta, validar a integridade do CSV dos 1.000 reposit�
 
 - Sistema usado na entrega: Windows.
 - Python recomendado: 3.10 ou superior.
-- Dependências externas, declaradas em `src/requirements.txt`: `requests` (coleta) e `matplotlib` (apenas para desenhar os gráficos da Lab01S03 — toda a estatística é calculada nos scripts do grupo).
+- Dependências externas, declaradas em `src/requirements.txt`: `requests` (coleta), `matplotlib` (figuras das RQ01 a RQ04 e RQ09) e `pandas` com `seaborn` (notebook das RQ05 a RQ08). Toda a estatística é calculada pelo grupo; essas bibliotecas só tabulam e desenham.
 - Fonte: API GraphQL v4 do GitHub.
 - Recorte: busca `stars:>1 sort:stars-desc`, tipo `REPOSITORY`, com 1.000 resultados.
 - Arquivo de entrada das validações: `data/repositorios_top1000.csv`.
@@ -64,7 +64,7 @@ A consulta não deve ser executada sem necessidade, pois gera uma nova fotografi
 
 A idade do repositório não está no CSV: ela é derivada de `created_at`. Derivá-la de `datetime.now()` faria os números crescerem a cada execução, então `src/analise_base.py` reconstrói a **data de referência** a partir do próprio CSV — o máximo de `ultima_atualizacao + dias_desde_ultima_atualizacao` entre as 1.000 linhas, que devolve o instante da coleta, `2026-08-19T15:14:50Z`.
 
-Consequência prática: rodar qualquer script de análise hoje ou em um ano produz exatamente os mesmos valores e os mesmos gráficos, e qualquer número do relatório pode ser conferido sem recoletar nada. Os scripts que usam essa base são `analise_base.py`, `analise_rq03.py`, `analise_rq04.py`, `analise_rq09.py` e `rq09_cadencia_releases.py`.
+Consequência prática: rodar qualquer script de análise hoje ou em um ano produz exatamente os mesmos valores e os mesmos gráficos, e qualquer número do relatório pode ser conferido sem recoletar nada. Os scripts que usam essa base são `analise_base.py`, `analise_rq01_rq02.py`, `analise_rq03.py`, `analise_rq04.py`, `analise_rq09.py` e `rq09_cadencia_releases.py`. O notebook das RQ05 a RQ08 não depende de data: as métricas dele são contagens e razões que já estão no CSV.
 
 ## Critérios de integridade
 
