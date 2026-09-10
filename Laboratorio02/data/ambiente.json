@@ -1,0 +1,18 @@
+[
+  {
+    "integrante": "Arthur Miranda Pacher",
+    "timestamp_verificacao": "2026-09-10T20:00:55.705149+00:00",
+    "sistema_operacional": "Windows 11",
+    "python_versao": "3.14.6",
+    "pytest_versao": "9.1.1",
+    "radon_versao": "6.0.1",
+    "node_versao": "22.23.2",
+    "jscpd_versao": "5.2.0",
+    "ide_versao": "1.137.0",
+    "assistente_ia": "GitHub Copilot",
+    "assistente_ia_versao": "1.388.0",
+    "git_versao": "2.55.0",
+    "itens_faltando": "",
+    "pronto": "True"
+  }
+]

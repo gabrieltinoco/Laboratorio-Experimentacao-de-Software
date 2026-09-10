@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Relatorio bruto do jscpd, gerado a cada execucao de src/metricas_estaticas.py
+# em diretorio temporario. So o resultado consolidado (data/metricas.csv) e
+# versionado.
+data/jscpd/

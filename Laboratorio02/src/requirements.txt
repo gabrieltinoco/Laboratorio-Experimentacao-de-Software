@@ -1,0 +1,14 @@
+# Testes de aceitacao das katas (src/cronometro_trial.py roda o --test-cmd): os
+# testes de cada kata sao escritos em pytest, que tambem e o runner reconhecido
+# pelo parser de resultado do cronometro.
+pytest
+
+# Metricas estaticas da RQ03 (src/metricas_estaticas.py): o Radon fornece
+# complexidade ciclomatica (cc), LOC/SLOC (raw) e Indice de Manutenibilidade
+# (mi). Substitui o CK do enunciado porque a linguagem fixada e Python.
+radon
+
+# Duplicacao de codigo da RQ03 NAO vem do pip: e medida pelo jscpd (Node.js),
+# instalado com "npm install -g jscpd". O Radon nao cobre duplicacao, e o
+# enunciado indica o jscpd como equivalente ao PMD CPD fora do Java.
+# Confira a instalacao com: python src/verifica_ambiente.py
