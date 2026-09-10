@@ -91,7 +91,8 @@ o que entrou na medição.
 | `tratamento` | `com_ia` \| `sem_ia` | Lido de `data/trials.csv` pelo `trial_id`. |
 | `codigo_dir` | string | Diretório do código medido, relativo a `Laboratorio02/`. |
 | `arquivos_analisados` | int | Quantidade de arquivos que entraram na medição. |
-| `arquivos` | string | Nomes desses arquivos, separados por `;`. |
+| `arquivos_ilegiveis` | int | Arquivos descartados por erro de sintaxe (ver abaixo). |
+| `arquivos` | string | Nomes dos arquivos medidos, separados por `;`. |
 | `loc` | int | Linhas totais (Radon `raw`: `loc`). |
 | `sloc` | int | Linhas de código sem comentários nem linhas em branco (Radon `raw`: `sloc`). **Métrica de controle.** |
 | `linhas_comentario` | int | Linhas de comentário (`single_comments` + `multi`). |
@@ -137,6 +138,22 @@ ambas afetariam o número final:
 
 O resultado é exatamente o que a RQ03 pede: uma complexidade por função ou
 método efetivamente escrito.
+
+### Código que não compila (trials censurados)
+
+Um trial que bate o time-box de 35 min termina, muitas vezes, com código pela
+metade — e código pela metade não é sintaticamente válido. Nesse caso o Radon
+reporta erro de sintaxe e não extrai função nenhuma do arquivo, mas as linhas
+dele continuariam entrando no LOC: complexidade e LOC ficariam com bases
+diferentes e o `cc_total_por_kloc` sairia subestimado, sem nada nos dados
+indicando o problema.
+
+Por isso, arquivos que o Radon não consegue parsear são retirados de **todas**
+as métricas (complexidade, LOC, MI e duplicação), contados em
+`arquivos_ilegiveis` e nomeados em `observacoes`. Se **todos** os arquivos do
+trial forem ilegíveis, a linha é gravada com as métricas vazias e o aviso — o
+trial continua no dataset, como o enunciado exige para trials censurados, mas
+fica explícito que ele não pôde ser medido estruturalmente.
 
 ## Métrica não coletada nunca vira zero
 

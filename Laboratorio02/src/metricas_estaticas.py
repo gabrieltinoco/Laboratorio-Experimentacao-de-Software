@@ -63,6 +63,7 @@ CSV_COLUMNS = [
     "tratamento",
     "codigo_dir",
     "arquivos_analisados",
+    "arquivos_ilegiveis",
     "arquivos",
     "loc",
     "sloc",
@@ -107,6 +108,7 @@ class MetricasTrial:
     tratamento: str
     codigo_dir: str
     arquivos_analisados: int
+    arquivos_ilegiveis: int
     arquivos: str
     loc: int | None
     sloc: int | None
@@ -137,10 +139,16 @@ def arquivos_do_trial(codigo_dir: Path, excluir: tuple[str, ...]) -> list[Path]:
     de deixar cada uma aplicar seus proprios filtros: se o radon e o jscpd
     analisassem conjuntos diferentes de arquivos, o percentual de duplicacao e o
     LOC que o normaliza teriam bases diferentes.
+
+    Os diretorios ignorados sao comparados apenas com o caminho DENTRO do
+    diretorio do trial. Comparar com o caminho absoluto faria um repositorio
+    clonado em pasta chamada, por exemplo, "tests" ou "venv" descartar todos os
+    arquivos em silencio e gravar o trial com metricas vazias.
     """
     arquivos = []
     for caminho in sorted(codigo_dir.rglob("*.py")):
-        if any(parte in IGNORAR_DIRS for parte in caminho.parts):
+        relativo = caminho.relative_to(codigo_dir)
+        if any(parte in IGNORAR_DIRS for parte in relativo.parts[:-1]):
             continue
         if any(caminho.match(padrao) for padrao in excluir):
             continue
@@ -179,9 +187,26 @@ def blocos_de_complexidade(entradas: list[dict]):
         yield from blocos_de_complexidade(entrada.get("closures", []))
 
 
-def coleta_complexidade(arquivos: list[Path]) -> dict:
-    """Complexidade ciclomatica (McCabe) por funcao/metodo, agregada por trial."""
+def coleta_complexidade(arquivos: list[Path]) -> tuple[dict, list[Path]]:
+    """Complexidade ciclomatica (McCabe) por funcao/metodo, agregada por trial.
+
+    Devolve tambem os arquivos que o radon nao conseguiu parsear. Isso acontece
+    de verdade nos trials censurados, que terminam com codigo pela metade: o
+    radon reporta erro de sintaxe e nao extrai funcao nenhuma deles, enquanto as
+    linhas continuariam entrando no LOC. Complexidade e LOC ficariam com bases
+    diferentes e o cc_total_por_kloc sairia subestimado, sem nada indicando isso
+    nos dados - por isso o chamador tira esses arquivos de todas as metricas.
+    """
     relatorio = radon_json("cc", arquivos)
+
+    por_caminho = {Path(caminho).resolve(): valor for caminho, valor in relatorio.items()}
+    ilegiveis = [
+        arquivo
+        for arquivo in arquivos
+        if isinstance(por_caminho.get(arquivo.resolve()), dict)
+        and "error" in por_caminho[arquivo.resolve()]
+    ]
+
     complexidades = [
         bloco["complexity"]
         for entradas in relatorio.values()
@@ -190,14 +215,14 @@ def coleta_complexidade(arquivos: list[Path]) -> dict:
         if "complexity" in bloco
     ]
     if not complexidades:
-        return {"funcoes": 0, "cc_media": None, "cc_mediana": None, "cc_max": None, "cc_total": None}
+        return {"funcoes": 0, "cc_media": None, "cc_mediana": None, "cc_max": None, "cc_total": None}, ilegiveis
     return {
         "funcoes": len(complexidades),
         "cc_media": round(statistics.mean(complexidades), 2),
         "cc_mediana": statistics.median(complexidades),
         "cc_max": max(complexidades),
         "cc_total": sum(complexidades),
-    }
+    }, ilegiveis
 
 
 def coleta_raw(arquivos: list[Path]) -> dict:
@@ -276,23 +301,35 @@ def coleta_metricas(
     observacoes: str,
 ) -> MetricasTrial:
     arquivos = arquivos_do_trial(codigo_dir, excluir)
-    nomes = ";".join(a.relative_to(codigo_dir).as_posix() for a in arquivos)
 
     complexidade = {"funcoes": 0, "cc_media": None, "cc_mediana": None, "cc_max": None, "cc_total": None}
     raw = {"loc": None, "sloc": None, "linhas_comentario": None, "linhas_branco": None}
     mi_medio = None
     duplicacao = {"dup_percentual": None, "dup_linhas": None, "dup_clones": None}
+    ilegiveis: list[Path] = []
     avisos = [observacoes] if observacoes else []
 
     if arquivos:
-        complexidade = coleta_complexidade(arquivos)
+        complexidade, ilegiveis = coleta_complexidade(arquivos)
+        if ilegiveis:
+            # Fora de TODAS as metricas, para que complexidade, LOC e duplicacao
+            # tenham a mesma base. O aviso fica no CSV: um trial censurado com
+            # codigo que nao compila e um dado legitimo do experimento, e a
+            # analise da RQ03 precisa saber que ele foi medido parcialmente.
+            nomes_ilegiveis = ", ".join(a.relative_to(codigo_dir).as_posix() for a in ilegiveis)
+            avisos.append(f"fora da medicao por erro de sintaxe: {nomes_ilegiveis}")
+            arquivos = [a for a in arquivos if a not in ilegiveis]
+
+    if arquivos:
         raw = coleta_raw(arquivos)
         mi_medio = coleta_mi(arquivos)
         duplicacao = coleta_duplicacao(arquivos, min_lines, min_tokens)
         if duplicacao["dup_percentual"] is None:
             avisos.append("duplicacao nao coletada (jscpd indisponivel)")
     else:
-        avisos.append("nenhum arquivo .py elegivel no diretorio do trial")
+        avisos.append("nenhum arquivo .py mensuravel no diretorio do trial")
+
+    nomes = ";".join(a.relative_to(codigo_dir).as_posix() for a in arquivos)
 
     # Densidade de complexidade: o enunciado exige normalizar por LOC, porque
     # codigo gerado por assistente tende a ser mais verboso e um cc_total maior
@@ -308,6 +345,7 @@ def coleta_metricas(
         tratamento=dados_trial.get("tratamento", ""),
         codigo_dir=codigo_dir.relative_to(BASE_DIR).as_posix() if codigo_dir.is_relative_to(BASE_DIR) else str(codigo_dir),
         arquivos_analisados=len(arquivos),
+        arquivos_ilegiveis=len(ilegiveis),
         arquivos=nomes,
         loc=raw["loc"],
         sloc=raw["sloc"],
