@@ -75,7 +75,8 @@ categoria quando aplicável); (iv) discussão hipótese vs. resultado; (v) uma s
 "Configuração do processo", descrevendo a estrutura do GitHub Projects (colunas,
 política de WIP) e um print do board ao final do laboratório, com o link do
 repositório/GitHub Projects do grupo.
-Link do repositório/GitHub Projects: `<preencher>`
+Link do repositório: https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software
+Link do GitHub Projects: https://github.com/users/gabrieltinoco/projects/2
 
 ### Processo de Desenvolvimento
 
