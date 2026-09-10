@@ -1,0 +1,1 @@
+trial_id,integrante,kata,tratamento,timestamp_inicio,timestamp_fim,tempo_segundos,tempo_minutos,timebox_minutos,status,testes_passando,testes_total,exit_code,test_cmd,log_path,observacoes
