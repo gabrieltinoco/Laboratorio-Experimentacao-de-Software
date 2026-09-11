@@ -1,0 +1,5 @@
+id,titulo,modulo,funcao,dificuldade_estimada_min,testes_aceitacao,dominio,risco_memorizacao
+fila-prioridade,Fila de pedidos por prioridade,katas/fila-prioridade/kata.py,ordenar_pedidos,20-30,8,pedidos,baixo
+janela-cobranca,Agregacao de eventos por janela,katas/janela-cobranca/kata.py,agrupar_cobrancas,20-30,8,cobranca,baixo
+agenda-recorrente,Expansao de agenda recorrente,katas/agenda-recorrente/kata.py,gerar_ocorrencias,20-30,8,agenda,baixo
+roteador-notificacoes,Roteamento com fallback,katas/roteador-notificacoes/kata.py,escolher_canal,20-30,8,notificacoes,baixo
