@@ -1,7 +1,6 @@
 # Desenho do experimento
 
-Este documento registra as decisões do Integrante C para o Lab02S01. O
-experimento compara a resolução das mesmas tarefas com o GitHub Copilot ativo e
+O experimento compara a resolução das mesmas tarefas com o GitHub Copilot ativo e
 desativado, mantendo linguagem, IDE, testes, time-box e ambiente fixos. O
 catálogo das tarefas está em [`data/katas.csv`](../data/katas.csv) e a
 validação estrutural é feita por [`src/valida_katas.py`](../src/valida_katas.py).
