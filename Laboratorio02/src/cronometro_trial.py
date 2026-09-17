@@ -2,7 +2,7 @@
 Cronometragem e coleta de tempo dos trials
 
 Cronometra um trial (kata x tratamento x integrante), aplicando o time-box de
-35 min (corte automatico = trial censurado, nuncadescartado).
+35 min (corte automatico = trial censurado, nunca descartado).
 Ao final (parada manual ou censura), executa o comando de teste
 do kata e registra o resultado (status final, testes passando/total) junto
 com o tempo, exportando os dados brutos para data/trials.csv e data/trials.json.
@@ -17,6 +17,12 @@ Uso:
     python src/cronometro_trial.py --integrante "Fulano" --kata "fizzbuzz" \
         --tratamento sem_ia --test-cmd "pytest -q" --timebox 20
 
+    # preserva o codigo final em trials/<trial_id>/ automaticamente (passo 5
+    # do protocolo em docs/desenho_experimento.md)
+    python src/cronometro_trial.py --integrante "Fulano" --kata "fizzbuzz" \
+        --tratamento com_ia --test-cmd "pytest trials/_work/fizzbuzz_com_ia" \
+        --codigo-dir trials/_work/fizzbuzz_com_ia
+
 Controles durante o trial:
     - pressione ENTER a qualquer momento para encerrar o trial manualmente
       (o script então roda os testes e classifica o resultado).
@@ -30,6 +36,7 @@ import argparse
 import csv
 import json
 import re
+import shutil
 import subprocess
 import threading
 import time
@@ -40,6 +47,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
 LOGS_DIR = DATA_DIR / "logs"
+TRIALS_DIR = BASE_DIR / "trials"
 CSV_PATH = DATA_DIR / "trials.csv"
 JSON_PATH = DATA_DIR / "trials.json"
 
@@ -176,6 +184,24 @@ def classificar_status(censurado: bool, exit_code: int) -> str:
     return "passou" if exit_code == 0 else "falhou"
 
 
+def preservar_codigo(codigo_dir: Path, trial_id: str) -> str:
+    """Copia o codigo final do trial para trials/<trial_id>/.
+
+    E la que src/metricas_estaticas.py procura o codigo por convencao (--todos
+    ou --trial-id sem --codigo-dir), entao preservar no lugar certo aqui evita
+    ter que apontar o caminho manualmente na S03.
+    """
+    destino = TRIALS_DIR / trial_id
+    if destino.exists():
+        raise SystemExit(f"{destino} ja existe - nao sobrescrevo o codigo de um trial ja preservado")
+    shutil.copytree(
+        codigo_dir,
+        destino,
+        ignore=shutil.ignore_patterns(".venv", "venv", "__pycache__", ".pytest_cache", ".git"),
+    )
+    return destino.relative_to(BASE_DIR).as_posix()
+
+
 def salvar_resultado(resultado: ResultadoTrial) -> None:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -205,6 +231,7 @@ def main() -> None:
     parser.add_argument("--observacoes", default="", help="Observacoes livres sobre o trial")
     parser.add_argument("--passed", type=int, default=None, help="Override manual de testes passando (fallback se o parser automatico falhar)")
     parser.add_argument("--total", type=int, default=None, help="Override manual do total de testes (fallback se o parser automatico falhar)")
+    parser.add_argument("--codigo-dir", default=None, help="Diretorio com o codigo final do trial; se informado, e copiado para trials/<trial_id>/ ao final")
     args = parser.parse_args()
 
     if args.timebox > 35.0:
@@ -247,12 +274,20 @@ def main() -> None:
     )
     salvar_resultado(resultado)
 
+    codigo_preservado = None
+    if args.codigo_dir:
+        codigo_preservado = preservar_codigo(Path(args.codigo_dir).resolve(), trial_id)
+
     print("\n--- Trial registrado ---")
     print(f"trial_id:  {resultado.trial_id}")
     print(f"status:    {resultado.status}")
     print(f"tempo:     {resultado.tempo_minutos} min")
     print(f"testes:    {resultado.testes_passando}/{resultado.testes_total}")
     print(f"salvo em:  {CSV_PATH.relative_to(BASE_DIR)} e {JSON_PATH.relative_to(BASE_DIR)}")
+    if codigo_preservado:
+        print(f"codigo:    {codigo_preservado}")
+    else:
+        print("codigo:    nao preservado (use --codigo-dir na proxima vez, ou copie manualmente para trials/<trial_id>/)")
 
 
 if __name__ == "__main__":

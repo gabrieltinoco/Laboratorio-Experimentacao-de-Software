@@ -64,6 +64,7 @@ Com quatro katas, usar as sequências abaixo, distribuídas entre os integrantes
 |---|---|---|---|---|
 | A | `fila-prioridade` com IA | `janela-cobranca` sem IA | `agenda-recorrente` com IA | `roteador-notificacoes` sem IA |
 | B | `fila-prioridade` sem IA | `janela-cobranca` com IA | `agenda-recorrente` sem IA | `roteador-notificacoes` com IA |
+| C | `fila-prioridade` com IA | `janela-cobranca` com IA | `agenda-recorrente` sem IA | `roteador-notificacoes` sem IA |
 
 Cada integrante deve receber uma sequência definida antes de iniciar os trials.
 Não se deve trocar o tratamento de uma tarefa depois de iniciado o trial.

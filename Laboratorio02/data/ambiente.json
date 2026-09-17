@@ -14,5 +14,21 @@
     "git_versao": "2.55.0",
     "itens_faltando": "",
     "pronto": "True"
+  },
+  {
+    "integrante": "gabitolage",
+    "timestamp_verificacao": "2026-09-17T15:23:28.689920+00:00",
+    "sistema_operacional": "Windows 11",
+    "python_versao": "3.13.5",
+    "pytest_versao": "8.3.4",
+    "radon_versao": "6.0.1",
+    "node_versao": "20.19.4",
+    "jscpd_versao": "5.2.1",
+    "ide_versao": "1.137.0",
+    "assistente_ia": "GitHub Copilot",
+    "assistente_ia_versao": "1.388.0",
+    "git_versao": "2.44.0",
+    "itens_faltando": "",
+    "pronto": "False"
   }
 ]

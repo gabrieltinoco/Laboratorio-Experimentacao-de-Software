@@ -7,3 +7,4 @@ __pycache__/
 # em diretorio temporario. So o resultado consolidado (data/metricas.csv) e
 # versionado.
 data/jscpd/
+trials/_work/

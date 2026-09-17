@@ -1,1 +1,0 @@
-trial_id,integrante,kata,tratamento,codigo_dir,arquivos_analisados,arquivos_ilegiveis,arquivos,loc,sloc,linhas_comentario,linhas_branco,funcoes,cc_media,cc_mediana,cc_max,cc_total,cc_total_por_kloc,mi_medio,dup_percentual,dup_linhas,dup_clones,radon_versao,jscpd_versao,jscpd_min_lines,jscpd_min_tokens,timestamp_coleta,observacoes

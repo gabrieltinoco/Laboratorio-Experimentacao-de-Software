@@ -6,12 +6,24 @@ Define o formato usado para registrar os trials naexecução do experimento(Lab0
 
 ## Como rodar um trial
 
+Antes de iniciar o cronômetro, copie o esqueleto da kata (de `katas/<id>/`,
+ver [`docs/katas.md`](katas.md)) para uma pasta de trabalho — é nela que o
+código é editado durante o trial:
+
+```powershell
+Copy-Item -Recurse katas\<id-do-kata> trials\_work\<id-do-kata>_<tratamento>
+```
+
+Depois, rode o cronômetro apontando `--test-cmd` e `--codigo-dir` para essa
+pasta:
+
 ```bash
 python src/cronometro_trial.py \
   --integrante "<nome>" \
   --kata "<id-do-kata>" \
   --tratamento com_ia \
-  --test-cmd "<comando que roda os testes de aceitação do kata>"
+  --test-cmd "pytest trials/_work/<id-do-kata>_<tratamento>" \
+  --codigo-dir "trials/_work/<id-do-kata>_<tratamento>"
 ```
 
 Fluxo:
@@ -23,6 +35,11 @@ Fluxo:
    registrado como exatamente 35 min, e o trial **não é descartado**.
 4. Ao encerrar (manual ou censura), o script roda `--test-cmd` automaticamente
    e classifica o resultado (ver `status` abaixo).
+5. Se `--codigo-dir` foi informado, o script copia essa pasta para
+   `trials/<trial_id>/` automaticamente — é lá que
+   [`src/metricas_estaticas.py`](../src/metricas_estaticas.py) procura o
+   código do trial na S03. Sem `--codigo-dir`, essa cópia precisa ser feita à
+   mão antes de rodar as métricas.
 
 O time-box só pode ser **reduzido** via `--timebox <min>`, nunca aumentado
 (`--timebox` > 35 é rejeitado pelo script), conforme o enunciado.
