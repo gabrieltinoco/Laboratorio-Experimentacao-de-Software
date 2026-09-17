@@ -1,0 +1,10 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.5, pytest-8.3.4, pluggy-1.5.0
+rootdir: C:\Users\Gabito\Documents\PUC\MEDICAO\Laboratorio-Experimentacao-de-Software\Laboratorio02
+plugins: anyio-4.7.0
+collected 8 items
+
+trials\_work\fila-prioridade_com_ia\test_kata.py ........                [100%]
+
+============================== 8 passed in 0.05s ==============================
+
