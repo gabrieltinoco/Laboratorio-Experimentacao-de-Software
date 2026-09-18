@@ -1,0 +1,9 @@
+============================= test session starts =============================
+platform linux -- Python 3.12.0, pytest-8.3.2, pluggy-1.0.0
+rootdir: C:\dev\Laboratorio-Experimentacao-de-Software\Laboratorio02
+collected 8 items
+
+trials/sprint2_gabrieltinoco_agenda-recorrente_sem_ia_20260917T205000
+........
+
+============================== 8 passed in 1.59s ==============================
