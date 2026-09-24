@@ -1,0 +1,6 @@
+metrica,n_pares,n_pares_nao_nulos,mediana_com_ia,mediana_sem_ia,mediana_diferenca,W,p_bilateral,p_unilateral,rank_biserial,rejeita_h0,observacao
+cc_media,2,2,1.5,2.5,-1.0,0.0,0.5,,-1.0,False,"apenas 2 pares nao nulos: o menor p bilateral possivel e 0.500, logo o teste nao consegue rejeitar H0 com alpha = 0.05"
+cc_total_por_kloc,2,2,395.8325,445.8325,-50.0,0.0,0.5,,-1.0,False,"apenas 2 pares nao nulos: o menor p bilateral possivel e 0.500, logo o teste nao consegue rejeitar H0 com alpha = 0.05"
+dup_percentual,2,0,0.0,0.0,0.0,,,,,False,todas as diferencas sao zero; teste nao aplicavel (nao ha evidencia de diferenca)
+sloc,2,2,4.5,6.0,-1.5,0.0,0.5,,-1.0,False,"apenas 2 pares nao nulos: o menor p bilateral possivel e 0.500, logo o teste nao consegue rejeitar H0 com alpha = 0.05"
+mi_medio,2,2,77.495,73.8775,3.617500000000007,0.0,0.5,,1.0,False,"apenas 2 pares nao nulos: o menor p bilateral possivel e 0.500, logo o teste nao consegue rejeitar H0 com alpha = 0.05"

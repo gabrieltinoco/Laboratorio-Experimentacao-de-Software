@@ -1,0 +1,4 @@
+metrica,tratamento,trial_id,integrante,kata,valor,cerca_inferior,cerca_superior
+tempo_ate_verde_min,com_ia,sprint2_gabrieltinoco_janela-cobranca_com_ia_20260917T203300,Gabriel L. Tinoco,janela-cobranca,12.5,-2.4212,11.2487
+tempo_ate_verde_min,sem_ia,sprint2_gabrieltinoco_agenda-recorrente_sem_ia_20260917T205000,Gabriel L. Tinoco,agenda-recorrente,31.9,-1.635,13.605
+tempo_ate_verde_min,sem_ia,sprint2_gabrieltinoco_roteador-notificacoes_sem_ia_20260917T210700,Gabriel L. Tinoco,roteador-notificacoes,22.3,-1.635,13.605

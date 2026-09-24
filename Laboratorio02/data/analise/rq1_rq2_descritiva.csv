@@ -1,0 +1,7 @@
+metrica,tratamento,n,mediana,q1,q3,iqr,minimo,maximo,media
+tempo_ate_verde_min,com_ia,24,4.885,2.705,6.1225,3.4174999999999995,2.03,12.5,4.847083333333334
+tempo_ate_verde_min,sem_ia,24,5.9350000000000005,4.08,7.890000000000001,3.8100000000000005,2.62,31.9,7.572916666666667
+testes_falhando,com_ia,24,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+testes_falhando,sem_ia,24,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+taxa_sucesso,com_ia,24,1.0,1.0,1.0,0.0,1.0,1.0,1.0
+taxa_sucesso,sem_ia,24,1.0,1.0,1.0,0.0,1.0,1.0,1.0

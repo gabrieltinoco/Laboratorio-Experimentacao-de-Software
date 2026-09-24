@@ -1,0 +1,49 @@
+trial_id,integrante,kata,tratamento,status,censurado,tempo_ate_verde_min,testes_passando,testes_total,testes_falhando,taxa_sucesso
+sprint2_gabrieltinoco_fila-prioridade_com_ia_20260917T201600,Gabriel L. Tinoco,fila-prioridade,com_ia,passou,False,8.3,8,8,0,1.0
+sprint2_gabrieltinoco_janela-cobranca_com_ia_20260917T203300,Gabriel L. Tinoco,janela-cobranca,com_ia,passou,False,12.5,8,8,0,1.0
+sprint2_gabrieltinoco_agenda-recorrente_sem_ia_20260917T205000,Gabriel L. Tinoco,agenda-recorrente,sem_ia,passou,False,31.9,8,8,0,1.0
+sprint2_gabrieltinoco_roteador-notificacoes_sem_ia_20260917T210700,Gabriel L. Tinoco,roteador-notificacoes,sem_ia,passou,False,22.3,8,8,0,1.0
+gabitolage_fila-prioridade_com_ia_20260917T154923,gabitolage,fila-prioridade,com_ia,passou,False,2.44,8,8,0,1.0
+gabitolage_janela-cobranca_sem_ia_20260917T160127,gabitolage,janela-cobranca,sem_ia,passou,False,5.33,8,8,0,1.0
+gabitolage_agenda-recorrente_com_ia_20260917T162420,gabitolage,agenda-recorrente,com_ia,passou,False,2.77,8,8,0,1.0
+gabitolage_roteador-notificacoes_sem_ia_20260917T163806,gabitolage,roteador-notificacoes,sem_ia,passou,False,4.72,8,8,0,1.0
+eduardo_fila-prioridade_com_ia_20260920T130835,Eduardo,fila-prioridade,com_ia,passou,False,4.89,8,8,0,1.0
+eduardo_janela-cobranca_sem_ia_20260920T130916,Eduardo,janela-cobranca,sem_ia,passou,False,4.38,8,8,0,1.0
+eduardo_agenda-recorrente_com_ia_20260920T131655,Eduardo,agenda-recorrente,com_ia,passou,False,2.52,8,8,0,1.0
+eduardo_roteador-notificacoes_sem_ia_20260920T130551,Eduardo,roteador-notificacoes,sem_ia,passou,False,2.69,8,8,0,1.0
+saulo_fila-prioridade_com_ia_20260918T165156,Saulo,fila-prioridade,com_ia,passou,False,2.08,8,8,0,1.0
+saulo_janela-cobranca_sem_ia_20260918T163812,Saulo,janela-cobranca,sem_ia,passou,False,6.39,8,8,0,1.0
+saulo_agenda-recorrente_com_ia_20260918T170057,Saulo,agenda-recorrente,com_ia,passou,False,5.84,8,8,0,1.0
+saulo_roteador-notificacoes_sem_ia_20260918T165517,Saulo,roteador-notificacoes,sem_ia,passou,False,3.21,8,8,0,1.0
+ian_fila-prioridade_com_ia_20260918T180423,Ian,fila-prioridade,com_ia,passou,False,6.19,8,8,0,1.0
+ian_janela-cobranca_sem_ia_20260918T180307,Ian,janela-cobranca,sem_ia,passou,False,2.76,8,8,0,1.0
+ian_agenda-recorrente_com_ia_20260918T181630,Ian,agenda-recorrente,com_ia,passou,False,6.3,8,8,0,1.0
+ian_roteador-notificacoes_sem_ia_20260918T182447,Ian,roteador-notificacoes,sem_ia,passou,False,6.74,8,8,0,1.0
+jolonga_fila-prioridade_com_ia_20260920T190223,Jolonga,fila-prioridade,com_ia,passou,False,2.72,8,8,0,1.0
+jolonga_janela-cobranca_sem_ia_20260920T192250,Jolonga,janela-cobranca,sem_ia,passou,False,5.48,8,8,0,1.0
+jolonga_agenda-recorrente_com_ia_20260920T191643,Jolonga,agenda-recorrente,com_ia,passou,False,2.66,8,8,0,1.0
+jolonga_roteador-notificacoes_sem_ia_20260920T191857,Jolonga,roteador-notificacoes,sem_ia,passou,False,9.71,8,8,0,1.0
+alemao_fila-prioridade_com_ia_20260924T182207,Alemao,fila-prioridade,com_ia,passou,False,2.55,8,8,0,1.0
+alemao_janela-cobranca_sem_ia_20260924T184054,Alemao,janela-cobranca,sem_ia,passou,False,5.24,8,8,0,1.0
+alemao_agenda-recorrente_com_ia_20260924T184652,Alemao,agenda-recorrente,com_ia,passou,False,2.8,8,8,0,1.0
+alemao_roteador-notificacoes_sem_ia_20260924T183709,Alemao,roteador-notificacoes,sem_ia,passou,False,3.44,8,8,0,1.0
+marco_fila-prioridade_sem_ia_20260923T165106,Marco,fila-prioridade,sem_ia,passou,False,7.98,8,8,0,1.0
+marco_janela-cobranca_com_ia_20260923T164852,Marco,janela-cobranca,com_ia,passou,False,4.88,8,8,0,1.0
+marco_agenda-recorrente_sem_ia_20260923T165825,Marco,agenda-recorrente,sem_ia,passou,False,6.88,8,8,0,1.0
+marco_roteador-notificacoes_com_ia_20260923T171928,Marco,roteador-notificacoes,com_ia,passou,False,6.05,8,8,0,1.0
+felipemello_fila-prioridade_sem_ia_20260921T171715,Felipe Mello,fila-prioridade,sem_ia,passou,False,7.71,8,8,0,1.0
+felipemello_janela-cobranca_com_ia_20260921T173204,Felipe Mello,janela-cobranca,com_ia,passou,False,6.24,8,8,0,1.0
+felipemello_agenda-recorrente_sem_ia_20260921T172850,Felipe Mello,agenda-recorrente,sem_ia,passou,False,7.86,8,8,0,1.0
+felipemello_roteador-notificacoes_com_ia_20260921T174012,Felipe Mello,roteador-notificacoes,com_ia,passou,False,4.82,8,8,0,1.0
+felipao_fila-prioridade_sem_ia_20260919T195350,Felipão,fila-prioridade,sem_ia,passou,False,2.62,8,8,0,1.0
+felipao_janela-cobranca_com_ia_20260919T195516,Felipão,janela-cobranca,com_ia,passou,False,3.25,8,8,0,1.0
+felipao_agenda-recorrente_sem_ia_20260919T200446,Felipão,agenda-recorrente,sem_ia,passou,False,9.25,8,8,0,1.0
+felipao_roteador-notificacoes_com_ia_20260919T201804,Felipão,roteador-notificacoes,com_ia,passou,False,7.64,8,8,0,1.0
+roberta_fila-prioridade_sem_ia_20260920T162802,Roberta,fila-prioridade,sem_ia,passou,False,4.18,8,8,0,1.0
+roberta_janela-cobranca_com_ia_20260920T164334,Roberta,janela-cobranca,com_ia,passou,False,5.87,8,8,0,1.0
+roberta_agenda-recorrente_sem_ia_20260920T165605,Roberta,agenda-recorrente,sem_ia,passou,False,3.78,8,8,0,1.0
+roberta_roteador-notificacoes_com_ia_20260920T170542,Roberta,roteador-notificacoes,com_ia,passou,False,6.1,8,8,0,1.0
+pedrinho_fila-prioridade_sem_ia_20260919T145722,Pedrinho,fila-prioridade,sem_ia,passou,False,7.78,8,8,0,1.0
+pedrinho_janela-cobranca_com_ia_20260919T150541,Pedrinho,janela-cobranca,com_ia,passou,False,4.89,8,8,0,1.0
+pedrinho_agenda-recorrente_sem_ia_20260919T151207,Pedrinho,agenda-recorrente,sem_ia,passou,False,9.42,8,8,0,1.0
+pedrinho_roteador-notificacoes_com_ia_20260919T154421,Pedrinho,roteador-notificacoes,com_ia,passou,False,2.03,8,8,0,1.0

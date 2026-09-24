@@ -1,0 +1,4 @@
+metrica,n_pares,n_pares_nao_nulos,mediana_com_ia,mediana_sem_ia,mediana_diferenca,W,p_bilateral,p_unilateral,rank_biserial,rejeita_h0,observacao
+tempo_ate_verde_min,12,12,4.702500000000001,5.48,-1.815,12.0,0.0341796875,0.01708984375,-0.6923076923076923,True,
+testes_falhando,12,0,0.0,0.0,0.0,,,,,False,todas as diferencas sao zero; teste nao aplicavel (nao ha evidencia de diferenca)
+taxa_sucesso,12,0,1.0,1.0,0.0,,,,,False,todas as diferencas sao zero; teste nao aplicavel (nao ha evidencia de diferenca)
