@@ -171,6 +171,16 @@ usa as medianas normalizadas de tempo, taxa de sucesso, complexidade, duplicaç�
 e SLOC. Para manter a leitura consistente, as métricas em que menor é melhor
 são invertidas, de modo que valores mais externos representam um perfil melhor.
 
+![Dashboard 2x2 com os resultados das RQs](../graficos/dashboard_lab02.png)
+
+*Figura 1 — Dashboard comparativo de tempo, testes passando, complexidade,
+duplicação e índice de manutenibilidade.*
+
+![Radar com as medianas normalizadas](../graficos/dashboard_radar.png)
+
+*Figura 2 — Radar holístico: valores mais externos representam melhor perfil;
+métricas em que menor é melhor foram invertidas.*
+
 ---
 
 ## 5. Discussão
