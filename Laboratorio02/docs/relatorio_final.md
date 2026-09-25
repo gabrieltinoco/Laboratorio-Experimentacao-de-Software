@@ -2,7 +2,7 @@
 
 - **Disciplina:** Laboratório de Experimentação de Software
 - **Laboratório:** Lab02
-- **Integrantes:** Gabriel L. Tinoco, gabitolage, Eduardo, Saulo, Ian, Jolonga, Alemao, Marco, Felipe Mello, Felipão, Roberta e Pedrinho
+- **Integrantes:** Gabriel L. Tinoco, Gabriel Lage
 - **Repositório/GitHub Projects:** [Laboratorio-Experimentacao-de-Software](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software)
 
 ---
