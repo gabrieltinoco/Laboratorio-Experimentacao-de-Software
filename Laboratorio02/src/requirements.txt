@@ -2,6 +2,9 @@
 # testes de cada kata sao escritos em pytest, que tambem e o runner reconhecido
 # pelo parser de resultado do cronometro.
 pytest
+pandas
+matplotlib
+seaborn
 
 # Metricas estaticas da RQ03 (src/metricas_estaticas.py): o Radon fornece
 # complexidade ciclomatica (cc), LOC/SLOC (raw) e Indice de Manutenibilidade

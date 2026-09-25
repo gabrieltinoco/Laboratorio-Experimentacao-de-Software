@@ -1,0 +1,3 @@
+tratamento,Tempo (menor e melhor),Taxa de sucesso,Complexidade CC (menor e melhor),Duplicacao (menor e melhor),SLOC (menor e melhor)
+com_ia,1.0,1.0,1.0,1.0,1.0
+sem_ia,0.0,1.0,0.0,1.0,0.0
