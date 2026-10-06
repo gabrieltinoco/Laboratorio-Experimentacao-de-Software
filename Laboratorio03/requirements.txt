@@ -1,0 +1,14 @@
+# Coleta (pipeline/): requisicoes HTTP diretas a API REST do GitHub. O cliente e
+# escrito pelo grupo (pipeline/http_client.py) - nenhuma biblioteca de terceiros
+# consulta a API, como exige o enunciado.
+requests>=2.31
+
+# Leitura do config.yaml (janela, filtros, caminhos).
+PyYAML>=6.0
+
+# Consolidacao dos CSVs (funil, repositorios) e analises das sprints seguintes.
+pandas>=2.0
+
+# Testes das funcoes de metrica e do pipeline, com cobertura medida no CI.
+pytest>=8.0
+pytest-cov>=5.0

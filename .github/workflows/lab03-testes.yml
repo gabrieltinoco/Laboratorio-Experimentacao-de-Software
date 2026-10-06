@@ -1,0 +1,26 @@
+name: lab03-testes
+
+# Testes do pipeline do Lab03. Roda so quando algo da pasta Laboratorio03 muda.
+on:
+  push:
+    paths: ["Laboratorio03/**", ".github/workflows/lab03-testes.yml"]
+  pull_request:
+    paths: ["Laboratorio03/**", ".github/workflows/lab03-testes.yml"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Laboratorio03
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: Laboratorio03/requirements.txt
+      - run: pip install -r requirements.txt
+      # Exigencia do enunciado: >= 80% de cobertura no modulo de metricas.
+      - run: pytest --cov=metricas --cov=pipeline --cov-report=term-missing
+      - run: coverage report --include="metricas/*" --fail-under=80

@@ -1,0 +1,41 @@
+# Configuracao do pipeline do Lab03 (Mineracao de Metricas DORA).
+# Uso: python -m pipeline --config config.yaml
+# O token NAO fica aqui: exporte GITHUB_TOKEN no ambiente.
+
+# Janela de observacao de 12 meses.
+janela:
+  inicio: "2025-10-01"
+  fim: "2026-09-30"
+
+# Selecao de repositorios candidatos. A busca retorna no maximo 1.000
+# resultados por consulta, por isso e fatiada em faixas de estrelas.
+selecao:
+  estrelas_minimas: 1000
+  faixas_estrelas:
+    - [1000, 1500]
+    - [1501, 2000]
+    - [2001, 3000]
+    - [3001, 5000]
+    - [5001, 10000]
+    - [10001, 20000]
+    - [20001, 50000]
+    - [50001, null]      # null = sem limite superior
+  max_repositorios: 100  # S01: 100; S02: ampliar ate ter >= 300 apos os filtros
+
+# Criterio minimo de inclusao.
+inclusao:
+  min_releases: 5
+  min_workflow_runs: 50
+
+# Cliente HTTP (pipeline/http_client.py).
+http:
+  base_url: "https://api.github.com"
+  per_page: 100
+  max_tentativas: 5      # tentativas para 5xx/erros de rede (backoff 1, 2, 4, 8 s...)
+  backoff_base_s: 1
+  timeout_s: 30
+
+# Caminhos (relativos a pasta Laboratorio03).
+caminhos:
+  cache: "cache"         # no .gitignore
+  dados: "dados"

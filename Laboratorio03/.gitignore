@@ -1,0 +1,19 @@
+# Segredos: o token do GitHub vem SEMPRE da variavel de ambiente GITHUB_TOKEN.
+.env
+.env.*
+
+# Cache das respostas da API (pode ter varios GB; e regenerado pela coleta).
+cache/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.venv/
+venv/
+
+# Notebooks
+.ipynb_checkpoints/
