@@ -35,6 +35,27 @@ python -m pipeline --config config.yaml
 
 Todos os parâmetros (janela de observação, faixas de estrelas da busca, critério mínimo de inclusão, tentativas e backoff) ficam em [config.yaml](config.yaml).
 
+### Seleção de repositórios e funil
+
+```bash
+python -m pipeline.selecao --config config.yaml
+```
+
+1. **Busca fatiada:** uma consulta a `/search/repositories` por faixa de estrelas de `selecao.faixas_estrelas`, com `pushed:>=<início da janela> archived:false`. Cada consulta devolve no máximo 1.000 resultados. Se uma faixa tiver mais, o log avisa e a faixa pode ser dividida no `config.yaml`. Repositórios repetidos entre faixas entram uma vez só.
+2. **Ordem de avaliação:** os candidatos são embaralhados com `selecao.semente`, para a amostra não ficar só com os mais populares, e avaliados nessa ordem até a amostra chegar a `selecao.max_repositorios`.
+3. **GitHub Actions:** repositórios com `total_count = 0` em `/actions/workflows` são descartados antes de qualquer outra chamada.
+4. **Metadados:** estrelas, linguagem, `default_branch`, data de criação, idade em anos no fim da janela e número de contribuidores (`/contributors?per_page=1&anon=true` + header `Link`). Quando o GitHub se recusa a listar os contribuidores (repositório grande demais), o valor fica vazio e o repositório continua na amostra.
+
+Erros 4xx descartam o repositório com o código HTTP como motivo. Falhas de rede que continuam depois de todas as tentativas interrompem a coleta, para não virar descarte. Basta rodar de novo para continuar.
+
+Saídas em `dados/`:
+
+| Arquivo | Conteúdo |
+|---|---|
+| `metadados.csv` | um repositório por linha: `repositorio`, `url`, `estrelas`, `linguagem`, `default_branch`, `criado_em`, `idade_anos`, `contribuidores`, `workflows` |
+| `funil.csv` | quantos repositórios restam em cada etapa, quantos saíram e os motivos agregados |
+| `descartes.csv` | cada repositório descartado, com etapa e motivo |
+
 ### Cache e retomada
 
 Cada resposta da API é salva em `cache/` (um JSON por requisição, agrupado por repositório em `cache/repos/<dono>__<repo>/`). Se a coleta for interrompida (rate limit, queda de rede, `Ctrl+C`), basta rodar o mesmo comando de novo: o que já está no cache não é pedido outra vez. Respostas 404/409/422/451 também ficam no cache, porque não mudam se repetidas; respostas 5xx e 403 não.
@@ -61,7 +82,10 @@ Laboratorio03/
 ├── config.yaml          # janela, filtros, caminhos
 ├── requirements.txt
 ├── pipeline/
-│   └── http_client.py   # GET autenticado, paginação, cache, rate limit, backoff
+│   ├── http_client.py   # GET autenticado, paginação, cache, rate limit, backoff
+│   ├── selecao.py       # busca fatiada, filtro de Actions, seleção da amostra
+│   ├── metadados.py     # estrelas, linguagem, idade, contribuidores
+│   └── funil.py         # funil.csv e descartes.csv
 ├── metricas/            # funções puras de cálculo das métricas
 ├── tests/
 ├── dados/               # CSVs finais + dicionário de dados

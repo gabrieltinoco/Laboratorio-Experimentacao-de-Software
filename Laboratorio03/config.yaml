@@ -21,6 +21,7 @@ selecao:
     - [20001, 50000]
     - [50001, null]      # null = sem limite superior
   max_repositorios: 100  # S01: 100; S02: ampliar ate ter >= 300 apos os filtros
+  semente: 42            # ordem aleatoria em que os candidatos sao avaliados
 
 # Criterio minimo de inclusao.
 inclusao:
