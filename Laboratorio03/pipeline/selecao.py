@@ -148,11 +148,20 @@ def main(argv: list[str] | None = None) -> None:
 
     config = yaml.safe_load(Path(args.config).read_text(encoding="utf-8"))
     pasta = Path(config["caminhos"]["dados"])
-    amostra, funil = selecionar(GitHubClient.from_config(config), config)
+    from pipeline.coleta import ColetorRepositorio
+
+    cliente = GitHubClient.from_config(config)
+    coletor = ColetorRepositorio(config)
+    amostra, funil = selecionar(
+        cliente,
+        config,
+        criterios=[("mínimo de releases e workflow runs", coletor)],
+    )
 
     pasta.mkdir(parents=True, exist_ok=True)
     amostra.to_csv(pasta / "metadados.csv", index=False)
     funil.salvar(pasta)
+    coletor.salvar(pasta)
     print(funil.tabela().to_string(index=False))
 
 

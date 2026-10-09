@@ -48,6 +48,15 @@ python -m pipeline.selecao --config config.yaml
 
 Erros 4xx descartam o repositório com o código HTTP como motivo. Falhas de rede que continuam depois de todas as tentativas interrompem a coleta, para não virar descarte. Basta rodar de novo para continuar.
 
+A seleção também coleta releases publicadas e workflow runs do branch padrão
+disparados por `push`. Só entram na amostra repositórios com ao menos o mínimo
+configurado de releases publicadas e runs com conclusão `success`, `failure`,
+`timed_out` ou `startup_failure`. Releases prévias e drafts são preservados nos
+dados, mas não contam para o critério principal. Os workflow runs são consultados
+por mês; meses com 1.000 resultados ou mais geram um alerta porque a API pode
+truncar a consulta. Comparações de releases são paginadas e respostas 404 são
+registradas sem interromper a coleta.
+
 Saídas em `dados/`:
 
 | Arquivo | Conteúdo |
@@ -55,6 +64,11 @@ Saídas em `dados/`:
 | `metadados.csv` | um repositório por linha: `repositorio`, `url`, `estrelas`, `linguagem`, `default_branch`, `criado_em`, `idade_anos`, `contribuidores`, `workflows` |
 | `funil.csv` | quantos repositórios restam em cada etapa, quantos saíram e os motivos agregados |
 | `descartes.csv` | cada repositório descartado, com etapa e motivo |
+| `releases.jsonl` | releases coletadas na janela e release principal anterior |
+| `commits_entre_releases.jsonl` | commits paginados de cada comparação, com `commit.author.date` |
+| `compare_404.jsonl` | releases cujo endpoint `compare` retornou 404 |
+| `workflow_runs.jsonl` | runs do branch padrão e evento `push` |
+| `coleta_resumo.json` | contagem de releases/runs válidos, 404 de compare e alertas mensais |
 
 ### Cache e retomada
 
@@ -86,8 +100,12 @@ Laboratorio03/
 │   ├── selecao.py       # busca fatiada, filtro de Actions, seleção da amostra
 │   ├── metadados.py     # estrelas, linguagem, idade, contribuidores
 │   └── funil.py         # funil.csv e descartes.csv
-├── metricas/            # funções puras de cálculo das métricas
+│   ├── releases.py      # releases e commits entre releases
+│   ├── workflow_runs.py # runs segmentados por mês
+│   └── coleta.py        # critério mínimo e persistência da coleta
+├── metricas/            # funções puras de cálculo e classificação DORA
 ├── tests/
+├── artigo/              # hipóteses da introdução e seções incrementais
 ├── dados/               # CSVs finais + dicionário de dados
 └── cache/               # respostas da API (fora do git)
 ```

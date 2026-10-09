@@ -35,6 +35,8 @@ class ClienteFalso:
     `workflows` / `contribuidores`: {nome: int ou ErroGitHub}
     """
 
+    per_page = 100
+
     def __init__(self, busca=None, workflows=None, contribuidores=None):
         self.busca = busca or {}
         self.workflows = workflows or {}
@@ -42,10 +44,16 @@ class ClienteFalso:
         self.chamadas: list[str] = []
 
     def paginas(self, caminho, params=None):
+        if caminho.endswith("/actions/runs"):
+            yield Resposta(200, caminho, {"total_count": 0, "workflow_runs": []})
+            return
         total, paginas = self.busca[params["q"]]
         for itens in paginas:
             self.chamadas.append(f"search {params['q']}")
             yield Resposta(200, caminho, {"total_count": total, "items": itens})
+
+    def get_todos(self, caminho, params=None, chave=None):
+        return []
 
     def get(self, caminho, params=None):
         self.chamadas.append(caminho)
@@ -232,6 +240,7 @@ def test_funil_salva_csvs(tmp_path):
 
 def test_main_grava_metadados_e_funil(tmp_path, monkeypatch):
     cliente, cfg = cenario()
+    cfg["inclusao"] = {"min_releases": 0, "min_workflow_runs": 0}
     cfg["caminhos"] = {"dados": str(tmp_path / "dados"), "cache": str(tmp_path / "cache")}
     arquivo = tmp_path / "config.yaml"
     arquivo.write_text(yaml.safe_dump(cfg), encoding="utf-8")
@@ -241,3 +250,5 @@ def test_main_grava_metadados_e_funil(tmp_path, monkeypatch):
 
     assert len(pd.read_csv(tmp_path / "dados" / "metadados.csv")) == 2
     assert (tmp_path / "dados" / "funil.csv").exists()
+    assert (tmp_path / "dados" / "releases.jsonl").exists()
+    assert (tmp_path / "dados" / "coleta_resumo.json").exists()
