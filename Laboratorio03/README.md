@@ -31,11 +31,13 @@ $env:GITHUB_TOKEN = "ghp_..."          # Windows PowerShell
 python -m pipeline --config config.yaml
 ```
 
-> O comando único é montado na Issue #6. Até lá, os módulos podem ser usados individualmente (ver abaixo).
+O comando roda, em sequência, a seleção com o funil, a coleta de releases, commits entre releases e workflow runs, e o cálculo das métricas. O resultado final é `dados/repositorios.csv`, com uma linha por repositório da amostra. A primeira execução com 100 repositórios leva algumas horas por causa do rate limit. Se for interrompida, rode o mesmo comando de novo: o cache continua de onde parou.
 
 Todos os parâmetros (janela de observação, faixas de estrelas da busca, critério mínimo de inclusão, tentativas e backoff) ficam em [config.yaml](config.yaml).
 
 ### Seleção de repositórios e funil
+
+Para rodar só a seleção e a coleta, sem calcular as métricas:
 
 ```bash
 python -m pipeline.selecao --config config.yaml
@@ -69,6 +71,28 @@ Saídas em `dados/`:
 | `compare_404.jsonl` | releases cujo endpoint `compare` retornou 404 |
 | `workflow_runs.jsonl` | runs do branch padrão e evento `push` |
 | `coleta_resumo.json` | contagem de releases/runs válidos, 404 de compare e alertas mensais |
+| `repositorios.csv` | metadados + métricas + classificação DORA (só no comando completo; ver abaixo) |
+
+### Métricas por repositório (`repositorios.csv`)
+
+Além das colunas de `metadados.csv`:
+
+| Coluna | Unidade | Origem |
+|---|---|---|
+| `releases_na_janela` | contagem | releases com `draft = false` e `prerelease = false` publicadas na janela |
+| `releases_comparadas` | contagem | releases com release anterior e `compare` disponível (entram no lead time) |
+| `compare_404` | contagem | releases ignoradas no lead time porque o `compare` retornou 404 |
+| `workflow_runs_validos` | contagem | runs com `conclusion` de sucesso ou falha |
+| `meses_no_teto_de_runs` | contagem | meses em que a consulta de runs atingiu 1.000 resultados |
+| `deploy_freq_semana` | releases/semana | `releases_na_janela` ÷ semanas da janela |
+| `lead_time_release_dias` | dias | variante (a): mediana, entre as releases, de publicação − commit mais antigo |
+| `lead_time_commit_dias` | dias | variante (b): mediana de publicação − `commit.author.date` de todos os commits |
+| `cfr_ci` | proporção (0–1) | CFR (a): falhas ÷ (falhas + sucessos) dos workflow runs |
+| `recuperacao_horas` | horas | mediana dos episódios de falha encerrados, por workflow |
+| `episodios_falha` / `episodios_censurados` | contagem | episódios de falha e os que não terminaram na janela |
+| `proporcao_censurados` | proporção (0–1) | `episodios_censurados` ÷ `episodios_falha` |
+| `categoria_*` | Elite/High/Medium/Low | classificação de referência (C1) de frequência, lead time (a), CFR (a) e recuperação |
+| `categoria_geral` | Elite/High/Medium/Low | mediana dos pontos das quatro categorias, arredondada para baixo; vazia se faltar alguma métrica |
 
 ### Cache e retomada
 
@@ -96,13 +120,15 @@ Laboratorio03/
 ├── config.yaml          # janela, filtros, caminhos
 ├── requirements.txt
 ├── pipeline/
+│   ├── __main__.py      # python -m pipeline: executa todas as etapas
 │   ├── http_client.py   # GET autenticado, paginação, cache, rate limit, backoff
 │   ├── selecao.py       # busca fatiada, filtro de Actions, seleção da amostra
 │   ├── metadados.py     # estrelas, linguagem, idade, contribuidores
-│   └── funil.py         # funil.csv e descartes.csv
+│   ├── funil.py         # funil.csv e descartes.csv
 │   ├── releases.py      # releases e commits entre releases
 │   ├── workflow_runs.py # runs segmentados por mês
-│   └── coleta.py        # critério mínimo e persistência da coleta
+│   ├── coleta.py        # critério mínimo e persistência da coleta
+│   └── consolidacao.py  # métricas por repositório e repositorios.csv
 ├── metricas/            # funções puras de cálculo e classificação DORA
 ├── tests/
 ├── artigo/              # hipóteses da introdução e seções incrementais
