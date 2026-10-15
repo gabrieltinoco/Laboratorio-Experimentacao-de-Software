@@ -20,7 +20,7 @@ selecao:
     - [10001, 20000]
     - [20001, 50000]
     - [50001, null]      # null = sem limite superior
-  max_repositorios: 100  # S01: 100; S02: ampliar ate ter >= 300 apos os filtros
+  max_repositorios: 320  # >= 300 apos os filtros, com folga para perdas na replicacao
   semente: 42            # ordem aleatoria em que os candidatos sao avaliados
 
 # Criterio minimo de inclusao.
@@ -40,3 +40,12 @@ http:
 caminhos:
   cache: "cache"         # no .gitignore
   dados: "dados"
+
+# Amostra-ouro (validacao/). Cada avaliador recebe a planilha
+# validacao/rotulos_<avaliador>.xlsx; troque os identificadores se quiser.
+validacao:
+  semente: 42
+  repositorios: 60
+  releases_por_repositorio: 5
+  avaliadores: ["avaliador_1", "avaliador_2"]
+  pasta: "validacao"

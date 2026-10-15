@@ -31,7 +31,7 @@ $env:GITHUB_TOKEN = "ghp_..."          # Windows PowerShell
 python -m pipeline --config config.yaml
 ```
 
-O comando roda, em sequência, a seleção com o funil, a coleta de releases, commits entre releases e workflow runs, e o cálculo das métricas. O resultado final é `dados/repositorios.csv`, com uma linha por repositório da amostra. A primeira execução com 100 repositórios leva algumas horas por causa do rate limit. Se for interrompida, rode o mesmo comando de novo: o cache continua de onde parou.
+O comando roda, em sequência, a seleção com o funil, a coleta de releases, commits entre releases e workflow runs, e o cálculo das métricas. O resultado final é `dados/repositorios.csv`, com uma linha por repositório da amostra. A amostra tem 320 repositórios (`selecao.max_repositorios`), acima do mínimo de 300 exigido após os filtros. A primeira execução leva várias horas por causa do rate limit. Se for interrompida, rode o mesmo comando de novo: o cache continua de onde parou.
 
 Todos os parâmetros (janela de observação, faixas de estrelas da busca, critério mínimo de inclusão, tentativas e backoff) ficam em [config.yaml](config.yaml).
 
@@ -75,7 +75,7 @@ Saídas em `dados/`:
 
 ### Métricas por repositório (`repositorios.csv`)
 
-Além das colunas de `metadados.csv`:
+O dicionário completo de todas as saídas (tipo, unidade e fórmula ou origem de cada coluna) está em [dados/DICIONARIO.md](dados/DICIONARIO.md). Resumo, além das colunas de `metadados.csv`:
 
 | Coluna | Unidade | Origem |
 |---|---|---|
@@ -94,6 +94,20 @@ Além das colunas de `metadados.csv`:
 | `categoria_*` | Elite/High/Medium/Low | classificação de referência (C1) de frequência, lead time (a), CFR (a) e recuperação |
 | `categoria_geral` | Elite/High/Medium/Low | mediana dos pontos das quatro categorias, arredondada para baixo; vazia se faltar alguma métrica |
 
+### Validação manual (amostra-ouro)
+
+Depois da coleta, com `dados/repositorios.csv` e `dados/releases.jsonl` prontos:
+
+```bash
+python -m validacao.gerar_planilha --config config.yaml   # sorteio + uma planilha por avaliador
+# cada avaliador preenche validacao/rotulos_<avaliador>.xlsx, sem consultar o outro
+python -m validacao.concordancia --config config.yaml     # kappa de Cohen/Fleiss + divergencias.csv
+# reunião de consenso: preencher rotulo_consenso e motivo em validacao/divergencias.csv
+python -m validacao.consenso --config config.yaml         # consenso_repositorios.csv e consenso_releases.csv
+```
+
+Semente, tamanho da amostra e identificadores dos avaliadores ficam na seção `validacao` do [config.yaml](config.yaml). Critérios de rotulação e regras de desempate estão em [validacao/PROTOCOLO.md](validacao/PROTOCOLO.md).
+
 ### Cache e retomada
 
 Cada resposta da API é salva em `cache/` (um JSON por requisição, agrupado por repositório em `cache/repos/<dono>__<repo>/`). Se a coleta for interrompida (rate limit, queda de rede, `Ctrl+C`), basta rodar o mesmo comando de novo: o que já está no cache não é pedido outra vez. Respostas 404/409/422/451 também ficam no cache, porque não mudam se repetidas; respostas 5xx e 403 não.
@@ -108,7 +122,7 @@ Para forçar uma coleta nova, apague a pasta `cache/`.
 ## Testes
 
 ```bash
-pytest --cov=metricas --cov=pipeline --cov-report=term-missing
+pytest --cov=metricas --cov=pipeline --cov=validacao --cov-report=term-missing
 ```
 
 O CI ([.github/workflows/lab03-testes.yml](../.github/workflows/lab03-testes.yml)) roda os testes a cada push que altere esta pasta e falha se a cobertura de `metricas/` ficar abaixo de 80%.
@@ -130,6 +144,7 @@ Laboratorio03/
 │   ├── coleta.py        # critério mínimo e persistência da coleta
 │   └── consolidacao.py  # métricas por repositório e repositorios.csv
 ├── metricas/            # funções puras de cálculo e classificação DORA
+├── validacao/           # amostra-ouro: sorteio, planilhas, concordância, consenso, PROTOCOLO.md
 ├── tests/
 ├── artigo/              # hipóteses da introdução e seções incrementais
 ├── dados/               # CSVs finais + dicionário de dados
