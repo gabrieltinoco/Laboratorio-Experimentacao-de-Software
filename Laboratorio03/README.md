@@ -68,6 +68,7 @@ Saídas em `dados/` (os `.jsonl` passam de 100 MB e ficam fora do git; rodar o p
 | `funil.csv` | quantos repositórios restam em cada etapa, quantos saíram e os motivos agregados |
 | `descartes.csv` | cada repositório descartado, com etapa e motivo |
 | `releases.jsonl` | releases coletadas na janela e release principal anterior |
+| `tags.jsonl` | tags do repositório e data `commit.author.date` do commit apontado |
 | `commits_entre_releases.jsonl` | commits paginados de cada comparação, com `commit.author.date` |
 | `compare_404.jsonl` | releases cujo endpoint `compare` retornou 404 ou 422 |
 | `workflow_runs.jsonl` | runs do branch padrão e evento `push` |
@@ -86,9 +87,13 @@ O dicionário completo de todas as saídas (tipo, unidade e fórmula ou origem d
 | `workflow_runs_validos` | contagem | runs com `conclusion` de sucesso ou falha |
 | `meses_no_teto_de_runs` | contagem | meses em que a consulta de runs atingiu 1.000 resultados |
 | `deploy_freq_semana` | releases/semana | `releases_na_janela` ÷ semanas da janela |
+| `deploy_freq_com_prereleases_semana` | releases/semana | variante incluindo pré-releases publicadas, sem drafts |
+| `deploy_freq_tags_semana` | tags/semana | tags cujo commit apontado tem `author_date` na janela ÷ semanas |
 | `lead_time_release_dias` | dias | variante (a): mediana, entre as releases, de publicação − commit mais antigo |
 | `lead_time_commit_dias` | dias | variante (b): mediana de publicação − `commit.author.date` de todos os commits |
 | `cfr_ci` | proporção (0–1) | CFR (a): falhas ÷ (falhas + sucessos) dos workflow runs |
+| `cfr_releases` | proporção (0–1) | CFR (b): releases principais seguidas por corretiva em até 7 dias ÷ releases avaliáveis |
+| `releases_avaliadas_cfr` / `releases_falhas_cfr` / `releases_censuradas_cfr` | contagem | denominador, falhas e releases dos últimos 7 dias excluídas do CFR (b) |
 | `recuperacao_horas` | horas | mediana dos episódios de falha encerrados, por workflow |
 | `episodios_falha` / `episodios_censurados` | contagem | episódios de falha e os que não terminaram na janela |
 | `proporcao_censurados` | proporção (0–1) | `episodios_censurados` ÷ `episodios_falha` |
@@ -108,6 +113,16 @@ python -m validacao.consenso --config config.yaml         # consenso_repositorio
 ```
 
 Semente, tamanho da amostra e identificadores dos avaliadores ficam na seção `validacao` do [config.yaml](config.yaml). Critérios de rotulação e regras de desempate estão em [validacao/PROTOCOLO.md](validacao/PROTOCOLO.md).
+
+Após a reunião de consenso, avalie e registre cada versão da heurística:
+
+```bash
+python -m validacao.avaliar_heuristica --config config.yaml --versao v1
+```
+
+O resultado é acrescentado a `validacao/avaliacao_heuristica.csv`; uma versão
+já registrada não é sobrescrita. O comando requer
+`validacao/consenso_releases.csv` produzido pelo consenso.
 
 ### Cache e retomada
 

@@ -50,6 +50,8 @@ class ClienteColeta:
     def get_todos(self, caminho, params=None, chave=None):
         if caminho.endswith("/releases"):
             return self.releases
+        if caminho.endswith("/tags"):
+            return []
         resultado = self.comparacoes[caminho]
         if isinstance(resultado, Exception):
             raise resultado
@@ -110,6 +112,7 @@ def test_coletor_guarda_dados_de_repo_aprovado_e_salva_jsonl(tmp_path):
     coletor.salvar(tmp_path)
 
     assert len((tmp_path / "releases.jsonl").read_text(encoding="utf-8").splitlines()) == 5
+    assert (tmp_path / "tags.jsonl").read_text(encoding="utf-8") == ""
     assert len((tmp_path / "commits_entre_releases.jsonl").read_text(encoding="utf-8").splitlines()) == 3
     assert len((tmp_path / "compare_404.jsonl").read_text(encoding="utf-8").splitlines()) == 1
     runs_salvos = [
@@ -121,3 +124,4 @@ def test_coletor_guarda_dados_de_repo_aprovado_e_salva_jsonl(tmp_path):
     assert resumo["o/r"]["meses_no_teto"] == []
     assert resumo["o/r"]["compare_404"] == 1
     assert resumo["o/r"]["workflow_runs_validas"] == 3
+    assert resumo["o/r"]["tags_coletadas"] == 0
