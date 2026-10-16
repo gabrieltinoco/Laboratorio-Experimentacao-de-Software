@@ -8,6 +8,7 @@ from pathlib import Path
 from metricas.cfr import classificar_conclusion
 from pipeline.http_client import GitHubClient
 from pipeline.releases import coletar_commits_entre_releases, coletar_releases
+from pipeline.tags import coletar_tags
 from pipeline.workflow_runs import coletar_workflow_runs
 
 
@@ -52,11 +53,13 @@ class ColetorRepositorio:
         if motivos:
             return "; ".join(motivos)
 
+        tags = coletar_tags(cliente, repositorio)
         comparacoes, ignoradas_404 = coletar_commits_entre_releases(
             cliente, repositorio, releases, self.inicio, self.fim
         )
         self.coletas[repositorio] = {
             "releases": releases,
+            "tags": tags,
             "comparacoes": comparacoes,
             "compare_404": ignoradas_404,
             "workflow_runs": workflow_runs.runs,
@@ -71,6 +74,7 @@ class ColetorRepositorio:
         diretorio.mkdir(parents=True, exist_ok=True)
         registros = {
             "releases.jsonl": "releases",
+            "tags.jsonl": "tags",
             "commits_entre_releases.jsonl": "comparacoes",
             "compare_404.jsonl": "compare_404",
             "workflow_runs.jsonl": "workflow_runs",
@@ -98,6 +102,7 @@ class ColetorRepositorio:
                     and self.inicio <= release["published_at"][:10] <= self.fim
                     for release in coleta["releases"]
                 ),
+                "tags_coletadas": len(coleta["tags"]),
                 "workflow_runs_coletadas": len(coleta["workflow_runs"]),
                 "workflow_runs_validas": sum(
                     classificar_conclusion(run["conclusion"]) != "ignorar"

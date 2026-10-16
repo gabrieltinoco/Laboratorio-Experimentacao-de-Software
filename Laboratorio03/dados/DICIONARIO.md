@@ -43,9 +43,15 @@ Dataset final, com uma linha por repositório da amostra, ordenado por `reposito
 | Coluna | Tipo | Unidade | Origem / fórmula | RQ |
 |---|---|---|---|---|
 | `deploy_freq_semana` | decimal | releases/semana | `releases_na_janela` ÷ (dias da janela ÷ 7) | 01 |
+| `deploy_freq_com_prereleases_semana` | decimal | releases/semana | releases publicadas na janela, incluindo pré-releases e excluindo drafts, ÷ semanas | 07 |
+| `deploy_freq_tags_semana` | decimal | tags/semana | tags cujo commit apontado tem `author_date` na janela ÷ semanas | 07 |
 | `lead_time_release_dias` | decimal | dias | variante (a): para cada release comparada, `published_at` − `commit.author.date` do commit mais antigo incluído nela; valor do repositório = mediana entre as releases | 02 |
 | `lead_time_commit_dias` | decimal | dias | variante (b): `published_at` da release − `commit.author.date` de cada commit incluído; valor do repositório = mediana de todos os commits de todas as releases comparadas | 02 |
 | `cfr_ci` | decimal | proporção (0–1) | CFR (a), proxy de CI: runs com falha ÷ runs válidos | 03 |
+| `cfr_releases` | decimal | proporção (0–1) | CFR (b): releases principais avaliadas seguidas por uma corretiva em até 7 dias ÷ releases avaliadas; vazio sem denominador | 03 |
+| `releases_avaliadas_cfr` | inteiro | releases | releases principais da janela fora dos últimos 7 dias | 03 |
+| `releases_falhas_cfr` | inteiro | releases | releases avaliadas seguidas por uma release corretiva em até 7 dias | 03 |
+| `releases_censuradas_cfr` | inteiro | releases | releases principais nos últimos 7 dias da janela, excluídas do denominador | 03 |
 | `recuperacao_horas` | decimal | horas | por workflow, episódio = da primeira falha após um sucesso (`run_started_at`) até o fim do próximo sucesso do mesmo workflow (`updated_at`); valor do repositório = mediana dos episódios encerrados de todos os workflows | 04 |
 | `episodios_falha` | inteiro | episódios | episódios de falha, encerrados ou censurados | 04 |
 | `episodios_censurados` | inteiro | episódios | episódios sem sucesso posterior dentro da janela | 04 |
@@ -112,6 +118,16 @@ Uma linha por release principal da janela comparada com a release principal ante
 | `published_at` | data/hora | publicação da release `tag_release` |
 | `commits` | lista | todos os commits do `compare` (paginado), cada um com `sha`, `author_date` (`commit.author.date`), `message` e `html_url` |
 
+### `tags.jsonl`
+
+Uma linha por tag retornada por `/repos/{owner}/{repo}/tags`.
+
+| Campo | Tipo | Origem |
+|---|---|---|
+| `tag_name` | texto | `name` de `/tags` |
+| `commit_sha` | texto | SHA do commit resolvido para a tag |
+| `commit_date` | data/hora | `commit.author.date` de `/commits/{tag_name}` |
+
 ### `compare_404.jsonl`
 
 | Campo | Tipo | Descrição |
@@ -130,7 +146,7 @@ Runs do `default_branch` com `event = push`, consultados mês a mês na janela. 
 
 ## `coleta_resumo.json`
 
-Objeto indexado por `repositorio`, com `releases_validas_na_janela`, `workflow_runs_coletadas` (todos os runs), `workflow_runs_validas`, `compare_404`, `workflow_runs_por_mes` (`total_count` informado pela API em cada mês `AAAA-MM`) e `meses_no_teto` (lista dos meses com 1.000 resultados ou mais).
+Objeto indexado por `repositorio`, com `releases_validas_na_janela`, `tags_coletadas`, `workflow_runs_coletadas` (todos os runs), `workflow_runs_validas`, `compare_404`, `workflow_runs_por_mes` (`total_count` informado pela API em cada mês `AAAA-MM`) e `meses_no_teto` (lista dos meses com 1.000 resultados ou mais).
 
 ## Validação manual (`validacao/`)
 
@@ -144,5 +160,6 @@ Gerados pelos scripts de `validacao/` (ver [PROTOCOLO.md](../validacao/PROTOCOLO
 | `divergencias.csv` | `dimensao`, `repositorio`, `tag_name`, `rotulo_<avaliador>`…, `rotulo_consenso`, `motivo` | itens divergentes e a decisão da reunião de consenso |
 | `consenso_repositorios.csv` | `repositorio`, `tipo_projeto`, `entregas_reais` | rótulo final por repositório (fator *tipo do projeto* da RQ 06) |
 | `consenso_releases.csv` | `repositorio`, `tag_name`, `corretiva` | rótulo final por release (referência para P/R/F1 da heurística) |
+| `avaliacao_heuristica.csv` | `versao`, `n`, `verdadeiros_positivos`, `falsos_positivos`, `falsos_negativos`, `precisao`, `recall`, `f1` | histórico imutável por versão da avaliação contra o consenso |
 
 Valores permitidos: `tipo_projeto` ∈ {biblioteca/framework, aplicação/serviço, ferramenta CLI, outro}; `entregas_reais` ∈ {sim, não, incerto}; `corretiva` ∈ {sim, não}.

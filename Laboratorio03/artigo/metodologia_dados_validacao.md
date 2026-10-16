@@ -57,6 +57,38 @@ As métricas são calculadas a partir de *proxies* (release como deploy, release
 
 **Consenso.** Com dois avaliadores não existe maioria. Por isso, todos os itens divergentes foram discutidos em uma reunião de consenso, na qual os dois reabriram as evidências e registraram o rótulo final e a justificativa de cada decisão. Quando não houve acordo, aplicou-se uma regra conservadora definida no protocolo: `outro` para o tipo do projeto, `incerto` para entregas reais e `não` para release corretiva. Dos [preencher] itens divergentes, [preencher] precisaram dessa regra. Os rótulos de consenso servem de referência para a precisão, o recall e o F1 da heurística de release corretiva. O tipo do projeto de consenso é um dos fatores da RQ 06.
 
+## Definições operacionais, variantes e heurística
+
+Na definição de referência, cada release publicada que não seja draft nem
+pré-release representa um deploy. A frequência é o número dessas releases
+dividido pelo número de semanas da janela. Para a análise de sensibilidade da
+RQ 07, também são calculadas a frequência incluindo pré-releases publicadas e
+a frequência de tags, usando como data da tag o `commit.author.date` do commit
+apontado. O lead time é calculado por release (mediana da publicação menos o
+commit mais antigo do compare) e por commit (mediana da publicação menos a
+data de cada commit). Essas variantes não são intercambiáveis: uma alteração
+antiga incluída em uma release afeta a medida por release mais do que a
+mediana por commit.
+
+O CFR (a) usa falhas sobre runs válidos de CI. O CFR (b) usa como denominador
+as releases principais fora dos últimos sete dias da janela; uma release do
+denominador é considerada falha quando alguma release corretiva é publicada
+nos sete dias seguintes. Releases dos últimos sete dias são censuradas e
+excluídas do denominador. A versão inicial da heurística (v1) marca uma release
+como corretiva se (i) o SemVer válido muda somente o patch para um número
+superior ou (ii) as mensagens dos commits entre as releases contêm `fix`,
+`hotfix`, `revert` ou `bugfix`, sem distinção de maiúsculas e minúsculas.
+
+A avaliação compara as previsões apenas com `consenso_releases.csv` e calcula
+precisão, recall e F1. Cada resultado é gravado sem sobrescrever versões
+anteriores em `validacao/avaliacao_heuristica.csv`. Os valores devem ser
+preenchidos a partir da amostra-ouro e apresentados com o tamanho da amostra;
+sem a rotulação e o consenso, não se atribui desempenho à heurística.
+
+| Versão | Regra | n | Precisão | Recall | F1 |
+|---|---|---:|---:|---:|---:|
+| v1 | incremento apenas de patch e/ou mensagens com termos corretivos | — | — | — | — |
+
 ## Referências desta seção
 
 - Cohen, J. (1960). A coefficient of agreement for nominal scales. *Educational and Psychological Measurement*, 20(1), 37–46.

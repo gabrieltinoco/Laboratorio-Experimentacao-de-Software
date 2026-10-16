@@ -84,6 +84,8 @@ class ClienteFalso:
     def get_todos(self, caminho, params=None, chave=None):
         if caminho.endswith("/releases"):
             return RELEASES[caminho.removeprefix("/repos/").removesuffix("/releases")]
+        if caminho.endswith("/tags"):
+            return []
         return COMPARE[caminho]
 
 
@@ -107,6 +109,10 @@ def test_executar_calcula_metricas_e_aplica_criterio_de_inclusao(tmp_path):
     assert linha["lead_time_commit_dias"] == pytest.approx(3)    # mediana de 13, 5, 1 e 1
     assert linha["workflow_runs_validos"] == 4
     assert linha["cfr_ci"] == pytest.approx(0.5)
+    assert linha["cfr_releases"] == 0
+    assert linha["releases_avaliadas_cfr"] == 2
+    assert linha["deploy_freq_com_prereleases_semana"] == linha["deploy_freq_semana"]
+    assert linha["deploy_freq_tags_semana"] == 0
     assert linha["recuperacao_horas"] == pytest.approx(4 / 3)
     assert linha["episodios_censurados"] == 0
     assert [linha[c] for c in ("categoria_frequencia", "categoria_lead_time", "categoria_cfr",
@@ -120,7 +126,7 @@ def test_executar_grava_todas_as_saidas(tmp_path):
     dados = tmp_path / "dados"
 
     for arquivo in ("metadados.csv", "funil.csv", "descartes.csv", "repositorios.csv",
-                    "releases.jsonl", "workflow_runs.jsonl", "coleta_resumo.json"):
+                    "releases.jsonl", "tags.jsonl", "workflow_runs.jsonl", "coleta_resumo.json"):
         assert (dados / arquivo).exists(), arquivo
     descartes = pd.read_csv(dados / "descartes.csv")
     assert list(descartes["repositorio"]) == ["o/fraco"]

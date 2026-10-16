@@ -7,6 +7,7 @@ from datetime import date
 import pytest
 
 from metricas.cfr import change_failure_rate, classificar_conclusion
+from metricas.cfr_release import calcular_cfr_releases
 from metricas.classificacao import (
     classificar_cfr,
     classificar_frequencia,
@@ -14,7 +15,12 @@ from metricas.classificacao import (
     classificar_lead_time,
     classificar_recuperacao,
 )
-from metricas.deploy_freq import deployment_frequency
+from metricas.corretiva import release_corretiva
+from metricas.deploy_freq import (
+    deployment_frequency,
+    deployment_frequency_com_prereleases,
+    deployment_frequency_tags,
+)
 from metricas.lead_time import lead_time_por_commit, lead_time_por_release
 from metricas.recuperacao import calcular_recuperacao
 
@@ -42,6 +48,99 @@ def test_deployment_frequency_exclui_drafts_prereleases_e_fora_da_janela():
 def test_deployment_frequency_rejeita_janela_invertida():
     with pytest.raises(ValueError):
         deployment_frequency([], "2025-10-02", "2025-10-01")
+
+
+def test_deployment_frequency_variantes_incluem_prereleases_ou_tags():
+    releases = [
+        {"published_at": "2025-10-02T00:00:00Z"},
+        {"published_at": "2025-10-03T00:00:00Z", "prerelease": True},
+        {"published_at": "2025-10-04T00:00:00Z", "draft": True},
+    ]
+    tags = [
+        {"commit_date": "2025-10-02T00:00:00Z"},
+        {"commit_date": "2025-10-07T00:00:00Z"},
+        {"commit_date": "2025-09-30T00:00:00Z"},
+    ]
+
+    assert deployment_frequency_com_prereleases(releases, "2025-10-01", "2025-10-07") == 2
+    assert deployment_frequency_tags(tags, "2025-10-01", "2025-10-07") == 2
+
+
+@pytest.mark.parametrize(
+    ("anterior", "atual", "mensagens", "esperado"),
+    [
+        ("v2.3.0", "v2.3.1", [], True),
+        ("v2.3.0", "v2.4.0", [], False),
+        ("v2.3.0", "v2.3.1", ["feat: nova tela"], True),
+        ("release-antiga", "release-nova", ["hotfix: crash"], True),
+        ("v2.3.0", "v2.3.1", ["revert: regressão"], True),
+        ("v2.3.0", "v2.3.1-rc.1", [], True),
+        ("v2.3.1", "v2.3.0", [], False),
+        ("release-1.0", "release-1.1", ["prefix: fixing parser"], False),
+        ("v2.03.0", "v2.03.1", [], False),
+        ("v2.3.0-..rc", "v2.3.1-..rc", [], False),
+    ],
+)
+def test_heuristica_corretiva_v1(anterior, atual, mensagens, esperado):
+    assert release_corretiva(anterior, atual, mensagens) is esperado
+
+
+def test_cfr_releases_aplica_janela_de_sete_dias_e_censura():
+    releases = [
+        {"tag_name": "v2.3.0", "published_at": "2026-09-01T10:00:00Z"},
+        {"tag_name": "v2.3.1", "published_at": "2026-09-07T10:00:00Z"},
+        {"tag_name": "v2.4.0", "published_at": "2026-09-10T10:00:00Z"},
+        {"tag_name": "v2.4.1", "published_at": "2026-09-29T10:00:00Z"},
+        {"tag_name": "v2.4.2-rc", "published_at": "2026-09-29T11:00:00Z", "prerelease": True},
+    ]
+    comparacoes = [
+        {"tag_anterior": "v2.3.0", "tag_release": "v2.3.1", "commits": []},
+        {"tag_anterior": "v2.4.0", "tag_release": "v2.4.1", "commits": []},
+    ]
+
+    resumo = calcular_cfr_releases(releases, comparacoes, "2026-09-01", "2026-09-30")
+
+    assert resumo.releases_avaliadas == 3
+    assert resumo.releases_falhas == 1
+    assert resumo.releases_censuradas == 1
+    assert resumo.cfr == pytest.approx(1 / 3)
+
+
+def test_cfr_releases_com_falha_nunca_recuperada_conta_se_nao_censurada():
+    releases = [{"tag_name": "v1.0", "published_at": "2026-09-01T00:00:00Z"}]
+    resumo = calcular_cfr_releases(releases, [], "2026-09-01", "2026-09-30")
+
+    assert resumo.releases_avaliadas == 1
+    assert resumo.releases_falhas == 0
+    assert resumo.cfr == 0
+
+
+def test_cfr_releases_sem_denominador_fica_indefinido():
+    releases = [{"tag_name": "v1.0", "published_at": "2026-09-30T00:00:00Z"}]
+    resumo = calcular_cfr_releases(releases, [], "2026-09-01", "2026-09-30")
+
+    assert resumo.releases_avaliadas == 0
+    assert resumo.releases_censuradas == 1
+    assert resumo.cfr is None
+
+
+def test_cfr_releases_ignora_releases_fora_da_janela():
+    releases = [
+        {"tag_name": "v0.9", "published_at": "2026-08-30T00:00:00Z"},
+        {"tag_name": "v1.0", "published_at": "2026-09-01T00:00:00Z"},
+        {"tag_name": "v1.1", "published_at": "2026-09-02T00:00:00Z"},
+        {"tag_name": "v1.2", "published_at": "2026-10-01T00:00:00Z"},
+    ]
+    comparacoes = [
+        {"tag_anterior": "v1.0", "tag_release": "v1.1", "commits": []},
+        {"tag_anterior": "v1.1", "tag_release": "v1.2", "commits": [{"message": "fix: after window"}]},
+    ]
+
+    resumo = calcular_cfr_releases(releases, comparacoes, "2026-09-01", "2026-09-30")
+
+    assert resumo.releases_avaliadas == 2
+    assert resumo.releases_falhas == 0
+    assert resumo.cfr == 0
 
 
 def test_lead_time_fixture_do_enunciado():

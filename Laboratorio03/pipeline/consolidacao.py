@@ -5,6 +5,7 @@ from __future__ import annotations
 import pandas as pd
 
 from metricas.cfr import change_failure_rate, classificar_conclusion
+from metricas.cfr_release import calcular_cfr_releases
 from metricas.classificacao import (
     classificar_cfr,
     classificar_frequencia,
@@ -12,7 +13,11 @@ from metricas.classificacao import (
     classificar_lead_time,
     classificar_recuperacao,
 )
-from metricas.deploy_freq import deployment_frequency
+from metricas.deploy_freq import (
+    deployment_frequency,
+    deployment_frequency_com_prereleases,
+    deployment_frequency_tags,
+)
 from metricas.lead_time import lead_time_por_commit, lead_time_por_release
 from metricas.recuperacao import calcular_recuperacao
 
@@ -26,8 +31,15 @@ def metricas_do_repositorio(coleta: dict, inicio: str, fim: str) -> dict:
     runs = coleta["workflow_runs"]
     recuperacao = calcular_recuperacao(runs, fim)
     frequencia = deployment_frequency(coleta["releases"], inicio, fim)
+    frequencia_com_prereleases = deployment_frequency_com_prereleases(
+        coleta["releases"], inicio, fim
+    )
+    frequencia_tags = deployment_frequency_tags(coleta.get("tags", []), inicio, fim)
     lead_time_a = lead_time_por_release(coleta["comparacoes"])
     cfr_a = change_failure_rate(runs)
+    cfr_b = calcular_cfr_releases(
+        coleta["releases"], coleta["comparacoes"], inicio, fim
+    )
 
     categorias = {
         "categoria_frequencia": classificar_frequencia(frequencia),
@@ -49,9 +61,15 @@ def metricas_do_repositorio(coleta: dict, inicio: str, fim: str) -> dict:
         "workflow_runs_validos": sum(classificar_conclusion(r["conclusion"]) != "ignorar" for r in runs),
         "meses_no_teto_de_runs": len(coleta["meses_no_teto"]),
         "deploy_freq_semana": frequencia,
+        "deploy_freq_com_prereleases_semana": frequencia_com_prereleases,
+        "deploy_freq_tags_semana": frequencia_tags,
         "lead_time_release_dias": lead_time_a,
         "lead_time_commit_dias": lead_time_por_commit(coleta["comparacoes"]),
         "cfr_ci": cfr_a,
+        "cfr_releases": cfr_b.cfr,
+        "releases_avaliadas_cfr": cfr_b.releases_avaliadas,
+        "releases_falhas_cfr": cfr_b.releases_falhas,
+        "releases_censuradas_cfr": cfr_b.releases_censuradas,
         "recuperacao_horas": recuperacao.mediana_horas,
         "episodios_falha": len(recuperacao.episodios),
         "episodios_censurados": recuperacao.censurados,
