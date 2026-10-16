@@ -225,6 +225,18 @@ def test_tabela_do_funil():
     assert "sem workflows (1)" in acoes and "HTTP 404" in acoes
 
 
+def test_funil_agrega_motivos_abaixo_do_minimo_sem_a_contagem_exata():
+    funil = Funil(etapas=["minimo"])
+    funil.descartar("o/a", "minimo", "3 releases válidas (mínimo 5)")
+    funil.descartar("o/b", "minimo", "0 releases válidas (mínimo 5)")
+    funil.descartar("o/c", "minimo", "1 releases válidas (mínimo 5); 12 workflow runs válidos (mínimo 50)")
+
+    motivos = funil.tabela().set_index("etapa").loc["minimo", "motivos"]
+    assert motivos == ("menos de 5 releases válidas (2); "
+                       "menos de 5 releases válidas; menos de 50 workflow runs válidos (1)")
+    assert funil.descartes[0]["motivo"] == "3 releases válidas (mínimo 5)"
+
+
 def test_funil_rejeita_etapa_desconhecida():
     with pytest.raises(ValueError):
         Funil(etapas=[ETAPA_ACTIONS]).descartar("o/a", "outra", "x")

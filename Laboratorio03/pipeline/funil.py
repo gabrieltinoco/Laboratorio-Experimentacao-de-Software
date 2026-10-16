@@ -2,11 +2,19 @@
 
 from __future__ import annotations
 
+import re
 from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path
 
 import pandas as pd
+
+# "3 releases válidas (mínimo 5)" -> "menos de 5 releases válidas": a contagem exata fica em descartes.csv.
+_ABAIXO_DO_MINIMO = re.compile(r"\d+ (.+?) \(mínimo (\d+)\)")
+
+
+def motivo_agregado(motivo: str) -> str:
+    return _ABAIXO_DO_MINIMO.sub(r"menos de \2 \1", motivo)
 
 
 @dataclass
@@ -42,7 +50,7 @@ class Funil:
         ]
         restantes = self.avaliados
         for etapa in self.etapas:
-            motivos = Counter(d["motivo"] for d in self.descartes if d["etapa"] == etapa)
+            motivos = Counter(motivo_agregado(d["motivo"]) for d in self.descartes if d["etapa"] == etapa)
             descartados = sum(motivos.values())
             restantes -= descartados
             linhas.append({

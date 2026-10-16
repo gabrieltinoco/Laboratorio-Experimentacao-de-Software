@@ -270,6 +270,18 @@ def test_get_todos_com_chave_de_objeto(cliente):
     assert c.get_todos("/repos/o/r/actions/runs", {"event": "push"}, chave="workflow_runs") == [1, 2, 3]
 
 
+def test_paginacao_para_no_teto_de_10000_itens(cliente):
+    teto = {"message": "Only the first 10000 results are available."}
+    c, _ = cliente(resposta_falsa(200, [1, 2], _link(1, 101)), resposta_falsa(422, teto))
+    assert c.get_todos("/repos/o/r/releases") == [1, 2]
+
+
+def test_outros_422_na_paginacao_continuam_sendo_erro(cliente):
+    c, _ = cliente(resposta_falsa(200, [1], _link(1, 2)), resposta_falsa(422, {"message": "Validation Failed"}))
+    with pytest.raises(ErroGitHub):
+        c.get_todos("/repos/o/r/releases")
+
+
 def test_paginacao_e_retomada_pagina_a_pagina(cliente, tmp_path):
     c, _ = cliente(resposta_falsa(200, [1], _link(1, 2)), resposta_falsa(200, [2]))
     c.get_todos("/repos/o/r/releases")

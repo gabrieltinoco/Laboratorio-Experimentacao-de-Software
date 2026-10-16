@@ -1,0 +1,823 @@
+repositorio,etapa,motivo
+v8/v8,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+itskovacs/trip,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+Robbyant/lingbot-map,com GitHub Actions,sem workflows
+Security-Onion-Solutions/securityonion,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+robhagemans/hoard-of-bitfonts,com GitHub Actions,sem workflows
+Kinnara/ModernWpf,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+cnlimiter/codex-manager,mínimo de releases e workflow runs,26 workflow runs válidos (mínimo 50)
+timescale/tsbs,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)
+carla-simulator/carla,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+whatwg/html,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+vi/websocat,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 10 workflow runs válidos (mínimo 50)
+deepseek-ai/DeepGEMM,mínimo de releases e workflow runs,9 workflow runs válidos (mínimo 50)
+golang-standards/project-layout,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+gaitco/quran-database,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 15 workflow runs válidos (mínimo 50)
+meganz/MEGAsync,com GitHub Actions,sem workflows
+chatanywhere/GPT_API_free,com GitHub Actions,sem workflows
+felixse/FluentTerminal,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)
+bytedeco/javacpp-presets,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 30 workflow runs válidos (mínimo 50)
+microsoft/edit,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+dromara/dynamic-tp,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+protectwise/troika,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 14 workflow runs válidos (mínimo 50)
+scylladb/seastar,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+stevearc/overseer.nvim,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+Danie1s/Tiercel,com GitHub Actions,sem workflows
+HHHHHejia/Awesome-AgenticLLM-RL-Papers,com GitHub Actions,sem workflows
+web-infra-dev/garfish,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 7 workflow runs válidos (mínimo 50)
+tpaviot/pythonocc-core,com GitHub Actions,sem workflows
+Nuitka/Nuitka,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+erusev/parsedown,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 6 workflow runs válidos (mínimo 50)
+dominikmartn/nothing-design-skill,com GitHub Actions,sem workflows
+k88hudson/git-flight-rules,com GitHub Actions,sem workflows
+We5ter/Scanners-Box,com GitHub Actions,sem workflows
+kepano/obsidian-skills,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+Diniboy1123/usque,mínimo de releases e workflow runs,9 workflow runs válidos (mínimo 50)
+hagezi/dns-blocklists,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+ComplianceAsCode/content,mínimo de releases e workflow runs,4 releases válidas (mínimo 5)
+google/re2,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 30 workflow runs válidos (mínimo 50)
+Shubhamsaboo/awesome-llm-apps,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 36 workflow runs válidos (mínimo 50)
+troydhanson/uthash,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 4 workflow runs válidos (mínimo 50)
+microsoft/PowerApps-Samples,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+bepass-org/oblivion,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 17 workflow runs válidos (mínimo 50)
+INRIA/spoon,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+UberGuidoZ/Flipper,com GitHub Actions,sem workflows
+Yummypets/YPImagePicker,com GitHub Actions,sem workflows
+emacs-tw/awesome-emacs,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 12 workflow runs válidos (mínimo 50)
+Morantron/tmux-fingers,mínimo de releases e workflow runs,2 workflow runs válidos (mínimo 50)
+google/wuffs,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)
+MITDeepLearning/introtodeeplearning,com GitHub Actions,sem workflows
+MyCATApache/Mycat-Server,com GitHub Actions,sem workflows
+zarazhangrui/beautiful-html-templates,com GitHub Actions,sem workflows
+zrax/pycdc,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 3 workflow runs válidos (mínimo 50)
+igrek51/wat,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 6 workflow runs válidos (mínimo 50)
+esprfid/esp-rfid,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+leon-ai/leon,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+codex-team/editor.js,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+zq2599/blog_demos,com GitHub Actions,sem workflows
+422658476/MPV-EASY-Player,com GitHub Actions,sem workflows
+freestylefly/awesome-gpt-image-2,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+SYSTRAN/faster-whisper,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 10 workflow runs válidos (mínimo 50)
+trynova/nova,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+hack-chat/main,com GitHub Actions,sem workflows
+restyler/awesome-n8n,com GitHub Actions,sem workflows
+f3d-app/f3d,mínimo de releases e workflow runs,4 releases válidas (mínimo 5)
+UKGovernmentBEIS/inspect_ai,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+teamtype/teamtype,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+Yuliang-Liu/Monkey,com GitHub Actions,sem workflows
+andresvourakis/data-scientist-handbook,com GitHub Actions,sem workflows
+dotnet/ResXResourceManager,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+Y2Z/monolith,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 12 workflow runs válidos (mínimo 50)
+Hamza417/Inure,mínimo de releases e workflow runs,1 workflow runs válidos (mínimo 50)
+liabru/matter-js,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 5 workflow runs válidos (mínimo 50)
+firecrawl/open-lovable,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+anthropics/claude-cookbooks,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+cloudreve/cloudreve,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+rathole-org/rathole,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)
+scarsty/kys-cpp,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+atteneder/glTFast,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+RobertBroersma/beanheads,com GitHub Actions,sem workflows
+kentcdodds/mdx-bundler,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 4 workflow runs válidos (mínimo 50)
+xyxiao001/vue-cropper,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+521xueweihan/HelloGitHub,com GitHub Actions,sem workflows
+AlmasB/FXGL,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+openimsdk/open-im-server,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+Shmoopi/iOS-System-Services,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)
+iconoir-icons/iconoir,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 19 workflow runs válidos (mínimo 50)
+openresty/lua-resty-redis,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 3 workflow runs válidos (mínimo 50)
+immunant/c2rust,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+ziglang/zig,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+gregjacobs/Autolinker.js,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+vim-airline/vim-airline,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+MiroMindAI/MiroThinker,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+antonioru/beautiful-react-hooks,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+cra-ros-pkg/robot_localization,com GitHub Actions,sem workflows
+drizzle-team/drizzle-orm,mínimo de releases e workflow runs,22 workflow runs válidos (mínimo 50)
+JCodesMore/ai-website-cloner-template,mínimo de releases e workflow runs,38 workflow runs válidos (mínimo 50)
+AutoArk/EVA-OS,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+wx-chevalier/Database-Notes,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+lazyprogrammer/machine_learning_examples,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+gayanvoice/top-github-users,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+aws/aws-cli,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+dreammis/social-auto-upload,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+XINCGer/Unity3DTraining,com GitHub Actions,sem workflows
+apptainer/apptainer,mínimo de releases e workflow runs,2 workflow runs válidos (mínimo 50)
+yuhonas/free-exercise-db,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 5 workflow runs válidos (mínimo 50)
+BepInEx/BepInEx,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 29 workflow runs válidos (mínimo 50)
+tidwall/tile38,mínimo de releases e workflow runs,4 releases válidas (mínimo 5); 36 workflow runs válidos (mínimo 50)
+visual-layer/fastdup,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+polynote/polynote,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+fail2ban/fail2ban,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+eddwebster/football_analytics,com GitHub Actions,sem workflows
+FoundationAgents/MetaGPT,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 6 workflow runs válidos (mínimo 50)
+microsoft/AI-For-Beginners,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+EleutherAI/pythia,com GitHub Actions,sem workflows
+fossasia/voxbento-homebrew,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+rust-lang/hashbrown,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 16 workflow runs válidos (mínimo 50)
+relatedcode/Messenger,com GitHub Actions,sem workflows
+decoderesearch/circuit-tracer,mínimo de releases e workflow runs,31 workflow runs válidos (mínimo 50)
+colonelpanichacks/flock-you,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+grpc/grpc-node,mínimo de releases e workflow runs,31 workflow runs válidos (mínimo 50)
+jorgenschaefer/elpy,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 7 workflow runs válidos (mínimo 50)
+ziadoz/awesome-php,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 23 workflow runs válidos (mínimo 50)
+MicrosoftDocs/Virtualization-Documentation,com GitHub Actions,sem workflows
+halfrost/LeetCode-Go,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+Tyrrrz/LightBulb,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+FLEXTool/FLEX,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+keiyoushi/extensions-source,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+shadcn/improve,com GitHub Actions,sem workflows
+Cinnamon/kotaemon,mínimo de releases e workflow runs,4 releases válidas (mínimo 5); 12 workflow runs válidos (mínimo 50)
+google/brotli,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+winitzki/sofp,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)
+geshan/au-companies-providing-work-visa-sponsorship,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+managarm/managarm,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+laverdet/isolated-vm,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 36 workflow runs válidos (mínimo 50)
+ace-step/ACE-Step,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+rust-lang/rustc-dev-guide,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+transact-rs/sqlx,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+cockroachdb/cockroach,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+AI4Finance-Foundation/FinRL-Meta,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 16 workflow runs válidos (mínimo 50)
+cjlin1/libsvm,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+jiaaro/pydub,com GitHub Actions,sem workflows
+alchaincyf/nuwa-skill,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+EbookFoundation/free-programming-books,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+kikito/middleclass,com GitHub Actions,sem workflows
+activemerchant/active_merchant,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)
+233boy/v2ray,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 2 workflow runs válidos (mínimo 50)
+willianjusten/awesome-svg,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+NVlabs/tiny-cuda-nn,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 11 workflow runs válidos (mínimo 50)
+transistorsoft/react-native-background-geolocation,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+firstcontributions/first-contributions,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+asxez/DockerDesktop-CN,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+syntax-tree/mdast,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)
+Aleph-Alpha/ts-rs,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 21 workflow runs válidos (mínimo 50)
+systemdesign42/system-design-academy,com GitHub Actions,sem workflows
+rust-lang/rust-playground,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+bilawalsidhu/gods-eye-view,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+discord-tickets/bot,mínimo de releases e workflow runs,4 releases válidas (mínimo 5)
+wezterm/wezterm,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+microsoft/OmniParser,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+closeio/tasktiger,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 18 workflow runs válidos (mínimo 50)
+nbubna/store,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+memcached/memcached,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 6 workflow runs válidos (mínimo 50)
+iawia002/lux,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 7 workflow runs válidos (mínimo 50)
+Cysharp/ZString,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 5 workflow runs válidos (mínimo 50)
+xxnuo/MTranServer,mínimo de releases e workflow runs,6 workflow runs válidos (mínimo 50)
+Universal-Debloater-Alliance/universal-android-debloater-next-generation,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+glittercowboy/taches-cc-resources,com GitHub Actions,sem workflows
+epsylon/xsser,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+publicsuffix/list,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+sqlmapproject/sqlmap,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+memgraph/memgraph,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+abapGit/abapGit,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+AllenDowney/ThinkDSP,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 13 workflow runs válidos (mínimo 50)
+mikke89/RmlUi,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+actix/actix,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+PDFMathTranslate/PDFMathTranslate,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+zs1083339604/FaceWinUnlock-Tauri,mínimo de releases e workflow runs,4 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+BuilderIO/skills,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+moment/moment,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+jameskokoska/Cashew,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+tinymce/tinymce,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+cabinetai/cabinet,mínimo de releases e workflow runs,35 workflow runs válidos (mínimo 50)
+openstatusHQ/openstatus,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+emilkowalski/skills,com GitHub Actions,sem workflows
+brightmart/nlp_chinese_corpus,com GitHub Actions,sem workflows
+sw33tLie/bbscope,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+dacnay816y62-hub/cinema-dna-21x9x3,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+ngx-translate/core,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+Ironclad/rivet,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 8 workflow runs válidos (mínimo 50)
+ng-matero/ng-matero,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 5 workflow runs válidos (mínimo 50)
+gin-gonic/examples,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+projectM-visualizer/projectm,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+udlbook/udlbook,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+jamesblasco/modal_bottom_sheet,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 16 workflow runs válidos (mínimo 50)
+JunkFood02/Seal,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+jpillora/chisel,mínimo de releases e workflow runs,14 workflow runs válidos (mínimo 50)
+cdgriffith/Box,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+pockethost/pockethost,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+voicepaw/so-vits-svc-fork,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+symfony/stopwatch,com GitHub Actions,sem workflows
+OpenCut-app/OpenCut,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+gpakosz/.tmux,com GitHub Actions,sem workflows
+airblade/vim-gitgutter,com GitHub Actions,sem workflows
+remy/nodemon,mínimo de releases e workflow runs,4 releases válidas (mínimo 5); 15 workflow runs válidos (mínimo 50)
+meta-llama/llama-cookbook,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 16 workflow runs válidos (mínimo 50)
+Rhymond/go-money,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+benfred/py-spy,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 32 workflow runs válidos (mínimo 50)
+brillout/awesome-react-components,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 19 workflow runs válidos (mínimo 50)
+anthropics/financial-services,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 44 workflow runs válidos (mínimo 50)
+PowerDNS-Admin/PowerDNS-Admin,mínimo de releases e workflow runs,4 releases válidas (mínimo 5)
+agalwood/Motrix,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+Tsuk1ko/bilibili-live-chat,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+keycastr/keycastr,com GitHub Actions,sem workflows
+DaxianLee/cocos-mcp-server,com GitHub Actions,sem workflows
+AAChartModel/AAChartKit,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+google/zx,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+thymeleaf/thymeleaf,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+ydyjya/Awesome-LLM-Safety,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+foobnix/LibreraReader,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+JiongXing/PhotoBrowser,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 5 workflow runs válidos (mínimo 50)
+Orange-OpenSource/hurl,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+SFTtech/openage,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 36 workflow runs válidos (mínimo 50)
+Ebazhanov/linkedin-skill-assessments-quizzes,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+AutohomeCorp/frostmourne,com GitHub Actions,sem workflows
+ageitgey/face_recognition,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)
+felladrin/awesome-ai-web-search,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 31 workflow runs válidos (mínimo 50)
+elseif/MikroTikPatch,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+KenneyNL/Starter-Kit-City-Builder,com GitHub Actions,sem workflows
+ehmicky/modern-errors,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 28 workflow runs válidos (mínimo 50)
+BililiveRecorder/BililiveRecorder,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 30 workflow runs válidos (mínimo 50)
+WassimTenachi/PhySO,com GitHub Actions,sem workflows
+Stichoza/google-translate-php,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 8 workflow runs válidos (mínimo 50)
+hsliuping/TradingAgents-CN,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+nytimes/NYTPhotoViewer,com GitHub Actions,sem workflows
+NixOS/nixpkgs,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+rakudo/rakudo,com GitHub Actions,sem workflows
+shahraizali/awesome-django,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+termux/termux-app,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+cachethq/cachet,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+plotly/plotly.rs,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+vlang/ved,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 23 workflow runs válidos (mínimo 50)
+apache/ratis,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+sereneblue/awesome-oss,com GitHub Actions,sem workflows
+hugsy/gef,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+compiler-explorer/compiler-explorer,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+luanshiyinyang/awesome-multiple-object-tracking,com GitHub Actions,sem workflows
+nvim-telescope/telescope.nvim,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+imsai-sh/zhuzhiliao,com GitHub Actions,sem workflows
+keon/algorithms,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 27 workflow runs válidos (mínimo 50)
+skalesapp/skales,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+boto/boto3,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+ory/dockertest,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 26 workflow runs válidos (mínimo 50)
+Starcounter-Jack/JSON-Patch,com GitHub Actions,sem workflows
+openmlsys/openmlsys,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 29 workflow runs válidos (mínimo 50)
+feathersjs/feathers,mínimo de releases e workflow runs,45 workflow runs válidos (mínimo 50)
+unjs/jiti,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+NVIDIA-ISAAC-ROS/isaac_ros_visual_slam,com GitHub Actions,sem workflows
+DenisSergeevitch/chatgpt-custom-instructions,com GitHub Actions,sem workflows
+authpass/authpass,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+linebender/druid,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 6 workflow runs válidos (mínimo 50)
+jimeh/tmuxifier,com GitHub Actions,sem workflows
+analysis-tools-dev/static-analysis,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+shadowsocks/v2ray-plugin,com GitHub Actions,sem workflows
+adamwdraper/Numeral-js,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+danbooru/danbooru,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+bloomberg/memray,mínimo de releases e workflow runs,4 releases válidas (mínimo 5)
+iamcal/js-emoji,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 17 workflow runs válidos (mínimo 50)
+FreeCAD/FreeCAD-library,com GitHub Actions,sem workflows
+rmanguinho/clean-react,com GitHub Actions,sem workflows
+crossbario/autobahn-js,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 18 workflow runs válidos (mínimo 50)
+anonystick/anonystick,com GitHub Actions,sem workflows
+motiondivision/motion,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+pipipi-pikachu/PPTist,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+fathulfahmy/aio-usb-drive,com GitHub Actions,sem workflows
+jaywcjlove/linux-command,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 49 workflow runs válidos (mínimo 50)
+Biohub/esm,mínimo de releases e workflow runs,4 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+objectbox/objectbox-java,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+keajs/kea,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+zodiacon/AllTools,com GitHub Actions,sem workflows
+brotandgames/ciao,mínimo de releases e workflow runs,4 releases válidas (mínimo 5); 15 workflow runs válidos (mínimo 50)
+rsyncOSX/RsyncUI,com GitHub Actions,sem workflows
+FongMi/TV,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 6 workflow runs válidos (mínimo 50)
+amitshekhariitbhu/android-developer-roadmap,com GitHub Actions,sem workflows
+sml2h3/ddddocr,com GitHub Actions,sem workflows
+maboloshi/github-chinese,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 3 workflow runs válidos (mínimo 50)
+django-compressor/django-compressor,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 18 workflow runs válidos (mínimo 50)
+sunng87/handlebars-rust,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+rdragos/awesome-mpc,com GitHub Actions,sem workflows
+sedwards2009/extraterm,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 20 workflow runs válidos (mínimo 50)
+lnkiai/m3e-canvas,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+agent0ai/agent-zero,mínimo de releases e workflow runs,48 workflow runs válidos (mínimo 50)
+datawhalechina/easy-rl,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+GiovineItalia/Gadfly.jl,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+yuaotian/go-cursor-help,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 48 workflow runs válidos (mínimo 50)
+fb55/htmlparser2,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+mike-marcacci/node-redlock,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+apostrophecms/apostrophe,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+klaudiosinani/taskbook,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+pseudomuto/protoc-gen-doc,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 3 workflow runs válidos (mínimo 50)
+gin-contrib/cors,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+googleapis/googleapis,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+MatrixTM/MHDDoS,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+VirusTotal/vt-cli,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 9 workflow runs válidos (mínimo 50)
+Water-Melon/Melon,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+DataTalksClub/mlops-zoomcamp,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+AdamPlatin123/dsh-plugin-radar,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+justjavac/free-programming-books-zh_CN,com GitHub Actions,sem workflows
+muratcankoylan/Agent-Skills-for-Context-Engineering,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 17 workflow runs válidos (mínimo 50)
+ai-boost/awesome-prompts,com GitHub Actions,sem workflows
+TeamUltroid/Ultroid,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 5 workflow runs válidos (mínimo 50)
+zardus/ctf-tools,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 32 workflow runs válidos (mínimo 50)
+roboflow/notebooks,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 44 workflow runs válidos (mínimo 50)
+UE4SS-RE/RE-UE4SS,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+didi/cube-ui,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+oobabooga/textgen,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+AllThingsSmitty/must-watch-css,com GitHub Actions,sem workflows
+cstate/cstate,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+django-mptt/django-mptt,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 38 workflow runs válidos (mínimo 50)
+osprey-oss/deptry,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+django-wiki/django-wiki,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+fossasia/pslab-documentation,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+kennyn510/wpa2-wordlists,com GitHub Actions,sem workflows
+hook0/hook0,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+renrenio/linktoken,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+Bash-it/bash-it,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+HumanSignal/label-studio,mínimo de releases e workflow runs,4 releases válidas (mínimo 5)
+deanmalmgren/textract,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+Aleksoid1978/MPC-BE,mínimo de releases e workflow runs,4 releases válidas (mínimo 5)
+RyanFitzgerald/devportfolio,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+papermark/papermark,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+altcha-org/altcha,mínimo de releases e workflow runs,39 workflow runs válidos (mínimo 50)
+shadcn-labs/pdfcn,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+josdejong/mathjs,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+FlowElement-xinliuyuansu/m_flow,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+andrewyng/aisuite,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+OpenRC/openrc,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+fishaudio/fish-speech,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+s3tools/s3cmd,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 2 workflow runs válidos (mínimo 50)
+plasma-umass/coz,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 45 workflow runs válidos (mínimo 50)
+youngyangyang04/leetcode-master,com GitHub Actions,sem workflows
+shellphish/how2heap,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 16 workflow runs válidos (mínimo 50)
+jeecgboot/jimureport,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+get-convex/chef,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+sindresorhus/awesome-nodejs,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+Kong/kong,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+RayWangQvQ/BiliBiliToolPro,mínimo de releases e workflow runs,25 workflow runs válidos (mínimo 50)
+emilkowalski/vaul,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)
+beautifier/js-beautify,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+torvalds/AudioNoise,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+nektos/act,mínimo de releases e workflow runs,20 workflow runs válidos (mínimo 50)
+bcrypt-ruby/bcrypt-ruby,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 10 workflow runs válidos (mínimo 50)
+sindresorhus/p-limit,mínimo de releases e workflow runs,13 workflow runs válidos (mínimo 50)
+nucliweb/webperf-snippets,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+SaiAkhil066/CORTEX-AI-SUPER-RAG,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 15 workflow runs válidos (mínimo 50)
+Sjj1024/PakePlus-iOS,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+soimort/you-get,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+FirebirdSQL/firebird,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+amzxyz/RIME-LMDG,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+blendbyte/Textual,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+Integuru-AI/Integuru,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 21 workflow runs válidos (mínimo 50)
+canonical/microk8s,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+dwarvesf/hidden,com GitHub Actions,sem workflows
+milon/barcode,mínimo de releases e workflow runs,4 releases válidas (mínimo 5); 35 workflow runs válidos (mínimo 50)
+asvd/microlight,com GitHub Actions,sem workflows
+browser-use/web-ui,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 2 workflow runs válidos (mínimo 50)
+python-babel/babel,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+ashishps1/awesome-engineering-articles,com GitHub Actions,sem workflows
+devcontainers/cli,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+dustinspecker/awesome-eslint,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 17 workflow runs válidos (mínimo 50)
+nygardk/react-share,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 3 workflow runs válidos (mínimo 50)
+jax-md/jax-md,mínimo de releases e workflow runs,4 releases válidas (mínimo 5)
+reactphp/reactphp,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+ceph/ceph,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+googlecolab/google-colab-cli,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+pterodactyl-installer/pterodactyl-installer,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 7 workflow runs válidos (mínimo 50)
+UndeadSec/SocialFish,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+kfrlib/kfr,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 39 workflow runs válidos (mínimo 50)
+postaljs/postal.js,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 27 workflow runs válidos (mínimo 50)
+midudev/midudev,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 5 workflow runs válidos (mínimo 50)
+forter/security-101-for-saas-startups,com GitHub Actions,sem workflows
+PKUanonym/REKCARC-TSC-UHT,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+Azure/Microsoft-Defender-for-Cloud,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 32 workflow runs válidos (mínimo 50)
+iamxjb/winxin-app-watch-life.net,com GitHub Actions,sem workflows
+graphql/graphql-spec,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 15 workflow runs válidos (mínimo 50)
+rapid7/metasploit-framework,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+facebookresearch/sam2,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+GaiZhenbiao/ChuanhuChatGPT,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 6 workflow runs válidos (mínimo 50)
+Shopify/identity_cache,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 14 workflow runs válidos (mínimo 50)
+termux/termux-x11,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+bigcalendar/react-big-calendar,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 12 workflow runs válidos (mínimo 50)
+serhii-londar/open-source-mac-os-apps,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+sorin-ionescu/prezto,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+symfony/debug-pack,com GitHub Actions,sem workflows
+qiye45/wechatDownload,com GitHub Actions,sem workflows
+mongodb/mongo,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+MiroShark/MiroShark,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+AdguardTeam/AdguardFilters,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+octotools/octotools,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+Netflix/mantis,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+openvenues/libpostal,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 3 workflow runs válidos (mínimo 50)
+tensorflow/tfjs-models,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+obsidianmd/obsidian-help,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+roo-rb/roo,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 27 workflow runs válidos (mínimo 50)
+jsforce/jsforce,mínimo de releases e workflow runs,27 workflow runs válidos (mínimo 50)
+mfontanini/libtins,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 3 workflow runs válidos (mínimo 50)
+CISOfy/lynis,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+txthinking/brook,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 14 workflow runs válidos (mínimo 50)
+linuxserver/Heimdall,mínimo de releases e workflow runs,4 releases válidas (mínimo 5); 3 workflow runs válidos (mínimo 50)
+bojieli/ai-agent-book,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+jstherightway/js-the-right-way,com GitHub Actions,sem workflows
+nvim-treesitter/nvim-treesitter-textobjects,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+maximegmd/CyberEngineTweaks,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 2 workflow runs válidos (mínimo 50)
+qianguyihao/blog-list,com GitHub Actions,sem workflows
+NHAS/reverse_ssh,mínimo de releases e workflow runs,10 workflow runs válidos (mínimo 50)
+Chaoses-Ib/IbEverythingExt,com GitHub Actions,sem workflows
+arihantcodes/spectrum-ui,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+OLIMEX/OLINUXINO,com GitHub Actions,sem workflows
+nlohmann/json,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+tokio-rs/loom,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 2 workflow runs válidos (mínimo 50)
+uvdesk/community-skeleton,com GitHub Actions,sem workflows
+esm7/obsidian-vimrc-support,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+codercup/unibest,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 12 workflow runs válidos (mínimo 50)
+speedyapply/2027-SWE-College-Jobs,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+apache/incubator-seata,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+googleapis/google-http-java-client,mínimo de releases e workflow runs,48 workflow runs válidos (mínimo 50)
+airbnb/javascript,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 18 workflow runs válidos (mínimo 50)
+KEV0143/Parser-Chitai-Gorod,com GitHub Actions,sem workflows
+flipperdevices/flipperzero-firmware,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+pluja/awesome-privacy,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 26 workflow runs válidos (mínimo 50)
+Spomky-Labs/otphp,mínimo de releases e workflow runs,10 workflow runs válidos (mínimo 50)
+antirez/h3.c,com GitHub Actions,sem workflows
+bit4woo/knife,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 28 workflow runs válidos (mínimo 50)
+rs/cors,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 4 workflow runs válidos (mínimo 50)
+jamesturk/scrapeghost,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)
+moonlight-stream/moonlight-qt,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+Sitoi/dailycheckin,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)
+AdAway/AdAway,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 5 workflow runs válidos (mínimo 50)
+eKoopmans/html2pdf.js,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+kswedberg/jquery-smooth-scroll,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+GoogleCloudPlatform/cloud-builders,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+Ryze-AI-Adgent/open-seo-mcp-skills,com GitHub Actions,sem workflows
+KaringX/karing,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+HolographicHat/Yae,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 21 workflow runs válidos (mínimo 50)
+lysine-dev/retrofit,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+hynek/stamina,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+scummvm/scummvm,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+apache/casbin-node-casbin,mínimo de releases e workflow runs,36 workflow runs válidos (mínimo 50)
+falconry/falcon,mínimo de releases e workflow runs,4 releases válidas (mínimo 5)
+origin-brain/rust-by-practice,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+lalakii/MouseClickTool,com GitHub Actions,sem workflows
+Open-Curiosity/gini-agent,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+AIM-Harvard/pyradiomics,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+codeplea/tinyexpr,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 9 workflow runs válidos (mínimo 50)
+rust-unofficial/patterns,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+Flowseal/zapret-discord-youtube,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+lsdefine/GenericAgent,mínimo de releases e workflow runs,4 releases válidas (mínimo 5); 14 workflow runs válidos (mínimo 50)
+coronalabs/corona,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+xanderfrangos/twinkle-tray,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+anuraghazra/github-readme-stats,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+zieng2/wl,com GitHub Actions,sem workflows
+ai-boost/awesome-harness-engineering,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+withoneai/pica,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 4 workflow runs válidos (mínimo 50)
+unpoly/unpoly,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+Vali-98/ChatterUI,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 7 workflow runs válidos (mínimo 50)
+yc-duan/fastctx,mínimo de releases e workflow runs,26 workflow runs válidos (mínimo 50)
+blader/humanizer,mínimo de releases e workflow runs,27 workflow runs válidos (mínimo 50)
+matter-labs/zksync,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+natemoo-re/astro-icon,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 39 workflow runs válidos (mínimo 50)
+galaxy-s10/billd-desk,com GitHub Actions,sem workflows
+fairygui/FairyGUI-unity,com GitHub Actions,sem workflows
+JPersson77/LGTVCompanion,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+ValveSoftware/steam-audio,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+symfony/http-client-contracts,com GitHub Actions,sem workflows
+pcccccc/AngelLive,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 46 workflow runs válidos (mínimo 50)
+eze-is/web-access,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+logpai/loghub,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+sidpalas/devops-directive-kubernetes-course,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+Varying-Vagrant-Vagrants/VVV,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 34 workflow runs válidos (mínimo 50)
+chaogei/Kiro-account-manager,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+ihmily/QuarkPanTool,com GitHub Actions,sem workflows
+n8n-io/self-hosted-ai-starter-kit,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+docker-mailserver/docker-mailserver,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+tfranzel/drf-spectacular,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+fastmail/Squire,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 10 workflow runs válidos (mínimo 50)
+pganalyze/libpg_query,mínimo de releases e workflow runs,30 workflow runs válidos (mínimo 50)
+amir1376/ab-download-manager,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+Rust-SDL2/rust-sdl2,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 22 workflow runs válidos (mínimo 50)
+catboost/catboost,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+elitak/nixos-infect,com GitHub Actions,sem workflows
+CalcProgrammer1/OpenRGB,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+Azure/autorest,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+sanic-org/sanic,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+SheerSt/pokewilds,com GitHub Actions,sem workflows
+Shopify/shopify_app,mínimo de releases e workflow runs,47 workflow runs válidos (mínimo 50)
+waooAI/waoowaoo,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 41 workflow runs válidos (mínimo 50)
+photoprism/photoprism,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+xiaoymin/knife4j,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+bol-van/zapret,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+mempool/mempool,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+lucas-maes/le-wm,com GitHub Actions,sem workflows
+prusa3d/PrusaSlicer,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+JuliaAI/MLJ.jl,mínimo de releases e workflow runs,34 workflow runs válidos (mínimo 50)
+networkx/networkx,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+PuddinCat/BestClash,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+digininja/CeWL,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 17 workflow runs válidos (mínimo 50)
+nvm-windows/nvm,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+fossasia/pslab-bootloader,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)
+intel/compute-runtime,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+DevExpress/testcafe,mínimo de releases e workflow runs,4 releases válidas (mínimo 5); 38 workflow runs válidos (mínimo 50)
+joeyism/linkedin_scraper,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+yahoo/serialize-javascript,mínimo de releases e workflow runs,26 workflow runs válidos (mínimo 50)
+deepseek-ai/Engram,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+chen-zeong/DTV,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+eternity4719/HowToLiveBetter,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+batfish/batfish,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+reduxjs/reselect,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 35 workflow runs válidos (mínimo 50)
+arkane-systems/mousejiggler,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+sofish/typo.css,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+Project-MONAI/MONAI,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+omni-media/omniclip,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+Molunerfinn/PicGo,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+johnno1962/InjectionIII,com GitHub Actions,sem workflows
+alphacep/vosk-api,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+valor-software/ng2-dragula,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+trekhleb/javascript-algorithms,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 26 workflow runs válidos (mínimo 50)
+QSCTech/zju-icicles,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 9 workflow runs válidos (mínimo 50)
+NousResearch/hermes-paperclip-adapter,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+boostorg/pfr,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 16 workflow runs válidos (mínimo 50)
+robbert-vdh/nih-plug,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 12 workflow runs válidos (mínimo 50)
+MechanicalSoup/MechanicalSoup,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 40 workflow runs válidos (mínimo 50)
+Justson/AgentWeb,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+Flangvik/SharpCollection,com GitHub Actions,sem workflows
+openrazer/openrazer,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+SmartSchoolAI/ai-to-pptx,com GitHub Actions,sem workflows
+GokuMohandas/Made-With-ML,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 4 workflow runs válidos (mínimo 50)
+code100x/cms,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 4 workflow runs válidos (mínimo 50)
+Billionmail/BillionMail,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+kaiban-ai/KaibanJS,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 37 workflow runs válidos (mínimo 50)
+winsw/winsw,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 18 workflow runs válidos (mínimo 50)
+i-am-shodan/USBArmyKnife,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 22 workflow runs válidos (mínimo 50)
+rappasoft/laravel-livewire-tables,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)
+alibaba/DataX,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+Leonidas-from-XIV/node-xml2js,com GitHub Actions,sem workflows
+lively-community/lively,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+Devi766/FlyClash-Android,com GitHub Actions,sem workflows
+crmeb/CRMEB,com GitHub Actions,sem workflows
+sitaramc/gitolite,com GitHub Actions,sem workflows
+RedSpider1/concurrent,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+pengsida/learning_research,com GitHub Actions,sem workflows
+acme-dns/acme-dns,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 33 workflow runs válidos (mínimo 50)
+ccxt/go-binance,mínimo de releases e workflow runs,30 workflow runs válidos (mínimo 50)
+openai/openai-cookbook,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+Unity-Technologies/UnityRenderStreaming,com GitHub Actions,sem workflows
+google/material-design-lite,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+Tikam02/DevOps-Guide,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 7 workflow runs válidos (mínimo 50)
+spatie/once,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 7 workflow runs válidos (mínimo 50)
+jesseduffield/lazydocker,mínimo de releases e workflow runs,20 workflow runs válidos (mínimo 50)
+soruly/awesome-acg,com GitHub Actions,sem workflows
+thunil/Physics-Based-Deep-Learning,com GitHub Actions,sem workflows
+sahibzada-allahyar/YC-Killer,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+Azure/azure-powershell,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+phuryn/pm-skills,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 4 workflow runs válidos (mínimo 50)
+IRS-Public/direct-file,com GitHub Actions,sem workflows
+tomaka/redshirt,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+workshopper/javascripting,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 15 workflow runs válidos (mínimo 50)
+fenixsoft/awesome-fenix,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 17 workflow runs válidos (mínimo 50)
+jayofelony/pwnagotchi,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+rabbitmq/internals,com GitHub Actions,sem workflows
+unicorn-engine/unicorn,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 3 workflow runs válidos (mínimo 50)
+dukedaily/solidity-expert,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 2 workflow runs válidos (mínimo 50)
+linto-ai/whisper-timestamped,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 2 workflow runs válidos (mínimo 50)
+AakashKumarNain/annotated_research_papers,com GitHub Actions,sem workflows
+EverythingSuckz/TG-FileStreamBot,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 10 workflow runs válidos (mínimo 50)
+666ghj/BettaFish,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+Chevrotain/chevrotain,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+ScottZt/jin-ce-zhi-suan,com GitHub Actions,sem workflows
+claabs/epicgames-freegames-node,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+UmeLabs/node.umelabs.dev,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+GoogleCloudPlatform/knowledge-catalog,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+justjavac/wechat-miniapp-radar,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 49 workflow runs válidos (mínimo 50)
+sebastianstarke/AI4Animation,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+slowmist/Knowledge-Base,com GitHub Actions,sem workflows
+ripperhe/Bob,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+c3js/c3,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 12 workflow runs válidos (mínimo 50)
+catppuccin/discord,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 4 workflow runs válidos (mínimo 50)
+editor-js/awesome-editorjs,com GitHub Actions,sem workflows
+w3c/epubcheck,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 19 workflow runs válidos (mínimo 50)
+domlysz/BlenderGIS,com GitHub Actions,sem workflows
+sayaka-sh/spmp,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 3 workflow runs válidos (mínimo 50)
+xming521/WeClone,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+nashtech-garage/yas,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 44 workflow runs válidos (mínimo 50)
+olayemii/flutter-ui-kits,com GitHub Actions,sem workflows
+SMNETSTUDIO/WeChat-AI,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)
+ossf/criticality_score,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 6 workflow runs válidos (mínimo 50)
+avast/retdec,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 3 workflow runs válidos (mínimo 50)
+ondras/wwwsqldesigner,com GitHub Actions,sem workflows
+royqh1979/RedPanda-CPP,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+teamspeak/teamspeak6-server,com GitHub Actions,sem workflows
+Quick/Quick,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+J-D-K/JKSV,com GitHub Actions,sem workflows
+Bodmer/TFT_eSPI,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+ulab-uiuc/LLMRouter,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 5 workflow runs válidos (mínimo 50)
+dankamongmen/notcurses,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 42 workflow runs válidos (mínimo 50)
+xiaofengShi/CHINESE-OCR,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+zerotier/ZeroTierOne,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 28 workflow runs válidos (mínimo 50)
+unidoc/unioffice,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+AutumnWhj/ChatGPT-wechat-bot,com GitHub Actions,sem workflows
+ai/easings.net,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 8 workflow runs válidos (mínimo 50)
+magicblack/maccms10,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+docker/for-win,com GitHub Actions,sem workflows
+mashirozx/Pixiv-Nginx,com GitHub Actions,sem workflows
+angristan/openvpn-install,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+CloudBoost/cloudboost,com GitHub Actions,sem workflows
+melih-unsal/DemoGPT,com GitHub Actions,sem workflows
+JodaOrg/joda-time,mínimo de releases e workflow runs,4 releases válidas (mínimo 5); 13 workflow runs válidos (mínimo 50)
+KonghaYao/chinese-free-web-font-storage,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+jdepoix/youtube-transcript-api,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 14 workflow runs válidos (mínimo 50)
+master-co/css,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+tiajinsha/JKVideo,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 23 workflow runs válidos (mínimo 50)
+rmanguinho/clean-ts-api,com GitHub Actions,sem workflows
+uiwjs/react-md-editor,mínimo de releases e workflow runs,20 workflow runs válidos (mínimo 50)
+gabime/spdlog,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+parcel-bundler/parcel,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 11 workflow runs válidos (mínimo 50)
+unicity-aos/capsule-fs,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 20 workflow runs válidos (mínimo 50)
+scroll-into-view/scroll-into-view-if-needed,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 12 workflow runs válidos (mínimo 50)
+ifandelse/machina.js,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 30 workflow runs válidos (mínimo 50)
+FJ-OMS/oms-erp,com GitHub Actions,sem workflows
+langchain-ai/social-media-agent,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+resemble-ai/chatterbox,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 13 workflow runs válidos (mínimo 50)
+sharkdp/hyperfine,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 9 workflow runs válidos (mínimo 50)
+hpcaitech/ColossalAI,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 8 workflow runs válidos (mínimo 50)
+antirez/dump1090,com GitHub Actions,sem workflows
+lionsoul2014/ip2region,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+charmbracelet/freeze,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 10 workflow runs válidos (mínimo 50)
+linsa-io/linsa,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+microsoft/Ontology-Playground,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+dail8859/NotepadNext,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+PKUFlyingPig/cs-self-learning,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 22 workflow runs válidos (mínimo 50)
+hesamsheikh/awesome-openclaw-usecases,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 25 workflow runs válidos (mínimo 50)
+Netflix/void-model,com GitHub Actions,sem workflows
+deepseek-ai/TileKernels,com GitHub Actions,sem workflows
+unsplash/datasets,com GitHub Actions,sem workflows
+wilsonfreitas/awesome-quant,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+FareedKhan-dev/all-agentic-architectures,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 22 workflow runs válidos (mínimo 50)
+TapXWorld/ChinaTextbook,com GitHub Actions,sem workflows
+netwrix/pingcastle,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+google/breakpad,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+ryanoasis/nerd-fonts,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+thephpleague/html-to-markdown,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 6 workflow runs válidos (mínimo 50)
+apple-aiml-research/ml-ferret,com GitHub Actions,sem workflows
+acassen/keepalived,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+mfornos/awesome-microservices,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 18 workflow runs válidos (mínimo 50)
+random-robbie/bruteforce-lists,com GitHub Actions,sem workflows
+anthropics/skills,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+bitly/data_hacks,com GitHub Actions,sem workflows
+paulpacifico/shutter-encoder,com GitHub Actions,sem workflows
+Fody/Fody,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 25 workflow runs válidos (mínimo 50)
+CarGuo/gsy_flutter_book,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+acon96/home-llm,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+robotframework/SeleniumLibrary,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 32 workflow runs válidos (mínimo 50)
+fosskers/aura,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 8 workflow runs válidos (mínimo 50)
+foundation/yeti,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 37 workflow runs válidos (mínimo 50)
+hieunc229/mailflare,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+mulaRahul/keyviz,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+mcollina/skills,com GitHub Actions,sem workflows
+PiotrMachowski/lovelace-xiaomi-vacuum-map-card,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 12 workflow runs válidos (mínimo 50)
+ageron/handson-ml2,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+xcanwin/KeepChatGPT,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+deskflow/deskflow,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+kiwix/kiwix-desktop,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+jtoy/awesome-tensorflow,com GitHub Actions,sem workflows
+sudheerj/javascript-interview-questions,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 27 workflow runs válidos (mínimo 50)
+armankhondker/awesome-ai-ml-resources,com GitHub Actions,sem workflows
+Modernizr/Modernizr,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 42 workflow runs válidos (mínimo 50)
+pantor/inja,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 23 workflow runs válidos (mínimo 50)
+mail-in-a-box/mailinabox,com GitHub Actions,sem workflows
+telegraf/telegraf,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 3 workflow runs válidos (mínimo 50)
+saulpw/visidata,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+RUC-NLPIR/WebThinker,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+uzairansaruzi/hermex,mínimo de releases e workflow runs,4 releases válidas (mínimo 5); 38 workflow runs válidos (mínimo 50)
+zeux/volk,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 15 workflow runs válidos (mínimo 50)
+DotNetAnalyzers/StyleCopAnalyzers,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+LOLBAS-Project/LOLBAS,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 33 workflow runs válidos (mínimo 50)
+nunchux-ai/ComfyUI-nunchaku,mínimo de releases e workflow runs,4 releases válidas (mínimo 5)
+Unity-Technologies/BoatAttack,com GitHub Actions,sem workflows
+cerebroapp/cerebro,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 31 workflow runs válidos (mínimo 50)
+lewkamtao/lew-ui,com GitHub Actions,sem workflows
+chocoford/ExcalidrawZ,com GitHub Actions,sem workflows
+odysseus-dev/odysseus,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+upx/upx,mínimo de releases e workflow runs,4 releases válidas (mínimo 5)
+docker/docs,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+ecyrbe/zodios,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+electric-capital/open-dev-data,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+koral--/android-gif-drawable,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 6 workflow runs válidos (mínimo 50)
+pbatard/Fido,com GitHub Actions,sem workflows
+musescore/MuseScore,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+vladkens/twscrape,mínimo de releases e workflow runs,47 workflow runs válidos (mínimo 50)
+ChenYilong/iOSInterviewQuestions,com GitHub Actions,sem workflows
+Yooooomi/your_spotify,mínimo de releases e workflow runs,33 workflow runs válidos (mínimo 50)
+flightphp/core,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+danmactough/node-feedparser,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 11 workflow runs válidos (mínimo 50)
+securitybunker/databunker,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 13 workflow runs válidos (mínimo 50)
+chiahsien/CHTCollectionViewWaterfallLayout,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+twbs/bootstrap,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+NousResearch/Hermes-Function-Calling,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+trallnag/prometheus-fastapi-instrumentator,mínimo de releases e workflow runs,4 releases válidas (mínimo 5)
+karlkurzer/path_planner,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+andreasfertig/cppinsights,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 12 workflow runs válidos (mínimo 50)
+debridmediamanager/debrid-media-manager,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+iisu-network/iiSU,com GitHub Actions,sem workflows
+dw-0/kiauh,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+iBaa/PlexConnect,com GitHub Actions,sem workflows
+YarnSpinnerTool/YarnSpinner,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+fangzesheng/free-api,com GitHub Actions,sem workflows
+DominikDoom/a1111-sd-webui-tagcomplete,com GitHub Actions,sem workflows
+discourse/discourse,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+devcontainers/templates,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+Hello-Mr-Crab/pywechat,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+zer0yu/CyberSecurityRSS,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 16 workflow runs válidos (mínimo 50)
+openai/whisper,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 10 workflow runs válidos (mínimo 50)
+hiddendevj/Crawler_Illegal_Cases_In_China,com GitHub Actions,sem workflows
+gorhom/react-native-bottom-sheet,mínimo de releases e workflow runs,2 workflow runs válidos (mínimo 50)
+lightgbm-org/LightGBM,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+Shopify/graphql-batch,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 18 workflow runs válidos (mínimo 50)
+activeadmin/activeadmin,mínimo de releases e workflow runs,4 releases válidas (mínimo 5)
+ianhan/BitmapFonts,com GitHub Actions,sem workflows
+wy-luke/All-Chinese-Character-Set,com GitHub Actions,sem workflows
+klonyyy/MCUViewer,mínimo de releases e workflow runs,4 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+zero-to-mastery/start-here-guidelines,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 3 workflow runs válidos (mínimo 50)
+kubesphere/kubesphere,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 19 workflow runs válidos (mínimo 50)
+Rust-GCC/gccrs,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+dusty-nv/jetson-inference,com GitHub Actions,sem workflows
+fortheusers/hb-appstore,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 30 workflow runs válidos (mínimo 50)
+fingerprintjs/BotD,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 37 workflow runs válidos (mínimo 50)
+binary-husky/gpt_academic,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 20 workflow runs válidos (mínimo 50)
+1Panel-dev/KubePi,mínimo de releases e workflow runs,4 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+manisandro/gImageReader,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 11 workflow runs válidos (mínimo 50)
+modularscale/modularscale-sass,com GitHub Actions,sem workflows
+sayanarijit/xplr,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 29 workflow runs válidos (mínimo 50)
+jamisonderek/flipper-zero-tutorials,com GitHub Actions,sem workflows
+explosion/thinc,mínimo de releases e workflow runs,20 workflow runs válidos (mínimo 50)
+0x4D31/awesome-threat-detection,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+zhaoxuya520/reverse-skill,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+microsoft/tsdoc,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 30 workflow runs válidos (mínimo 50)
+huandu/facebook,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)
+mintlify/starter,com GitHub Actions,sem workflows
+3b1b/manim,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 6 workflow runs válidos (mínimo 50)
+hiyouga/LlamaFactory,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+linkwarden/linkwarden,mínimo de releases e workflow runs,35 workflow runs válidos (mínimo 50)
+mikubaka88/CCFA-Skills,mínimo de releases e workflow runs,35 workflow runs válidos (mínimo 50)
+skylot/jadx,mínimo de releases e workflow runs,3 releases válidas (mínimo 5)
+std-microblock/chromatic,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 45 workflow runs válidos (mínimo 50)
+duoan/TorchCode,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+noahgorstein/jqp,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+lavie/runlike,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+HKUSTDial/Supervisor-Skills,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 9 workflow runs válidos (mínimo 50)
+include-what-you-use/include-what-you-use,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+besuper/TwitchNoSub,com GitHub Actions,sem workflows
+deschler/django-modeltranslation,mínimo de releases e workflow runs,28 workflow runs válidos (mínimo 50)
+cweijan/vscode-database-client,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+lstrojny/functional-php,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 4 workflow runs válidos (mínimo 50)
+bacen/pix-api,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)
+team-spotube/spotube,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+simonhaenisch/md-to-pdf,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)
+jmpressjs/jmpress.js,com GitHub Actions,sem workflows
+cssnano/cssnano,mínimo de releases e workflow runs,49 workflow runs válidos (mínimo 50)
+akinomyoga/ble.sh,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 29 workflow runs válidos (mínimo 50)
+akullpp/awesome-java,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 12 workflow runs válidos (mínimo 50)
+gperftools/gperftools,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+matteofigus/awesome-speaking,com GitHub Actions,sem workflows
+WangRongsheng/awesome-LLM-resources,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+ViRb3/magisk-frida,mínimo de releases e workflow runs,3 workflow runs válidos (mínimo 50)
+composio-community/awesome-claude-plugins,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+The-Cool-Coders/Project-Ideas-And-Resources,com GitHub Actions,sem workflows
+git-lfs/git-lfs,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+j4k0xb/webcrack,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 25 workflow runs válidos (mínimo 50)
+Tencent/weui-wxss,com GitHub Actions,sem workflows
+arsLan4k1390/Cherrygram,mínimo de releases e workflow runs,38 workflow runs válidos (mínimo 50)
+adi1090x/rofi,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+bepu/bepuphysics2,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 15 workflow runs válidos (mínimo 50)
+bobeff/programming-math-science,com GitHub Actions,sem workflows
+DarkaOnLine/L5-Swagger,mínimo de releases e workflow runs,13 workflow runs válidos (mínimo 50)
+adrai/flowchart.js,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+PorkStudios/FarPlaneTwo,com GitHub Actions,sem workflows
+agent-network-protocol/AgentNetworkProtocol,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 23 workflow runs válidos (mínimo 50)
+seaswalker/jdk-sourcecode-analysis,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+Gedsh/InviZible,com GitHub Actions,sem workflows
+lukeed/dequal,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+AaronFeng753/Waifu2x-Extension-GUI,com GitHub Actions,sem workflows
+itsjunetime/tdf,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 43 workflow runs válidos (mínimo 50)
+pi-hole/pi-hole,mínimo de releases e workflow runs,23 workflow runs válidos (mínimo 50)
+ChuckerTeam/chucker,mínimo de releases e workflow runs,2 releases válidas (mínimo 5)
+TGSAN/CMWTAT_Digital_Edition,mínimo de releases e workflow runs,2 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+mozilla/nunjucks,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)
+django/django,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+projectdiscovery/katana,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+GuanYixuan/pyJianYingDraft,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+PatrickJS/awesome-cursorrules,mínimo de releases e workflow runs,0 releases válidas (mínimo 5)
+OpenBMB/ChatDev,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 9 workflow runs válidos (mínimo 50)
+olekukonko/tablewriter,mínimo de releases e workflow runs,3 releases válidas (mínimo 5); 31 workflow runs válidos (mínimo 50)
+TehShrike/deepmerge,com GitHub Actions,sem workflows
+ZuodaoTech/everyone-can-use-english,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 16 workflow runs válidos (mínimo 50)
+OAI/OpenAPI-Specification,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+xxlllq/system_architect,com GitHub Actions,sem workflows
+nomcopter/react-mosaic,mínimo de releases e workflow runs,4 releases válidas (mínimo 5); 28 workflow runs válidos (mínimo 50)
+Kenshin/simpread,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+telegram-sms/telegram-sms,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+Orz-3/QuantumultX,com GitHub Actions,sem workflows
+pallets/flask,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+hyperbrowserai/hyperbrowser-app-examples,com GitHub Actions,sem workflows
+YeautyYE/netty-websocket-spring-boot-starter,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 2 workflow runs válidos (mínimo 50)
+codeskyblue/gohttpserver,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+focus-creative-games/luban,mínimo de releases e workflow runs,3 workflow runs válidos (mínimo 50)
+ethanniser/NextFaster,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 16 workflow runs válidos (mínimo 50)
+ansible-community/awesome-ansible,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+sindresorhus/Gifski,com GitHub Actions,sem workflows
+029danio/fly,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+plandex-ai/plandex,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+KeygraphHQ/shannon,mínimo de releases e workflow runs,0 workflow runs válidos (mínimo 50)
+imcvampire/vue-axios,mínimo de releases e workflow runs,1 releases válidas (mínimo 5); 0 workflow runs válidos (mínimo 50)
+chartjs/Chart.js,mínimo de releases e workflow runs,1 releases válidas (mínimo 5)
+wolfpld/tracy,mínimo de releases e workflow runs,4 releases válidas (mínimo 5)
+ananthakumaran/tide,mínimo de releases e workflow runs,0 releases válidas (mínimo 5); 1 workflow runs válidos (mínimo 50)

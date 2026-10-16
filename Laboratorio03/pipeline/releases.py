@@ -10,6 +10,9 @@ from pipeline.http_client import ErroGitHub, GitHubClient
 
 log = logging.getLogger(__name__)
 
+# 404: tag apagada ou reescrita; 422: diff grande demais para a API gerar.
+STATUS_COMPARE_INDISPONIVEL = {404, 422}
+
 
 def _data_api(valor: str | None) -> date | None:
     if not valor:
@@ -81,7 +84,7 @@ def coletar_commits_entre_releases(
     inicio: str | date,
     fim: str | date,
 ) -> tuple[list[dict], list[dict]]:
-    """Compara releases principais consecutivas; devolve comparações e 404s."""
+    """Compara releases principais consecutivas; devolve comparações e as indisponíveis (404/422)."""
     inicio = date.fromisoformat(inicio) if isinstance(inicio, str) else inicio
     fim = date.fromisoformat(fim) if isinstance(fim, str) else fim
     ordenadas = sorted(
@@ -105,7 +108,7 @@ def coletar_commits_entre_releases(
         try:
             commits = cliente.get_todos(caminho, {"per_page": cliente.per_page}, chave="commits")
         except ErroGitHub as erro:
-            if erro.status != 404:
+            if erro.status not in STATUS_COMPARE_INDISPONIVEL:
                 raise
             registro = {
                 "tag_anterior": anterior["tag_name"],
@@ -113,7 +116,7 @@ def coletar_commits_entre_releases(
                 "status": erro.status,
             }
             ignoradas_404.append(registro)
-            log.warning("Compare indisponivel (HTTP 404) em %s: %s", repositorio, caminho)
+            log.warning("Compare indisponivel (HTTP %d) em %s: %s", erro.status, repositorio, caminho)
             continue
 
         comparacoes.append(

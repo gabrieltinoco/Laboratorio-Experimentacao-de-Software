@@ -17,3 +17,7 @@ venv/
 
 # Notebooks
 .ipynb_checkpoints/
+
+# Coleta bruta em JSONL (centenas de MB, acima do limite do GitHub); e regenerada
+# a partir do cache por python -m pipeline. Os CSVs de dados/ sao versionados.
+dados/*.jsonl

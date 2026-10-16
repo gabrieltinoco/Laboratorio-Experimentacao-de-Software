@@ -124,7 +124,24 @@ def test_compare_404_e_contado_sem_interromper_as_comparacoes():
     assert erros == [{"tag_anterior": "v1.0", "tag_release": "v1.1", "status": 404}]
 
 
-def test_compare_propaga_erros_diferentes_de_404():
+def test_compare_422_de_diff_grande_demais_tambem_e_contado():
+    releases = [
+        release(1, "v1.0", "2025-09-01T00:00:00Z"),
+        release(2, "v1.1", "2025-10-15T00:00:00Z"),
+    ]
+    cliente = ClienteReleases(
+        comparacoes={"/repos/o/r/compare/v1.0...v1.1": ErroGitHub(422, "url", "this diff is taking too long")}
+    )
+
+    comparacoes, erros = coletar_commits_entre_releases(
+        cliente, "o/r", releases, "2025-10-01", "2025-10-31"
+    )
+
+    assert comparacoes == []
+    assert erros == [{"tag_anterior": "v1.0", "tag_release": "v1.1", "status": 422}]
+
+
+def test_compare_propaga_erros_diferentes_de_404_e_422():
     releases = [
         release(1, "v1.0", "2025-09-01T00:00:00Z"),
         release(2, "v1.1", "2025-10-15T00:00:00Z"),

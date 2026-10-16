@@ -31,7 +31,7 @@ $env:GITHUB_TOKEN = "ghp_..."          # Windows PowerShell
 python -m pipeline --config config.yaml
 ```
 
-O comando roda, em sequência, a seleção com o funil, a coleta de releases, commits entre releases e workflow runs, e o cálculo das métricas. O resultado final é `dados/repositorios.csv`, com uma linha por repositório da amostra. A amostra tem 320 repositórios (`selecao.max_repositorios`), acima do mínimo de 300 exigido após os filtros. A primeira execução leva várias horas por causa do rate limit. Se for interrompida, rode o mesmo comando de novo: o cache continua de onde parou.
+O comando roda, em sequência, a seleção com o funil, a coleta de releases, commits entre releases e workflow runs, e o cálculo das métricas. O resultado final é `dados/repositorios.csv`, com uma linha por repositório da amostra. A amostra tem 306 repositórios (`selecao.max_repositorios`), acima do mínimo de 300 exigido após os filtros. A primeira execução leva várias horas por causa do rate limit. Se for interrompida, rode o mesmo comando de novo: o cache continua de onde parou.
 
 Todos os parâmetros (janela de observação, faixas de estrelas da busca, critério mínimo de inclusão, tentativas e backoff) ficam em [config.yaml](config.yaml).
 
@@ -56,10 +56,11 @@ configurado de releases publicadas e runs com conclusão `success`, `failure`,
 `timed_out` ou `startup_failure`. Releases prévias e drafts são preservados nos
 dados, mas não contam para o critério principal. Os workflow runs são consultados
 por mês; meses com 1.000 resultados ou mais geram um alerta porque a API pode
-truncar a consulta. Comparações de releases são paginadas e respostas 404 são
-registradas sem interromper a coleta.
+truncar a consulta. Comparações de releases são paginadas; respostas 404 (tag
+apagada) e 422 (diff grande demais) são registradas sem interromper a coleta.
+Listagens com mais de 10.000 itens param no teto da API, com um aviso no log.
 
-Saídas em `dados/`:
+Saídas em `dados/` (os `.jsonl` passam de 100 MB e ficam fora do git; rodar o pipeline com o cache os regenera):
 
 | Arquivo | Conteúdo |
 |---|---|
@@ -68,7 +69,7 @@ Saídas em `dados/`:
 | `descartes.csv` | cada repositório descartado, com etapa e motivo |
 | `releases.jsonl` | releases coletadas na janela e release principal anterior |
 | `commits_entre_releases.jsonl` | commits paginados de cada comparação, com `commit.author.date` |
-| `compare_404.jsonl` | releases cujo endpoint `compare` retornou 404 |
+| `compare_404.jsonl` | releases cujo endpoint `compare` retornou 404 ou 422 |
 | `workflow_runs.jsonl` | runs do branch padrão e evento `push` |
 | `coleta_resumo.json` | contagem de releases/runs válidos, 404 de compare e alertas mensais |
 | `repositorios.csv` | metadados + métricas + classificação DORA (só no comando completo; ver abaixo) |
@@ -81,7 +82,7 @@ O dicionário completo de todas as saídas (tipo, unidade e fórmula ou origem d
 |---|---|---|
 | `releases_na_janela` | contagem | releases com `draft = false` e `prerelease = false` publicadas na janela |
 | `releases_comparadas` | contagem | releases com release anterior e `compare` disponível (entram no lead time) |
-| `compare_404` | contagem | releases ignoradas no lead time porque o `compare` retornou 404 |
+| `compare_404` | contagem | releases ignoradas no lead time porque o `compare` retornou 404 ou 422 |
 | `workflow_runs_validos` | contagem | runs com `conclusion` de sucesso ou falha |
 | `meses_no_teto_de_runs` | contagem | meses em que a consulta de runs atingiu 1.000 resultados |
 | `deploy_freq_semana` | releases/semana | `releases_na_janela` ÷ semanas da janela |

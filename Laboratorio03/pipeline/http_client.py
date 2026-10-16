@@ -180,12 +180,22 @@ class GitHubClient:
         return self._verificar(resposta)
 
     def paginas(self, caminho: str, params: dict | None = None) -> Iterator[Resposta]:
-        """Percorre todas as paginas seguindo o rel="next" do header Link."""
+        """Percorre todas as paginas seguindo o rel="next" do header Link.
+
+        A API so lista os primeiros 10.000 itens; depois disso responde 422 e a
+        paginacao para no que ja foi obtido (as listas vem das mais novas para as mais antigas).
+        """
         params = {"per_page": self.per_page, **(params or {})}
         resposta = self.get(caminho, params)
         yield resposta
         while "next" in resposta.links:
-            resposta = self.get(resposta.links["next"])
+            try:
+                resposta = self.get(resposta.links["next"])
+            except ErroGitHub as erro:
+                if erro.status != 422 or "first 10000" not in str(erro):
+                    raise
+                log.warning("Paginacao truncada pela API em 10.000 itens: %s", erro.url)
+                return
             yield resposta
 
     def get_todos(self, caminho: str, params: dict | None = None, chave: str | None = None) -> list:

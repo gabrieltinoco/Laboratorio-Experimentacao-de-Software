@@ -20,7 +20,7 @@ selecao:
     - [10001, 20000]
     - [20001, 50000]
     - [50001, null]      # null = sem limite superior
-  max_repositorios: 320  # >= 300 apos os filtros, com folga para perdas na replicacao
+  max_repositorios: 306  # >= 300 apos os filtros
   semente: 42            # ordem aleatoria em que os candidatos sao avaliados
 
 # Criterio minimo de inclusao.

@@ -34,7 +34,7 @@ Dataset final, com uma linha por repositório da amostra, ordenado por `reposito
 |---|---|---|---|
 | `releases_na_janela` | inteiro | releases | releases principais com `published_at` na janela |
 | `releases_comparadas` | inteiro | releases | releases da janela com release principal anterior e `compare` disponível; são as que entram no lead time |
-| `compare_404` | inteiro | releases | releases ignoradas no lead time porque `/compare/{anterior}...{release}` devolveu 404 (tag apagada ou reescrita) |
+| `compare_404` | inteiro | releases | releases ignoradas no lead time porque `/compare/{anterior}...{release}` ficou indisponível: 404 (tag apagada ou reescrita) ou 422 (diff grande demais para a API gerar) |
 | `workflow_runs_validos` | inteiro | runs | runs válidos do `default_branch` com `event = push` criados na janela |
 | `meses_no_teto_de_runs` | inteiro | meses | meses em que a consulta mensal de `/actions/runs` atingiu 1.000 resultados; nesses meses a contagem pode estar truncada |
 
@@ -116,8 +116,8 @@ Uma linha por release principal da janela comparada com a release principal ante
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| `tag_anterior`, `tag_release` | texto | comparação que devolveu 404 |
-| `status` | inteiro | código HTTP (404) |
+| `tag_anterior`, `tag_release` | texto | comparação indisponível |
+| `status` | inteiro | código HTTP: 404 (tag apagada ou reescrita) ou 422 (diff grande demais) |
 
 ### `workflow_runs.jsonl`
 
