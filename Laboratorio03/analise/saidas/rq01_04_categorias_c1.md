@@ -1,0 +1,22 @@
+| metrica     | categoria   |   n |    pct |
+|:------------|:------------|----:|-------:|
+| frequencia  | Elite       |   4 |  1.307 |
+| frequencia  | High        |  58 | 18.954 |
+| frequencia  | Medium      | 141 | 46.078 |
+| frequencia  | Low         | 103 | 33.660 |
+| lead_time   | Elite       |  44 | 14.379 |
+| lead_time   | High        |  68 | 22.222 |
+| lead_time   | Medium      | 108 | 35.294 |
+| lead_time   | Low         |  86 | 28.105 |
+| cfr         | Elite       | 246 | 80.392 |
+| cfr         | High        |  35 | 11.438 |
+| cfr         | Medium      |  14 |  4.575 |
+| cfr         | Low         |  11 |  3.595 |
+| recuperacao | Elite       |  76 | 26.761 |
+| recuperacao | High        | 165 | 58.099 |
+| recuperacao | Medium      |  30 | 10.563 |
+| recuperacao | Low         |  13 |  4.577 |
+| geral       | Elite       |  20 |  7.042 |
+| geral       | High        | 105 | 36.972 |
+| geral       | Medium      | 140 | 49.296 |
+| geral       | Low         |  19 |  6.690 |

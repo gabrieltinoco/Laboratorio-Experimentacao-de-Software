@@ -42,6 +42,12 @@ class SessaoFalsa:
         item.url = url
         return item
 
+    def post(self, url, json=None, headers=None, timeout=None):
+        self.chamadas.append((url, json))
+        item = self.fila.pop(0)
+        item.url = url
+        return item
+
 
 @pytest.fixture
 def esperas():
@@ -317,3 +323,46 @@ def test_from_config(tmp_path):
     c = GitHubClient.from_config(config, token="t")
     assert (c.per_page, c.max_tentativas, c.backoff_base_s) == (50, 3, 2)
     assert c.cache.raiz == tmp_path / "c"
+
+
+# ---------------------------------------------------------------- GraphQL
+
+CONSULTA = "query($n: String!) { repository(owner: \"o\", name: $n) { id } }"
+
+
+def test_graphql_envia_post_devolve_data_e_usa_cache(cliente):
+    c, sessao = cliente(resposta_falsa(corpo={"data": {"repository": {"id": "R1"}}}))
+
+    assert c.graphql(CONSULTA, {"n": "r"}) == {"repository": {"id": "R1"}}
+    assert c.graphql(CONSULTA, {"n": "r"}) == {"repository": {"id": "R1"}}
+    assert sessao.chamadas == [(f"{API}/graphql", {"query": CONSULTA, "variables": {"n": "r"}})]
+
+
+def test_graphql_not_found_vira_404_e_fica_no_cache(cliente):
+    erro = {"data": {"repository": None}, "errors": [{"type": "NOT_FOUND", "message": "nao existe"}]}
+    c, sessao = cliente(resposta_falsa(corpo=erro))
+
+    for _ in range(2):
+        with pytest.raises(ErroGitHub) as excinfo:
+            c.graphql(CONSULTA, {"n": "x"})
+        assert excinfo.value.status == 404
+    assert len(sessao.chamadas) == 1
+
+
+def test_graphql_outros_erros_nao_ficam_no_cache(cliente):
+    erro = {"errors": [{"type": "INTERNAL", "message": "falhou"}]}
+    c, sessao = cliente(resposta_falsa(corpo=erro), resposta_falsa(corpo={"data": {"ok": 1}}))
+
+    with pytest.raises(ErroGitHub) as excinfo:
+        c.graphql(CONSULTA)
+    assert excinfo.value.status == 422
+    assert c.graphql(CONSULTA) == {"ok": 1}
+
+
+def test_graphql_rate_limited_com_status_200_espera_o_reset(cliente, esperas):
+    limitado = resposta_falsa(corpo={"errors": [{"type": "RATE_LIMITED", "message": "limite"}]},
+                              headers={"X-RateLimit-Reset": "1060"})
+    c, _ = cliente(limitado, resposta_falsa(corpo={"data": {"ok": 1}}), agora=1_000.0)
+
+    assert c.graphql(CONSULTA) == {"ok": 1}
+    assert esperas == [61.0]

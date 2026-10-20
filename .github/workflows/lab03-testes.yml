@@ -22,5 +22,5 @@ jobs:
           cache-dependency-path: Laboratorio03/requirements.txt
       - run: pip install -r requirements.txt
       # Exigencia do enunciado: >= 80% de cobertura no modulo de metricas.
-      - run: pytest --cov=metricas --cov=pipeline --cov=validacao --cov-report=term-missing
+      - run: pytest --cov=metricas --cov=pipeline --cov=validacao --cov=analise --cov-report=term-missing
       - run: coverage report --include="metricas/*" --fail-under=80

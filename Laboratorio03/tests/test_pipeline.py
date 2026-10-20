@@ -10,7 +10,7 @@ import yaml
 
 import pipeline.__main__ as principal
 from pipeline.consolidacao import consolidar, metricas_do_repositorio
-from pipeline.http_client import Resposta
+from pipeline.http_client import ErroGitHub, Resposta
 from pipeline.selecao import consulta_da_faixa
 
 INICIO, FIM = "2025-10-01", "2026-09-30"
@@ -76,16 +76,22 @@ class ClienteFalso:
         yield Resposta(200, caminho, {"total_count": len(runs), "workflow_runs": runs})
 
     def get(self, caminho, params=None):
+        nome = caminho.removeprefix("/repos/")
+        if nome in RELEASES:
+            return Resposta(200, caminho, item_busca(nome))
+        if caminho == "/repos/o/apagado":
+            raise ErroGitHub(404, caminho)
         return Resposta(200, caminho, {"total_count": 1, "workflows": []})
 
     def contar(self, caminho, params=None):
         return 3
 
+    def graphql(self, consulta, variaveis=None):
+        return {"repository": {"refs": {"pageInfo": {"hasNextPage": False, "endCursor": None}, "nodes": []}}}
+
     def get_todos(self, caminho, params=None, chave=None):
         if caminho.endswith("/releases"):
             return RELEASES[caminho.removeprefix("/repos/").removesuffix("/releases")]
-        if caminho.endswith("/tags"):
-            return []
         return COMPARE[caminho]
 
 
@@ -119,6 +125,8 @@ def test_executar_calcula_metricas_e_aplica_criterio_de_inclusao(tmp_path):
                                "categoria_recuperacao", "categoria_geral")] == [
         "Low", "Medium", "Low", "High", "Low"]
     assert linha["contribuidores"] == 3
+    assert linha["releases_corretivas"] == 2   # todos os commits do fixture sao "fix"
+    assert linha["rework_rate"] == pytest.approx(1)
 
 
 def test_executar_grava_todas_as_saidas(tmp_path):
@@ -163,3 +171,19 @@ def test_main_le_config_e_usa_cliente_do_config(tmp_path, monkeypatch):
     principal.main(["--config", str(arquivo)])
 
     assert len(pd.read_csv(tmp_path / "dados" / "repositorios.csv")) == 1
+
+
+def test_subamostra_avalia_so_a_lista_e_grava_na_pasta_indicada(tmp_path, monkeypatch):
+    arquivo = tmp_path / "config.yaml"
+    arquivo.write_text(yaml.safe_dump(config(tmp_path)), encoding="utf-8")
+    lista = tmp_path / "lista.txt"
+    lista.write_text("# subamostra\no/bom\n\no/apagado\no/bom\n", encoding="utf-8")
+    monkeypatch.setattr(principal.GitHubClient, "from_config", classmethod(lambda cls, cfg: ClienteFalso()))
+
+    principal.main(["--config", str(arquivo), "--repos", str(lista), "--saida", str(tmp_path / "replicacao")])
+
+    repositorios = pd.read_csv(tmp_path / "replicacao" / "repositorios.csv")
+    assert list(repositorios["repositorio"]) == ["o/bom"]
+    assert not (tmp_path / "dados").exists()
+    funil = pd.read_csv(tmp_path / "replicacao" / "funil.csv")
+    assert funil["repositorios"].iloc[0] == 3

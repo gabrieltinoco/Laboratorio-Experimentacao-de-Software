@@ -53,7 +53,7 @@ class ColetorRepositorio:
         if motivos:
             return "; ".join(motivos)
 
-        tags = coletar_tags(cliente, repositorio)
+        tags = coletar_tags(cliente, repositorio, self.inicio)
         comparacoes, ignoradas_404 = coletar_commits_entre_releases(
             cliente, repositorio, releases, self.inicio, self.fim
         )

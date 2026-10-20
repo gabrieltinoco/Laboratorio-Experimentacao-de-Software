@@ -35,6 +35,16 @@ O comando roda, em sequência, a seleção com o funil, a coleta de releases, co
 
 Todos os parâmetros (janela de observação, faixas de estrelas da busca, critério mínimo de inclusão, tentativas e backoff) ficam em [config.yaml](config.yaml).
 
+### Subamostra (replicação cruzada)
+
+Para rodar o pipeline só sobre uma lista de repositórios, sem a busca, e gravar as saídas em outra pasta (o `dados/` original fica intacto para comparação):
+
+```bash
+python -m pipeline --config config.yaml --repos replicacao/subamostra_30.txt --saida dados_replicacao
+```
+
+O arquivo tem um `dono/nome` por linha; linhas vazias e iniciadas por `#` são ignoradas. [replicacao/subamostra_30.txt](replicacao/subamostra_30.txt) traz 30 repositórios sorteados de `dados/repositorios.csv` com `sample(n=30, random_state=42)`. Os repositórios da lista passam pelos mesmos filtros (Actions e critério mínimo); os que não passam aparecem em `descartes.csv`. Com a lista de 30, a coleta leva de alguns minutos a cerca de uma hora, conforme o número de workflow runs e de commits entre releases dos repositórios.
+
 ### Seleção de repositórios e funil
 
 Para rodar só a seleção e a coleta, sem calcular as métricas:
@@ -68,7 +78,7 @@ Saídas em `dados/` (os `.jsonl` passam de 100 MB e ficam fora do git; rodar o p
 | `funil.csv` | quantos repositórios restam em cada etapa, quantos saíram e os motivos agregados |
 | `descartes.csv` | cada repositório descartado, com etapa e motivo |
 | `releases.jsonl` | releases coletadas na janela e release principal anterior |
-| `tags.jsonl` | tags do repositório e data `commit.author.date` do commit apontado |
+| `tags.jsonl` | tags com commit a partir do início da janela e data `commit.author.date` do commit apontado (via GraphQL) |
 | `commits_entre_releases.jsonl` | commits paginados de cada comparação, com `commit.author.date` |
 | `compare_404.jsonl` | releases cujo endpoint `compare` retornou 404 ou 422 |
 | `workflow_runs.jsonl` | runs do branch padrão e evento `push` |
@@ -94,6 +104,7 @@ O dicionário completo de todas as saídas (tipo, unidade e fórmula ou origem d
 | `cfr_ci` | proporção (0–1) | CFR (a): falhas ÷ (falhas + sucessos) dos workflow runs |
 | `cfr_releases` | proporção (0–1) | CFR (b): releases principais seguidas por corretiva em até 7 dias ÷ releases avaliáveis |
 | `releases_avaliadas_cfr` / `releases_falhas_cfr` / `releases_censuradas_cfr` | contagem | denominador, falhas e releases dos últimos 7 dias excluídas do CFR (b) |
+| `releases_corretivas` / `rework_rate` | contagem / proporção (0–1) | RQ 08: releases marcadas como corretivas pela heurística e essa contagem ÷ `releases_na_janela` |
 | `recuperacao_horas` | horas | mediana dos episódios de falha encerrados, por workflow |
 | `episodios_falha` / `episodios_censurados` | contagem | episódios de falha e os que não terminaram na janela |
 | `proporcao_censurados` | proporção (0–1) | `episodios_censurados` ÷ `episodios_falha` |
@@ -124,6 +135,18 @@ O resultado é acrescentado a `validacao/avaliacao_heuristica.csv`; uma versão
 já registrada não é sobrescrita. O comando requer
 `validacao/consenso_releases.csv` produzido pelo consenso.
 
+### Análises (Lab03S03)
+
+Cada análise é um script que lê apenas `dados/repositorios.csv` e grava tabelas (`.csv` e `.md`) e figuras (`.png`) em `analise/saidas/`:
+
+```bash
+python -m analise.comum       # classificação DORA de referência (C1): classificacao_c1.csv
+python -m analise.rq01_04     # mediana/IQR das métricas, censura, lead time (a) x (b), categorias C1
+python -m analise.rq05_rq08   # Spearman frequência x CFR (a) e (b); rework rate x CFR (b)
+```
+
+`analise/comum.py` também expõe `classificar(df, frequencia, lead_time, cfr)`, que classifica qualquer combinação de colunas (C2 e C3 da RQ 07). Todos aceitam `--dados` e `--saidas` para rodar sobre outro CSV, como o da replicação.
+
 ### Cache e retomada
 
 Cada resposta da API é salva em `cache/` (um JSON por requisição, agrupado por repositório em `cache/repos/<dono>__<repo>/`). Se a coleta for interrompida (rate limit, queda de rede, `Ctrl+C`), basta rodar o mesmo comando de novo: o que já está no cache não é pedido outra vez. Respostas 404/409/422/451 também ficam no cache, porque não mudam se repetidas; respostas 5xx e 403 não.
@@ -134,11 +157,12 @@ Para forçar uma coleta nova, apague a pasta `cache/`.
 
 - Quando `X-RateLimit-Remaining` chega a 0, o cliente espera até `X-RateLimit-Reset`. No rate limit secundário, respeita `Retry-After`; sem nenhum desses headers, consulta `GET /rate_limit` (que não consome cota).
 - Respostas 5xx e erros de rede são repetidos com backoff exponencial (1, 2, 4, 8 s), até `http.max_tentativas` tentativas.
+- As tags são consultadas pela API GraphQL (`POST /graphql`), 100 por requisição e já com a data do commit apontado, com o mesmo cache, a mesma espera por cota e o mesmo backoff. A cota do GraphQL é separada da do REST.
 
 ## Testes
 
 ```bash
-pytest --cov=metricas --cov=pipeline --cov=validacao --cov-report=term-missing
+pytest --cov=metricas --cov=pipeline --cov=validacao --cov=analise --cov-report=term-missing
 ```
 
 O CI ([.github/workflows/lab03-testes.yml](../.github/workflows/lab03-testes.yml)) roda os testes a cada push que altere esta pasta e falha se a cobertura de `metricas/` ficar abaixo de 80%.
@@ -156,11 +180,14 @@ Laboratorio03/
 │   ├── metadados.py     # estrelas, linguagem, idade, contribuidores
 │   ├── funil.py         # funil.csv e descartes.csv
 │   ├── releases.py      # releases e commits entre releases
+│   ├── tags.py          # tags e data do commit apontado (GraphQL)
 │   ├── workflow_runs.py # runs segmentados por mês
 │   ├── coleta.py        # critério mínimo e persistência da coleta
 │   └── consolidacao.py  # métricas por repositório e repositorios.csv
 ├── metricas/            # funções puras de cálculo e classificação DORA
 ├── validacao/           # amostra-ouro: sorteio, planilhas, concordância, consenso, PROTOCOLO.md
+├── analise/             # scripts da S03, reexecutáveis a partir de repositorios.csv
+├── replicacao/          # subamostra para a replicação cruzada
 ├── tests/
 ├── artigo/              # hipóteses da introdução e seções incrementais
 ├── dados/               # CSVs finais + dicionário de dados

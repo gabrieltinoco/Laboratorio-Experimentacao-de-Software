@@ -52,6 +52,8 @@ Dataset final, com uma linha por repositório da amostra, ordenado por `reposito
 | `releases_avaliadas_cfr` | inteiro | releases | releases principais da janela fora dos últimos 7 dias | 03 |
 | `releases_falhas_cfr` | inteiro | releases | releases avaliadas seguidas por uma release corretiva em até 7 dias | 03 |
 | `releases_censuradas_cfr` | inteiro | releases | releases principais nos últimos 7 dias da janela, excluídas do denominador | 03 |
+| `releases_corretivas` | inteiro | releases | releases principais da janela com `compare` disponível marcadas como corretivas pela heurística (`metricas/corretiva.py`) | 08 |
+| `rework_rate` | decimal | proporção (0–1) | `releases_corretivas` ÷ `releases_na_janela`; releases sem `compare` ficam no denominador; vazio sem releases | 08 |
 | `recuperacao_horas` | decimal | horas | por workflow, episódio = da primeira falha após um sucesso (`run_started_at`) até o fim do próximo sucesso do mesmo workflow (`updated_at`); valor do repositório = mediana dos episódios encerrados de todos os workflows | 04 |
 | `episodios_falha` | inteiro | episódios | episódios de falha, encerrados ou censurados | 04 |
 | `episodios_censurados` | inteiro | episódios | episódios sem sucesso posterior dentro da janela | 04 |
@@ -120,13 +122,13 @@ Uma linha por release principal da janela comparada com a release principal ante
 
 ### `tags.jsonl`
 
-Uma linha por tag retornada por `/repos/{owner}/{repo}/tags`.
+Uma linha por tag, consultada na API GraphQL (`repository.refs(refPrefix: "refs/tags/")`) em ordem decrescente da data do commit apontado. A coleta para na primeira página de 100 tags inteiramente anterior ao início da janela, então tags antigas podem faltar; isso não muda `deploy_freq_tags_semana`, que só conta tags da janela. Tags anotadas são seguidas até o commit; tags que apontam para árvore ou blob são ignoradas.
 
 | Campo | Tipo | Origem |
 |---|---|---|
-| `tag_name` | texto | `name` de `/tags` |
-| `commit_sha` | texto | SHA do commit resolvido para a tag |
-| `commit_date` | data/hora | `commit.author.date` de `/commits/{tag_name}` |
+| `tag_name` | texto | `name` da ref |
+| `commit_sha` | texto | `oid` do commit apontado pela tag |
+| `commit_date` | data/hora | `author.date` do commit (`commit.author.date` no REST), convertido para UTC |
 
 ### `compare_404.jsonl`
 

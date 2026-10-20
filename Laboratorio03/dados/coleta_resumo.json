@@ -3,6 +3,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 18,
+    "tags_coletadas": 37,
     "workflow_runs_coletadas": 107,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -24,6 +25,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 34,
+    "tags_coletadas": 80,
     "workflow_runs_coletadas": 830,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -45,6 +47,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 11,
+    "tags_coletadas": 154,
     "workflow_runs_coletadas": 428,
     "workflow_runs_por_mes": {
       "2025-10": 19,
@@ -66,6 +69,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 10,
+    "tags_coletadas": 108,
     "workflow_runs_coletadas": 698,
     "workflow_runs_por_mes": {
       "2025-10": 80,
@@ -87,6 +91,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 71,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 1623,
     "workflow_runs_por_mes": {
       "2025-10": 78,
@@ -108,6 +113,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 8,
+    "tags_coletadas": 54,
     "workflow_runs_coletadas": 74,
     "workflow_runs_por_mes": {
       "2025-10": 3,
@@ -129,6 +135,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 54,
+    "tags_coletadas": 300,
     "workflow_runs_coletadas": 481,
     "workflow_runs_por_mes": {
       "2025-10": 10,
@@ -150,6 +157,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 60,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 3042,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -171,6 +179,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 5,
+    "tags_coletadas": 89,
     "workflow_runs_coletadas": 279,
     "workflow_runs_por_mes": {
       "2025-10": 9,
@@ -192,6 +201,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 11,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 1868,
     "workflow_runs_por_mes": {
       "2025-10": 387,
@@ -215,6 +225,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 719,
+    "tags_coletadas": 1400,
     "workflow_runs_coletadas": 6614,
     "workflow_runs_por_mes": {
       "2025-10": 266,
@@ -236,6 +247,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 20,
+    "tags_coletadas": 21,
     "workflow_runs_coletadas": 140,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -257,6 +269,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 14,
+    "tags_coletadas": 18,
     "workflow_runs_coletadas": 68,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -278,6 +291,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 25,
+    "tags_coletadas": 54,
     "workflow_runs_coletadas": 76,
     "workflow_runs_por_mes": {
       "2025-10": 4,
@@ -299,6 +313,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 18,
+    "tags_coletadas": 19,
     "workflow_runs_coletadas": 844,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -320,6 +335,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 61,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 241,
     "workflow_runs_por_mes": {
       "2025-10": 21,
@@ -341,6 +357,7 @@
     "compare_404": 1,
     "meses_no_teto": [],
     "releases_validas_na_janela": 45,
+    "tags_coletadas": 56,
     "workflow_runs_coletadas": 2949,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -362,6 +379,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 16,
+    "tags_coletadas": 29,
     "workflow_runs_coletadas": 161,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -383,6 +401,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 8,
+    "tags_coletadas": 29,
     "workflow_runs_coletadas": 220,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -407,6 +426,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 437,
+    "tags_coletadas": 3900,
     "workflow_runs_coletadas": 4060,
     "workflow_runs_por_mes": {
       "2025-10": 152,
@@ -430,6 +450,7 @@
       "2026-06"
     ],
     "releases_validas_na_janela": 12,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 4119,
     "workflow_runs_por_mes": {
       "2025-10": 95,
@@ -451,6 +472,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 36,
+    "tags_coletadas": 41,
     "workflow_runs_coletadas": 1990,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -472,6 +494,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 7,
+    "tags_coletadas": 63,
     "workflow_runs_coletadas": 188,
     "workflow_runs_por_mes": {
       "2025-10": 16,
@@ -493,6 +516,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 58,
+    "tags_coletadas": 74,
     "workflow_runs_coletadas": 692,
     "workflow_runs_por_mes": {
       "2025-10": 120,
@@ -514,6 +538,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 9,
+    "tags_coletadas": 195,
     "workflow_runs_coletadas": 498,
     "workflow_runs_por_mes": {
       "2025-10": 87,
@@ -535,6 +560,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 15,
+    "tags_coletadas": 32,
     "workflow_runs_coletadas": 82,
     "workflow_runs_por_mes": {
       "2025-10": 3,
@@ -556,6 +582,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 11,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 84,
     "workflow_runs_por_mes": {
       "2025-10": 6,
@@ -577,6 +604,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 15,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 804,
     "workflow_runs_por_mes": {
       "2025-10": 90,
@@ -598,6 +626,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 106,
+    "tags_coletadas": 300,
     "workflow_runs_coletadas": 191,
     "workflow_runs_por_mes": {
       "2025-10": 11,
@@ -619,6 +648,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 17,
+    "tags_coletadas": 29,
     "workflow_runs_coletadas": 3420,
     "workflow_runs_por_mes": {
       "2025-10": 356,
@@ -640,6 +670,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 139,
+    "tags_coletadas": 300,
     "workflow_runs_coletadas": 1306,
     "workflow_runs_por_mes": {
       "2025-10": 82,
@@ -661,6 +692,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 8,
+    "tags_coletadas": 81,
     "workflow_runs_coletadas": 813,
     "workflow_runs_por_mes": {
       "2025-10": 156,
@@ -688,6 +720,7 @@
       "2026-03"
     ],
     "releases_validas_na_janela": 20,
+    "tags_coletadas": 34,
     "workflow_runs_coletadas": 7829,
     "workflow_runs_por_mes": {
       "2025-10": 1264,
@@ -709,6 +742,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 18,
+    "tags_coletadas": 29,
     "workflow_runs_coletadas": 4182,
     "workflow_runs_por_mes": {
       "2025-10": 548,
@@ -730,6 +764,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 19,
+    "tags_coletadas": 20,
     "workflow_runs_coletadas": 109,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -751,6 +786,7 @@
     "compare_404": 1,
     "meses_no_teto": [],
     "releases_validas_na_janela": 40,
+    "tags_coletadas": 40,
     "workflow_runs_coletadas": 110,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -772,6 +808,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 21,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 301,
     "workflow_runs_por_mes": {
       "2025-10": 28,
@@ -796,6 +833,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 16,
+    "tags_coletadas": 82,
     "workflow_runs_coletadas": 9638,
     "workflow_runs_por_mes": {
       "2025-10": 817,
@@ -817,6 +855,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 8,
+    "tags_coletadas": 72,
     "workflow_runs_coletadas": 643,
     "workflow_runs_por_mes": {
       "2025-10": 76,
@@ -838,6 +877,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 38,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 828,
     "workflow_runs_por_mes": {
       "2025-10": 57,
@@ -859,6 +899,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 9,
+    "tags_coletadas": 300,
     "workflow_runs_coletadas": 86,
     "workflow_runs_por_mes": {
       "2025-10": 6,
@@ -880,6 +921,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 5,
+    "tags_coletadas": 26,
     "workflow_runs_coletadas": 1768,
     "workflow_runs_por_mes": {
       "2025-10": 16,
@@ -910,6 +952,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 9,
+    "tags_coletadas": 106,
     "workflow_runs_coletadas": 10935,
     "workflow_runs_por_mes": {
       "2025-10": 823,
@@ -931,6 +974,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 15,
+    "tags_coletadas": 151,
     "workflow_runs_coletadas": 1726,
     "workflow_runs_por_mes": {
       "2025-10": 92,
@@ -952,6 +996,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 5,
+    "tags_coletadas": 83,
     "workflow_runs_coletadas": 1755,
     "workflow_runs_por_mes": {
       "2025-10": 69,
@@ -973,6 +1018,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 114,
+    "tags_coletadas": 122,
     "workflow_runs_coletadas": 110,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -994,6 +1040,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 95,
+    "tags_coletadas": 112,
     "workflow_runs_coletadas": 383,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -1015,6 +1062,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 13,
+    "tags_coletadas": 198,
     "workflow_runs_coletadas": 1366,
     "workflow_runs_por_mes": {
       "2025-10": 98,
@@ -1041,6 +1089,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 287,
+    "tags_coletadas": 807,
     "workflow_runs_coletadas": 6479,
     "workflow_runs_por_mes": {
       "2025-10": 60,
@@ -1062,6 +1111,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 5,
+    "tags_coletadas": 78,
     "workflow_runs_coletadas": 1697,
     "workflow_runs_por_mes": {
       "2025-10": 65,
@@ -1083,6 +1133,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 20,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 1158,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -1104,6 +1155,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 18,
+    "tags_coletadas": 117,
     "workflow_runs_coletadas": 201,
     "workflow_runs_por_mes": {
       "2025-10": 29,
@@ -1129,6 +1181,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 50,
+    "tags_coletadas": 191,
     "workflow_runs_coletadas": 8159,
     "workflow_runs_por_mes": {
       "2025-10": 369,
@@ -1150,6 +1203,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 12,
+    "tags_coletadas": 39,
     "workflow_runs_coletadas": 350,
     "workflow_runs_por_mes": {
       "2025-10": 30,
@@ -1171,6 +1225,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 116,
+    "tags_coletadas": 500,
     "workflow_runs_coletadas": 116,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -1192,6 +1247,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 9,
+    "tags_coletadas": 67,
     "workflow_runs_coletadas": 208,
     "workflow_runs_por_mes": {
       "2025-10": 3,
@@ -1213,6 +1269,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 28,
+    "tags_coletadas": 70,
     "workflow_runs_coletadas": 391,
     "workflow_runs_por_mes": {
       "2025-10": 46,
@@ -1234,6 +1291,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 104,
+    "tags_coletadas": 1400,
     "workflow_runs_coletadas": 2364,
     "workflow_runs_por_mes": {
       "2025-10": 206,
@@ -1255,6 +1313,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 17,
+    "tags_coletadas": 75,
     "workflow_runs_coletadas": 1989,
     "workflow_runs_por_mes": {
       "2025-10": 62,
@@ -1276,6 +1335,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 6,
+    "tags_coletadas": 43,
     "workflow_runs_coletadas": 69,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -1297,6 +1357,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 13,
+    "tags_coletadas": 72,
     "workflow_runs_coletadas": 2490,
     "workflow_runs_por_mes": {
       "2025-10": 231,
@@ -1318,6 +1379,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 19,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 461,
     "workflow_runs_por_mes": {
       "2025-10": 162,
@@ -1339,6 +1401,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 23,
+    "tags_coletadas": 300,
     "workflow_runs_coletadas": 1700,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -1371,6 +1434,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 73,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 11808,
     "workflow_runs_por_mes": {
       "2025-10": 1182,
@@ -1392,6 +1456,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 5,
+    "tags_coletadas": 52,
     "workflow_runs_coletadas": 583,
     "workflow_runs_por_mes": {
       "2025-10": 16,
@@ -1415,6 +1480,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 100,
+    "tags_coletadas": 300,
     "workflow_runs_coletadas": 7464,
     "workflow_runs_por_mes": {
       "2025-10": 378,
@@ -1436,6 +1502,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 13,
+    "tags_coletadas": 15,
     "workflow_runs_coletadas": 200,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -1457,6 +1524,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 19,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 99,
     "workflow_runs_por_mes": {
       "2025-10": 6,
@@ -1478,6 +1546,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 50,
+    "tags_coletadas": 1854,
     "workflow_runs_coletadas": 109,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -1499,6 +1568,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 31,
+    "tags_coletadas": 50,
     "workflow_runs_coletadas": 1548,
     "workflow_runs_por_mes": {
       "2025-10": 66,
@@ -1520,6 +1590,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 118,
+    "tags_coletadas": 136,
     "workflow_runs_coletadas": 954,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -1541,6 +1612,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 31,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 291,
     "workflow_runs_por_mes": {
       "2025-10": 9,
@@ -1562,6 +1634,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 9,
+    "tags_coletadas": 110,
     "workflow_runs_coletadas": 1114,
     "workflow_runs_por_mes": {
       "2025-10": 106,
@@ -1583,6 +1656,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 21,
+    "tags_coletadas": 164,
     "workflow_runs_coletadas": 140,
     "workflow_runs_por_mes": {
       "2025-10": 7,
@@ -1604,6 +1678,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 57,
+    "tags_coletadas": 106,
     "workflow_runs_coletadas": 449,
     "workflow_runs_por_mes": {
       "2025-10": 29,
@@ -1625,6 +1700,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 28,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 87,
     "workflow_runs_por_mes": {
       "2025-10": 15,
@@ -1646,6 +1722,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 8,
+    "tags_coletadas": 182,
     "workflow_runs_coletadas": 652,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -1678,6 +1755,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 18,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 11702,
     "workflow_runs_por_mes": {
       "2025-10": 1437,
@@ -1699,6 +1777,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 36,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 890,
     "workflow_runs_por_mes": {
       "2025-10": 80,
@@ -1720,6 +1799,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 10,
+    "tags_coletadas": 58,
     "workflow_runs_coletadas": 279,
     "workflow_runs_por_mes": {
       "2025-10": 42,
@@ -1741,6 +1821,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 10,
+    "tags_coletadas": 300,
     "workflow_runs_coletadas": 1021,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -1762,6 +1843,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 42,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 4026,
     "workflow_runs_por_mes": {
       "2025-10": 152,
@@ -1783,6 +1865,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 15,
+    "tags_coletadas": 16,
     "workflow_runs_coletadas": 112,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -1804,6 +1887,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 72,
+    "tags_coletadas": 500,
     "workflow_runs_coletadas": 556,
     "workflow_runs_por_mes": {
       "2025-10": 16,
@@ -1825,6 +1909,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 19,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 912,
     "workflow_runs_por_mes": {
       "2025-10": 72,
@@ -1846,6 +1931,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 16,
+    "tags_coletadas": 17,
     "workflow_runs_coletadas": 138,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -1867,6 +1953,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 28,
+    "tags_coletadas": 33,
     "workflow_runs_coletadas": 151,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -1888,6 +1975,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 7,
+    "tags_coletadas": 92,
     "workflow_runs_coletadas": 100,
     "workflow_runs_por_mes": {
       "2025-10": 12,
@@ -1909,6 +1997,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 13,
+    "tags_coletadas": 126,
     "workflow_runs_coletadas": 437,
     "workflow_runs_por_mes": {
       "2025-10": 66,
@@ -1930,6 +2019,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 35,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 366,
     "workflow_runs_por_mes": {
       "2025-10": 22,
@@ -1951,6 +2041,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 35,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 409,
     "workflow_runs_por_mes": {
       "2025-10": 24,
@@ -1972,6 +2063,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 8,
+    "tags_coletadas": 53,
     "workflow_runs_coletadas": 256,
     "workflow_runs_por_mes": {
       "2025-10": 10,
@@ -1993,6 +2085,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 6,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 170,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -2014,6 +2107,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 13,
+    "tags_coletadas": 35,
     "workflow_runs_coletadas": 163,
     "workflow_runs_por_mes": {
       "2025-10": 3,
@@ -2035,6 +2129,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 19,
+    "tags_coletadas": 186,
     "workflow_runs_coletadas": 1312,
     "workflow_runs_por_mes": {
       "2025-10": 96,
@@ -2056,6 +2151,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 52,
+    "tags_coletadas": 163,
     "workflow_runs_coletadas": 835,
     "workflow_runs_por_mes": {
       "2025-10": 17,
@@ -2077,6 +2173,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 56,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 602,
     "workflow_runs_por_mes": {
       "2025-10": 57,
@@ -2098,6 +2195,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 24,
+    "tags_coletadas": 157,
     "workflow_runs_coletadas": 5616,
     "workflow_runs_por_mes": {
       "2025-10": 260,
@@ -2119,6 +2217,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 30,
+    "tags_coletadas": 33,
     "workflow_runs_coletadas": 101,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -2140,6 +2239,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 6,
+    "tags_coletadas": 40,
     "workflow_runs_coletadas": 930,
     "workflow_runs_por_mes": {
       "2025-10": 66,
@@ -2161,6 +2261,7 @@
     "compare_404": 1,
     "meses_no_teto": [],
     "releases_validas_na_janela": 7,
+    "tags_coletadas": 34,
     "workflow_runs_coletadas": 136,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -2189,6 +2290,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 85,
+    "tags_coletadas": 119,
     "workflow_runs_coletadas": 7109,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -2210,6 +2312,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 20,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 1510,
     "workflow_runs_por_mes": {
       "2025-10": 90,
@@ -2231,6 +2334,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 76,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 416,
     "workflow_runs_por_mes": {
       "2025-10": 24,
@@ -2252,6 +2356,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 179,
+    "tags_coletadas": 244,
     "workflow_runs_coletadas": 8314,
     "workflow_runs_por_mes": {
       "2025-10": 486,
@@ -2273,6 +2378,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 22,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 1317,
     "workflow_runs_por_mes": {
       "2025-10": 98,
@@ -2294,6 +2400,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 16,
+    "tags_coletadas": 23,
     "workflow_runs_coletadas": 426,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -2315,6 +2422,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 6,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 229,
     "workflow_runs_por_mes": {
       "2025-10": 23,
@@ -2336,6 +2444,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 18,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 583,
     "workflow_runs_por_mes": {
       "2025-10": 34,
@@ -2357,6 +2466,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 6,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 104,
     "workflow_runs_por_mes": {
       "2025-10": 18,
@@ -2378,6 +2488,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 215,
+    "tags_coletadas": 252,
     "workflow_runs_coletadas": 343,
     "workflow_runs_por_mes": {
       "2025-10": 4,
@@ -2399,6 +2510,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 9,
+    "tags_coletadas": 300,
     "workflow_runs_coletadas": 2534,
     "workflow_runs_por_mes": {
       "2025-10": 168,
@@ -2420,6 +2532,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 115,
+    "tags_coletadas": 282,
     "workflow_runs_coletadas": 712,
     "workflow_runs_por_mes": {
       "2025-10": 102,
@@ -2441,6 +2554,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 11,
+    "tags_coletadas": 37,
     "workflow_runs_coletadas": 759,
     "workflow_runs_por_mes": {
       "2025-10": 131,
@@ -2462,6 +2576,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 18,
+    "tags_coletadas": 134,
     "workflow_runs_coletadas": 741,
     "workflow_runs_por_mes": {
       "2025-10": 68,
@@ -2483,6 +2598,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 46,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 3104,
     "workflow_runs_por_mes": {
       "2025-10": 224,
@@ -2504,6 +2620,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 51,
+    "tags_coletadas": 112,
     "workflow_runs_coletadas": 567,
     "workflow_runs_por_mes": {
       "2025-10": 53,
@@ -2538,6 +2655,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 68,
+    "tags_coletadas": 5805,
     "workflow_runs_coletadas": 12000,
     "workflow_runs_por_mes": {
       "2025-10": 2076,
@@ -2559,6 +2677,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 17,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 258,
     "workflow_runs_por_mes": {
       "2025-10": 27,
@@ -2580,6 +2699,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 5,
+    "tags_coletadas": 75,
     "workflow_runs_coletadas": 392,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -2607,6 +2727,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 49,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 10431,
     "workflow_runs_por_mes": {
       "2025-10": 955,
@@ -2628,6 +2749,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 44,
+    "tags_coletadas": 74,
     "workflow_runs_coletadas": 502,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -2649,6 +2771,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 22,
+    "tags_coletadas": 47,
     "workflow_runs_coletadas": 1283,
     "workflow_runs_por_mes": {
       "2025-10": 108,
@@ -2670,6 +2793,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 15,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 2234,
     "workflow_runs_por_mes": {
       "2025-10": 224,
@@ -2691,6 +2815,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 20,
+    "tags_coletadas": 187,
     "workflow_runs_coletadas": 319,
     "workflow_runs_por_mes": {
       "2025-10": 18,
@@ -2712,6 +2837,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 14,
+    "tags_coletadas": 22,
     "workflow_runs_coletadas": 131,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -2733,6 +2859,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 719,
+    "tags_coletadas": 900,
     "workflow_runs_coletadas": 193,
     "workflow_runs_por_mes": {
       "2025-10": 4,
@@ -2758,6 +2885,7 @@
       "2026-03"
     ],
     "releases_validas_na_janela": 14,
+    "tags_coletadas": 26,
     "workflow_runs_coletadas": 3824,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -2779,6 +2907,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 24,
+    "tags_coletadas": 158,
     "workflow_runs_coletadas": 799,
     "workflow_runs_por_mes": {
       "2025-10": 23,
@@ -2800,6 +2929,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 37,
+    "tags_coletadas": 42,
     "workflow_runs_coletadas": 203,
     "workflow_runs_por_mes": {
       "2025-10": 4,
@@ -2821,6 +2951,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 8,
+    "tags_coletadas": 85,
     "workflow_runs_coletadas": 173,
     "workflow_runs_por_mes": {
       "2025-10": 21,
@@ -2842,6 +2973,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 5,
+    "tags_coletadas": 98,
     "workflow_runs_coletadas": 877,
     "workflow_runs_por_mes": {
       "2025-10": 3,
@@ -2863,6 +2995,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 9,
+    "tags_coletadas": 20,
     "workflow_runs_coletadas": 138,
     "workflow_runs_por_mes": {
       "2025-10": 6,
@@ -2884,6 +3017,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 7,
+    "tags_coletadas": 61,
     "workflow_runs_coletadas": 210,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -2905,6 +3039,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 123,
+    "tags_coletadas": 300,
     "workflow_runs_coletadas": 1278,
     "workflow_runs_por_mes": {
       "2025-10": 135,
@@ -2926,6 +3061,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 24,
+    "tags_coletadas": 29,
     "workflow_runs_coletadas": 2532,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -2947,6 +3083,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 61,
+    "tags_coletadas": 300,
     "workflow_runs_coletadas": 1308,
     "workflow_runs_por_mes": {
       "2025-10": 65,
@@ -2968,6 +3105,7 @@
     "compare_404": 1,
     "meses_no_teto": [],
     "releases_validas_na_janela": 18,
+    "tags_coletadas": 19,
     "workflow_runs_coletadas": 164,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -2989,6 +3127,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 12,
+    "tags_coletadas": 13,
     "workflow_runs_coletadas": 56,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -3010,6 +3149,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 22,
+    "tags_coletadas": 22,
     "workflow_runs_coletadas": 120,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -3031,6 +3171,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 5,
+    "tags_coletadas": 98,
     "workflow_runs_coletadas": 64,
     "workflow_runs_por_mes": {
       "2025-10": 8,
@@ -3052,6 +3193,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 30,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 4295,
     "workflow_runs_por_mes": {
       "2025-10": 447,
@@ -3076,6 +3218,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 33,
+    "tags_coletadas": 102,
     "workflow_runs_coletadas": 8356,
     "workflow_runs_por_mes": {
       "2025-10": 597,
@@ -3097,6 +3240,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 11,
+    "tags_coletadas": 69,
     "workflow_runs_coletadas": 249,
     "workflow_runs_por_mes": {
       "2025-10": 15,
@@ -3118,6 +3262,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 19,
+    "tags_coletadas": 119,
     "workflow_runs_coletadas": 4031,
     "workflow_runs_por_mes": {
       "2025-10": 237,
@@ -3139,6 +3284,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 10,
+    "tags_coletadas": 108,
     "workflow_runs_coletadas": 78,
     "workflow_runs_por_mes": {
       "2025-10": 6,
@@ -3160,6 +3306,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 24,
+    "tags_coletadas": 89,
     "workflow_runs_coletadas": 396,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -3181,6 +3328,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 15,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 5034,
     "workflow_runs_por_mes": {
       "2025-10": 125,
@@ -3202,6 +3350,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 35,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 260,
     "workflow_runs_por_mes": {
       "2025-10": 16,
@@ -3236,6 +3385,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 14,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 12000,
     "workflow_runs_por_mes": {
       "2025-10": 2500,
@@ -3257,6 +3407,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 20,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 112,
     "workflow_runs_por_mes": {
       "2025-10": 16,
@@ -3278,6 +3429,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 7,
+    "tags_coletadas": 167,
     "workflow_runs_coletadas": 492,
     "workflow_runs_por_mes": {
       "2025-10": 9,
@@ -3299,6 +3451,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 12,
+    "tags_coletadas": 800,
     "workflow_runs_coletadas": 6537,
     "workflow_runs_por_mes": {
       "2025-10": 501,
@@ -3320,6 +3473,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 47,
+    "tags_coletadas": 300,
     "workflow_runs_coletadas": 1340,
     "workflow_runs_por_mes": {
       "2025-10": 90,
@@ -3341,6 +3495,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 21,
+    "tags_coletadas": 138,
     "workflow_runs_coletadas": 268,
     "workflow_runs_por_mes": {
       "2025-10": 27,
@@ -3362,6 +3517,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 6,
+    "tags_coletadas": 90,
     "workflow_runs_coletadas": 5208,
     "workflow_runs_por_mes": {
       "2025-10": 612,
@@ -3383,6 +3539,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 5,
+    "tags_coletadas": 38,
     "workflow_runs_coletadas": 129,
     "workflow_runs_por_mes": {
       "2025-10": 10,
@@ -3404,6 +3561,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 12,
+    "tags_coletadas": 167,
     "workflow_runs_coletadas": 156,
     "workflow_runs_por_mes": {
       "2025-10": 26,
@@ -3425,6 +3583,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 10,
+    "tags_coletadas": 91,
     "workflow_runs_coletadas": 4270,
     "workflow_runs_por_mes": {
       "2025-10": 226,
@@ -3446,6 +3605,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 54,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 2410,
     "workflow_runs_por_mes": {
       "2025-10": 135,
@@ -3467,6 +3627,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 19,
+    "tags_coletadas": 145,
     "workflow_runs_coletadas": 228,
     "workflow_runs_por_mes": {
       "2025-10": 6,
@@ -3488,6 +3649,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 54,
+    "tags_coletadas": 222,
     "workflow_runs_coletadas": 1536,
     "workflow_runs_por_mes": {
       "2025-10": 54,
@@ -3509,6 +3671,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 24,
+    "tags_coletadas": 182,
     "workflow_runs_coletadas": 86,
     "workflow_runs_por_mes": {
       "2025-10": 10,
@@ -3530,6 +3693,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 20,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 6589,
     "workflow_runs_por_mes": {
       "2025-10": 604,
@@ -3551,6 +3715,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 9,
+    "tags_coletadas": 57,
     "workflow_runs_coletadas": 76,
     "workflow_runs_por_mes": {
       "2025-10": 1,
@@ -3572,6 +3737,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 27,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 258,
     "workflow_runs_por_mes": {
       "2025-10": 22,
@@ -3593,6 +3759,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 11,
+    "tags_coletadas": 216,
     "workflow_runs_coletadas": 97,
     "workflow_runs_por_mes": {
       "2025-10": 5,
@@ -3614,6 +3781,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 8,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 616,
     "workflow_runs_por_mes": {
       "2025-10": 78,
@@ -3635,6 +3803,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 28,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 271,
     "workflow_runs_por_mes": {
       "2025-10": 28,
@@ -3656,6 +3825,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 17,
+    "tags_coletadas": 29,
     "workflow_runs_coletadas": 76,
     "workflow_runs_por_mes": {
       "2025-10": 5,
@@ -3677,6 +3847,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 9,
+    "tags_coletadas": 29,
     "workflow_runs_coletadas": 243,
     "workflow_runs_por_mes": {
       "2025-10": 8,
@@ -3698,6 +3869,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 25,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 209,
     "workflow_runs_por_mes": {
       "2025-10": 19,
@@ -3732,6 +3904,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 64,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 12000,
     "workflow_runs_por_mes": {
       "2025-10": 1331,
@@ -3753,6 +3926,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 139,
+    "tags_coletadas": 300,
     "workflow_runs_coletadas": 1052,
     "workflow_runs_por_mes": {
       "2025-10": 21,
@@ -3774,6 +3948,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 8,
+    "tags_coletadas": 62,
     "workflow_runs_coletadas": 324,
     "workflow_runs_por_mes": {
       "2025-10": 16,
@@ -3795,6 +3970,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 21,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 633,
     "workflow_runs_por_mes": {
       "2025-10": 36,
@@ -3816,6 +3992,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 15,
+    "tags_coletadas": 165,
     "workflow_runs_coletadas": 897,
     "workflow_runs_por_mes": {
       "2025-10": 91,
@@ -3837,6 +4014,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 22,
+    "tags_coletadas": 2000,
     "workflow_runs_coletadas": 824,
     "workflow_runs_por_mes": {
       "2025-10": 22,
@@ -3858,6 +4036,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 10,
+    "tags_coletadas": 128,
     "workflow_runs_coletadas": 185,
     "workflow_runs_por_mes": {
       "2025-10": 43,
@@ -3879,6 +4058,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 5,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 197,
     "workflow_runs_por_mes": {
       "2025-10": 23,
@@ -3900,6 +4080,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 7,
+    "tags_coletadas": 15,
     "workflow_runs_coletadas": 288,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -3931,6 +4112,7 @@
       "2026-07"
     ],
     "releases_validas_na_janela": 14,
+    "tags_coletadas": 168,
     "workflow_runs_coletadas": 11524,
     "workflow_runs_por_mes": {
       "2025-10": 1568,
@@ -3952,6 +4134,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 9,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 401,
     "workflow_runs_por_mes": {
       "2025-10": 39,
@@ -3973,6 +4156,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 38,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 313,
     "workflow_runs_por_mes": {
       "2025-10": 32,
@@ -3994,6 +4178,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 7,
+    "tags_coletadas": 189,
     "workflow_runs_coletadas": 324,
     "workflow_runs_por_mes": {
       "2025-10": 20,
@@ -4015,6 +4200,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 14,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 875,
     "workflow_runs_por_mes": {
       "2025-10": 39,
@@ -4039,6 +4225,7 @@
       "2026-07"
     ],
     "releases_validas_na_janela": 222,
+    "tags_coletadas": 279,
     "workflow_runs_coletadas": 4060,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -4060,6 +4247,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 207,
+    "tags_coletadas": 219,
     "workflow_runs_coletadas": 1349,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -4081,6 +4269,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 15,
+    "tags_coletadas": 154,
     "workflow_runs_coletadas": 112,
     "workflow_runs_por_mes": {
       "2025-10": 4,
@@ -4102,6 +4291,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 19,
+    "tags_coletadas": 47,
     "workflow_runs_coletadas": 1047,
     "workflow_runs_por_mes": {
       "2025-10": 18,
@@ -4123,6 +4313,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 20,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 716,
     "workflow_runs_por_mes": {
       "2025-10": 66,
@@ -4144,6 +4335,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 23,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 249,
     "workflow_runs_por_mes": {
       "2025-10": 3,
@@ -4165,6 +4357,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 10,
+    "tags_coletadas": 162,
     "workflow_runs_coletadas": 2733,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -4186,6 +4379,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 18,
+    "tags_coletadas": 31,
     "workflow_runs_coletadas": 1043,
     "workflow_runs_por_mes": {
       "2025-10": 64,
@@ -4207,6 +4401,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 7,
+    "tags_coletadas": 20,
     "workflow_runs_coletadas": 392,
     "workflow_runs_por_mes": {
       "2025-10": 38,
@@ -4228,6 +4423,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 7,
+    "tags_coletadas": 44,
     "workflow_runs_coletadas": 116,
     "workflow_runs_por_mes": {
       "2025-10": 1,
@@ -4249,6 +4445,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 5,
+    "tags_coletadas": 52,
     "workflow_runs_coletadas": 855,
     "workflow_runs_por_mes": {
       "2025-10": 77,
@@ -4270,6 +4467,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 18,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 2800,
     "workflow_runs_por_mes": {
       "2025-10": 198,
@@ -4291,6 +4489,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 38,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 1533,
     "workflow_runs_por_mes": {
       "2025-10": 129,
@@ -4312,6 +4511,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 118,
+    "tags_coletadas": 300,
     "workflow_runs_coletadas": 74,
     "workflow_runs_por_mes": {
       "2025-10": 30,
@@ -4333,6 +4533,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 23,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 186,
     "workflow_runs_por_mes": {
       "2025-10": 12,
@@ -4354,6 +4555,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 15,
+    "tags_coletadas": 15,
     "workflow_runs_coletadas": 241,
     "workflow_runs_por_mes": {
       "2025-10": 16,
@@ -4382,6 +4584,7 @@
       "2026-08"
     ],
     "releases_validas_na_janela": 83,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 9537,
     "workflow_runs_por_mes": {
       "2025-10": 597,
@@ -4403,6 +4606,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 73,
+    "tags_coletadas": 400,
     "workflow_runs_coletadas": 5076,
     "workflow_runs_por_mes": {
       "2025-10": 518,
@@ -4427,6 +4631,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 13,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 6889,
     "workflow_runs_por_mes": {
       "2025-10": 708,
@@ -4448,6 +4653,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 6,
+    "tags_coletadas": 89,
     "workflow_runs_coletadas": 1253,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -4469,6 +4675,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 9,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 337,
     "workflow_runs_por_mes": {
       "2025-10": 6,
@@ -4492,6 +4699,7 @@
       "2026-08"
     ],
     "releases_validas_na_janela": 11,
+    "tags_coletadas": 196,
     "workflow_runs_coletadas": 6635,
     "workflow_runs_por_mes": {
       "2025-10": 270,
@@ -4513,6 +4721,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 18,
+    "tags_coletadas": 121,
     "workflow_runs_coletadas": 128,
     "workflow_runs_por_mes": {
       "2025-10": 30,
@@ -4534,6 +4743,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 9,
+    "tags_coletadas": 9,
     "workflow_runs_coletadas": 63,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -4555,6 +4765,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 61,
+    "tags_coletadas": 77,
     "workflow_runs_coletadas": 908,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -4589,6 +4800,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 26,
+    "tags_coletadas": 9500,
     "workflow_runs_coletadas": 12000,
     "workflow_runs_por_mes": {
       "2025-10": 2500,
@@ -4610,6 +4822,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 85,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 634,
     "workflow_runs_por_mes": {
       "2025-10": 9,
@@ -4631,6 +4844,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 6,
+    "tags_coletadas": 121,
     "workflow_runs_coletadas": 463,
     "workflow_runs_por_mes": {
       "2025-10": 238,
@@ -4652,6 +4866,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 5,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 530,
     "workflow_runs_por_mes": {
       "2025-10": 14,
@@ -4673,6 +4888,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 11,
+    "tags_coletadas": 78,
     "workflow_runs_coletadas": 554,
     "workflow_runs_por_mes": {
       "2025-10": 38,
@@ -4694,6 +4910,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 7,
+    "tags_coletadas": 59,
     "workflow_runs_coletadas": 118,
     "workflow_runs_por_mes": {
       "2025-10": 22,
@@ -4715,6 +4932,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 12,
+    "tags_coletadas": 95,
     "workflow_runs_coletadas": 103,
     "workflow_runs_por_mes": {
       "2025-10": 9,
@@ -4736,6 +4954,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 6,
+    "tags_coletadas": 62,
     "workflow_runs_coletadas": 154,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -4757,6 +4976,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 9,
+    "tags_coletadas": 23,
     "workflow_runs_coletadas": 473,
     "workflow_runs_por_mes": {
       "2025-10": 92,
@@ -4778,6 +4998,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 5,
+    "tags_coletadas": 84,
     "workflow_runs_coletadas": 4929,
     "workflow_runs_por_mes": {
       "2025-10": 249,
@@ -4799,6 +5020,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 9,
+    "tags_coletadas": 68,
     "workflow_runs_coletadas": 153,
     "workflow_runs_por_mes": {
       "2025-10": 13,
@@ -4826,6 +5048,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 111,
+    "tags_coletadas": 400,
     "workflow_runs_coletadas": 7166,
     "workflow_runs_por_mes": {
       "2025-10": 159,
@@ -4847,6 +5070,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 7,
+    "tags_coletadas": 38,
     "workflow_runs_coletadas": 324,
     "workflow_runs_por_mes": {
       "2025-10": 15,
@@ -4868,6 +5092,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 12,
+    "tags_coletadas": 147,
     "workflow_runs_coletadas": 897,
     "workflow_runs_por_mes": {
       "2025-10": 64,
@@ -4889,6 +5114,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 25,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 4364,
     "workflow_runs_por_mes": {
       "2025-10": 240,
@@ -4910,6 +5136,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 13,
+    "tags_coletadas": 52,
     "workflow_runs_coletadas": 70,
     "workflow_runs_por_mes": {
       "2025-10": 22,
@@ -4931,6 +5158,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 6,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 508,
     "workflow_runs_por_mes": {
       "2025-10": 50,
@@ -4952,6 +5180,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 12,
+    "tags_coletadas": 20,
     "workflow_runs_coletadas": 62,
     "workflow_runs_por_mes": {
       "2025-10": 7,
@@ -4973,6 +5202,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 12,
+    "tags_coletadas": 120,
     "workflow_runs_coletadas": 356,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -5002,6 +5232,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 24,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 11483,
     "workflow_runs_por_mes": {
       "2025-10": 847,
@@ -5023,6 +5254,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 87,
+    "tags_coletadas": 96,
     "workflow_runs_coletadas": 436,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -5044,6 +5276,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 57,
+    "tags_coletadas": 191,
     "workflow_runs_coletadas": 4636,
     "workflow_runs_por_mes": {
       "2025-10": 315,
@@ -5073,6 +5306,7 @@
       "2026-08"
     ],
     "releases_validas_na_janela": 10,
+    "tags_coletadas": 132,
     "workflow_runs_coletadas": 11222,
     "workflow_runs_por_mes": {
       "2025-10": 605,
@@ -5094,6 +5328,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 6,
+    "tags_coletadas": 8,
     "workflow_runs_coletadas": 1013,
     "workflow_runs_por_mes": {
       "2025-10": 4,
@@ -5115,6 +5350,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 15,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 639,
     "workflow_runs_por_mes": {
       "2025-10": 70,
@@ -5136,6 +5372,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 6,
+    "tags_coletadas": 38,
     "workflow_runs_coletadas": 376,
     "workflow_runs_por_mes": {
       "2025-10": 68,
@@ -5157,6 +5394,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 101,
+    "tags_coletadas": 300,
     "workflow_runs_coletadas": 5756,
     "workflow_runs_por_mes": {
       "2025-10": 532,
@@ -5178,6 +5416,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 117,
+    "tags_coletadas": 153,
     "workflow_runs_coletadas": 1851,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -5199,6 +5438,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 13,
+    "tags_coletadas": 110,
     "workflow_runs_coletadas": 2847,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -5220,6 +5460,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 276,
+    "tags_coletadas": 296,
     "workflow_runs_coletadas": 51,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -5241,6 +5482,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 15,
+    "tags_coletadas": 166,
     "workflow_runs_coletadas": 3893,
     "workflow_runs_por_mes": {
       "2025-10": 319,
@@ -5262,6 +5504,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 47,
+    "tags_coletadas": 107,
     "workflow_runs_coletadas": 699,
     "workflow_runs_por_mes": {
       "2025-10": 42,
@@ -5283,6 +5526,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 5,
+    "tags_coletadas": 188,
     "workflow_runs_coletadas": 3296,
     "workflow_runs_por_mes": {
       "2025-10": 113,
@@ -5304,6 +5548,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 12,
+    "tags_coletadas": 69,
     "workflow_runs_coletadas": 504,
     "workflow_runs_por_mes": {
       "2025-10": 20,
@@ -5325,6 +5570,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 14,
+    "tags_coletadas": 129,
     "workflow_runs_coletadas": 96,
     "workflow_runs_por_mes": {
       "2025-10": 8,
@@ -5359,6 +5605,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 32,
+    "tags_coletadas": 166,
     "workflow_runs_coletadas": 12000,
     "workflow_runs_por_mes": {
       "2025-10": 2500,
@@ -5380,6 +5627,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 10,
+    "tags_coletadas": 99,
     "workflow_runs_coletadas": 113,
     "workflow_runs_por_mes": {
       "2025-10": 29,
@@ -5401,6 +5649,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 54,
+    "tags_coletadas": 55,
     "workflow_runs_coletadas": 2621,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -5422,6 +5671,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 14,
+    "tags_coletadas": 77,
     "workflow_runs_coletadas": 162,
     "workflow_runs_por_mes": {
       "2025-10": 1,
@@ -5443,6 +5693,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 8,
+    "tags_coletadas": 169,
     "workflow_runs_coletadas": 442,
     "workflow_runs_por_mes": {
       "2025-10": 62,
@@ -5464,6 +5715,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 13,
+    "tags_coletadas": 161,
     "workflow_runs_coletadas": 239,
     "workflow_runs_por_mes": {
       "2025-10": 3,
@@ -5485,6 +5737,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 6,
+    "tags_coletadas": 21,
     "workflow_runs_coletadas": 59,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -5506,6 +5759,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 44,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 517,
     "workflow_runs_por_mes": {
       "2025-10": 64,
@@ -5527,6 +5781,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 11,
+    "tags_coletadas": 93,
     "workflow_runs_coletadas": 51,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -5548,6 +5803,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 6,
+    "tags_coletadas": 77,
     "workflow_runs_coletadas": 88,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -5569,6 +5825,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 13,
+    "tags_coletadas": 142,
     "workflow_runs_coletadas": 216,
     "workflow_runs_por_mes": {
       "2025-10": 26,
@@ -5590,6 +5847,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 18,
+    "tags_coletadas": 48,
     "workflow_runs_coletadas": 3561,
     "workflow_runs_por_mes": {
       "2025-10": 287,
@@ -5613,6 +5871,7 @@
       "2025-10"
     ],
     "releases_validas_na_janela": 24,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 6067,
     "workflow_runs_por_mes": {
       "2025-10": 1068,
@@ -5634,6 +5893,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 8,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 1379,
     "workflow_runs_por_mes": {
       "2025-10": 183,
@@ -5655,6 +5915,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 30,
+    "tags_coletadas": 168,
     "workflow_runs_coletadas": 1356,
     "workflow_runs_por_mes": {
       "2025-10": 90,
@@ -5679,6 +5940,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 85,
+    "tags_coletadas": 400,
     "workflow_runs_coletadas": 7832,
     "workflow_runs_por_mes": {
       "2025-10": 365,
@@ -5700,6 +5962,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 83,
+    "tags_coletadas": 223,
     "workflow_runs_coletadas": 1152,
     "workflow_runs_por_mes": {
       "2025-10": 47,
@@ -5721,6 +5984,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 125,
+    "tags_coletadas": 300,
     "workflow_runs_coletadas": 3439,
     "workflow_runs_por_mes": {
       "2025-10": 144,
@@ -5742,6 +6006,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 7,
+    "tags_coletadas": 34,
     "workflow_runs_coletadas": 1140,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -5763,6 +6028,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 23,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 406,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -5784,6 +6050,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 31,
+    "tags_coletadas": 148,
     "workflow_runs_coletadas": 3154,
     "workflow_runs_por_mes": {
       "2025-10": 218,
@@ -5805,6 +6072,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 26,
+    "tags_coletadas": 51,
     "workflow_runs_coletadas": 192,
     "workflow_runs_por_mes": {
       "2025-10": 14,
@@ -5826,6 +6094,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 93,
+    "tags_coletadas": 600,
     "workflow_runs_coletadas": 550,
     "workflow_runs_por_mes": {
       "2025-10": 82,
@@ -5847,6 +6116,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 56,
+    "tags_coletadas": 119,
     "workflow_runs_coletadas": 1172,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -5872,6 +6142,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 181,
+    "tags_coletadas": 294,
     "workflow_runs_coletadas": 7776,
     "workflow_runs_por_mes": {
       "2025-10": 72,
@@ -5893,6 +6164,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 29,
+    "tags_coletadas": 198,
     "workflow_runs_coletadas": 1920,
     "workflow_runs_por_mes": {
       "2025-10": 260,
@@ -5914,6 +6186,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 16,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 1176,
     "workflow_runs_por_mes": {
       "2025-10": 174,
@@ -5935,6 +6208,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 8,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 740,
     "workflow_runs_por_mes": {
       "2025-10": 84,
@@ -5961,6 +6235,7 @@
       "2026-07"
     ],
     "releases_validas_na_janela": 61,
+    "tags_coletadas": 115,
     "workflow_runs_coletadas": 5428,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -5982,6 +6257,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 7,
+    "tags_coletadas": 90,
     "workflow_runs_coletadas": 74,
     "workflow_runs_por_mes": {
       "2025-10": 11,
@@ -6003,6 +6279,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 9,
+    "tags_coletadas": 174,
     "workflow_runs_coletadas": 759,
     "workflow_runs_por_mes": {
       "2025-10": 44,
@@ -6024,6 +6301,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 7,
+    "tags_coletadas": 63,
     "workflow_runs_coletadas": 116,
     "workflow_runs_por_mes": {
       "2025-10": 14,
@@ -6045,6 +6323,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 19,
+    "tags_coletadas": 24,
     "workflow_runs_coletadas": 183,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -6066,6 +6345,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 12,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 221,
     "workflow_runs_por_mes": {
       "2025-10": 18,
@@ -6087,6 +6367,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 18,
+    "tags_coletadas": 126,
     "workflow_runs_coletadas": 346,
     "workflow_runs_por_mes": {
       "2025-10": 42,
@@ -6108,6 +6389,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 80,
+    "tags_coletadas": 600,
     "workflow_runs_coletadas": 1000,
     "workflow_runs_por_mes": {
       "2025-10": 62,
@@ -6129,6 +6411,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 29,
+    "tags_coletadas": 176,
     "workflow_runs_coletadas": 4353,
     "workflow_runs_por_mes": {
       "2025-10": 172,
@@ -6150,6 +6433,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 24,
+    "tags_coletadas": 151,
     "workflow_runs_coletadas": 1320,
     "workflow_runs_por_mes": {
       "2025-10": 118,
@@ -6171,6 +6455,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 27,
+    "tags_coletadas": 56,
     "workflow_runs_coletadas": 5406,
     "workflow_runs_por_mes": {
       "2025-10": 316,
@@ -6192,6 +6477,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 17,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 281,
     "workflow_runs_por_mes": {
       "2025-10": 2,
@@ -6213,6 +6499,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 12,
+    "tags_coletadas": 42,
     "workflow_runs_coletadas": 171,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -6234,6 +6521,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 260,
+    "tags_coletadas": 275,
     "workflow_runs_coletadas": 1230,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -6255,6 +6543,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 71,
+    "tags_coletadas": 306,
     "workflow_runs_coletadas": 1471,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -6276,6 +6565,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 110,
+    "tags_coletadas": 113,
     "workflow_runs_coletadas": 1182,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -6297,6 +6587,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 80,
+    "tags_coletadas": 300,
     "workflow_runs_coletadas": 2493,
     "workflow_runs_por_mes": {
       "2025-10": 189,
@@ -6318,6 +6609,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 41,
+    "tags_coletadas": 44,
     "workflow_runs_coletadas": 248,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -6339,6 +6631,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 21,
+    "tags_coletadas": 146,
     "workflow_runs_coletadas": 73,
     "workflow_runs_por_mes": {
       "2025-10": 44,
@@ -6360,6 +6653,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 10,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 120,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -6381,6 +6675,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 17,
+    "tags_coletadas": 101,
     "workflow_runs_coletadas": 621,
     "workflow_runs_por_mes": {
       "2025-10": 64,
@@ -6402,6 +6697,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 64,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 899,
     "workflow_runs_por_mes": {
       "2025-10": 101,
@@ -6423,6 +6719,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 7,
+    "tags_coletadas": 89,
     "workflow_runs_coletadas": 132,
     "workflow_runs_por_mes": {
       "2025-10": 2,
@@ -6456,6 +6753,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 430,
+    "tags_coletadas": 600,
     "workflow_runs_coletadas": 11980,
     "workflow_runs_por_mes": {
       "2025-10": 1370,
@@ -6480,6 +6778,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 21,
+    "tags_coletadas": 45,
     "workflow_runs_coletadas": 2937,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -6501,6 +6800,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 34,
+    "tags_coletadas": 36,
     "workflow_runs_coletadas": 130,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -6522,6 +6822,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 16,
+    "tags_coletadas": 34,
     "workflow_runs_coletadas": 558,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -6543,6 +6844,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 6,
+    "tags_coletadas": 50,
     "workflow_runs_coletadas": 817,
     "workflow_runs_por_mes": {
       "2025-10": 37,
@@ -6564,6 +6866,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 17,
+    "tags_coletadas": 31,
     "workflow_runs_coletadas": 169,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -6591,6 +6894,7 @@
       "2026-09"
     ],
     "releases_validas_na_janela": 39,
+    "tags_coletadas": 160,
     "workflow_runs_coletadas": 5508,
     "workflow_runs_por_mes": {
       "2025-10": 0,
@@ -6612,6 +6916,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 67,
+    "tags_coletadas": 200,
     "workflow_runs_coletadas": 1230,
     "workflow_runs_por_mes": {
       "2025-10": 166,
@@ -6633,6 +6938,7 @@
     "compare_404": 0,
     "meses_no_teto": [],
     "releases_validas_na_janela": 8,
+    "tags_coletadas": 168,
     "workflow_runs_coletadas": 6932,
     "workflow_runs_por_mes": {
       "2025-10": 394,

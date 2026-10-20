@@ -1,0 +1,3 @@
+x,y,rho,p_valor,n
+deploy_freq_semana,cfr_ci,0.13385496351921686,0.019156398245125286,306
+deploy_freq_semana,cfr_releases,0.7328122195073026,1.3434294039787524e-52,305

@@ -20,6 +20,7 @@ from metricas.deploy_freq import (
 )
 from metricas.lead_time import lead_time_por_commit, lead_time_por_release
 from metricas.recuperacao import calcular_recuperacao
+from metricas.rework import calcular_rework
 
 
 def _classificar(classificador, valor: float | None) -> str | None:
@@ -50,12 +51,15 @@ def metricas_do_repositorio(coleta: dict, inicio: str, fim: str) -> dict:
     # Sem as quatro metricas a mediana dos pontos mudaria de significado.
     geral = None if None in categorias.values() else classificar_geral(list(categorias.values()))
 
+    releases_na_janela = sum(
+        not r["draft"] and not r["prerelease"] and bool(r["published_at"])
+        and inicio <= r["published_at"][:10] <= fim
+        for r in coleta["releases"]
+    )
+    rework = calcular_rework(coleta["comparacoes"], releases_na_janela)
+
     return {
-        "releases_na_janela": sum(
-            not r["draft"] and not r["prerelease"] and bool(r["published_at"])
-            and inicio <= r["published_at"][:10] <= fim
-            for r in coleta["releases"]
-        ),
+        "releases_na_janela": releases_na_janela,
         "releases_comparadas": len(coleta["comparacoes"]),
         "compare_404": len(coleta["compare_404"]),
         "workflow_runs_validos": sum(classificar_conclusion(r["conclusion"]) != "ignorar" for r in runs),
@@ -70,6 +74,8 @@ def metricas_do_repositorio(coleta: dict, inicio: str, fim: str) -> dict:
         "releases_avaliadas_cfr": cfr_b.releases_avaliadas,
         "releases_falhas_cfr": cfr_b.releases_falhas,
         "releases_censuradas_cfr": cfr_b.releases_censuradas,
+        "releases_corretivas": rework.releases_corretivas,
+        "rework_rate": rework.rework_rate,
         "recuperacao_horas": recuperacao.mediana_horas,
         "episodios_falha": len(recuperacao.episodios),
         "episodios_censurados": recuperacao.censurados,

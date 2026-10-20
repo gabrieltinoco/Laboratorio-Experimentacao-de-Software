@@ -1,10 +1,11 @@
-"""Cliente HTTP da API REST do GitHub, escrito pelo grupo (Issue #2).
+"""Cliente HTTP das APIs REST e GraphQL do GitHub, escrito pelo grupo (Issue #2).
 
 O enunciado proibe bibliotecas prontas de acesso a API (PyGithub etc.), entao
 este modulo faz as requisicoes direto com `requests` e cuida de:
 
 - autenticacao com o token lido de GITHUB_TOKEN (nunca gravado em disco);
 - paginacao seguindo o header `Link` (rel="next");
+- consultas GraphQL (POST /graphql), com o mesmo cache, cota e backoff;
 - cache em disco, um JSON por requisicao, organizado por repositorio. Rodar a
   coleta de novo depois de uma interrupcao reaproveita tudo que ja foi salvo;
 - espera automatica quando a cota acaba (X-RateLimit-Remaining / Reset, com
@@ -220,6 +221,28 @@ class GitHubClient:
         dados = resposta.dados
         return len(dados) if isinstance(dados, list) else int(bool(dados))
 
+    def graphql(self, consulta: str, variaveis: dict | None = None) -> dict:
+        """Executa uma consulta e devolve o campo `data`.
+
+        A chave do cache e o hash da consulta com as variaveis, ja que o POST
+        nao tem URL propria. Erros NOT_FOUND viram ErroGitHub 404 e ficam no cache.
+        """
+        corpo = {"query": consulta, "variables": variaveis or {}}
+        chave = hashlib.sha1(json.dumps(corpo, sort_keys=True).encode("utf-8")).hexdigest()
+        url_cache = montar_url(self.base_url, "/graphql", {"h": chave})
+        resposta = self.cache.ler(url_cache)
+        if resposta is None:
+            resposta = self._requisitar(montar_url(self.base_url, "/graphql"), corpo)
+            resposta.url = url_cache
+            erros = (resposta.dados or {}).get("errors") if isinstance(resposta.dados, dict) else None
+            if erros:
+                tipos = {erro.get("type") for erro in erros}
+                mensagem = "; ".join(erro.get("message", "") for erro in erros)
+                resposta = Resposta(404 if "NOT_FOUND" in tipos else 422, url_cache, {"message": mensagem})
+            if resposta.status < 400 or resposta.status == 404:
+                self.cache.gravar(resposta)
+        return self._verificar(resposta).dados["data"]
+
     def rate_limit(self) -> dict:
         """Situacao da cota (GET /rate_limit nao consome cota e nunca vai para o cache)."""
         return self._enviar(montar_url(self.base_url, "/rate_limit")).json()
@@ -232,16 +255,18 @@ class GitHubClient:
             cabecalhos["Authorization"] = f"Bearer {self.token}"
         return cabecalhos
 
-    def _enviar(self, url: str) -> requests.Response:
+    def _enviar(self, url: str, corpo: dict | None = None) -> requests.Response:
         self.chamadas_rede += 1
+        if corpo is not None:
+            return self.sessao.post(url, json=corpo, headers=self._cabecalhos(), timeout=self.timeout_s)
         return self.sessao.get(url, headers=self._cabecalhos(), timeout=self.timeout_s)
 
-    def _requisitar(self, url: str) -> Resposta:
+    def _requisitar(self, url: str, corpo: dict | None = None) -> Resposta:
         """Faz a chamada repetindo em caso de rate limit (sem limite) e 5xx/rede (com limite)."""
         falhas = 0
         while True:
             try:
-                r = self._enviar(url)
+                r = self._enviar(url, corpo)
             except (requests.ConnectionError, requests.Timeout) as erro:
                 falhas = self._esperar_backoff(falhas, url, str(erro))
                 continue
@@ -271,7 +296,12 @@ class GitHubClient:
 
     @staticmethod
     def _e_rate_limit(r: requests.Response) -> bool:
-        """403/429 por cota primaria (Remaining=0) ou secundaria (Retry-After/mensagem)."""
+        """403/429 por cota primaria (Remaining=0) ou secundaria (Retry-After/mensagem).
+
+        No GraphQL, a cota esgotada tambem pode vir como 200 com erro RATE_LIMITED.
+        """
+        if r.status_code == 200 and urlsplit(getattr(r, "url", "")).path.endswith("/graphql"):
+            return '"RATE_LIMITED"' in r.text
         if r.status_code not in (403, 429):
             return False
         if r.headers.get("X-RateLimit-Remaining") == "0" or "Retry-After" in r.headers:
@@ -295,7 +325,7 @@ class GitHubClient:
             recursos = self.rate_limit().get("resources", {})
         except (requests.RequestException, ValueError):
             return 60.0
-        recurso = "search" if "/search/" in url else "core"
+        recurso = "search" if "/search/" in url else "graphql" if url.rstrip("/").endswith("/graphql") else "core"
         reset = recursos.get(recurso, {}).get("reset")
         return float(reset) - self.agora() if reset else 60.0
 

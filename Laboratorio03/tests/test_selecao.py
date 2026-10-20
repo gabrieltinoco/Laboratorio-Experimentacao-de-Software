@@ -55,6 +55,9 @@ class ClienteFalso:
     def get_todos(self, caminho, params=None, chave=None):
         return []
 
+    def graphql(self, consulta, variaveis=None):
+        return {"repository": {"refs": {"pageInfo": {"hasNextPage": False, "endCursor": None}, "nodes": []}}}
+
     def get(self, caminho, params=None):
         self.chamadas.append(caminho)
         nome = caminho.removeprefix("/repos/").removesuffix("/actions/workflows")

@@ -14,6 +14,11 @@ openpyxl>=3.1
 scikit-learn>=1.4
 statsmodels>=0.14
 
+# Analises da S03 (analise/): testes estatisticos, graficos e tabelas em Markdown.
+scipy>=1.11
+matplotlib>=3.8
+tabulate>=0.9
+
 # Testes das funcoes de metrica e do pipeline, com cobertura medida no CI.
 pytest>=8.0
 pytest-cov>=5.0

@@ -62,6 +62,19 @@ def buscar_candidatos(cliente: GitHubClient, faixas: Iterable, pushed_desde: str
     return list(vistos.values()), encontrados
 
 
+def buscar_lista(cliente: GitHubClient, nomes: Iterable[str]) -> list[dict]:
+    """Candidatos de uma lista fixa (subamostra da replicacao), sem passar pela busca."""
+    candidatos: list[dict] = []
+    for nome in dict.fromkeys(nomes):
+        try:
+            candidatos.append(cliente.get(f"/repos/{nome}").dados)
+        except ErroGitHub as erro:
+            if not erro.status:
+                raise
+            log.warning("Repositorio %s da lista ignorado (HTTP %d).", nome, erro.status)
+    return candidatos
+
+
 def ordem_de_avaliacao(candidatos: list[dict], semente: int) -> list[dict]:
     """Ordem aleatoria reproduzivel, para a amostra nao ficar enviesada para os mais populares."""
     ordenados = sorted(candidatos, key=lambda c: c["full_name"].lower())
@@ -77,18 +90,26 @@ def selecionar(
     cliente: GitHubClient,
     config: dict,
     criterios: Iterable[tuple[str, Criterio]] = (),
+    repositorios: Iterable[str] | None = None,
 ) -> tuple[pd.DataFrame, Funil]:
     """Avalia os candidatos ate a amostra atingir `selecao.max_repositorios`.
 
     `criterios` sao etapas extras do funil, aplicadas depois dos metadados, na
-    ordem dada (ex.: minimo de releases e de workflow runs na janela).
+    ordem dada (ex.: minimo de releases e de workflow runs na janela). Com
+    `repositorios`, avalia so essa lista, sem busca e sem limite de tamanho.
     """
     selecao = config["selecao"]
     inicio = str(config["janela"]["inicio"])
     referencia = date.fromisoformat(str(config["janela"]["fim"]))
     criterios = list(criterios)
 
-    candidatos, encontrados = buscar_candidatos(cliente, selecao["faixas_estrelas"], inicio)
+    if repositorios is None:
+        candidatos, encontrados = buscar_candidatos(cliente, selecao["faixas_estrelas"], inicio)
+        maximo = selecao["max_repositorios"]
+    else:
+        nomes = list(repositorios)
+        candidatos, encontrados = buscar_lista(cliente, nomes), len(nomes)
+        maximo = len(candidatos)
     funil = Funil(
         etapas=[ETAPA_ACTIONS, ETAPA_METADADOS, *(nome for nome, _ in criterios)],
         encontrados_na_busca=encontrados,
@@ -97,13 +118,13 @@ def selecionar(
 
     amostra: list[dict] = []
     for item in ordem_de_avaliacao(candidatos, selecao.get("semente", 42)):
-        if len(amostra) >= selecao["max_repositorios"]:
+        if len(amostra) >= maximo:
             break
         repositorio = avaliar(cliente, item, referencia, criterios, funil)
         if repositorio is not None:
             amostra.append(repositorio)
             funil.aprovar(repositorio["repositorio"])
-            log.info("Amostra: %d/%d (%s)", len(amostra), selecao["max_repositorios"], item["full_name"])
+            log.info("Amostra: %d/%d (%s)", len(amostra), maximo, item["full_name"])
 
     return pd.DataFrame(amostra), funil
 

@@ -23,6 +23,7 @@ from metricas.deploy_freq import (
 )
 from metricas.lead_time import lead_time_por_commit, lead_time_por_release
 from metricas.recuperacao import calcular_recuperacao
+from metricas.rework import calcular_rework
 
 
 def run(conclusion, inicio, fim=None, workflow=1, started=None):
@@ -283,3 +284,32 @@ def test_classificacao_geral_exige_quatro_categorias_validas():
         classificar_geral(["Elite", "Low"])
     with pytest.raises(ValueError):
         classificar_geral(["Elite", "High", "Other", "Low"])
+
+
+def comparacao(anterior, atual, mensagens):
+    return {"tag_anterior": anterior, "tag_release": atual,
+            "commits": [{"message": mensagem} for mensagem in mensagens]}
+
+
+def test_rework_conta_corretivas_sobre_todas_as_releases_da_janela():
+    comparacoes = [
+        comparacao("v2.3.0", "v2.3.1", ["fix: crash ao abrir arquivo"]),
+        comparacao("v2.3.1", "v2.4.0", ["feat: exportar PDF"]),
+        comparacao("v2.4.0", "v2.5.0", ["revert: exportar PDF"]),
+    ]
+    # Quatro releases na janela: a primeira não tem compare e só entra no denominador.
+    resumo = calcular_rework(comparacoes, releases_na_janela=4)
+
+    assert resumo.releases_corretivas == 2
+    assert resumo.rework_rate == pytest.approx(0.5)
+
+
+def test_rework_sem_releases_fica_indefinido():
+    assert calcular_rework([], 0).rework_rate is None
+
+
+def test_rework_rejeita_contagens_inconsistentes():
+    with pytest.raises(ValueError):
+        calcular_rework([comparacao("v1.0.0", "v1.0.1", [])], 0)
+    with pytest.raises(ValueError):
+        calcular_rework([], -1)

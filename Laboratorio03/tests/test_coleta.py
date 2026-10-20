@@ -50,12 +50,13 @@ class ClienteColeta:
     def get_todos(self, caminho, params=None, chave=None):
         if caminho.endswith("/releases"):
             return self.releases
-        if caminho.endswith("/tags"):
-            return []
         resultado = self.comparacoes[caminho]
         if isinstance(resultado, Exception):
             raise resultado
         return resultado
+
+    def graphql(self, consulta, variaveis=None):
+        return {"repository": {"refs": {"pageInfo": {"hasNextPage": False, "endCursor": None}, "nodes": []}}}
 
     def paginas(self, caminho, params):
         yield Resposta(
