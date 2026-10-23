@@ -149,9 +149,17 @@ Cada análise é um script que lê apenas `dados/repositorios.csv` e grava tabel
 python -m analise.comum       # classificação DORA de referência (C1): classificacao_c1.csv
 python -m analise.rq01_04     # mediana/IQR das métricas, censura, lead time (a) x (b), categorias C1
 python -m analise.rq05_rq08   # Spearman frequência x CFR (a) e (b); rework rate x CFR (b)
+python -m analise.rq06_rq07   # Kruskal-Wallis/Holm, tamanhos de efeito e sensibilidade C1/C2/C3
 ```
 
 `analise/comum.py` também expõe `classificar(df, frequencia, lead_time, cfr)`, que classifica qualquer combinação de colunas (C2 e C3 da RQ 07). Todos aceitam `--dados` e `--saidas` para rodar sobre outro CSV, como o da replicação.
+
+`analise.rq06_rq07` salva tabelas CSV/Markdown de Kruskal-Wallis com correção
+de Holm, ε², Cliff's δ com magnitudes de Romano, categorias por repositório
+nas combinações C1/C2/C3 e percentual de mudança/kappa ponderado linear. Os
+resultados e a interpretação estão em
+[`artigo/resultados_rq06_07.md`](artigo/resultados_rq06_07.md). O fator tipo
+de projeto depende dos rótulos consensuais em `validacao/consenso_repositorios.csv`.
 
 ### Cache e retomada
 
