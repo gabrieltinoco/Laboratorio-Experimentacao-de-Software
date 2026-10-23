@@ -481,125 +481,125 @@
 | linguagem        | cfr_ci            | Swift                | Vue                  |     7 |     2 |          0.286 | pequeno            |
 | linguagem        | cfr_ci            | TypeScript           | Vue                  |    75 |     2 |         -0.413 | médio              |
 | linguagem        | cfr_releases      | C                    | C#                   |    11 |    11 |          0.306 | pequeno            |
-| linguagem        | cfr_releases      | C                    | C++                  |    11 |    17 |          0.337 | médio              |
-| linguagem        | cfr_releases      | C                    | Go                   |    11 |    40 |          0.123 | desprezível        |
-| linguagem        | cfr_releases      | C                    | HTML                 |    11 |     2 |         -0.455 | médio              |
-| linguagem        | cfr_releases      | C                    | Java                 |    11 |    15 |          0.188 | pequeno            |
-| linguagem        | cfr_releases      | C                    | JavaScript           |    11 |    21 |          0.082 | desprezível        |
-| linguagem        | cfr_releases      | C                    | Kotlin               |    11 |     6 |          0.030 | desprezível        |
-| linguagem        | cfr_releases      | C                    | PHP                  |    11 |     5 |          0.200 | pequeno            |
-| linguagem        | cfr_releases      | C                    | Python               |    11 |    51 |          0.071 | desprezível        |
-| linguagem        | cfr_releases      | C                    | Ruby                 |    11 |     3 |         -0.152 | pequeno            |
-| linguagem        | cfr_releases      | C                    | Rust                 |    11 |    27 |         -0.077 | desprezível        |
-| linguagem        | cfr_releases      | C                    | Shell                |    11 |     4 |         -0.045 | desprezível        |
-| linguagem        | cfr_releases      | C                    | Swift                |    11 |     7 |         -0.039 | desprezível        |
-| linguagem        | cfr_releases      | C                    | TypeScript           |    11 |    75 |         -0.144 | desprezível        |
+| linguagem        | cfr_releases      | C                    | C++                  |    11 |    17 |          0.460 | médio              |
+| linguagem        | cfr_releases      | C                    | Go                   |    11 |    40 |          0.150 | pequeno            |
+| linguagem        | cfr_releases      | C                    | HTML                 |    11 |     2 |         -0.545 | grande             |
+| linguagem        | cfr_releases      | C                    | Java                 |    11 |    15 |          0.248 | pequeno            |
+| linguagem        | cfr_releases      | C                    | JavaScript           |    11 |    21 |          0.022 | desprezível        |
+| linguagem        | cfr_releases      | C                    | Kotlin               |    11 |     6 |          0.227 | pequeno            |
+| linguagem        | cfr_releases      | C                    | PHP                  |    11 |     5 |          0.327 | pequeno            |
+| linguagem        | cfr_releases      | C                    | Python               |    11 |    51 |          0.139 | desprezível        |
+| linguagem        | cfr_releases      | C                    | Ruby                 |    11 |     3 |         -0.091 | desprezível        |
+| linguagem        | cfr_releases      | C                    | Rust                 |    11 |    27 |         -0.141 | desprezível        |
+| linguagem        | cfr_releases      | C                    | Shell                |    11 |     4 |         -0.227 | pequeno            |
+| linguagem        | cfr_releases      | C                    | Swift                |    11 |     7 |         -0.065 | desprezível        |
+| linguagem        | cfr_releases      | C                    | TypeScript           |    11 |    75 |         -0.182 | pequeno            |
 | linguagem        | cfr_releases      | C                    | Vue                  |    11 |     2 |          0.182 | pequeno            |
-| linguagem        | cfr_releases      | C#                   | C++                  |    11 |    17 |         -0.102 | desprezível        |
-| linguagem        | cfr_releases      | C#                   | Go                   |    11 |    40 |         -0.352 | médio              |
+| linguagem        | cfr_releases      | C#                   | C++                  |    11 |    17 |          0.080 | desprezível        |
+| linguagem        | cfr_releases      | C#                   | Go                   |    11 |    40 |         -0.339 | médio              |
 | linguagem        | cfr_releases      | C#                   | HTML                 |    11 |     2 |         -0.909 | grande             |
-| linguagem        | cfr_releases      | C#                   | Java                 |    11 |    15 |         -0.279 | pequeno            |
-| linguagem        | cfr_releases      | C#                   | JavaScript           |    11 |    21 |         -0.485 | grande             |
-| linguagem        | cfr_releases      | C#                   | Kotlin               |    11 |     6 |         -0.303 | pequeno            |
-| linguagem        | cfr_releases      | C#                   | PHP                  |    11 |     5 |         -0.218 | pequeno            |
-| linguagem        | cfr_releases      | C#                   | Python               |    11 |    51 |         -0.383 | médio              |
+| linguagem        | cfr_releases      | C#                   | Java                 |    11 |    15 |         -0.176 | pequeno            |
+| linguagem        | cfr_releases      | C#                   | JavaScript           |    11 |    21 |         -0.416 | médio              |
+| linguagem        | cfr_releases      | C#                   | Kotlin               |    11 |     6 |         -0.167 | pequeno            |
+| linguagem        | cfr_releases      | C#                   | PHP                  |    11 |     5 |          0.018 | desprezível        |
+| linguagem        | cfr_releases      | C#                   | Python               |    11 |    51 |         -0.282 | pequeno            |
 | linguagem        | cfr_releases      | C#                   | Ruby                 |    11 |     3 |         -0.818 | grande             |
-| linguagem        | cfr_releases      | C#                   | Rust                 |    11 |    27 |         -0.455 | médio              |
-| linguagem        | cfr_releases      | C#                   | Shell                |    11 |     4 |         -0.364 | médio              |
-| linguagem        | cfr_releases      | C#                   | Swift                |    11 |     7 |         -0.545 | grande             |
-| linguagem        | cfr_releases      | C#                   | TypeScript           |    11 |    75 |         -0.653 | grande             |
-| linguagem        | cfr_releases      | C#                   | Vue                  |    11 |     2 |         -0.273 | pequeno            |
-| linguagem        | cfr_releases      | C++                  | Go                   |    17 |    40 |         -0.222 | pequeno            |
-| linguagem        | cfr_releases      | C++                  | HTML                 |    17 |     2 |         -0.765 | grande             |
-| linguagem        | cfr_releases      | C++                  | Java                 |    17 |    15 |         -0.141 | desprezível        |
-| linguagem        | cfr_releases      | C++                  | JavaScript           |    17 |    21 |         -0.235 | pequeno            |
-| linguagem        | cfr_releases      | C++                  | Kotlin               |    17 |     6 |         -0.333 | médio              |
-| linguagem        | cfr_releases      | C++                  | PHP                  |    17 |     5 |         -0.059 | desprezível        |
-| linguagem        | cfr_releases      | C++                  | Python               |    17 |    51 |         -0.333 | médio              |
-| linguagem        | cfr_releases      | C++                  | Ruby                 |    17 |     3 |         -0.588 | grande             |
-| linguagem        | cfr_releases      | C++                  | Rust                 |    17 |    27 |         -0.453 | médio              |
-| linguagem        | cfr_releases      | C++                  | Shell                |    17 |     4 |         -0.294 | pequeno            |
-| linguagem        | cfr_releases      | C++                  | Swift                |    17 |     7 |         -0.328 | pequeno            |
-| linguagem        | cfr_releases      | C++                  | TypeScript           |    17 |    75 |         -0.588 | grande             |
-| linguagem        | cfr_releases      | C++                  | Vue                  |    17 |     2 |         -0.471 | médio              |
-| linguagem        | cfr_releases      | Go                   | HTML                 |    40 |     2 |         -0.750 | grande             |
-| linguagem        | cfr_releases      | Go                   | Java                 |    40 |    15 |          0.117 | desprezível        |
-| linguagem        | cfr_releases      | Go                   | JavaScript           |    40 |    21 |         -0.101 | desprezível        |
-| linguagem        | cfr_releases      | Go                   | Kotlin               |    40 |     6 |          0.000 | desprezível        |
-| linguagem        | cfr_releases      | Go                   | PHP                  |    40 |     5 |          0.185 | pequeno            |
-| linguagem        | cfr_releases      | Go                   | Python               |    40 |    51 |         -0.081 | desprezível        |
-| linguagem        | cfr_releases      | Go                   | Ruby                 |    40 |     3 |         -0.475 | grande             |
-| linguagem        | cfr_releases      | Go                   | Rust                 |    40 |    27 |         -0.265 | pequeno            |
-| linguagem        | cfr_releases      | Go                   | Shell                |    40 |     4 |         -0.006 | desprezível        |
-| linguagem        | cfr_releases      | Go                   | Swift                |    40 |     7 |         -0.104 | desprezível        |
-| linguagem        | cfr_releases      | Go                   | TypeScript           |    40 |    75 |         -0.440 | médio              |
-| linguagem        | cfr_releases      | Go                   | Vue                  |    40 |     2 |         -0.025 | desprezível        |
-| linguagem        | cfr_releases      | HTML                 | Java                 |     2 |    15 |          0.800 | grande             |
+| linguagem        | cfr_releases      | C#                   | Rust                 |    11 |    27 |         -0.498 | grande             |
+| linguagem        | cfr_releases      | C#                   | Shell                |    11 |     4 |         -0.409 | médio              |
+| linguagem        | cfr_releases      | C#                   | Swift                |    11 |     7 |         -0.636 | grande             |
+| linguagem        | cfr_releases      | C#                   | TypeScript           |    11 |    75 |         -0.630 | grande             |
+| linguagem        | cfr_releases      | C#                   | Vue                  |    11 |     2 |         -0.364 | médio              |
+| linguagem        | cfr_releases      | C++                  | Go                   |    17 |    40 |         -0.359 | médio              |
+| linguagem        | cfr_releases      | C++                  | HTML                 |    17 |     2 |         -0.824 | grande             |
+| linguagem        | cfr_releases      | C++                  | Java                 |    17 |    15 |         -0.239 | pequeno            |
+| linguagem        | cfr_releases      | C++                  | JavaScript           |    17 |    21 |         -0.409 | médio              |
+| linguagem        | cfr_releases      | C++                  | Kotlin               |    17 |     6 |         -0.363 | médio              |
+| linguagem        | cfr_releases      | C++                  | PHP                  |    17 |     5 |         -0.118 | desprezível        |
+| linguagem        | cfr_releases      | C++                  | Python               |    17 |    51 |         -0.349 | médio              |
+| linguagem        | cfr_releases      | C++                  | Ruby                 |    17 |     3 |         -0.765 | grande             |
+| linguagem        | cfr_releases      | C++                  | Rust                 |    17 |    27 |         -0.560 | grande             |
+| linguagem        | cfr_releases      | C++                  | Shell                |    17 |     4 |         -0.559 | grande             |
+| linguagem        | cfr_releases      | C++                  | Swift                |    17 |     7 |         -0.563 | grande             |
+| linguagem        | cfr_releases      | C++                  | TypeScript           |    17 |    75 |         -0.671 | grande             |
+| linguagem        | cfr_releases      | C++                  | Vue                  |    17 |     2 |         -0.529 | grande             |
+| linguagem        | cfr_releases      | Go                   | HTML                 |    40 |     2 |         -0.775 | grande             |
+| linguagem        | cfr_releases      | Go                   | Java                 |    40 |    15 |          0.132 | desprezível        |
+| linguagem        | cfr_releases      | Go                   | JavaScript           |    40 |    21 |         -0.073 | desprezível        |
+| linguagem        | cfr_releases      | Go                   | Kotlin               |    40 |     6 |          0.037 | desprezível        |
+| linguagem        | cfr_releases      | Go                   | PHP                  |    40 |     5 |          0.285 | pequeno            |
+| linguagem        | cfr_releases      | Go                   | Python               |    40 |    51 |         -0.023 | desprezível        |
+| linguagem        | cfr_releases      | Go                   | Ruby                 |    40 |     3 |         -0.450 | médio              |
+| linguagem        | cfr_releases      | Go                   | Rust                 |    40 |    27 |         -0.288 | pequeno            |
+| linguagem        | cfr_releases      | Go                   | Shell                |    40 |     4 |         -0.119 | desprezível        |
+| linguagem        | cfr_releases      | Go                   | Swift                |    40 |     7 |         -0.225 | pequeno            |
+| linguagem        | cfr_releases      | Go                   | TypeScript           |    40 |    75 |         -0.444 | médio              |
+| linguagem        | cfr_releases      | Go                   | Vue                  |    40 |     2 |         -0.175 | pequeno            |
+| linguagem        | cfr_releases      | HTML                 | Java                 |     2 |    15 |          0.733 | grande             |
 | linguagem        | cfr_releases      | HTML                 | JavaScript           |     2 |    21 |          0.714 | grande             |
 | linguagem        | cfr_releases      | HTML                 | Kotlin               |     2 |     6 |          0.667 | grande             |
 | linguagem        | cfr_releases      | HTML                 | PHP                  |     2 |     5 |          0.800 | grande             |
-| linguagem        | cfr_releases      | HTML                 | Python               |     2 |    51 |          0.569 | grande             |
-| linguagem        | cfr_releases      | HTML                 | Ruby                 |     2 |     3 |          0.333 | médio              |
-| linguagem        | cfr_releases      | HTML                 | Rust                 |     2 |    27 |          0.444 | médio              |
+| linguagem        | cfr_releases      | HTML                 | Python               |     2 |    51 |          0.647 | grande             |
+| linguagem        | cfr_releases      | HTML                 | Ruby                 |     2 |     3 |          0.667 | grande             |
+| linguagem        | cfr_releases      | HTML                 | Rust                 |     2 |    27 |          0.481 | grande             |
 | linguagem        | cfr_releases      | HTML                 | Shell                |     2 |     4 |          0.750 | grande             |
 | linguagem        | cfr_releases      | HTML                 | Swift                |     2 |     7 |          0.857 | grande             |
-| linguagem        | cfr_releases      | HTML                 | TypeScript           |     2 |    75 |          0.387 | médio              |
+| linguagem        | cfr_releases      | HTML                 | TypeScript           |     2 |    75 |          0.320 | pequeno            |
 | linguagem        | cfr_releases      | HTML                 | Vue                  |     2 |     2 |          0.500 | grande             |
-| linguagem        | cfr_releases      | Java                 | JavaScript           |    15 |    21 |         -0.162 | pequeno            |
-| linguagem        | cfr_releases      | Java                 | Kotlin               |    15 |     6 |         -0.156 | pequeno            |
-| linguagem        | cfr_releases      | Java                 | PHP                  |    15 |     5 |          0.080 | desprezível        |
-| linguagem        | cfr_releases      | Java                 | Python               |    15 |    51 |         -0.193 | pequeno            |
-| linguagem        | cfr_releases      | Java                 | Ruby                 |    15 |     3 |         -0.600 | grande             |
-| linguagem        | cfr_releases      | Java                 | Rust                 |    15 |    27 |         -0.341 | médio              |
-| linguagem        | cfr_releases      | Java                 | Shell                |    15 |     4 |         -0.150 | pequeno            |
-| linguagem        | cfr_releases      | Java                 | Swift                |    15 |     7 |         -0.238 | pequeno            |
-| linguagem        | cfr_releases      | Java                 | TypeScript           |    15 |    75 |         -0.537 | grande             |
-| linguagem        | cfr_releases      | Java                 | Vue                  |    15 |     2 |         -0.200 | pequeno            |
-| linguagem        | cfr_releases      | JavaScript           | Kotlin               |    21 |     6 |          0.111 | desprezível        |
-| linguagem        | cfr_releases      | JavaScript           | PHP                  |    21 |     5 |          0.276 | pequeno            |
-| linguagem        | cfr_releases      | JavaScript           | Python               |    21 |    51 |         -0.011 | desprezível        |
-| linguagem        | cfr_releases      | JavaScript           | Ruby                 |    21 |     3 |         -0.365 | médio              |
-| linguagem        | cfr_releases      | JavaScript           | Rust                 |    21 |    27 |         -0.187 | pequeno            |
-| linguagem        | cfr_releases      | JavaScript           | Shell                |    21 |     4 |          0.143 | desprezível        |
-| linguagem        | cfr_releases      | JavaScript           | Swift                |    21 |     7 |         -0.027 | desprezível        |
-| linguagem        | cfr_releases      | JavaScript           | TypeScript           |    21 |    75 |         -0.359 | médio              |
+| linguagem        | cfr_releases      | Java                 | JavaScript           |    15 |    21 |         -0.190 | pequeno            |
+| linguagem        | cfr_releases      | Java                 | Kotlin               |    15 |     6 |         -0.078 | desprezível        |
+| linguagem        | cfr_releases      | Java                 | PHP                  |    15 |     5 |          0.200 | pequeno            |
+| linguagem        | cfr_releases      | Java                 | Python               |    15 |    51 |         -0.111 | desprezível        |
+| linguagem        | cfr_releases      | Java                 | Ruby                 |    15 |     3 |         -0.644 | grande             |
+| linguagem        | cfr_releases      | Java                 | Rust                 |    15 |    27 |         -0.378 | médio              |
+| linguagem        | cfr_releases      | Java                 | Shell                |    15 |     4 |         -0.350 | médio              |
+| linguagem        | cfr_releases      | Java                 | Swift                |    15 |     7 |         -0.276 | pequeno            |
+| linguagem        | cfr_releases      | Java                 | TypeScript           |    15 |    75 |         -0.534 | grande             |
+| linguagem        | cfr_releases      | Java                 | Vue                  |    15 |     2 |         -0.267 | pequeno            |
+| linguagem        | cfr_releases      | JavaScript           | Kotlin               |    21 |     6 |          0.143 | desprezível        |
+| linguagem        | cfr_releases      | JavaScript           | PHP                  |    21 |     5 |          0.381 | médio              |
+| linguagem        | cfr_releases      | JavaScript           | Python               |    21 |    51 |          0.054 | desprezível        |
+| linguagem        | cfr_releases      | JavaScript           | Ruby                 |    21 |     3 |         -0.429 | médio              |
+| linguagem        | cfr_releases      | JavaScript           | Rust                 |    21 |    27 |         -0.198 | pequeno            |
+| linguagem        | cfr_releases      | JavaScript           | Shell                |    21 |     4 |         -0.083 | desprezível        |
+| linguagem        | cfr_releases      | JavaScript           | Swift                |    21 |     7 |         -0.088 | desprezível        |
+| linguagem        | cfr_releases      | JavaScript           | TypeScript           |    21 |    75 |         -0.376 | médio              |
 | linguagem        | cfr_releases      | JavaScript           | Vue                  |    21 |     2 |          0.000 | desprezível        |
-| linguagem        | cfr_releases      | Kotlin               | PHP                  |     6 |     5 |          0.133 | desprezível        |
-| linguagem        | cfr_releases      | Kotlin               | Python               |     6 |    51 |         -0.033 | desprezível        |
-| linguagem        | cfr_releases      | Kotlin               | Ruby                 |     6 |     3 |         -0.444 | médio              |
-| linguagem        | cfr_releases      | Kotlin               | Rust                 |     6 |    27 |         -0.204 | pequeno            |
-| linguagem        | cfr_releases      | Kotlin               | Shell                |     6 |     4 |         -0.125 | desprezível        |
-| linguagem        | cfr_releases      | Kotlin               | Swift                |     6 |     7 |         -0.095 | desprezível        |
-| linguagem        | cfr_releases      | Kotlin               | TypeScript           |     6 |    75 |         -0.376 | médio              |
-| linguagem        | cfr_releases      | Kotlin               | Vue                  |     6 |     2 |          0.167 | pequeno            |
-| linguagem        | cfr_releases      | PHP                  | Python               |     5 |    51 |         -0.255 | pequeno            |
-| linguagem        | cfr_releases      | PHP                  | Ruby                 |     5 |     3 |         -0.667 | grande             |
-| linguagem        | cfr_releases      | PHP                  | Rust                 |     5 |    27 |         -0.385 | médio              |
-| linguagem        | cfr_releases      | PHP                  | Shell                |     5 |     4 |         -0.200 | pequeno            |
-| linguagem        | cfr_releases      | PHP                  | Swift                |     5 |     7 |         -0.343 | médio              |
-| linguagem        | cfr_releases      | PHP                  | TypeScript           |     5 |    75 |         -0.611 | grande             |
-| linguagem        | cfr_releases      | PHP                  | Vue                  |     5 |     2 |         -0.200 | pequeno            |
-| linguagem        | cfr_releases      | Python               | Ruby                 |    51 |     3 |         -0.301 | pequeno            |
-| linguagem        | cfr_releases      | Python               | Rust                 |    51 |    27 |         -0.198 | pequeno            |
-| linguagem        | cfr_releases      | Python               | Shell                |    51 |     4 |         -0.034 | desprezível        |
-| linguagem        | cfr_releases      | Python               | Swift                |    51 |     7 |         -0.025 | desprezível        |
-| linguagem        | cfr_releases      | Python               | TypeScript           |    51 |    75 |         -0.324 | pequeno            |
-| linguagem        | cfr_releases      | Python               | Vue                  |    51 |     2 |          0.118 | desprezível        |
-| linguagem        | cfr_releases      | Ruby                 | Rust                 |     3 |    27 |          0.012 | desprezível        |
+| linguagem        | cfr_releases      | Kotlin               | PHP                  |     6 |     5 |          0.167 | pequeno            |
+| linguagem        | cfr_releases      | Kotlin               | Python               |     6 |    51 |         -0.029 | desprezível        |
+| linguagem        | cfr_releases      | Kotlin               | Ruby                 |     6 |     3 |         -0.389 | médio              |
+| linguagem        | cfr_releases      | Kotlin               | Rust                 |     6 |    27 |         -0.333 | médio              |
+| linguagem        | cfr_releases      | Kotlin               | Shell                |     6 |     4 |         -0.417 | médio              |
+| linguagem        | cfr_releases      | Kotlin               | Swift                |     6 |     7 |         -0.333 | médio              |
+| linguagem        | cfr_releases      | Kotlin               | TypeScript           |     6 |    75 |         -0.378 | médio              |
+| linguagem        | cfr_releases      | Kotlin               | Vue                  |     6 |     2 |         -0.167 | pequeno            |
+| linguagem        | cfr_releases      | PHP                  | Python               |     5 |    51 |         -0.267 | pequeno            |
+| linguagem        | cfr_releases      | PHP                  | Ruby                 |     5 |     3 |         -0.733 | grande             |
+| linguagem        | cfr_releases      | PHP                  | Rust                 |     5 |    27 |         -0.511 | grande             |
+| linguagem        | cfr_releases      | PHP                  | Shell                |     5 |     4 |         -0.700 | grande             |
+| linguagem        | cfr_releases      | PHP                  | Swift                |     5 |     7 |         -0.486 | grande             |
+| linguagem        | cfr_releases      | PHP                  | TypeScript           |     5 |    75 |         -0.656 | grande             |
+| linguagem        | cfr_releases      | PHP                  | Vue                  |     5 |     2 |         -0.400 | médio              |
+| linguagem        | cfr_releases      | Python               | Ruby                 |    51 |     3 |         -0.346 | médio              |
+| linguagem        | cfr_releases      | Python               | Rust                 |    51 |    27 |         -0.265 | pequeno            |
+| linguagem        | cfr_releases      | Python               | Shell                |    51 |     4 |         -0.181 | pequeno            |
+| linguagem        | cfr_releases      | Python               | Swift                |    51 |     7 |         -0.154 | pequeno            |
+| linguagem        | cfr_releases      | Python               | TypeScript           |    51 |    75 |         -0.391 | médio              |
+| linguagem        | cfr_releases      | Python               | Vue                  |    51 |     2 |         -0.157 | pequeno            |
+| linguagem        | cfr_releases      | Ruby                 | Rust                 |     3 |    27 |          0.062 | desprezível        |
 | linguagem        | cfr_releases      | Ruby                 | Shell                |     3 |     4 |          0.500 | grande             |
-| linguagem        | cfr_releases      | Ruby                 | Swift                |     3 |     7 |          0.429 | médio              |
-| linguagem        | cfr_releases      | Ruby                 | TypeScript           |     3 |    75 |         -0.120 | desprezível        |
+| linguagem        | cfr_releases      | Ruby                 | Swift                |     3 |     7 |          0.095 | desprezível        |
+| linguagem        | cfr_releases      | Ruby                 | TypeScript           |     3 |    75 |         -0.107 | desprezível        |
 | linguagem        | cfr_releases      | Ruby                 | Vue                  |     3 |     2 |          0.333 | médio              |
-| linguagem        | cfr_releases      | Rust                 | Shell                |    27 |     4 |          0.130 | desprezível        |
-| linguagem        | cfr_releases      | Rust                 | Swift                |    27 |     7 |          0.185 | pequeno            |
-| linguagem        | cfr_releases      | Rust                 | TypeScript           |    27 |    75 |         -0.081 | desprezível        |
-| linguagem        | cfr_releases      | Rust                 | Vue                  |    27 |     2 |          0.296 | pequeno            |
+| linguagem        | cfr_releases      | Rust                 | Shell                |    27 |     4 |          0.065 | desprezível        |
+| linguagem        | cfr_releases      | Rust                 | Swift                |    27 |     7 |          0.148 | pequeno            |
+| linguagem        | cfr_releases      | Rust                 | TypeScript           |    27 |    75 |         -0.133 | desprezível        |
+| linguagem        | cfr_releases      | Rust                 | Vue                  |    27 |     2 |          0.222 | pequeno            |
 | linguagem        | cfr_releases      | Shell                | Swift                |     4 |     7 |         -0.071 | desprezível        |
-| linguagem        | cfr_releases      | Shell                | TypeScript           |     4 |    75 |         -0.347 | médio              |
+| linguagem        | cfr_releases      | Shell                | TypeScript           |     4 |    75 |         -0.280 | pequeno            |
 | linguagem        | cfr_releases      | Shell                | Vue                  |     4 |     2 |          0.250 | pequeno            |
-| linguagem        | cfr_releases      | Swift                | TypeScript           |     7 |    75 |         -0.411 | médio              |
-| linguagem        | cfr_releases      | Swift                | Vue                  |     7 |     2 |          0.143 | desprezível        |
-| linguagem        | cfr_releases      | TypeScript           | Vue                  |    75 |     2 |          0.373 | médio              |
+| linguagem        | cfr_releases      | Swift                | TypeScript           |     7 |    75 |         -0.356 | médio              |
+| linguagem        | cfr_releases      | Swift                | Vue                  |     7 |     2 |          0.000 | desprezível        |
+| linguagem        | cfr_releases      | TypeScript           | Vue                  |    75 |     2 |          0.387 | médio              |
 | linguagem        | recuperacao       | C                    | C#                   |    10 |    11 |          0.109 | desprezível        |
 | linguagem        | recuperacao       | C                    | C++                  |    10 |    16 |          0.075 | desprezível        |
 | linguagem        | recuperacao       | C                    | Go                   |    10 |    36 |         -0.078 | desprezível        |
@@ -744,12 +744,12 @@
 | quartil_estrelas | cfr_ci            | Q2                   | Q3                   |    76 |    76 |         -0.081 | desprezível        |
 | quartil_estrelas | cfr_ci            | Q2                   | Q4                   |    76 |    77 |         -0.013 | desprezível        |
 | quartil_estrelas | cfr_ci            | Q3                   | Q4                   |    76 |    77 |          0.068 | desprezível        |
-| quartil_estrelas | cfr_releases      | Q1                   | Q2                   |    77 |    76 |          0.026 | desprezível        |
-| quartil_estrelas | cfr_releases      | Q1                   | Q3                   |    77 |    76 |          0.013 | desprezível        |
-| quartil_estrelas | cfr_releases      | Q1                   | Q4                   |    77 |    76 |         -0.049 | desprezível        |
-| quartil_estrelas | cfr_releases      | Q2                   | Q3                   |    76 |    76 |         -0.004 | desprezível        |
-| quartil_estrelas | cfr_releases      | Q2                   | Q4                   |    76 |    76 |         -0.079 | desprezível        |
-| quartil_estrelas | cfr_releases      | Q3                   | Q4                   |    76 |    76 |         -0.068 | desprezível        |
+| quartil_estrelas | cfr_releases      | Q1                   | Q2                   |    77 |    76 |         -0.011 | desprezível        |
+| quartil_estrelas | cfr_releases      | Q1                   | Q3                   |    77 |    76 |         -0.111 | desprezível        |
+| quartil_estrelas | cfr_releases      | Q1                   | Q4                   |    77 |    76 |         -0.139 | desprezível        |
+| quartil_estrelas | cfr_releases      | Q2                   | Q3                   |    76 |    76 |         -0.101 | desprezível        |
+| quartil_estrelas | cfr_releases      | Q2                   | Q4                   |    76 |    76 |         -0.124 | desprezível        |
+| quartil_estrelas | cfr_releases      | Q3                   | Q4                   |    76 |    76 |         -0.016 | desprezível        |
 | quartil_estrelas | recuperacao       | Q1                   | Q2                   |    70 |    71 |         -0.045 | desprezível        |
 | quartil_estrelas | recuperacao       | Q1                   | Q3                   |    70 |    70 |         -0.230 | pequeno            |
 | quartil_estrelas | recuperacao       | Q1                   | Q4                   |    70 |    73 |         -0.140 | desprezível        |
@@ -780,48 +780,51 @@
 | quartil_idade    | cfr_ci            | Q2                   | Q3                   |    76 |    76 |          0.011 | desprezível        |
 | quartil_idade    | cfr_ci            | Q2                   | Q4                   |    76 |    77 |          0.102 | desprezível        |
 | quartil_idade    | cfr_ci            | Q3                   | Q4                   |    76 |    77 |          0.080 | desprezível        |
-| quartil_idade    | cfr_releases      | Q1                   | Q2                   |    76 |    76 |          0.501 | grande             |
-| quartil_idade    | cfr_releases      | Q1                   | Q3                   |    76 |    76 |          0.550 | grande             |
-| quartil_idade    | cfr_releases      | Q1                   | Q4                   |    76 |    77 |          0.581 | grande             |
-| quartil_idade    | cfr_releases      | Q2                   | Q3                   |    76 |    76 |          0.063 | desprezível        |
-| quartil_idade    | cfr_releases      | Q2                   | Q4                   |    76 |    77 |          0.024 | desprezível        |
-| quartil_idade    | cfr_releases      | Q3                   | Q4                   |    76 |    77 |         -0.038 | desprezível        |
+| quartil_idade    | cfr_releases      | Q1                   | Q2                   |    76 |    76 |          0.400 | médio              |
+| quartil_idade    | cfr_releases      | Q1                   | Q3                   |    76 |    76 |          0.366 | médio              |
+| quartil_idade    | cfr_releases      | Q1                   | Q4                   |    76 |    77 |          0.484 | grande             |
+| quartil_idade    | cfr_releases      | Q2                   | Q3                   |    76 |    76 |         -0.019 | desprezível        |
+| quartil_idade    | cfr_releases      | Q2                   | Q4                   |    76 |    77 |          0.070 | desprezível        |
+| quartil_idade    | cfr_releases      | Q3                   | Q4                   |    76 |    77 |          0.087 | desprezível        |
 | quartil_idade    | recuperacao       | Q1                   | Q2                   |    70 |    70 |         -0.333 | médio              |
 | quartil_idade    | recuperacao       | Q1                   | Q3                   |    70 |    71 |         -0.433 | médio              |
 | quartil_idade    | recuperacao       | Q1                   | Q4                   |    70 |    73 |         -0.322 | pequeno            |
 | quartil_idade    | recuperacao       | Q2                   | Q3                   |    70 |    71 |         -0.033 | desprezível        |
 | quartil_idade    | recuperacao       | Q2                   | Q4                   |    70 |    73 |          0.100 | desprezível        |
 | quartil_idade    | recuperacao       | Q3                   | Q4                   |    71 |    73 |          0.138 | desprezível        |
-| tipo_projeto     | frequencia        | aplicação/serviço    | biblioteca/framework |    17 |    20 |          0.135 | desprezível        |
-| tipo_projeto     | frequencia        | aplicação/serviço    | ferramenta CLI       |    17 |     8 |          0.412 | médio              |
-| tipo_projeto     | frequencia        | aplicação/serviço    | outro                |    17 |     2 |          0.441 | médio              |
-| tipo_projeto     | frequencia        | biblioteca/framework | ferramenta CLI       |    20 |     8 |          0.287 | pequeno            |
-| tipo_projeto     | frequencia        | biblioteca/framework | outro                |    20 |     2 |          0.350 | médio              |
-| tipo_projeto     | frequencia        | ferramenta CLI       | outro                |     8 |     2 |          0.000 | desprezível        |
-| tipo_projeto     | lead_time_release | aplicação/serviço    | biblioteca/framework |    17 |    20 |         -0.065 | desprezível        |
-| tipo_projeto     | lead_time_release | aplicação/serviço    | ferramenta CLI       |    17 |     8 |         -0.426 | médio              |
-| tipo_projeto     | lead_time_release | aplicação/serviço    | outro                |    17 |     2 |          0.588 | grande             |
-| tipo_projeto     | lead_time_release | biblioteca/framework | ferramenta CLI       |    20 |     8 |         -0.225 | pequeno            |
-| tipo_projeto     | lead_time_release | biblioteca/framework | outro                |    20 |     2 |          0.700 | grande             |
-| tipo_projeto     | lead_time_release | ferramenta CLI       | outro                |     8 |     2 |          1.000 | grande             |
-| tipo_projeto     | lead_time_commit  | aplicação/serviço    | biblioteca/framework |    17 |    20 |          0.018 | desprezível        |
-| tipo_projeto     | lead_time_commit  | aplicação/serviço    | ferramenta CLI       |    17 |     8 |         -0.191 | pequeno            |
-| tipo_projeto     | lead_time_commit  | aplicação/serviço    | outro                |    17 |     2 |          0.471 | médio              |
-| tipo_projeto     | lead_time_commit  | biblioteca/framework | ferramenta CLI       |    20 |     8 |         -0.275 | pequeno            |
-| tipo_projeto     | lead_time_commit  | biblioteca/framework | outro                |    20 |     2 |          0.500 | grande             |
-| tipo_projeto     | lead_time_commit  | ferramenta CLI       | outro                |     8 |     2 |          1.000 | grande             |
-| tipo_projeto     | cfr_ci            | aplicação/serviço    | biblioteca/framework |    17 |    20 |         -0.115 | desprezível        |
-| tipo_projeto     | cfr_ci            | aplicação/serviço    | ferramenta CLI       |    17 |     8 |         -0.125 | desprezível        |
-| tipo_projeto     | cfr_ci            | aplicação/serviço    | outro                |    17 |     2 |          0.618 | grande             |
-| tipo_projeto     | cfr_ci            | biblioteca/framework | ferramenta CLI       |    20 |     8 |         -0.106 | desprezível        |
-| tipo_projeto     | cfr_ci            | biblioteca/framework | outro                |    20 |     2 |          0.725 | grande             |
-| tipo_projeto     | cfr_ci            | ferramenta CLI       | outro                |     8 |     2 |          0.688 | grande             |
-| tipo_projeto     | cfr_releases      | aplicação/serviço    | biblioteca/framework |    17 |    20 |          0.188 | pequeno            |
-| tipo_projeto     | cfr_releases      | aplicação/serviço    | ferramenta CLI       |    17 |     8 |          0.449 | médio              |
-| tipo_projeto     | cfr_releases      | aplicação/serviço    | outro                |    17 |     2 |          0.059 | desprezível        |
-| tipo_projeto     | cfr_releases      | biblioteca/framework | ferramenta CLI       |    20 |     8 |          0.356 | médio              |
-| tipo_projeto     | cfr_releases      | biblioteca/framework | outro                |    20 |     2 |         -0.050 | desprezível        |
-| tipo_projeto     | cfr_releases      | ferramenta CLI       | outro                |     8 |     2 |         -0.125 | desprezível        |
-| tipo_projeto     | recuperacao       | aplicação/serviço    | biblioteca/framework |    16 |    19 |         -0.612 | grande             |
-| tipo_projeto     | recuperacao       | aplicação/serviço    | ferramenta CLI       |    16 |     7 |         -0.304 | pequeno            |
-| tipo_projeto     | recuperacao       | biblioteca/framework | ferramenta CLI       |    19 |     7 |          0.414 | médio              |
+| tipo_projeto     | frequencia        | aplicação/serviço    | biblioteca/framework |    25 |    21 |          0.202 | pequeno            |
+| tipo_projeto     | frequencia        | aplicação/serviço    | ferramenta CLI       |    25 |    11 |          0.295 | pequeno            |
+| tipo_projeto     | frequencia        | aplicação/serviço    | outro                |    25 |     3 |          0.027 | desprezível        |
+| tipo_projeto     | frequencia        | biblioteca/framework | ferramenta CLI       |    21 |    11 |          0.117 | desprezível        |
+| tipo_projeto     | frequencia        | biblioteca/framework | outro                |    21 |     3 |         -0.079 | desprezível        |
+| tipo_projeto     | frequencia        | ferramenta CLI       | outro                |    11 |     3 |         -0.152 | pequeno            |
+| tipo_projeto     | lead_time_release | aplicação/serviço    | biblioteca/framework |    25 |    21 |         -0.253 | pequeno            |
+| tipo_projeto     | lead_time_release | aplicação/serviço    | ferramenta CLI       |    25 |    11 |         -0.236 | pequeno            |
+| tipo_projeto     | lead_time_release | aplicação/serviço    | outro                |    25 |     3 |          0.600 | grande             |
+| tipo_projeto     | lead_time_release | biblioteca/framework | ferramenta CLI       |    21 |    11 |          0.004 | desprezível        |
+| tipo_projeto     | lead_time_release | biblioteca/framework | outro                |    21 |     3 |          0.810 | grande             |
+| tipo_projeto     | lead_time_release | ferramenta CLI       | outro                |    11 |     3 |          0.636 | grande             |
+| tipo_projeto     | lead_time_commit  | aplicação/serviço    | biblioteca/framework |    25 |    21 |         -0.074 | desprezível        |
+| tipo_projeto     | lead_time_commit  | aplicação/serviço    | ferramenta CLI       |    25 |    11 |         -0.105 | desprezível        |
+| tipo_projeto     | lead_time_commit  | aplicação/serviço    | outro                |    25 |     3 |          0.520 | grande             |
+| tipo_projeto     | lead_time_commit  | biblioteca/framework | ferramenta CLI       |    21 |    11 |         -0.082 | desprezível        |
+| tipo_projeto     | lead_time_commit  | biblioteca/framework | outro                |    21 |     3 |          0.651 | grande             |
+| tipo_projeto     | lead_time_commit  | ferramenta CLI       | outro                |    11 |     3 |          0.697 | grande             |
+| tipo_projeto     | cfr_ci            | aplicação/serviço    | biblioteca/framework |    25 |    21 |         -0.130 | desprezível        |
+| tipo_projeto     | cfr_ci            | aplicação/serviço    | ferramenta CLI       |    25 |    11 |         -0.269 | pequeno            |
+| tipo_projeto     | cfr_ci            | aplicação/serviço    | outro                |    25 |     3 |          0.187 | pequeno            |
+| tipo_projeto     | cfr_ci            | biblioteca/framework | ferramenta CLI       |    21 |    11 |         -0.234 | pequeno            |
+| tipo_projeto     | cfr_ci            | biblioteca/framework | outro                |    21 |     3 |          0.254 | pequeno            |
+| tipo_projeto     | cfr_ci            | ferramenta CLI       | outro                |    11 |     3 |          0.364 | médio              |
+| tipo_projeto     | cfr_releases      | aplicação/serviço    | biblioteca/framework |    25 |    21 |          0.234 | pequeno            |
+| tipo_projeto     | cfr_releases      | aplicação/serviço    | ferramenta CLI       |    25 |    11 |          0.265 | pequeno            |
+| tipo_projeto     | cfr_releases      | aplicação/serviço    | outro                |    25 |     3 |         -0.027 | desprezível        |
+| tipo_projeto     | cfr_releases      | biblioteca/framework | ferramenta CLI       |    21 |    11 |          0.082 | desprezível        |
+| tipo_projeto     | cfr_releases      | biblioteca/framework | outro                |    21 |     3 |         -0.127 | desprezível        |
+| tipo_projeto     | cfr_releases      | ferramenta CLI       | outro                |    11 |     3 |         -0.273 | pequeno            |
+| tipo_projeto     | recuperacao       | aplicação/serviço    | biblioteca/framework |    24 |    20 |         -0.579 | grande             |
+| tipo_projeto     | recuperacao       | aplicação/serviço    | ferramenta CLI       |    24 |    10 |         -0.150 | pequeno            |
+| tipo_projeto     | recuperacao       | aplicação/serviço    | outro                |    24 |     2 |          0.167 | pequeno            |
+| tipo_projeto     | recuperacao       | biblioteca/framework | ferramenta CLI       |    20 |    10 |          0.510 | grande             |
+| tipo_projeto     | recuperacao       | biblioteca/framework | outro                |    20 |     2 |          0.850 | grande             |
+| tipo_projeto     | recuperacao       | ferramenta CLI       | outro                |    10 |     2 |          0.600 | grande             |

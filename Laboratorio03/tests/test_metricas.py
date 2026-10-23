@@ -15,7 +15,7 @@ from metricas.classificacao import (
     classificar_lead_time,
     classificar_recuperacao,
 )
-from metricas.corretiva import release_corretiva
+from metricas.corretiva import classificar_comparacoes, release_corretiva, release_corretiva_v2
 from metricas.deploy_freq import (
     deployment_frequency,
     deployment_frequency_com_prereleases,
@@ -84,6 +84,40 @@ def test_deployment_frequency_variantes_incluem_prereleases_ou_tags():
 )
 def test_heuristica_corretiva_v1(anterior, atual, mensagens, esperado):
     assert release_corretiva(anterior, atual, mensagens) is esperado
+
+
+@pytest.mark.parametrize(
+    ("anterior", "atual", "mensagens", "notas", "esperado"),
+    [
+        # Notas dominadas por correções decidem sozinhas, mesmo sem patch.
+        ("v2.3.0", "v2.4.0", [], "### Bug Fixes\n- fix crash", True),
+        ("v2.3.0", "v2.4.0", [], "- fix crash\n- fix leak\n- add flag", True),
+        ("v2.3.0", "v2.4.0", [], "### Fixed\n- crash", True),
+        # Seção de funcionalidade nas notas impede a marcação.
+        ("v2.3.0", "v2.3.1", ["fix: crash"], "### Features\n- dark mode\n### Bug Fixes\n- crash", False),
+        ("v2.3.0", "v2.3.1", ["fix: crash"], "- add export\n- add import", False),
+        # Sem sinal nas notas: patch com correções >= funcionalidades nos commits.
+        ("v2.3.0", "v2.3.1", ["fix: crash", "chore: deps"], None, True),
+        ("v2.3.0", "v2.3.1", [], "", True),
+        ("v2.3.0", "v2.3.1", ["feat: nova tela", "Merge branch main"], None, False),
+        ("v2.3.0", "v2.3.1", ["feat: nova tela", "fix: crash"], None, True),
+        # Sem patch e sem notas corretivas, commits de fix não bastam (diferença para a v1).
+        ("v2.3.0", "v2.4.0", ["fix: crash"], None, False),
+        ("release-1", "release-2", ["hotfix: crash"], "", False),
+        # Linhas de agradecimento/changelog não contam como item.
+        ("v2.3.0", "v2.4.0", [], "- New Contributors fix\n- Full Changelog fix", False),
+    ],
+)
+def test_heuristica_corretiva_v2(anterior, atual, mensagens, notas, esperado):
+    assert release_corretiva_v2(anterior, atual, mensagens, notas) is esperado
+
+
+def test_classificar_comparacoes_escolhe_versao_e_usa_notas():
+    comparacoes = [comparacao("v2.3.0", "v2.4.0", ["fix: crash"])]
+    assert classificar_comparacoes(comparacoes, versao="v1") == {"v2.4.0": True}
+    assert classificar_comparacoes(comparacoes, versao="v2") == {"v2.4.0": False}
+    notas = {"v2.4.0": "### Bug Fixes\n- crash"}
+    assert classificar_comparacoes(comparacoes, notas, versao="v2") == {"v2.4.0": True}
 
 
 def test_cfr_releases_aplica_janela_de_sete_dias_e_censura():
@@ -297,8 +331,10 @@ def test_rework_conta_corretivas_sobre_todas_as_releases_da_janela():
         comparacao("v2.3.1", "v2.4.0", ["feat: exportar PDF"]),
         comparacao("v2.4.0", "v2.5.0", ["revert: exportar PDF"]),
     ]
+    notas = {"v2.5.0": "### Bug Fixes\n- revert exportar PDF"}
     # Quatro releases na janela: a primeira não tem compare e só entra no denominador.
-    resumo = calcular_rework(comparacoes, releases_na_janela=4)
+    # v2.3.1 é corretiva pelo patch + commit; v2.5.0, pelas notas.
+    resumo = calcular_rework(comparacoes, releases_na_janela=4, notas=notas)
 
     assert resumo.releases_corretivas == 2
     assert resumo.rework_rate == pytest.approx(0.5)

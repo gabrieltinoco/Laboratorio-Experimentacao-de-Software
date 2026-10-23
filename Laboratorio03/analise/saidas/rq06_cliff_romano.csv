@@ -480,125 +480,125 @@ linguagem,cfr_ci,Swift,TypeScript,7,75,0.3942857142857143,médio
 linguagem,cfr_ci,Swift,Vue,7,2,0.2857142857142857,pequeno
 linguagem,cfr_ci,TypeScript,Vue,75,2,-0.41333333333333333,médio
 linguagem,cfr_releases,C,C#,11,11,0.30578512396694213,pequeno
-linguagem,cfr_releases,C,C++,11,17,0.33689839572192515,médio
-linguagem,cfr_releases,C,Go,11,40,0.12272727272727273,desprezível
-linguagem,cfr_releases,C,HTML,11,2,-0.45454545454545453,médio
-linguagem,cfr_releases,C,Java,11,15,0.18787878787878787,pequeno
-linguagem,cfr_releases,C,JavaScript,11,21,0.08225108225108226,desprezível
-linguagem,cfr_releases,C,Kotlin,11,6,0.030303030303030304,desprezível
-linguagem,cfr_releases,C,PHP,11,5,0.2,pequeno
-linguagem,cfr_releases,C,Python,11,51,0.07130124777183601,desprezível
-linguagem,cfr_releases,C,Ruby,11,3,-0.15151515151515152,pequeno
-linguagem,cfr_releases,C,Rust,11,27,-0.07744107744107744,desprezível
-linguagem,cfr_releases,C,Shell,11,4,-0.045454545454545456,desprezível
-linguagem,cfr_releases,C,Swift,11,7,-0.03896103896103896,desprezível
-linguagem,cfr_releases,C,TypeScript,11,75,-0.14424242424242426,desprezível
+linguagem,cfr_releases,C,C++,11,17,0.45989304812834225,médio
+linguagem,cfr_releases,C,Go,11,40,0.15,pequeno
+linguagem,cfr_releases,C,HTML,11,2,-0.5454545454545454,grande
+linguagem,cfr_releases,C,Java,11,15,0.24848484848484848,pequeno
+linguagem,cfr_releases,C,JavaScript,11,21,0.021645021645021644,desprezível
+linguagem,cfr_releases,C,Kotlin,11,6,0.22727272727272727,pequeno
+linguagem,cfr_releases,C,PHP,11,5,0.32727272727272727,pequeno
+linguagem,cfr_releases,C,Python,11,51,0.13903743315508021,desprezível
+linguagem,cfr_releases,C,Ruby,11,3,-0.09090909090909091,desprezível
+linguagem,cfr_releases,C,Rust,11,27,-0.1414141414141414,desprezível
+linguagem,cfr_releases,C,Shell,11,4,-0.22727272727272727,pequeno
+linguagem,cfr_releases,C,Swift,11,7,-0.06493506493506493,desprezível
+linguagem,cfr_releases,C,TypeScript,11,75,-0.18181818181818182,pequeno
 linguagem,cfr_releases,C,Vue,11,2,0.18181818181818182,pequeno
-linguagem,cfr_releases,C#,C++,11,17,-0.10160427807486631,desprezível
-linguagem,cfr_releases,C#,Go,11,40,-0.3522727272727273,médio
+linguagem,cfr_releases,C#,C++,11,17,0.08021390374331551,desprezível
+linguagem,cfr_releases,C#,Go,11,40,-0.3386363636363636,médio
 linguagem,cfr_releases,C#,HTML,11,2,-0.9090909090909091,grande
-linguagem,cfr_releases,C#,Java,11,15,-0.2787878787878788,pequeno
-linguagem,cfr_releases,C#,JavaScript,11,21,-0.48484848484848486,grande
-linguagem,cfr_releases,C#,Kotlin,11,6,-0.30303030303030304,pequeno
-linguagem,cfr_releases,C#,PHP,11,5,-0.21818181818181817,pequeno
-linguagem,cfr_releases,C#,Python,11,51,-0.38324420677361853,médio
+linguagem,cfr_releases,C#,Java,11,15,-0.17575757575757575,pequeno
+linguagem,cfr_releases,C#,JavaScript,11,21,-0.4155844155844156,médio
+linguagem,cfr_releases,C#,Kotlin,11,6,-0.16666666666666666,pequeno
+linguagem,cfr_releases,C#,PHP,11,5,0.01818181818181818,desprezível
+linguagem,cfr_releases,C#,Python,11,51,-0.2816399286987522,pequeno
 linguagem,cfr_releases,C#,Ruby,11,3,-0.8181818181818182,grande
-linguagem,cfr_releases,C#,Rust,11,27,-0.45454545454545453,médio
-linguagem,cfr_releases,C#,Shell,11,4,-0.36363636363636365,médio
-linguagem,cfr_releases,C#,Swift,11,7,-0.5454545454545454,grande
-linguagem,cfr_releases,C#,TypeScript,11,75,-0.6533333333333333,grande
-linguagem,cfr_releases,C#,Vue,11,2,-0.2727272727272727,pequeno
-linguagem,cfr_releases,C++,Go,17,40,-0.22205882352941175,pequeno
-linguagem,cfr_releases,C++,HTML,17,2,-0.7647058823529411,grande
-linguagem,cfr_releases,C++,Java,17,15,-0.1411764705882353,desprezível
-linguagem,cfr_releases,C++,JavaScript,17,21,-0.23529411764705882,pequeno
-linguagem,cfr_releases,C++,Kotlin,17,6,-0.3333333333333333,médio
-linguagem,cfr_releases,C++,PHP,17,5,-0.058823529411764705,desprezível
-linguagem,cfr_releases,C++,Python,17,51,-0.3333333333333333,médio
-linguagem,cfr_releases,C++,Ruby,17,3,-0.5882352941176471,grande
-linguagem,cfr_releases,C++,Rust,17,27,-0.4531590413943355,médio
-linguagem,cfr_releases,C++,Shell,17,4,-0.29411764705882354,pequeno
-linguagem,cfr_releases,C++,Swift,17,7,-0.3277310924369748,pequeno
-linguagem,cfr_releases,C++,TypeScript,17,75,-0.5882352941176471,grande
-linguagem,cfr_releases,C++,Vue,17,2,-0.47058823529411764,médio
-linguagem,cfr_releases,Go,HTML,40,2,-0.75,grande
-linguagem,cfr_releases,Go,Java,40,15,0.11666666666666667,desprezível
-linguagem,cfr_releases,Go,JavaScript,40,21,-0.10119047619047619,desprezível
-linguagem,cfr_releases,Go,Kotlin,40,6,0.0,desprezível
-linguagem,cfr_releases,Go,PHP,40,5,0.185,pequeno
-linguagem,cfr_releases,Go,Python,40,51,-0.08137254901960785,desprezível
-linguagem,cfr_releases,Go,Ruby,40,3,-0.475,grande
-linguagem,cfr_releases,Go,Rust,40,27,-0.26481481481481484,pequeno
-linguagem,cfr_releases,Go,Shell,40,4,-0.00625,desprezível
-linguagem,cfr_releases,Go,Swift,40,7,-0.10357142857142858,desprezível
-linguagem,cfr_releases,Go,TypeScript,40,75,-0.44,médio
-linguagem,cfr_releases,Go,Vue,40,2,-0.025,desprezível
-linguagem,cfr_releases,HTML,Java,2,15,0.8,grande
+linguagem,cfr_releases,C#,Rust,11,27,-0.4983164983164983,grande
+linguagem,cfr_releases,C#,Shell,11,4,-0.4090909090909091,médio
+linguagem,cfr_releases,C#,Swift,11,7,-0.6363636363636364,grande
+linguagem,cfr_releases,C#,TypeScript,11,75,-0.6303030303030303,grande
+linguagem,cfr_releases,C#,Vue,11,2,-0.36363636363636365,médio
+linguagem,cfr_releases,C++,Go,17,40,-0.3588235294117647,médio
+linguagem,cfr_releases,C++,HTML,17,2,-0.8235294117647058,grande
+linguagem,cfr_releases,C++,Java,17,15,-0.23921568627450981,pequeno
+linguagem,cfr_releases,C++,JavaScript,17,21,-0.40896358543417366,médio
+linguagem,cfr_releases,C++,Kotlin,17,6,-0.3627450980392157,médio
+linguagem,cfr_releases,C++,PHP,17,5,-0.11764705882352941,desprezível
+linguagem,cfr_releases,C++,Python,17,51,-0.3494809688581315,médio
+linguagem,cfr_releases,C++,Ruby,17,3,-0.7647058823529411,grande
+linguagem,cfr_releases,C++,Rust,17,27,-0.5599128540305011,grande
+linguagem,cfr_releases,C++,Shell,17,4,-0.5588235294117647,grande
+linguagem,cfr_releases,C++,Swift,17,7,-0.5630252100840336,grande
+linguagem,cfr_releases,C++,TypeScript,17,75,-0.6713725490196079,grande
+linguagem,cfr_releases,C++,Vue,17,2,-0.5294117647058824,grande
+linguagem,cfr_releases,Go,HTML,40,2,-0.775,grande
+linguagem,cfr_releases,Go,Java,40,15,0.13166666666666665,desprezível
+linguagem,cfr_releases,Go,JavaScript,40,21,-0.07261904761904762,desprezível
+linguagem,cfr_releases,Go,Kotlin,40,6,0.0375,desprezível
+linguagem,cfr_releases,Go,PHP,40,5,0.285,pequeno
+linguagem,cfr_releases,Go,Python,40,51,-0.02303921568627451,desprezível
+linguagem,cfr_releases,Go,Ruby,40,3,-0.45,médio
+linguagem,cfr_releases,Go,Rust,40,27,-0.287962962962963,pequeno
+linguagem,cfr_releases,Go,Shell,40,4,-0.11875,desprezível
+linguagem,cfr_releases,Go,Swift,40,7,-0.225,pequeno
+linguagem,cfr_releases,Go,TypeScript,40,75,-0.44433333333333336,médio
+linguagem,cfr_releases,Go,Vue,40,2,-0.175,pequeno
+linguagem,cfr_releases,HTML,Java,2,15,0.7333333333333333,grande
 linguagem,cfr_releases,HTML,JavaScript,2,21,0.7142857142857143,grande
 linguagem,cfr_releases,HTML,Kotlin,2,6,0.6666666666666666,grande
 linguagem,cfr_releases,HTML,PHP,2,5,0.8,grande
-linguagem,cfr_releases,HTML,Python,2,51,0.5686274509803921,grande
-linguagem,cfr_releases,HTML,Ruby,2,3,0.3333333333333333,médio
-linguagem,cfr_releases,HTML,Rust,2,27,0.4444444444444444,médio
+linguagem,cfr_releases,HTML,Python,2,51,0.6470588235294118,grande
+linguagem,cfr_releases,HTML,Ruby,2,3,0.6666666666666666,grande
+linguagem,cfr_releases,HTML,Rust,2,27,0.48148148148148145,grande
 linguagem,cfr_releases,HTML,Shell,2,4,0.75,grande
 linguagem,cfr_releases,HTML,Swift,2,7,0.8571428571428571,grande
-linguagem,cfr_releases,HTML,TypeScript,2,75,0.38666666666666666,médio
+linguagem,cfr_releases,HTML,TypeScript,2,75,0.32,pequeno
 linguagem,cfr_releases,HTML,Vue,2,2,0.5,grande
-linguagem,cfr_releases,Java,JavaScript,15,21,-0.1619047619047619,pequeno
-linguagem,cfr_releases,Java,Kotlin,15,6,-0.15555555555555556,pequeno
-linguagem,cfr_releases,Java,PHP,15,5,0.08,desprezível
-linguagem,cfr_releases,Java,Python,15,51,-0.1934640522875817,pequeno
-linguagem,cfr_releases,Java,Ruby,15,3,-0.6,grande
-linguagem,cfr_releases,Java,Rust,15,27,-0.34074074074074073,médio
-linguagem,cfr_releases,Java,Shell,15,4,-0.15,pequeno
-linguagem,cfr_releases,Java,Swift,15,7,-0.23809523809523808,pequeno
-linguagem,cfr_releases,Java,TypeScript,15,75,-0.5368888888888889,grande
-linguagem,cfr_releases,Java,Vue,15,2,-0.2,pequeno
-linguagem,cfr_releases,JavaScript,Kotlin,21,6,0.1111111111111111,desprezível
-linguagem,cfr_releases,JavaScript,PHP,21,5,0.2761904761904762,pequeno
-linguagem,cfr_releases,JavaScript,Python,21,51,-0.011204481792717087,desprezível
-linguagem,cfr_releases,JavaScript,Ruby,21,3,-0.36507936507936506,médio
-linguagem,cfr_releases,JavaScript,Rust,21,27,-0.18694885361552027,pequeno
-linguagem,cfr_releases,JavaScript,Shell,21,4,0.14285714285714285,desprezível
-linguagem,cfr_releases,JavaScript,Swift,21,7,-0.027210884353741496,desprezível
-linguagem,cfr_releases,JavaScript,TypeScript,21,75,-0.3593650793650794,médio
+linguagem,cfr_releases,Java,JavaScript,15,21,-0.19047619047619047,pequeno
+linguagem,cfr_releases,Java,Kotlin,15,6,-0.07777777777777778,desprezível
+linguagem,cfr_releases,Java,PHP,15,5,0.2,pequeno
+linguagem,cfr_releases,Java,Python,15,51,-0.1111111111111111,desprezível
+linguagem,cfr_releases,Java,Ruby,15,3,-0.6444444444444445,grande
+linguagem,cfr_releases,Java,Rust,15,27,-0.37777777777777777,médio
+linguagem,cfr_releases,Java,Shell,15,4,-0.35,médio
+linguagem,cfr_releases,Java,Swift,15,7,-0.2761904761904762,pequeno
+linguagem,cfr_releases,Java,TypeScript,15,75,-0.5342222222222223,grande
+linguagem,cfr_releases,Java,Vue,15,2,-0.26666666666666666,pequeno
+linguagem,cfr_releases,JavaScript,Kotlin,21,6,0.14285714285714285,desprezível
+linguagem,cfr_releases,JavaScript,PHP,21,5,0.38095238095238093,médio
+linguagem,cfr_releases,JavaScript,Python,21,51,0.05415499533146592,desprezível
+linguagem,cfr_releases,JavaScript,Ruby,21,3,-0.42857142857142855,médio
+linguagem,cfr_releases,JavaScript,Rust,21,27,-0.19753086419753085,pequeno
+linguagem,cfr_releases,JavaScript,Shell,21,4,-0.08333333333333333,desprezível
+linguagem,cfr_releases,JavaScript,Swift,21,7,-0.08843537414965986,desprezível
+linguagem,cfr_releases,JavaScript,TypeScript,21,75,-0.37587301587301586,médio
 linguagem,cfr_releases,JavaScript,Vue,21,2,0.0,desprezível
-linguagem,cfr_releases,Kotlin,PHP,6,5,0.13333333333333333,desprezível
-linguagem,cfr_releases,Kotlin,Python,6,51,-0.032679738562091505,desprezível
-linguagem,cfr_releases,Kotlin,Ruby,6,3,-0.4444444444444444,médio
-linguagem,cfr_releases,Kotlin,Rust,6,27,-0.2037037037037037,pequeno
-linguagem,cfr_releases,Kotlin,Shell,6,4,-0.125,desprezível
-linguagem,cfr_releases,Kotlin,Swift,6,7,-0.09523809523809523,desprezível
-linguagem,cfr_releases,Kotlin,TypeScript,6,75,-0.37555555555555553,médio
-linguagem,cfr_releases,Kotlin,Vue,6,2,0.16666666666666666,pequeno
-linguagem,cfr_releases,PHP,Python,5,51,-0.2549019607843137,pequeno
-linguagem,cfr_releases,PHP,Ruby,5,3,-0.6666666666666666,grande
-linguagem,cfr_releases,PHP,Rust,5,27,-0.3851851851851852,médio
-linguagem,cfr_releases,PHP,Shell,5,4,-0.2,pequeno
-linguagem,cfr_releases,PHP,Swift,5,7,-0.34285714285714286,médio
-linguagem,cfr_releases,PHP,TypeScript,5,75,-0.6106666666666667,grande
-linguagem,cfr_releases,PHP,Vue,5,2,-0.2,pequeno
-linguagem,cfr_releases,Python,Ruby,51,3,-0.3006535947712418,pequeno
-linguagem,cfr_releases,Python,Rust,51,27,-0.19825708061002179,pequeno
-linguagem,cfr_releases,Python,Shell,51,4,-0.03431372549019608,desprezível
-linguagem,cfr_releases,Python,Swift,51,7,-0.025210084033613446,desprezível
-linguagem,cfr_releases,Python,TypeScript,51,75,-0.323921568627451,pequeno
-linguagem,cfr_releases,Python,Vue,51,2,0.11764705882352941,desprezível
-linguagem,cfr_releases,Ruby,Rust,3,27,0.012345679012345678,desprezível
+linguagem,cfr_releases,Kotlin,PHP,6,5,0.16666666666666666,pequeno
+linguagem,cfr_releases,Kotlin,Python,6,51,-0.029411764705882353,desprezível
+linguagem,cfr_releases,Kotlin,Ruby,6,3,-0.3888888888888889,médio
+linguagem,cfr_releases,Kotlin,Rust,6,27,-0.3333333333333333,médio
+linguagem,cfr_releases,Kotlin,Shell,6,4,-0.4166666666666667,médio
+linguagem,cfr_releases,Kotlin,Swift,6,7,-0.3333333333333333,médio
+linguagem,cfr_releases,Kotlin,TypeScript,6,75,-0.37777777777777777,médio
+linguagem,cfr_releases,Kotlin,Vue,6,2,-0.16666666666666666,pequeno
+linguagem,cfr_releases,PHP,Python,5,51,-0.26666666666666666,pequeno
+linguagem,cfr_releases,PHP,Ruby,5,3,-0.7333333333333333,grande
+linguagem,cfr_releases,PHP,Rust,5,27,-0.5111111111111111,grande
+linguagem,cfr_releases,PHP,Shell,5,4,-0.7,grande
+linguagem,cfr_releases,PHP,Swift,5,7,-0.4857142857142857,grande
+linguagem,cfr_releases,PHP,TypeScript,5,75,-0.656,grande
+linguagem,cfr_releases,PHP,Vue,5,2,-0.4,médio
+linguagem,cfr_releases,Python,Ruby,51,3,-0.3464052287581699,médio
+linguagem,cfr_releases,Python,Rust,51,27,-0.26506899055918665,pequeno
+linguagem,cfr_releases,Python,Shell,51,4,-0.18137254901960784,pequeno
+linguagem,cfr_releases,Python,Swift,51,7,-0.15406162464985995,pequeno
+linguagem,cfr_releases,Python,TypeScript,51,75,-0.3908496732026144,médio
+linguagem,cfr_releases,Python,Vue,51,2,-0.1568627450980392,pequeno
+linguagem,cfr_releases,Ruby,Rust,3,27,0.06172839506172839,desprezível
 linguagem,cfr_releases,Ruby,Shell,3,4,0.5,grande
-linguagem,cfr_releases,Ruby,Swift,3,7,0.42857142857142855,médio
-linguagem,cfr_releases,Ruby,TypeScript,3,75,-0.12,desprezível
+linguagem,cfr_releases,Ruby,Swift,3,7,0.09523809523809523,desprezível
+linguagem,cfr_releases,Ruby,TypeScript,3,75,-0.10666666666666667,desprezível
 linguagem,cfr_releases,Ruby,Vue,3,2,0.3333333333333333,médio
-linguagem,cfr_releases,Rust,Shell,27,4,0.12962962962962962,desprezível
-linguagem,cfr_releases,Rust,Swift,27,7,0.18518518518518517,pequeno
-linguagem,cfr_releases,Rust,TypeScript,27,75,-0.08148148148148149,desprezível
-linguagem,cfr_releases,Rust,Vue,27,2,0.2962962962962963,pequeno
+linguagem,cfr_releases,Rust,Shell,27,4,0.06481481481481481,desprezível
+linguagem,cfr_releases,Rust,Swift,27,7,0.14814814814814814,pequeno
+linguagem,cfr_releases,Rust,TypeScript,27,75,-0.13333333333333333,desprezível
+linguagem,cfr_releases,Rust,Vue,27,2,0.2222222222222222,pequeno
 linguagem,cfr_releases,Shell,Swift,4,7,-0.07142857142857142,desprezível
-linguagem,cfr_releases,Shell,TypeScript,4,75,-0.3466666666666667,médio
+linguagem,cfr_releases,Shell,TypeScript,4,75,-0.28,pequeno
 linguagem,cfr_releases,Shell,Vue,4,2,0.25,pequeno
-linguagem,cfr_releases,Swift,TypeScript,7,75,-0.4114285714285714,médio
-linguagem,cfr_releases,Swift,Vue,7,2,0.14285714285714285,desprezível
-linguagem,cfr_releases,TypeScript,Vue,75,2,0.37333333333333335,médio
+linguagem,cfr_releases,Swift,TypeScript,7,75,-0.35619047619047617,médio
+linguagem,cfr_releases,Swift,Vue,7,2,0.0,desprezível
+linguagem,cfr_releases,TypeScript,Vue,75,2,0.38666666666666666,médio
 linguagem,recuperacao,C,C#,10,11,0.10909090909090909,desprezível
 linguagem,recuperacao,C,C++,10,16,0.075,desprezível
 linguagem,recuperacao,C,Go,10,36,-0.07777777777777778,desprezível
@@ -743,12 +743,12 @@ quartil_estrelas,cfr_ci,Q1,Q4,77,77,-0.11350986675662,desprezível
 quartil_estrelas,cfr_ci,Q2,Q3,76,76,-0.08067867036011081,desprezível
 quartil_estrelas,cfr_ci,Q2,Q4,76,77,-0.012645249487354751,desprezível
 quartil_estrelas,cfr_ci,Q3,Q4,76,77,0.06784005468215995,desprezível
-quartil_estrelas,cfr_releases,Q1,Q2,77,76,0.025974025974025976,desprezível
-quartil_estrelas,cfr_releases,Q1,Q3,77,76,0.012987012987012988,desprezível
-quartil_estrelas,cfr_releases,Q1,Q4,77,76,-0.048530416951469584,desprezível
-quartil_estrelas,cfr_releases,Q2,Q3,76,76,-0.004155124653739612,desprezível
-quartil_estrelas,cfr_releases,Q2,Q4,76,76,-0.07912049861495844,desprezível
-quartil_estrelas,cfr_releases,Q3,Q4,76,76,-0.06752077562326869,desprezível
+quartil_estrelas,cfr_releases,Q1,Q2,77,76,-0.011449077238550922,desprezível
+quartil_estrelas,cfr_releases,Q1,Q3,77,76,-0.11090225563909774,desprezível
+quartil_estrelas,cfr_releases,Q1,Q4,77,76,-0.1385850991114149,desprezível
+quartil_estrelas,cfr_releases,Q2,Q3,76,76,-0.10076177285318559,desprezível
+quartil_estrelas,cfr_releases,Q2,Q4,76,76,-0.12413434903047091,desprezível
+quartil_estrelas,cfr_releases,Q3,Q4,76,76,-0.01575484764542936,desprezível
 quartil_estrelas,recuperacao,Q1,Q2,70,71,-0.04527162977867203,desprezível
 quartil_estrelas,recuperacao,Q1,Q3,70,70,-0.2304081632653061,pequeno
 quartil_estrelas,recuperacao,Q1,Q4,70,73,-0.1401174168297456,desprezível
@@ -779,48 +779,51 @@ quartil_idade,cfr_ci,Q1,Q4,77,77,0.11064260414909766,desprezível
 quartil_idade,cfr_ci,Q2,Q3,76,76,0.010734072022160665,desprezível
 quartil_idade,cfr_ci,Q2,Q4,76,77,0.10184552289815448,desprezível
 quartil_idade,cfr_ci,Q3,Q4,76,77,0.08014354066985646,desprezível
-quartil_idade,cfr_releases,Q1,Q2,76,76,0.5006925207756233,grande
-quartil_idade,cfr_releases,Q1,Q3,76,76,0.5496883656509696,grande
-quartil_idade,cfr_releases,Q1,Q4,76,77,0.5811688311688312,grande
-quartil_idade,cfr_releases,Q2,Q3,76,76,0.06284626038781163,desprezível
-quartil_idade,cfr_releases,Q2,Q4,76,77,0.02409432672590567,desprezível
-quartil_idade,cfr_releases,Q3,Q4,76,77,-0.03827751196172249,desprezível
+quartil_idade,cfr_releases,Q1,Q2,76,76,0.4001038781163435,médio
+quartil_idade,cfr_releases,Q1,Q3,76,76,0.36617036011080334,médio
+quartil_idade,cfr_releases,Q1,Q4,76,77,0.48444976076555024,grande
+quartil_idade,cfr_releases,Q2,Q3,76,76,-0.019390581717451522,desprezível
+quartil_idade,cfr_releases,Q2,Q4,76,77,0.0702323991797676,desprezível
+quartil_idade,cfr_releases,Q3,Q4,76,77,0.08732057416267942,desprezível
 quartil_idade,recuperacao,Q1,Q2,70,70,-0.33346938775510204,médio
 quartil_idade,recuperacao,Q1,Q3,70,71,-0.4334004024144869,médio
 quartil_idade,recuperacao,Q1,Q4,70,73,-0.3223091976516634,pequeno
 quartil_idade,recuperacao,Q2,Q3,70,71,-0.032595573440643864,desprezível
 quartil_idade,recuperacao,Q2,Q4,70,73,0.09960861056751467,desprezível
 quartil_idade,recuperacao,Q3,Q4,71,73,0.13756511672776384,desprezível
-tipo_projeto,frequencia,aplicação/serviço,biblioteca/framework,17,20,0.13529411764705881,desprezível
-tipo_projeto,frequencia,aplicação/serviço,ferramenta CLI,17,8,0.4117647058823529,médio
-tipo_projeto,frequencia,aplicação/serviço,outro,17,2,0.4411764705882353,médio
-tipo_projeto,frequencia,biblioteca/framework,ferramenta CLI,20,8,0.2875,pequeno
-tipo_projeto,frequencia,biblioteca/framework,outro,20,2,0.35,médio
-tipo_projeto,frequencia,ferramenta CLI,outro,8,2,0.0,desprezível
-tipo_projeto,lead_time_release,aplicação/serviço,biblioteca/framework,17,20,-0.06470588235294118,desprezível
-tipo_projeto,lead_time_release,aplicação/serviço,ferramenta CLI,17,8,-0.4264705882352941,médio
-tipo_projeto,lead_time_release,aplicação/serviço,outro,17,2,0.5882352941176471,grande
-tipo_projeto,lead_time_release,biblioteca/framework,ferramenta CLI,20,8,-0.225,pequeno
-tipo_projeto,lead_time_release,biblioteca/framework,outro,20,2,0.7,grande
-tipo_projeto,lead_time_release,ferramenta CLI,outro,8,2,1.0,grande
-tipo_projeto,lead_time_commit,aplicação/serviço,biblioteca/framework,17,20,0.01764705882352941,desprezível
-tipo_projeto,lead_time_commit,aplicação/serviço,ferramenta CLI,17,8,-0.19117647058823528,pequeno
-tipo_projeto,lead_time_commit,aplicação/serviço,outro,17,2,0.47058823529411764,médio
-tipo_projeto,lead_time_commit,biblioteca/framework,ferramenta CLI,20,8,-0.275,pequeno
-tipo_projeto,lead_time_commit,biblioteca/framework,outro,20,2,0.5,grande
-tipo_projeto,lead_time_commit,ferramenta CLI,outro,8,2,1.0,grande
-tipo_projeto,cfr_ci,aplicação/serviço,biblioteca/framework,17,20,-0.11470588235294117,desprezível
-tipo_projeto,cfr_ci,aplicação/serviço,ferramenta CLI,17,8,-0.125,desprezível
-tipo_projeto,cfr_ci,aplicação/serviço,outro,17,2,0.6176470588235294,grande
-tipo_projeto,cfr_ci,biblioteca/framework,ferramenta CLI,20,8,-0.10625,desprezível
-tipo_projeto,cfr_ci,biblioteca/framework,outro,20,2,0.725,grande
-tipo_projeto,cfr_ci,ferramenta CLI,outro,8,2,0.6875,grande
-tipo_projeto,cfr_releases,aplicação/serviço,biblioteca/framework,17,20,0.18823529411764706,pequeno
-tipo_projeto,cfr_releases,aplicação/serviço,ferramenta CLI,17,8,0.4485294117647059,médio
-tipo_projeto,cfr_releases,aplicação/serviço,outro,17,2,0.058823529411764705,desprezível
-tipo_projeto,cfr_releases,biblioteca/framework,ferramenta CLI,20,8,0.35625,médio
-tipo_projeto,cfr_releases,biblioteca/framework,outro,20,2,-0.05,desprezível
-tipo_projeto,cfr_releases,ferramenta CLI,outro,8,2,-0.125,desprezível
-tipo_projeto,recuperacao,aplicação/serviço,biblioteca/framework,16,19,-0.6118421052631579,grande
-tipo_projeto,recuperacao,aplicação/serviço,ferramenta CLI,16,7,-0.30357142857142855,pequeno
-tipo_projeto,recuperacao,biblioteca/framework,ferramenta CLI,19,7,0.41353383458646614,médio
+tipo_projeto,frequencia,aplicação/serviço,biblioteca/framework,25,21,0.2019047619047619,pequeno
+tipo_projeto,frequencia,aplicação/serviço,ferramenta CLI,25,11,0.29454545454545455,pequeno
+tipo_projeto,frequencia,aplicação/serviço,outro,25,3,0.02666666666666667,desprezível
+tipo_projeto,frequencia,biblioteca/framework,ferramenta CLI,21,11,0.11688311688311688,desprezível
+tipo_projeto,frequencia,biblioteca/framework,outro,21,3,-0.07936507936507936,desprezível
+tipo_projeto,frequencia,ferramenta CLI,outro,11,3,-0.15151515151515152,pequeno
+tipo_projeto,lead_time_release,aplicação/serviço,biblioteca/framework,25,21,-0.25333333333333335,pequeno
+tipo_projeto,lead_time_release,aplicação/serviço,ferramenta CLI,25,11,-0.23636363636363636,pequeno
+tipo_projeto,lead_time_release,aplicação/serviço,outro,25,3,0.6,grande
+tipo_projeto,lead_time_release,biblioteca/framework,ferramenta CLI,21,11,0.004329004329004329,desprezível
+tipo_projeto,lead_time_release,biblioteca/framework,outro,21,3,0.8095238095238095,grande
+tipo_projeto,lead_time_release,ferramenta CLI,outro,11,3,0.6363636363636364,grande
+tipo_projeto,lead_time_commit,aplicação/serviço,biblioteca/framework,25,21,-0.07428571428571429,desprezível
+tipo_projeto,lead_time_commit,aplicação/serviço,ferramenta CLI,25,11,-0.10545454545454545,desprezível
+tipo_projeto,lead_time_commit,aplicação/serviço,outro,25,3,0.52,grande
+tipo_projeto,lead_time_commit,biblioteca/framework,ferramenta CLI,21,11,-0.08225108225108226,desprezível
+tipo_projeto,lead_time_commit,biblioteca/framework,outro,21,3,0.6507936507936508,grande
+tipo_projeto,lead_time_commit,ferramenta CLI,outro,11,3,0.696969696969697,grande
+tipo_projeto,cfr_ci,aplicação/serviço,biblioteca/framework,25,21,-0.1295238095238095,desprezível
+tipo_projeto,cfr_ci,aplicação/serviço,ferramenta CLI,25,11,-0.2690909090909091,pequeno
+tipo_projeto,cfr_ci,aplicação/serviço,outro,25,3,0.18666666666666668,pequeno
+tipo_projeto,cfr_ci,biblioteca/framework,ferramenta CLI,21,11,-0.23376623376623376,pequeno
+tipo_projeto,cfr_ci,biblioteca/framework,outro,21,3,0.25396825396825395,pequeno
+tipo_projeto,cfr_ci,ferramenta CLI,outro,11,3,0.36363636363636365,médio
+tipo_projeto,cfr_releases,aplicação/serviço,biblioteca/framework,25,21,0.2342857142857143,pequeno
+tipo_projeto,cfr_releases,aplicação/serviço,ferramenta CLI,25,11,0.26545454545454544,pequeno
+tipo_projeto,cfr_releases,aplicação/serviço,outro,25,3,-0.02666666666666667,desprezível
+tipo_projeto,cfr_releases,biblioteca/framework,ferramenta CLI,21,11,0.08225108225108226,desprezível
+tipo_projeto,cfr_releases,biblioteca/framework,outro,21,3,-0.12698412698412698,desprezível
+tipo_projeto,cfr_releases,ferramenta CLI,outro,11,3,-0.2727272727272727,pequeno
+tipo_projeto,recuperacao,aplicação/serviço,biblioteca/framework,24,20,-0.5791666666666667,grande
+tipo_projeto,recuperacao,aplicação/serviço,ferramenta CLI,24,10,-0.15,pequeno
+tipo_projeto,recuperacao,aplicação/serviço,outro,24,2,0.16666666666666666,pequeno
+tipo_projeto,recuperacao,biblioteca/framework,ferramenta CLI,20,10,0.51,grande
+tipo_projeto,recuperacao,biblioteca/framework,outro,20,2,0.85,grande
+tipo_projeto,recuperacao,ferramenta CLI,outro,10,2,0.6,grande

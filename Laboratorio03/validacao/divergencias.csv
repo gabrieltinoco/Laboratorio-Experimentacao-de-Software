@@ -1,44 +1,44 @@
 dimensao,repositorio,tag_name,rotulo_avaliador_1,rotulo_avaliador_2,rotulo_consenso,motivo
-tipo_projeto,OthmanAdi/planning-with-files,,outro,ferramenta CLI,,
-tipo_projeto,francescopace/espectre,,aplicação/serviço,ferramenta CLI,,
-tipo_projeto,sivchari/kumo,,aplicação/serviço,ferramenta CLI,,
-tipo_projeto,hashicorp/consul-template,,ferramenta CLI,aplicação/serviço,,
-tipo_projeto,vava-nessa/free-coding-models,,ferramenta CLI,outro,,
-tipo_projeto,open-telemetry/opentelemetry-collector-contrib,,biblioteca/framework,aplicação/serviço,,
-tipo_projeto,rilldata/rill,,aplicação/serviço,biblioteca/framework,,
-tipo_projeto,vstorm-co/full-stack-ai-agent-template,,ferramenta CLI,outro,,
-tipo_projeto,aaif-goose/goose,,aplicação/serviço,outro,,
-tipo_projeto,awalol/DS5Dongle,,aplicação/serviço,outro,,
-tipo_projeto,phpactor/phpactor,,ferramenta CLI,outro,,
-tipo_projeto,coredevices/PebbleOS,,aplicação/serviço,outro,,
-tipo_projeto,zeroclaw-labs/zeroclaw,,aplicação/serviço,ferramenta CLI,,
-entregas_reais,ColinIanKing/stress-ng,,sim,incerto,,
-entregas_reais,AssetRipper/AssetRipper,,sim,incerto,,
-entregas_reais,vava-nessa/free-coding-models,,sim,incerto,,
-entregas_reais,DietrichGebert/ponytail,,sim,incerto,,
-entregas_reais,droidrun/mobilerun,,sim,incerto,,
-entregas_reais,modelcontextprotocol/kotlin-sdk,,sim,incerto,,
-entregas_reais,vuetifyjs/vuetify,,sim,incerto,,
-entregas_reais,mock-server/mockserver-monorepo,,sim,incerto,,
-entregas_reais,mozilla/rhino,,sim,incerto,,
-corretiva,databendlabs/databend,v1.2.883-nightly,não,sim,,
-corretiva,emanuele-f/PCAPdroid,v1.9.0,não,sim,,
-corretiva,Azure/Enterprise-Scale,2026-02-03,sim,não,,
-corretiva,mozilla-ai/llamafile,0.10.4,não,sim,,
-corretiva,tailwindlabs/tailwindcss,v4.3.2,sim,não,,
-corretiva,invoke-ai/InvokeAI,v6.13.6,sim,não,,
-corretiva,AssetRipper/AssetRipper,1.3.6,não,sim,,
-corretiva,AssetRipper/AssetRipper,1.3.12,não,sim,,
-corretiva,vapor/vapor,4.117.1,não,sim,,
-corretiva,vapor/vapor,4.119.2,sim,não,,
-corretiva,cunarist/rinf,v8.8.1,sim,não,,
-corretiva,vava-nessa/free-coding-models,v0.1.43,não,sim,,
-corretiva,vava-nessa/free-coding-models,v0.5.59,não,sim,,
-corretiva,FuelLabs/sway,v0.72.0,não,sim,,
-corretiva,Viren070/AIOStreams,v2.29.5,sim,não,,
-corretiva,spatie/laravel-responsecache,8.4.5,não,sim,,
-corretiva,apollographql/apollo-client,@apollo/client@4.3.1,sim,não,,
-corretiva,mock-server/mockserver-monorepo,mockserver-6.1.0,sim,não,,
-corretiva,coredevices/PebbleOS,v4.9.75,não,sim,,
-corretiva,coredevices/PebbleOS,v4.9.124,sim,não,,
-corretiva,coredevices/PebbleOS,v4.9.173,não,sim,,
+tipo_projeto,OthmanAdi/planning-with-files,,outro,ferramenta CLI,outro,"README apresenta uma skill de instruções e hooks para agentes de IA, não um CLI nem código consumido como dependência."
+tipo_projeto,francescopace/espectre,,aplicação/serviço,ferramenta CLI,aplicação/serviço,README apresenta firmware que transforma um ESP32 em sensor de movimento para o usuário final; firmware conta como aplicação.
+tipo_projeto,sivchari/kumo,,aplicação/serviço,ferramenta CLI,aplicação/serviço,README apresenta um emulador de serviços AWS executado como servidor local ou contêiner.
+tipo_projeto,hashicorp/consul-template,,ferramenta CLI,aplicação/serviço,aplicação/serviço,"README apresenta o consul-template como daemon que roda continuamente atualizando templates, implantado como serviço."
+tipo_projeto,vava-nessa/free-coding-models,,ferramenta CLI,outro,ferramenta CLI,README instala o pacote com npm install -g e o executa pela linha de comando (TUI).
+tipo_projeto,open-telemetry/opentelemetry-collector-contrib,,biblioteca/framework,aplicação/serviço,biblioteca/framework,README diz que o repositório reúne componentes do Collector; as distribuições executáveis ficam em outro repositório.
+tipo_projeto,rilldata/rill,,aplicação/serviço,biblioteca/framework,aplicação/serviço,README apresenta uma ferramenta de BI cujo uso principal é a interface aberta por rill start.
+tipo_projeto,vstorm-co/full-stack-ai-agent-template,,ferramenta CLI,outro,ferramenta CLI,README apresenta um gerador de projetos publicado no PyPI e executado pela linha de comando.
+tipo_projeto,aaif-goose/goose,,aplicação/serviço,outro,aplicação/serviço,README apresenta primeiro o aplicativo desktop; o CLI e a API vêm depois.
+tipo_projeto,awalol/DS5Dongle,,aplicação/serviço,outro,aplicação/serviço,README distribui firmware .uf2 para o usuário final gravar na placa; firmware conta como aplicação.
+tipo_projeto,phpactor/phpactor,,ferramenta CLI,outro,ferramenta CLI,"README apresenta ferramentas de refatoração e introspecção para desenvolvedores, usadas de forma avulsa ou pelo editor."
+tipo_projeto,coredevices/PebbleOS,,aplicação/serviço,outro,aplicação/serviço,Sistema operacional/firmware do relógio Pebble executado pelo usuário final; firmware conta como aplicação.
+tipo_projeto,zeroclaw-labs/zeroclaw,,aplicação/serviço,ferramenta CLI,aplicação/serviço,README apresenta um assistente de IA pessoal em binário único que roda continuamente atendendo canais.
+entregas_reais,ColinIanKing/stress-ng,,sim,incerto,sim,"Releases versionadas com notas de novos stressores e opções, empacotadas por distribuições Linux."
+entregas_reais,AssetRipper/AssetRipper,,sim,incerto,sim,"Cada release publica binários para Windows, Linux e macOS."
+entregas_reais,vava-nessa/free-coding-models,,sim,incerto,sim,"Releases correspondem a versões do pacote npm com changelog voltado ao usuário, apesar da alta frequência."
+entregas_reais,DietrichGebert/ponytail,,sim,incerto,sim,Releases versionadas com notas de funcionalidades e correções para quem instala a skill.
+entregas_reais,droidrun/mobilerun,,sim,incerto,sim,Releases correspondem a versões do pacote Python com notas de mudanças para o usuário.
+entregas_reais,modelcontextprotocol/kotlin-sdk,,sim,incerto,sim,Releases correspondem a artefatos publicados no Maven Central com notas e breaking changes.
+entregas_reais,vuetifyjs/vuetify,,sim,incerto,sim,Releases correspondem a versões do pacote npm com changelog de correções e funcionalidades.
+entregas_reais,mock-server/mockserver-monorepo,,sim,incerto,sim,Releases publicam binários por plataforma e changelog voltado ao usuário.
+entregas_reais,mozilla/rhino,,sim,incerto,sim,Releases correspondem a versões publicadas da engine com notas de lançamento (ex.: 1.9.1).
+corretiva,databendlabs/databend,v1.2.883-nightly,não,sim,não,Notas trazem cinco funcionalidades novas destacadas ao lado das correções.
+corretiva,emanuele-f/PCAPdroid,v1.9.0,não,sim,não,"Notas abrem com funcionalidades novas (visão de requisições HTTP, exportação HAR)."
+corretiva,Azure/Enterprise-Scale,2026-02-03,sim,não,não,Notas incluem uma entrada feat (RouteServerSubnet) além das correções; regra 3 da seção 3.3.
+corretiva,mozilla-ai/llamafile,0.10.4,não,sim,não,Notas destacam funcionalidade nova (transcribefile) e suporte a HTTPS.
+corretiva,tailwindlabs/tailwindcss,v4.3.2,sim,não,sim,Notas contêm apenas a seção Fixed com correções de crashes e comportamento.
+corretiva,invoke-ai/InvokeAI,v6.13.6,sim,não,sim,Notas dizem que a release corrige um bug introduzido na v6.13.5.
+corretiva,AssetRipper/AssetRipper,1.3.6,não,sim,não,"Além das correções, notas trazem nova página de UI e suporte a novas versões do Unity."
+corretiva,AssetRipper/AssetRipper,1.3.12,não,sim,não,"Commits dominados por refatorações, atualização de dependências e suporte novo (Windows Phone)."
+corretiva,vapor/vapor,4.117.1,não,sim,não,Única mudança destacada é funcionalidade nova (tipo de mídia HEIC).
+corretiva,vapor/vapor,4.119.2,sim,não,sim,Única mudança corrige falhas de build paralelo com Glibc.
+corretiva,cunarist/rinf,v8.8.1,sim,não,sim,Resumo da release declara a correção da compilação web quebrada; o restante é manutenção.
+corretiva,vava-nessa/free-coding-models,v0.1.43,não,sim,não,Notas e commit não indicam correção; sem evidência clara aplica-se não.
+corretiva,vava-nessa/free-coding-models,v0.5.59,não,sim,não,Notas e commits listam só funcionalidades novas (quota passiva).
+corretiva,FuelLabs/sway,v0.72.0,não,sim,não,Notas trazem funcionalidades e otimizações novas (StorageVec dinâmico).
+corretiva,Viren070/AIOStreams,v2.29.5,sim,não,sim,Notas listam apenas a seção Bug Fixes com uma correção.
+corretiva,spatie/laravel-responsecache,8.4.5,não,sim,não,"Única mudança é atualização de dependência, manutenção de rotina."
+corretiva,apollographql/apollo-client,@apollo/client@4.3.1,sim,não,sim,Notas listam uma única correção no useLazyQuery.
+corretiva,mock-server/mockserver-monorepo,mockserver-6.1.0,sim,não,não,"Notas vazias; commits incluem funcionalidades novas (streaming de tráfego LLM/MCP, ferramentas MCP)."
+corretiva,coredevices/PebbleOS,v4.9.75,não,sim,não,"Notas vazias; único commit desativa o memfault em PRF, sem evidência clara de correção."
+corretiva,coredevices/PebbleOS,v4.9.124,sim,não,sim,Notas vazias; commits são dois reverts e a correção de um crash.
+corretiva,coredevices/PebbleOS,v4.9.173,não,sim,não,Notas vazias; commits adicionam preferências de mudo do alto-falante.

@@ -12,7 +12,7 @@ from pathlib import Path
 import pandas as pd
 import yaml
 
-from metricas.corretiva import release_corretiva
+from metricas.corretiva import HEURISTICAS, VERSAO_ATUAL
 
 
 def ler_jsonl(caminho: Path) -> list[dict]:
@@ -20,7 +20,10 @@ def ler_jsonl(caminho: Path) -> list[dict]:
         return [json.loads(linha) for linha in arquivo if linha.strip()]
 
 
-def _predicoes(releases: list[dict], comparacoes: list[dict]) -> dict[tuple[str, str], bool]:
+def _predicoes(
+    releases: list[dict], comparacoes: list[dict], versao: str = VERSAO_ATUAL
+) -> dict[tuple[str, str], bool]:
+    heuristica = HEURISTICAS[versao]
     por_repositorio: dict[str, list[dict]] = {}
     for release in releases:
         if not release.get("draft") and not release.get("prerelease") and release.get("published_at"):
@@ -43,17 +46,21 @@ def _predicoes(releases: list[dict], comparacoes: list[dict]) -> dict[tuple[str,
         for release in ordenadas:
             tag = release.get("tag_name")
             if tag:
-                predicoes[(repositorio, tag)] = release_corretiva(
+                predicoes[(repositorio, tag)] = heuristica(
                     anterior,
                     tag,
                     mensagens.get((repositorio, tag), []),
+                    release.get("body"),
                 )
             anterior = tag
     return predicoes
 
 
 def avaliar(
-    consenso: pd.DataFrame, releases: list[dict], comparacoes: list[dict]
+    consenso: pd.DataFrame,
+    releases: list[dict],
+    comparacoes: list[dict],
+    versao: str = VERSAO_ATUAL,
 ) -> dict[str, float | int]:
     """Calcula precisão, recall e F1 usando apenas os rótulos de consenso."""
     colunas = {"repositorio", "tag_name", "corretiva"}
@@ -67,7 +74,9 @@ def avaliar(
     if consenso.empty:
         raise ValueError("O consenso não contém releases rotuladas.")
 
-    predicoes = _predicoes(releases, comparacoes)
+    if versao not in HEURISTICAS:
+        raise ValueError(f"Versão desconhecida: {versao!r}; disponíveis: {', '.join(HEURISTICAS)}.")
+    predicoes = _predicoes(releases, comparacoes, versao)
     chaves = list(zip(consenso["repositorio"].astype(str), consenso["tag_name"].astype(str)))
     sem_predicao = [chave for chave in chaves if chave not in predicoes]
     if sem_predicao:
@@ -100,6 +109,14 @@ def avaliar(
     }
 
 
+def particionar(consenso: pd.DataFrame, semente: int) -> dict[str, pd.DataFrame]:
+    """Metade dos repositórios para desenhar heurísticas, a outra para testá-las."""
+    repositorios = pd.Series(sorted(consenso["repositorio"].unique()))
+    desenvolvimento = set(repositorios.sample(n=len(repositorios) // 2, random_state=semente))
+    na_metade = consenso["repositorio"].isin(desenvolvimento)
+    return {"desenvolvimento": consenso[na_metade], "teste": consenso[~na_metade]}
+
+
 def registrar(caminho: str | Path, versao: str, resultado: dict) -> None:
     """Acrescenta a avaliação sem sobrescrever uma versão já registrada."""
     caminho = Path(caminho)
@@ -115,21 +132,31 @@ def registrar(caminho: str | Path, versao: str, resultado: dict) -> None:
 def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description="Avalia a heurística frente ao consenso.")
     parser.add_argument("--config", default="config.yaml")
-    parser.add_argument("--versao", default="v1")
+    parser.add_argument("--versao", default=VERSAO_ATUAL, choices=sorted(HEURISTICAS))
+    parser.add_argument(
+        "--particao",
+        choices=["desenvolvimento", "teste"],
+        help="avalia só uma metade dos repositórios da amostra-ouro (registrada como versao@particao)",
+    )
     args = parser.parse_args(argv)
     config = yaml.safe_load(Path(args.config).read_text(encoding="utf-8"))
     dados = Path(config["caminhos"]["dados"])
     pasta_validacao = Path(config["validacao"]["pasta"])
     consenso = pd.read_csv(pasta_validacao / "consenso_releases.csv", dtype=str)
+    rotulo = args.versao
+    if args.particao:
+        consenso = particionar(consenso, config["validacao"]["semente"])[args.particao]
+        rotulo = f"{args.versao}@{args.particao}"
     resultado = avaliar(
         consenso,
         ler_jsonl(dados / "releases.jsonl"),
         ler_jsonl(dados / "commits_entre_releases.jsonl"),
+        args.versao,
     )
     destino = pasta_validacao / "avaliacao_heuristica.csv"
-    registrar(destino, args.versao, resultado)
+    registrar(destino, rotulo, resultado)
     print(
-        f"{args.versao}: P={resultado['precisao']:.3f}, "
+        f"{rotulo}: P={resultado['precisao']:.3f}, "
         f"R={resultado['recall']:.3f}, F1={resultado['f1']:.3f} "
         f"(n={resultado['n']}); histórico: {destino}"
     )

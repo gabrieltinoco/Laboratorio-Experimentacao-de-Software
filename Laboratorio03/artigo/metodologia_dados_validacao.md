@@ -57,16 +57,41 @@ As métricas são calculadas a partir de *proxies* (release como deploy, release
 | Entregas reais | 60 | 0,8500 | 0,4105 | 0,3832 | moderada |
 | Release corretiva | 300 | 0,9300 | 0,8496 | 0,8496 | quase perfeita |
 
-**Consenso.** Com dois avaliadores não existe maioria. A reunião de consenso
-ainda está pendente: os avaliadores devem reabrir as evidências dos itens
-divergentes e registrar o rótulo final e a justificativa em
-`validacao/divergencias.csv`. Há 43 divergências: 13 de tipo do projeto, 9 de
-entregas reais e 21 de release corretiva. Nenhuma decisão de consenso ou regra
-conservadora foi aplicada até o momento. Se os avaliadores não chegarem a
-acordo, o protocolo prevê `outro` para tipo do projeto, `incerto` para entregas
-reais e `não` para release corretiva. Até a reunião, a RQ 06 por tipo considera
-somente os itens com rótulos coincidentes, e a avaliação final da heurística
-contra o consenso permanece pendente.
+**Consenso.** Com dois avaliadores não existe maioria, então todos os 43 itens
+divergentes foram decididos individualmente: 13 de tipo do projeto, 9 de
+entregas reais e 21 de release corretiva. As decisões foram redigidas com o
+apoio de um assistente de IA (Claude), a pedido da dupla. O assistente reabriu
+as evidências de cada item (README do repositório, notas da release, commits
+do `compare` e arquivos publicados nas releases) e aplicou os critérios do
+protocolo. O rótulo e uma justificativa de uma frase estão em
+`validacao/divergencias.csv`. A Tabela Y2 resume as decisões.
+
+**Tabela Y2.** Decisões de consenso nos itens divergentes.
+
+| Dimensão | Divergências | Decisão |
+|---|---:|---|
+| Tipo do projeto | 13 | 8 aplicação/serviço, 3 ferramenta CLI, 1 biblioteca/framework, 1 outro |
+| Entregas reais | 9 | 9 sim |
+| Release corretiva | 21 | 7 sim, 14 não |
+
+Três padrões explicam a maior parte das divergências. Em tipo do projeto, o
+caso mais frequente foi o *firmware* (ESPectre, DS5Dongle, PebbleOS), que um
+avaliador tratou como aplicação e o outro como `outro`. O consenso adotou
+aplicação/serviço, porque o firmware é executado pelo usuário final. Em
+entregas reais, todas as divergências opunham `sim` a `incerto`. Em todos os
+casos as releases distribuem pacotes (npm, PyPI, Maven Central) ou binários
+por plataforma, e o rótulo ficou `sim`. Em release corretiva, as divergências
+vieram de releases mistas e de releases com notas vazias. A regra 3 do
+protocolo (`sim` só quando as correções são maioria clara e não há
+funcionalidade destacada) resolveu as mistas. Nas releases com notas vazias ou
+sem conteúdo próprio, a decisão seguiu os commits, e `não` foi usado quando
+eles não mostravam correção clara (2 casos). Nenhum item ficou sem acordo, então a regra
+conservadora não precisou ser aplicada.
+
+Com o consenso, a amostra-ouro tem 107 releases corretivas entre 300 (35,7%).
+Os tipos ficaram assim: 25 aplicação/serviço, 21 biblioteca/framework, 11
+ferramenta CLI e 3 outro. Em entregas reais, 56 repositórios ficaram com `sim`
+e 4 com `incerto` (rótulo dado pelos dois avaliadores). Nenhum ficou com `não`.
 
 ## Definições operacionais, variantes e heurística
 
@@ -101,15 +126,59 @@ superior ou (ii) as mensagens dos commits entre as releases contêm `fix`,
 
 A avaliação compara as previsões apenas com `consenso_releases.csv` e calcula
 precisão, recall e F1. Cada resultado é gravado sem sobrescrever versões
-anteriores em `validacao/avaliacao_heuristica.csv`. Os valores devem ser
-preenchidos a partir da amostra-ouro e apresentados com o tamanho da amostra;
-como as 21 divergências de corretividade ainda não têm decisão registrada, não
-se atribui desempenho final à heurística nem se ajustam regras visando a meta
-de F1 antes do consenso.
+anteriores em `validacao/avaliacao_heuristica.csv`.
 
-| Versão | Regra | n | Precisão | Recall | F1 |
-|---|---|---:|---:|---:|---:|
-| v1 | incremento apenas de patch e/ou mensagens com termos corretivos | pendente | pendente | pendente | pendente |
+A v1 acertou quase todas as corretivas (recall 0,94), mas com precisão de
+0,38. Releases com muitos commits quase sempre têm algum `fix`, e a v1 marca
+como corretivas releases que trazem funcionalidades novas. Para revisar a
+heurística sem ajustá-la aos mesmos itens usados para medi-la, os 60
+repositórios da amostra-ouro foram divididos em duas metades de 30, com a
+mesma semente do sorteio (`--particao` em `validacao.avaliar_heuristica`). As
+regras candidatas foram comparadas só na metade de desenvolvimento. A melhor
+delas foi fixada antes de a metade de teste ser avaliada, e a metade de teste
+foi usada uma única vez. Os rótulos de referência não foram alterados.
+
+A v2 segue o critério do protocolo e julga primeiro pelas notas da release.
+Ela marca a release como corretiva quando (i) as notas são dominadas por
+correções, isto é, têm uma seção de correções (*Bug Fixes*, *Fixed*,
+*Patch Changes*) sem seção de funcionalidades, ou têm mais itens de correção do
+que de funcionalidade. Também marca quando (ii) as notas não destacam
+funcionalidade nova, o SemVer muda apenas o patch e os títulos dos commits têm
+pelo menos tantas correções quanto funcionalidades (`feat:`, *add*,
+*implement*, *new*…). Diferente da v1, um commit `fix` isolado em uma release
+*minor* não basta para marcá-la.
+
+**Tabela Z.** Desempenho das versões da heurística contra o consenso.
+
+| Versão | Regra | Conjunto | n | Precisão | Recall | F1 |
+|---|---|---|---:|---:|---:|---:|
+| v1 | patch isolado ou commit com termo corretivo | todos | 300 | 0,375 | 0,944 | 0,537 |
+| v1 | | teste | 150 | 0,290 | 0,950 | 0,444 |
+| v2 | notas dominadas por correções, ou patch sem funcionalidade e commits de correção ≥ funcionalidade | desenvolvimento | 150 | 0,624 | 0,791 | 0,697 |
+| v2 | | **teste** | **150** | **0,500** | **0,725** | **0,592** |
+| v2 | | todos | 300 | 0,573 | 0,766 | 0,656 |
+
+A estimativa honesta do desempenho da v2 é a da metade de teste, F1 de 0,59.
+O valor sobre as 300 releases inclui os itens usados para escolher a regra e
+é otimista. A v2 dobra a precisão da v1 e mantém recall acima de 0,7, mas
+**não alcança a meta planejada de F1 ≥ 0,70**. Ela é a versão usada no
+dataset final (`cfr_releases`, `releases_corretivas` e `rework_rate`).
+
+Nas 300 releases, a v2 erra 61 falsos positivos e 25 falsos negativos. Em 59
+dos 61 falsos positivos as notas existem. A maioria são releases mistas: têm
+funcionalidades destacadas, mas mais itens de correção do que de
+funcionalidade (ex.: openapi-generator, bruno, nuclei), e o protocolo as
+rotula como `não`. Os demais são patches de manutenção, com atualização de
+dependências e refatorações (ex.: AssetRipper, Sway). Os falsos negativos são,
+na maior parte, releases que descrevem a correção em prosa, sem seção nem
+itens (“This release fixes…”, “This is a security release”, como em Rhino e
+Anki), ou releases que não são patch e cujas notas só têm instruções de
+download. Uma versão futura poderia tratar a presença de seção de
+funcionalidades como impeditiva, independentemente da contagem de itens, e
+reconhecer frases corretivas em prosa. Essa versão precisaria de uma nova
+amostra de teste, porque a metade de teste atual já foi usada. Por isso, o
+CFR (b) e o rework rate continuam sendo *proxies* com erro conhecido, e as
+conclusões que dependem deles são tratadas com cautela nos resultados.
 
 ## Referências desta seção
 

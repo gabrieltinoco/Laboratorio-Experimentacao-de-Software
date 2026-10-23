@@ -1,0 +1,61 @@
+repositorio,tipo_projeto,entregas_reais
+microsoft/pyright,ferramenta CLI,sim
+kcp-dev/kcp,aplicação/serviço,sim
+databendlabs/databend,aplicação/serviço,incerto
+nrwl/nx,ferramenta CLI,sim
+YosysHQ/yosys,ferramenta CLI,sim
+ColinIanKing/stress-ng,ferramenta CLI,sim
+emanuele-f/PCAPdroid,aplicação/serviço,sim
+kubernetes-sigs/controller-runtime,biblioteca/framework,sim
+litestar-org/litestar,biblioteca/framework,sim
+JetBrains/koog,biblioteca/framework,sim
+Azure/Enterprise-Scale,outro,incerto
+cloudflare/vinext,biblioteca/framework,sim
+OthmanAdi/planning-with-files,outro,sim
+microsoft/fast,biblioteca/framework,sim
+elastic/elasticsearch-ruby,biblioteca/framework,sim
+PDFCraftTool/pdfcraft,aplicação/serviço,incerto
+francescopace/espectre,aplicação/serviço,sim
+mozilla-ai/llamafile,ferramenta CLI,sim
+smapiot/piral,biblioteca/framework,sim
+huynhsontung/Screenbox,aplicação/serviço,sim
+quay/quay,aplicação/serviço,sim
+tailwindlabs/tailwindcss,biblioteca/framework,sim
+sivchari/kumo,aplicação/serviço,sim
+GLips/Figma-Context-MCP,aplicação/serviço,sim
+invoke-ai/InvokeAI,aplicação/serviço,sim
+projectdiscovery/nuclei,ferramenta CLI,sim
+AssetRipper/AssetRipper,aplicação/serviço,sim
+alpinejs/alpine,biblioteca/framework,sim
+vapor/vapor,biblioteca/framework,sim
+cunarist/rinf,biblioteca/framework,sim
+hashicorp/consul-template,aplicação/serviço,sim
+vava-nessa/free-coding-models,ferramenta CLI,sim
+open-telemetry/opentelemetry-collector-contrib,biblioteca/framework,sim
+OpenAPITools/openapi-generator,ferramenta CLI,sim
+DietrichGebert/ponytail,outro,sim
+usebruno/bruno,aplicação/serviço,sim
+ankitects/anki,aplicação/serviço,sim
+bpmn-io/bpmn-js,biblioteca/framework,sim
+FuelLabs/sway,ferramenta CLI,sim
+Viren070/AIOStreams,aplicação/serviço,sim
+callstack/repack,biblioteca/framework,sim
+apache/doris,aplicação/serviço,sim
+spatie/laravel-responsecache,biblioteca/framework,sim
+droidrun/mobilerun,biblioteca/framework,sim
+CherryHQ/cherry-studio,aplicação/serviço,sim
+modelcontextprotocol/kotlin-sdk,biblioteca/framework,sim
+valkey-io/valkey,aplicação/serviço,sim
+apollographql/apollo-client,biblioteca/framework,sim
+vuetifyjs/vuetify,biblioteca/framework,sim
+rilldata/rill,aplicação/serviço,sim
+posit-dev/great-tables,biblioteca/framework,sim
+vstorm-co/full-stack-ai-agent-template,ferramenta CLI,sim
+aaif-goose/goose,aplicação/serviço,sim
+awalol/DS5Dongle,aplicação/serviço,sim
+mock-server/mockserver-monorepo,aplicação/serviço,sim
+rmyndharis/OpenWA,aplicação/serviço,sim
+phpactor/phpactor,ferramenta CLI,sim
+coredevices/PebbleOS,aplicação/serviço,incerto
+zeroclaw-labs/zeroclaw,aplicação/serviço,sim
+mozilla/rhino,biblioteca/framework,sim

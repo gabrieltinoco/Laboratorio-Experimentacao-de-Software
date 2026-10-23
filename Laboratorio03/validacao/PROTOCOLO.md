@@ -88,6 +88,8 @@ Comando final: `python -m validacao.consenso --config config.yaml`. Ele recusa a
 
 O kappa reportado no artigo é o da rotulação independente, de antes do consenso.
 
+Uma convenção surgiu nessas decisões e vale para rotulações futuras: *firmware* executado pelo usuário final (ex.: ESPectre, DS5Dongle, PebbleOS) é `aplicação/serviço`.
+
 ## 6. Registro de esclarecimentos
 
 Esclarecimentos de critério feitos durante a rotulação, com data:

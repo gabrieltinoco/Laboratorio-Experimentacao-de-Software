@@ -20,6 +20,7 @@ from metricas.deploy_freq import (
 )
 from metricas.lead_time import lead_time_por_commit, lead_time_por_release
 from metricas.recuperacao import calcular_recuperacao
+from metricas.corretiva import notas_por_tag
 from metricas.rework import calcular_rework
 
 
@@ -56,7 +57,9 @@ def metricas_do_repositorio(coleta: dict, inicio: str, fim: str) -> dict:
         and inicio <= r["published_at"][:10] <= fim
         for r in coleta["releases"]
     )
-    rework = calcular_rework(coleta["comparacoes"], releases_na_janela)
+    rework = calcular_rework(
+        coleta["comparacoes"], releases_na_janela, notas_por_tag(coleta["releases"])
+    )
 
     return {
         "releases_na_janela": releases_na_janela,

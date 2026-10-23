@@ -24,7 +24,7 @@ def item_busca(nome):
 
 def release(tag, publicada):
     return {"id": tag, "tag_name": tag, "draft": False, "prerelease": False, "published_at": publicada,
-            "created_at": publicada, "html_url": "", "name": tag, "body": ""}
+            "created_at": publicada, "html_url": "", "name": tag, "body": "### Bug Fixes\n- fix"}
 
 
 def commit(data):
@@ -125,7 +125,7 @@ def test_executar_calcula_metricas_e_aplica_criterio_de_inclusao(tmp_path):
                                "categoria_recuperacao", "categoria_geral")] == [
         "Low", "Medium", "Low", "High", "Low"]
     assert linha["contribuidores"] == 3
-    assert linha["releases_corretivas"] == 2   # todos os commits do fixture sao "fix"
+    assert linha["releases_corretivas"] == 2   # todas as notas do fixture sao de correcao
     assert linha["rework_rate"] == pytest.approx(1)
 
 

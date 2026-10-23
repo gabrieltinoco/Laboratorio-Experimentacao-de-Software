@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta
 
-from metricas.corretiva import classificar_comparacoes
+from metricas.corretiva import classificar_comparacoes, notas_por_tag
 
 
 @dataclass(frozen=True)
@@ -55,7 +55,7 @@ def calcular_cfr_releases(
         and _data(release["published_at"]).date() >= limite_censura
         for release in releases_principais
     )
-    corretivas = classificar_comparacoes(comparacoes)
+    corretivas = classificar_comparacoes(comparacoes, notas_por_tag(releases))
     falhas = 0
 
     for release in avaliadas:

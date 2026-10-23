@@ -134,12 +134,27 @@ Semente, tamanho da amostra e identificadores dos avaliadores ficam na seção `
 Após a reunião de consenso, avalie e registre cada versão da heurística:
 
 ```bash
-python -m validacao.avaliar_heuristica --config config.yaml --versao v1
+python -m validacao.avaliar_heuristica --config config.yaml --versao v2
+python -m validacao.avaliar_heuristica --config config.yaml --versao v2 --particao teste
 ```
 
 O resultado é acrescentado a `validacao/avaliacao_heuristica.csv`; uma versão
 já registrada não é sobrescrita. O comando requer
-`validacao/consenso_releases.csv` produzido pelo consenso.
+`validacao/consenso_releases.csv` produzido pelo consenso. `--particao`
+(`desenvolvimento` ou `teste`) avalia só uma metade dos 60 repositórios,
+sorteada com `validacao.semente`, e registra a linha como `versao@particao`.
+Novas regras devem ser comparadas na metade de desenvolvimento e medidas na de
+teste.
+
+As versões ficam em [metricas/corretiva.py](metricas/corretiva.py) (`HEURISTICAS`).
+A v2 (`VERSAO_ATUAL`) julga primeiro pelas notas da release e é a usada em
+`cfr_releases`, `releases_corretivas` e `rework_rate`; a v1 continua
+disponível para reprodução. Depois de mudar a versão atual, recalcule as
+métricas sem nova coleta:
+
+```bash
+python -m pipeline.recalcular --config config.yaml   # refaz dados/repositorios.csv a partir dos .jsonl
+```
 
 ### Análises (Lab03S03)
 
@@ -159,9 +174,9 @@ de Holm, ε², Cliff's δ com magnitudes de Romano, categorias por repositório
 nas combinações C1/C2/C3 e percentual de mudança/kappa ponderado linear. Os
 resultados e a interpretação estão em
 [`artigo/resultados_rq06_07.md`](artigo/resultados_rq06_07.md). O fator tipo
-de projeto usa `validacao/consenso_repositorios.csv` quando o consenso existe;
-enquanto houver divergências sem decisão, inclui apenas rótulos idênticos dos
-dois avaliadores, deixando os demais fora dessa comparação.
+de projeto usa `validacao/consenso_repositorios.csv` (60 repositórios da
+amostra-ouro); sem esse arquivo, inclui apenas rótulos idênticos dos dois
+avaliadores.
 
 ### Cache e retomada
 

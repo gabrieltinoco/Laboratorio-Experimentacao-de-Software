@@ -52,7 +52,7 @@ Dataset final, com uma linha por repositório da amostra, ordenado por `reposito
 | `releases_avaliadas_cfr` | inteiro | releases | releases principais da janela fora dos últimos 7 dias | 03 |
 | `releases_falhas_cfr` | inteiro | releases | releases avaliadas seguidas por uma release corretiva em até 7 dias | 03 |
 | `releases_censuradas_cfr` | inteiro | releases | releases principais nos últimos 7 dias da janela, excluídas do denominador | 03 |
-| `releases_corretivas` | inteiro | releases | releases principais da janela com `compare` disponível marcadas como corretivas pela heurística (`metricas/corretiva.py`) | 08 |
+| `releases_corretivas` | inteiro | releases | releases principais da janela com `compare` disponível marcadas como corretivas pela heurística v2 (`metricas/corretiva.py`, que usa as notas da release, o SemVer e os commits) | 08 |
 | `rework_rate` | decimal | proporção (0–1) | `releases_corretivas` ÷ `releases_na_janela`; releases sem `compare` ficam no denominador; vazio sem releases | 08 |
 | `recuperacao_horas` | decimal | horas | por workflow, episódio = da primeira falha após um sucesso (`run_started_at`) até o fim do próximo sucesso do mesmo workflow (`updated_at`); valor do repositório = mediana dos episódios encerrados de todos os workflows | 04 |
 | `episodios_falha` | inteiro | episódios | episódios de falha, encerrados ou censurados | 04 |
@@ -162,6 +162,6 @@ Gerados pelos scripts de `validacao/` (ver [PROTOCOLO.md](../validacao/PROTOCOLO
 | `divergencias.csv` | `dimensao`, `repositorio`, `tag_name`, `rotulo_<avaliador>`…, `rotulo_consenso`, `motivo` | itens divergentes e a decisão da reunião de consenso |
 | `consenso_repositorios.csv` | `repositorio`, `tipo_projeto`, `entregas_reais` | rótulo final por repositório (fator *tipo do projeto* da RQ 06) |
 | `consenso_releases.csv` | `repositorio`, `tag_name`, `corretiva` | rótulo final por release (referência para P/R/F1 da heurística) |
-| `avaliacao_heuristica.csv` | `versao`, `n`, `verdadeiros_positivos`, `falsos_positivos`, `falsos_negativos`, `precisao`, `recall`, `f1` | histórico imutável por versão da avaliação contra o consenso |
+| `avaliacao_heuristica.csv` | `versao`, `n`, `verdadeiros_positivos`, `falsos_positivos`, `falsos_negativos`, `precisao`, `recall`, `f1` | histórico imutável por versão da avaliação contra o consenso; `versao@desenvolvimento` e `versao@teste` avaliam só uma metade dos repositórios |
 
 Valores permitidos: `tipo_projeto` ∈ {biblioteca/framework, aplicação/serviço, ferramenta CLI, outro}; `entregas_reais` ∈ {sim, não, incerto}; `corretiva` ∈ {sim, não}.
