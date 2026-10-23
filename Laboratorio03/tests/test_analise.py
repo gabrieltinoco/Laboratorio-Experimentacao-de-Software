@@ -5,7 +5,7 @@ from __future__ import annotations
 import pandas as pd
 import pytest
 
-from analise import comum, rq01_04, rq05_rq08
+from analise import comum, rq01_04, rq05_rq08, rq06_rq07
 
 
 @pytest.fixture
@@ -38,8 +38,8 @@ def test_classificacao_c1_e_geral_vazia_sem_alguma_metrica(dataset):
 
     assert list(c1.loc["o/a"]) == ["Elite", "Elite", "Elite", "Elite", "Elite"]
     assert list(c1.loc["o/c"]) == ["Medium", "Low", "Medium", "Medium", "Medium"]
-    assert c1.loc["o/d", "categoria_lead_time"] is None
-    assert c1.loc["o/d", "categoria_geral"] is None
+    assert pd.isna(c1.loc["o/d", "categoria_lead_time"])
+    assert pd.isna(c1.loc["o/d", "categoria_geral"])
 
 
 def test_distribuicao_categorias_soma_100_por_metrica(dataset):
@@ -85,3 +85,52 @@ def test_scripts_gravam_tabelas_e_figuras(dataset, tmp_path):
                  "rq01_04_distribuicoes.png", "rq01_04_categorias_c1.png",
                  "rq05_spearman.csv", "rq05_dispersao.png", "rq08_rework_vs_cfr.png"):
         assert nome in gerados
+
+
+def test_rq06_calcula_holm_efeitos_e_retorna_fatores(dataset):
+    dados = dataset.assign(
+        linguagem=["Python", "Python", "Go", "Go"],
+        estrelas=[100, 200, 300, 400],
+        idade_anos=[1, 2, 3, 4],
+    )
+
+    testes, efeitos = rq06_rq07.analisar_rq06(dados)
+
+    assert set(testes["fator"]) == set(rq06_rq07.FATORES)
+    validos = testes["p_valor"].notna()
+    assert testes.loc[validos, "p_holm"].notna().all()
+    assert (testes["epsilon_quadrado"].dropna() >= 0).all()
+    assert not efeitos.empty
+    assert set(efeitos["magnitude_romano"]) <= {"desprezível", "pequeno", "médio", "grande"}
+
+
+def test_rq07_classifica_c1_c2_c3_e_mede_mudancas(dataset):
+    dados = dataset.assign(
+        deploy_freq_com_prereleases_semana=[8.0, 8.0, 0.1, 0.1],
+        deploy_freq_tags_semana=[0.1, 0.1, 8.0, 8.0],
+    )
+
+    classificacoes = rq06_rq07.classificar_combinacoes(dados)
+    sensibilidade = rq06_rq07.analisar_rq07(classificacoes)
+
+    assert len(classificacoes) == len(dados)
+    assert {"C1_categoria_geral", "C2_categoria_geral", "C3_categoria_geral"} <= set(
+        classificacoes.columns
+    )
+    assert len(sensibilidade) == 15
+    assert sensibilidade["kappa_ponderado_linear"].notna().all()
+    geral = sensibilidade[sensibilidade["categoria"] == "geral"]
+    assert (geral["pct_mudaram"] > 0).all()
+
+
+def test_rq06_sem_variacao_de_fator_retorna_sem_testes_validos(dataset):
+    dados = dataset.assign(
+        linguagem="Python",
+        estrelas=[100, 200, 300, 400],
+        idade_anos=[1, 2, 3, 4],
+    )
+
+    testes, efeitos = rq06_rq07.analisar_rq06(dados)
+
+    assert not testes["p_valor"].notna().any()
+    assert efeitos.empty
