@@ -53,11 +53,20 @@ As métricas são calculadas a partir de *proxies* (release como deploy, release
 
 | Dimensão | n | Concordância observada | κ de Cohen | κ de Fleiss | Interpretação |
 |---|---:|---:|---:|---:|---|
-| Tipo do projeto | 60 | [preencher] | [preencher] | [preencher] | [preencher] |
-| Entregas reais | 60 | [preencher] | [preencher] | [preencher] | [preencher] |
-| Release corretiva | 300 | [preencher] | [preencher] | [preencher] | [preencher] |
+| Tipo do projeto | 60 | 0,7833 | 0,6923 | 0,6908 | substancial |
+| Entregas reais | 60 | 0,8500 | 0,4105 | 0,3832 | moderada |
+| Release corretiva | 300 | 0,9300 | 0,8496 | 0,8496 | quase perfeita |
 
-**Consenso.** Com dois avaliadores não existe maioria. Por isso, todos os itens divergentes foram discutidos em uma reunião de consenso, na qual os dois reabriram as evidências e registraram o rótulo final e a justificativa de cada decisão. Quando não houve acordo, aplicou-se uma regra conservadora definida no protocolo: `outro` para o tipo do projeto, `incerto` para entregas reais e `não` para release corretiva. Dos [preencher] itens divergentes, [preencher] precisaram dessa regra. Os rótulos de consenso servem de referência para a precisão, o recall e o F1 da heurística de release corretiva. O tipo do projeto de consenso é um dos fatores da RQ 06.
+**Consenso.** Com dois avaliadores não existe maioria. A reunião de consenso
+ainda está pendente: os avaliadores devem reabrir as evidências dos itens
+divergentes e registrar o rótulo final e a justificativa em
+`validacao/divergencias.csv`. Há 43 divergências: 13 de tipo do projeto, 9 de
+entregas reais e 21 de release corretiva. Nenhuma decisão de consenso ou regra
+conservadora foi aplicada até o momento. Se os avaliadores não chegarem a
+acordo, o protocolo prevê `outro` para tipo do projeto, `incerto` para entregas
+reais e `não` para release corretiva. Até a reunião, a RQ 06 por tipo considera
+somente os itens com rótulos coincidentes, e a avaliação final da heurística
+contra o consenso permanece pendente.
 
 ## Definições operacionais, variantes e heurística
 
@@ -66,11 +75,20 @@ pré-release representa um deploy. A frequência é o número dessas releases
 dividido pelo número de semanas da janela. Para a análise de sensibilidade da
 RQ 07, também são calculadas a frequência incluindo pré-releases publicadas e
 a frequência de tags, usando como data da tag o `commit.author.date` do commit
-apontado. O lead time é calculado por release (mediana da publicação menos o
-commit mais antigo do compare) e por commit (mediana da publicação menos a
-data de cada commit). Essas variantes não são intercambiáveis: uma alteração
-antiga incluída em uma release afeta a medida por release mais do que a
-mediana por commit.
+apontado (coletado via GraphQL, seguindo tags anotadas até o commit). O lead
+time é calculado por release (mediana da publicação menos o commit mais antigo
+do compare) e por commit (mediana da publicação menos a data de cada commit).
+Essas variantes não são intercambiáveis: uma alteração antiga incluída em uma
+release afeta a medida por release mais do que a mediana por commit.
+
+| Combinação | Frequência de deploy | Lead time | CFR |
+|---|---|---|---|
+| C1 (referência) | Releases principais | Por release (a) | Por CI (a) |
+| C2 | Releases principais e pré-releases | Por commit (b) | Por releases (b) |
+| C3 | Tags, datadas pelo commit apontado | Por commit (b) | Por CI (a) |
+
+O tempo de recuperação é mantido constante nas três combinações. C2 e C3
+seguem as combinações de sensibilidade definidas no enunciado.
 
 O CFR (a) usa falhas sobre runs válidos de CI. O CFR (b) usa como denominador
 as releases principais fora dos últimos sete dias da janela; uma release do
@@ -85,11 +103,13 @@ A avaliação compara as previsões apenas com `consenso_releases.csv` e calcula
 precisão, recall e F1. Cada resultado é gravado sem sobrescrever versões
 anteriores em `validacao/avaliacao_heuristica.csv`. Os valores devem ser
 preenchidos a partir da amostra-ouro e apresentados com o tamanho da amostra;
-sem a rotulação e o consenso, não se atribui desempenho à heurística.
+como as 21 divergências de corretividade ainda não têm decisão registrada, não
+se atribui desempenho final à heurística nem se ajustam regras visando a meta
+de F1 antes do consenso.
 
 | Versão | Regra | n | Precisão | Recall | F1 |
 |---|---|---:|---:|---:|---:|
-| v1 | incremento apenas de patch e/ou mensagens com termos corretivos | — | — | — | — |
+| v1 | incremento apenas de patch e/ou mensagens com termos corretivos | pendente | pendente | pendente | pendente |
 
 ## Referências desta seção
 

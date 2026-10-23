@@ -1,0 +1,4 @@
+dimensao,itens,concordancia_observada,kappa_cohen,kappa_fleiss,interpretacao
+tipo_projeto,60,0.7833,0.6923,0.6908,substancial
+entregas_reais,60,0.85,0.4105,0.3832,moderada
+corretiva,300,0.93,0.8496,0.8496,quase perfeita

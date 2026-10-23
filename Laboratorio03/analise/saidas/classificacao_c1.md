@@ -5,7 +5,7 @@
 | AlistGo/alist                                                 | Low                    | Medium                | Elite           | High                    | Medium            |
 | AssetRipper/AssetRipper                                       | Low                    | Medium                | Elite           | High                    | Medium            |
 | Automattic/mongoose                                           | High                   | Medium                | Elite           | Elite                   | High              |
-| Azure/Enterprise-Scale                                        | Low                    | Medium                | Elite           |                         |                   |
+| Azure/Enterprise-Scale                                        | Low                    | Medium                | Elite           | nan                     | nan               |
 | Canner/WrenAI                                                 | High                   | High                  | Elite           | Medium                  | High              |
 | CherryHQ/cherry-studio                                        | High                   | High                  | Elite           | Elite                   | High              |
 | ClassIsland/ClassIsland                                       | Low                    | Medium                | Elite           | High                    | Medium            |
@@ -18,14 +18,14 @@
 | DefectDojo/django-DefectDojo                                  | High                   | High                  | Elite           | Medium                  | High              |
 | DeusData/codebase-memory-mcp                                  | Medium                 | Elite                 | Elite           | Elite                   | Elite             |
 | DietrichGebert/ponytail                                       | Medium                 | Elite                 | Elite           | High                    | High              |
-| Ebullioscopic/Atoll                                           | Low                    | High                  | Elite           |                         |                   |
+| Ebullioscopic/Atoll                                           | Low                    | High                  | Elite           | nan                     | nan               |
 | Effect-TS/effect                                              | Elite                  | Elite                 | Elite           | High                    | Elite             |
 | EpicenterHQ/epicenter                                         | Low                    | Medium                | Low             | High                    | Low               |
 | EvoScientist/EvoScientist                                     | Medium                 | High                  | Elite           | Elite                   | High              |
 | Flow-Launcher/Flow.Launcher                                   | Low                    | Elite                 | Elite           | High                    | High              |
 | FluidInference/FluidAudio                                     | High                   | High                  | Elite           | High                    | High              |
 | FuelLabs/sway                                                 | Low                    | Medium                | Medium          | Medium                  | Medium            |
-| GLips/Figma-Context-MCP                                       | Medium                 | Elite                 | Elite           |                         |                   |
+| GLips/Figma-Context-MCP                                       | Medium                 | Elite                 | Elite           | nan                     | nan               |
 | GoogleContainerTools/jib                                      | Low                    | High                  | Elite           | High                    | High              |
 | GoogleContainerTools/skaffold                                 | Medium                 | High                  | Elite           | High                    | High              |
 | HearthSim/Hearthstone-Deck-Tracker                            | High                   | High                  | Elite           | Elite                   | High              |
@@ -34,7 +34,7 @@
 | Hypfer/Valetudo                                               | Low                    | Medium                | Elite           | Elite                   | High              |
 | IBM/mcp-context-forge                                         | Medium                 | Medium                | Elite           | High                    | Medium            |
 | JetBrains/koog                                                | Medium                 | Low                   | High            | High                    | Medium            |
-| JustVugg/colibri                                              | Medium                 | Medium                | Elite           |                         |                   |
+| JustVugg/colibri                                              | Medium                 | Medium                | Elite           | nan                     | nan               |
 | LingyiChen-AI/JadeAI                                          | Medium                 | Elite                 | Elite           | Elite                   | Elite             |
 | NG-ZORRO/ng-zorro-antd                                        | Medium                 | Medium                | Elite           | High                    | Medium            |
 | NVIDIA/Megatron-LM                                            | Medium                 | Low                   | Elite           | High                    | Medium            |
@@ -66,15 +66,15 @@
 | aaif-goose/goose                                              | High                   | Medium                | Elite           | High                    | High              |
 | acmesh-official/acme.sh                                       | Low                    | Low                   | Elite           | Medium                  | Low               |
 | activepieces/activepieces                                     | High                   | High                  | High            | High                    | High              |
-| addyosmani/agent-skills                                       | Medium                 | Low                   | Elite           |                         |                   |
+| addyosmani/agent-skills                                       | Medium                 | Low                   | Elite           | nan                     | nan               |
 | adonisjs/core                                                 | Medium                 | Elite                 | Medium          | Elite                   | High              |
 | agentconnect-md/agentconnect                                  | Medium                 | Elite                 | Elite           | Elite                   | Elite             |
 | agentscope-ai/agentscope                                      | Medium                 | Medium                | Elite           | High                    | Medium            |
 | akitaonrails/ai-memory                                        | High                   | Elite                 | High            | Elite                   | High              |
-| alandtse/alexa_media_player                                   | Medium                 | High                  | Elite           |                         |                   |
+| alandtse/alexa_media_player                                   | Medium                 | High                  | Elite           | nan                     | nan               |
 | alphagov/govuk-frontend                                       | Low                    | Low                   | Elite           | High                    | Medium            |
 | alpinejs/alpine                                               | Medium                 | High                  | Elite           | High                    | High              |
-| amir20/dtop                                                   | High                   | High                  | Elite           |                         |                   |
+| amir20/dtop                                                   | High                   | High                  | Elite           | nan                     | nan               |
 | anghunk/linuxdo-scripts                                       | Medium                 | Elite                 | Elite           | Medium                  | High              |
 | ankitects/anki                                                | Low                    | Medium                | Elite           | High                    | Medium            |
 | apache/doris                                                  | Medium                 | Low                   | Medium          | High                    | Medium            |
@@ -122,7 +122,7 @@
 | emanuele-f/PCAPdroid                                          | Low                    | Medium                | Elite           | Elite                   | High              |
 | facebook/folly                                                | Medium                 | High                  | Low             | High                    | Medium            |
 | farion1231/cc-switch                                          | Medium                 | Medium                | Elite           | High                    | Medium            |
-| fastapi/sqlmodel                                              | Medium                 | High                  | Elite           |                         |                   |
+| fastapi/sqlmodel                                              | Medium                 | High                  | Elite           | nan                     | nan               |
 | flipt-io/flipt                                                | Medium                 | Low                   | Elite           | High                    | Medium            |
 | foambubble/foam                                               | Medium                 | Medium                | High            | High                    | Medium            |
 | francescopace/espectre                                        | Medium                 | Medium                | Elite           | Elite                   | High              |
@@ -157,12 +157,12 @@
 | kcp-dev/kcp                                                   | Medium                 | Low                   | Elite           | Medium                  | Medium            |
 | kopia/kopia                                                   | Low                    | Medium                | Elite           | High                    | Medium            |
 | kubecolor/kubecolor                                           | Low                    | Low                   | Elite           | Low                     | Low               |
-| kubernetes-sigs/controller-runtime                            | Low                    | Medium                | Elite           |                         |                   |
+| kubernetes-sigs/controller-runtime                            | Low                    | Medium                | Elite           | nan                     | nan               |
 | kubernetes-sigs/kubebuilder                                   | Low                    | Low                   | Elite           | High                    | Medium            |
 | kubernetes/autoscaler                                         | High                   | Low                   | Elite           | Medium                  | Medium            |
-| labstack/echo                                                 | Medium                 | Low                   | Elite           |                         |                   |
+| labstack/echo                                                 | Medium                 | Low                   | Elite           | nan                     | nan               |
 | langflow-ai/openrag                                           | High                   | High                  | Elite           | High                    | High              |
-| laravel/sail                                                  | Medium                 | Medium                | Elite           |                         |                   |
+| laravel/sail                                                  | Medium                 | Medium                | Elite           | nan                     | nan               |
 | leanprover/lean4                                              | Medium                 | Low                   | Elite           | High                    | Medium            |
 | librespeed/speedtest                                          | Low                    | Low                   | Elite           | High                    | Medium            |
 | lint-staged/lint-staged                                       | Medium                 | High                  | Elite           | Elite                   | High              |
@@ -170,16 +170,16 @@
 | litestar-org/litestar                                         | Low                    | Low                   | Elite           | High                    | Medium            |
 | locustio/locust                                               | Medium                 | Medium                | Medium          | High                    | Medium            |
 | ludoguenet/laravel-zap                                        | Medium                 | Medium                | Low             | Elite                   | Medium            |
-| major/MySQLTuner-perl                                         | Low                    | Medium                | Elite           |                         |                   |
+| major/MySQLTuner-perl                                         | Low                    | Medium                | Elite           | nan                     | nan               |
 | markedjs/marked                                               | Medium                 | Medium                | Elite           | High                    | Medium            |
 | mastodon/mastodon                                             | High                   | Low                   | Elite           | High                    | High              |
 | mem0ai/mem0                                                   | High                   | High                  | Elite           | High                    | High              |
 | microg/GmsCore                                                | Low                    | Low                   | Elite           | High                    | Medium            |
-| micrometer-metrics/micrometer                                 | Medium                 | Low                   | Elite           |                         |                   |
+| micrometer-metrics/micrometer                                 | Medium                 | Low                   | Elite           | nan                     | nan               |
 | microsoft/PowerToys                                           | Medium                 | Medium                | Elite           | Medium                  | Medium            |
 | microsoft/fast                                                | Medium                 | Medium                | Elite           | High                    | Medium            |
 | microsoft/fluentui-blazor                                     | Low                    | Low                   | Elite           | Elite                   | Medium            |
-| microsoft/monaco-editor                                       | Low                    | Low                   | Elite           |                         |                   |
+| microsoft/monaco-editor                                       | Low                    | Low                   | Elite           | nan                     | nan               |
 | microsoft/pg_durable                                          | Low                    | Medium                | Elite           | High                    | Medium            |
 | microsoft/playwright                                          | Medium                 | Low                   | Medium          | High                    | Medium            |
 | microsoft/pyright                                             | Low                    | Low                   | Elite           | High                    | Medium            |
@@ -188,14 +188,14 @@
 | mikefarah/yq                                                  | Medium                 | Medium                | Elite           | Elite                   | High              |
 | millionco/react-doctor                                        | High                   | Elite                 | Elite           | High                    | High              |
 | ministackorg/ministack                                        | High                   | Elite                 | Elite           | Elite                   | Elite             |
-| mjmlio/mjml                                                   | Medium                 | Medium                | Elite           |                         |                   |
+| mjmlio/mjml                                                   | Medium                 | Medium                | Elite           | nan                     | nan               |
 | mlc-ai/xgrammar                                               | Medium                 | Medium                | High            | High                    | Medium            |
 | mobile-dev-inc/Maestro                                        | Medium                 | Medium                | Elite           | Medium                  | Medium            |
 | mobxjs/mobx                                                   | Medium                 | High                  | Elite           | Low                     | Medium            |
 | mock-server/mockserver-monorepo                               | Low                    | Medium                | Elite           | High                    | Medium            |
 | modelcontextprotocol/kotlin-sdk                               | Medium                 | Medium                | Elite           | High                    | Medium            |
 | modular/modular                                               | Low                    | Low                   | Low             | Medium                  | Low               |
-| mozilla-ai/llamafile                                          | Low                    | Medium                | Elite           |                         |                   |
+| mozilla-ai/llamafile                                          | Low                    | Medium                | Elite           | nan                     | nan               |
 | mozilla/rhino                                                 | Low                    | Low                   | Elite           | High                    | Medium            |
 | mui/material-ui                                               | Medium                 | Low                   | Elite           | High                    | Medium            |
 | nestjs/nest                                                   | Medium                 | Medium                | Elite           | High                    | Medium            |
@@ -216,9 +216,9 @@
 | ossrs/srs                                                     | Low                    | Low                   | Elite           | High                    | Medium            |
 | owncloud/client                                               | Low                    | Low                   | Elite           | Medium                  | Low               |
 | oxigraph/oxigraph                                             | Low                    | Medium                | Medium          | Medium                  | Medium            |
-| patrick-kidger/equinox                                        | Low                    | Medium                | Elite           |                         |                   |
+| patrick-kidger/equinox                                        | Low                    | Medium                | Elite           | nan                     | nan               |
 | patroni/patroni                                               | Low                    | Low                   | Elite           | High                    | Medium            |
-| pelletier/go-toml                                             | Low                    | Medium                | Elite           |                         |                   |
+| pelletier/go-toml                                             | Low                    | Medium                | Elite           | nan                     | nan               |
 | permissionlesstech/bitchat                                    | Low                    | Medium                | Elite           | Elite                   | High              |
 | pg-sharding/spqr                                              | Low                    | Low                   | Elite           | High                    | Medium            |
 | phpactor/phpactor                                             | Low                    | Medium                | Elite           | High                    | Medium            |
@@ -226,7 +226,7 @@
 | posit-dev/great-tables                                        | Low                    | Low                   | Elite           | High                    | Medium            |
 | projectdiscovery/nuclei                                       | Low                    | Low                   | Elite           | High                    | Medium            |
 | prometheus/prometheus                                         | Medium                 | Low                   | Elite           | High                    | Medium            |
-| pyscript/pyscript                                             | Medium                 | Medium                | Elite           |                         |                   |
+| pyscript/pyscript                                             | Medium                 | Medium                | Elite           | nan                     | nan               |
 | pytest-dev/pytest                                             | Low                    | Low                   | Elite           | High                    | Medium            |
 | pythops/impala                                                | Low                    | High                  | Elite           | Elite                   | High              |
 | qdrant/qdrant                                                 | Low                    | Medium                | Elite           | Low                     | Low               |
@@ -240,19 +240,19 @@
 | rilldata/rill                                                 | High                   | High                  | Elite           | High                    | High              |
 | rmyndharis/OpenWA                                             | High                   | Elite                 | Elite           | Elite                   | Elite             |
 | roboflow/supervision                                          | Medium                 | Medium                | Elite           | Elite                   | High              |
-| router-for-me/Cli-Proxy-API-Management-Center                 | High                   | Elite                 | Elite           |                         |                   |
+| router-for-me/Cli-Proxy-API-Management-Center                 | High                   | Elite                 | Elite           | nan                     | nan               |
 | runatlantis/atlantis                                          | Medium                 | Medium                | Elite           | High                    | Medium            |
 | salsa-rs/salsa                                                | Medium                 | Medium                | Elite           | High                    | Medium            |
 | scipy/scipy                                                   | Low                    | Low                   | Elite           | High                    | Medium            |
 | securego/gosec                                                | Low                    | Medium                | Elite           | High                    | Medium            |
 | seek-oss/playroom                                             | Medium                 | Elite                 | Elite           | High                    | High              |
 | sgl-project/sglang                                            | Medium                 | Medium                | Elite           | High                    | Medium            |
-| sindresorhus/ky                                               | Low                    | Medium                | Elite           |                         |                   |
+| sindresorhus/ky                                               | Low                    | Medium                | Elite           | nan                     | nan               |
 | sivchari/kumo                                                 | High                   | Elite                 | Elite           | Elite                   | Elite             |
 | slack-go/slack                                                | Medium                 | Medium                | Elite           | Elite                   | High              |
 | slackapi/bolt-js                                              | Low                    | Low                   | Elite           | High                    | Medium            |
 | smapiot/piral                                                 | Medium                 | Medium                | Elite           | Medium                  | Medium            |
-| smtg-ai/claude-squad                                          | Low                    | Medium                | Elite           |                         |                   |
+| smtg-ai/claude-squad                                          | Low                    | Medium                | Elite           | nan                     | nan               |
 | softwaremill/tapir                                            | Medium                 | High                  | High            | High                    | High              |
 | spatie/laravel-responsecache                                  | Low                    | Medium                | Elite           | High                    | Medium            |
 | spotify/luigi                                                 | Low                    | Medium                | Elite           | High                    | Medium            |

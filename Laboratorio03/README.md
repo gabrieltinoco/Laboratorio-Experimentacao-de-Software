@@ -175,6 +175,22 @@ Para forçar uma coleta nova, apague a pasta `cache/`.
 - Respostas 5xx e erros de rede são repetidos com backoff exponencial (1, 2, 4, 8 s), até `http.max_tentativas` tentativas.
 - As tags são consultadas pela API GraphQL (`POST /graphql`), 100 por requisição e já com a data do commit apontado, com o mesmo cache, a mesma espera por cota e o mesmo backoff. A cota do GraphQL é separada da do REST.
 
+### Comparação da replicação cruzada
+
+Com os dois datasets disponíveis, compare métricas e categorias DORA por
+repositório:
+
+```bash
+python -m replicacao.comparar --referencia dados/repositorios.csv --replicacao caminho/para/repositorios.csv --saida replicacao/resultado
+```
+
+O comando gera médias de diferenças absolutas e relativas, concordância das
+classificações e arquivos detalhados para diferenças métricas, categorias e
+repositórios ausentes em um dos datasets. A diferença relativa é
+`(replicação - referência) / |referência|`; quando o valor de referência é
+zero, ela fica indefinida e não entra na média relativa. Revise o relatório e
+as diferenças com o grupo antes de abrir Issues no repositório replicado.
+
 ## Testes
 
 ```bash
