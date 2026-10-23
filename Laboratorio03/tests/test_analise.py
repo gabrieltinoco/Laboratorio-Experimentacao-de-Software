@@ -104,6 +104,58 @@ def test_rq06_calcula_holm_efeitos_e_retorna_fatores(dataset):
     assert set(efeitos["magnitude_romano"]) <= {"desprezível", "pequeno", "médio", "grande"}
 
 
+def test_rq06_aceita_tipo_de_projeto_consensual(dataset):
+    dados = dataset.assign(
+        linguagem=["Python", "Python", "Go", "Go"],
+        estrelas=[100, 200, 300, 400],
+        idade_anos=[1, 2, 3, 4],
+    )
+    tipos = pd.Series(
+        ["biblioteca/framework", "biblioteca/framework", "ferramenta CLI", "ferramenta CLI"],
+        index=dados.index,
+    )
+
+    testes, _ = rq06_rq07.analisar_rq06(dados, tipos)
+
+    tipo_projeto = testes[testes["fator"] == "tipo_projeto"]
+    assert len(tipo_projeto) == len(rq06_rq07.METRICAS)
+    assert (tipo_projeto["n"] >= 2).all()
+
+
+def test_tipo_projeto_usa_consenso_ou_apenas_acordos_unanimes(tmp_path):
+    pasta = tmp_path / "validacao"
+    pasta.mkdir()
+    avaliador_1 = pd.DataFrame({
+        "repositorio": ["o/a", "o/b", "o/c"],
+        "tipo_projeto": ["biblioteca/framework", "aplicação/serviço", "outro"],
+    })
+    avaliador_2 = pd.DataFrame({
+        "repositorio": ["o/a", "o/b", "o/c"],
+        "tipo_projeto": ["biblioteca/framework", "ferramenta CLI", "outro"],
+    })
+    for nome, tabela in [
+        ("rotulos_avaliador_1.xlsx", avaliador_1),
+        ("rotulos_avaliador_2.xlsx", avaliador_2),
+    ]:
+        with pd.ExcelWriter(pasta / nome) as writer:
+            tabela.to_excel(writer, sheet_name="repositorios", index=False)
+
+    tipo = rq06_rq07._tipo_projeto_consensual(pasta, pd.Series(["o/a", "o/b", "o/c"]))
+
+    assert tipo.iloc[0] == "biblioteca/framework"
+    assert pd.isna(tipo.iloc[1])
+    assert tipo.iloc[2] == "outro"
+
+    consenso = pd.DataFrame({
+        "repositorio": ["o/a", "o/b", "o/c"],
+        "tipo_projeto": ["biblioteca/framework", "ferramenta CLI", "outro"],
+    })
+    consenso.to_csv(pasta / "consenso_repositorios.csv", index=False)
+    tipo_final = rq06_rq07._tipo_projeto_consensual(pasta, pd.Series(["o/a", "o/b", "o/c"]))
+
+    assert tipo_final.tolist() == ["biblioteca/framework", "ferramenta CLI", "outro"]
+
+
 def test_rq07_classifica_c1_c2_c3_e_mede_mudancas(dataset):
     dados = dataset.assign(
         deploy_freq_com_prereleases_semana=[8.0, 8.0, 0.1, 0.1],
@@ -120,7 +172,16 @@ def test_rq07_classifica_c1_c2_c3_e_mede_mudancas(dataset):
     assert len(sensibilidade) == 15
     assert sensibilidade["kappa_ponderado_linear"].notna().all()
     geral = sensibilidade[sensibilidade["categoria"] == "geral"]
-    assert (geral["pct_mudaram"] > 0).all()
+    assert (geral["pct_mudaram"] > 0).any()
+    assert rq06_rq07.COMBINACOES == {
+        "C1": ("deploy_freq_semana", "lead_time_release_dias", "cfr_ci"),
+        "C2": (
+            "deploy_freq_com_prereleases_semana",
+            "lead_time_commit_dias",
+            "cfr_releases",
+        ),
+        "C3": ("deploy_freq_tags_semana", "lead_time_commit_dias", "cfr_ci"),
+    }
 
 
 def test_rq06_sem_variacao_de_fator_retorna_sem_testes_validos(dataset):

@@ -40,10 +40,10 @@ COMBINACOES = {
     "C1": ("deploy_freq_semana", "lead_time_release_dias", "cfr_ci"),
     "C2": (
         "deploy_freq_com_prereleases_semana",
-        "lead_time_release_dias",
-        "cfr_ci",
+        "lead_time_commit_dias",
+        "cfr_releases",
     ),
-    "C3": ("deploy_freq_tags_semana", "lead_time_release_dias", "cfr_ci"),
+    "C3": ("deploy_freq_tags_semana", "lead_time_commit_dias", "cfr_ci"),
 }
 CATEGORIAS_ANALISADAS = (
     "categoria_frequencia",
@@ -66,12 +66,16 @@ def _quartis(serie: pd.Series) -> pd.Series:
     return resultado
 
 
-def preparar_fatores(df: pd.DataFrame) -> pd.DataFrame:
-    """Cria três fatores observáveis; mantém linguagem ausente como categoria."""
+def preparar_fatores(
+    df: pd.DataFrame, tipo_projeto: pd.Series | None = None
+) -> pd.DataFrame:
+    """Cria fatores observáveis e inclui rótulos de projeto consensuais se fornecidos."""
     preparado = df.copy()
     preparado["linguagem"] = preparado["linguagem"].fillna("Não informada")
     preparado["quartil_estrelas"] = _quartis(preparado["estrelas"])
     preparado["quartil_idade"] = _quartis(preparado["idade_anos"])
+    if tipo_projeto is not None:
+        preparado["tipo_projeto"] = tipo_projeto.reindex(preparado.index)
     return preparado
 
 
@@ -101,12 +105,15 @@ def delta_cliff(primeiro: pd.Series | np.ndarray, segundo: pd.Series | np.ndarra
                  / comparacoes.size)
 
 
-def analisar_rq06(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+def analisar_rq06(
+    df: pd.DataFrame, tipo_projeto: pd.Series | None = None
+) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Kruskal-Wallis por fator/métrica, Holm global e efeitos Cliff pareados."""
-    preparado = preparar_fatores(df)
+    preparado = preparar_fatores(df, tipo_projeto)
+    fatores = FATORES + (("tipo_projeto",) if tipo_projeto is not None else ())
     testes: list[dict] = []
     efeitos: list[dict] = []
-    for fator in FATORES:
+    for fator in fatores:
         for coluna, metrica in METRICAS.items():
             grupos = _grupos(preparado[fator], preparado[coluna])
             n = sum(map(len, grupos.values()))
@@ -210,9 +217,38 @@ def analisar_rq07(classificacoes: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(linhas)
 
 
+def _tipo_projeto_consensual(pasta_validacao: Path, repositorios: pd.Series) -> pd.Series | None:
+    """Lê consenso final ou usa apenas rótulos idênticos entre avaliadores."""
+    consenso = pasta_validacao / "consenso_repositorios.csv"
+    if consenso.exists():
+        rotulos = pd.read_csv(consenso, dtype=str).set_index("repositorio")["tipo_projeto"]
+        return repositorios.map(rotulos)
+
+    avaliadores = [
+        pasta_validacao / "rotulos_avaliador_1.xlsx",
+        pasta_validacao / "rotulos_avaliador_2.xlsx",
+    ]
+    if not all(caminho.exists() for caminho in avaliadores):
+        return None
+    pares = []
+    for caminho in avaliadores:
+        rotulos = pd.read_excel(caminho, sheet_name="repositorios", dtype=str)
+        pares.append(rotulos[["repositorio", "tipo_projeto"]].rename(
+            columns={"tipo_projeto": caminho.stem}
+        ))
+    comparacao = pares[0].merge(pares[1], on="repositorio", validate="one_to_one")
+    iguais = comparacao[comparacao.iloc[:, 1] == comparacao.iloc[:, 2]].set_index("repositorio")
+    unicos = iguais.iloc[:, 0]
+    return repositorios.map(unicos)
+
+
 def executar(df: pd.DataFrame, saidas: str | Path) -> None:
     pasta = Path(saidas)
-    testes, efeitos = analisar_rq06(df)
+    raiz = Path(__file__).resolve().parents[1]
+    tipo_projeto = _tipo_projeto_consensual(
+        raiz / "validacao", df["repositorio"]
+    )
+    testes, efeitos = analisar_rq06(df, tipo_projeto)
     classes = classificar_combinacoes(df)
     sensibilidade = analisar_rq07(classes)
     salvar_tabela(testes, "rq06_kruskal_holm", pasta)
