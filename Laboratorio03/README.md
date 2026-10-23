@@ -118,10 +118,16 @@ Depois da coleta, com `dados/repositorios.csv` e `dados/releases.jsonl` prontos:
 ```bash
 python -m validacao.gerar_planilha --config config.yaml   # sorteio + uma planilha por avaliador
 # cada avaliador preenche validacao/rotulos_<avaliador>.xlsx, sem consultar o outro
+python -m validacao.exportar_rotulos --planilha validacao/rotulos_avaliador_1.xlsx --saida validacao/rotulos_B.csv
 python -m validacao.concordancia --config config.yaml     # kappa de Cohen/Fleiss + divergencias.csv
 # reunião de consenso: preencher rotulo_consenso e motivo em validacao/divergencias.csv
 python -m validacao.consenso --config config.yaml         # consenso_repositorios.csv e consenso_releases.csv
 ```
+
+O CSV de entrega tem uma linha por release e repete nela os rótulos do
+repositório (`tipo_projeto` e `entregas_reais`). A planilha XLSX permanece como
+fonte para os scripts de concordância e consenso; o exportador valida todos os
+rótulos antes de gravar o CSV.
 
 Semente, tamanho da amostra e identificadores dos avaliadores ficam na seção `validacao` do [config.yaml](config.yaml). Critérios de rotulação e regras de desempate estão em [validacao/PROTOCOLO.md](validacao/PROTOCOLO.md).
 
