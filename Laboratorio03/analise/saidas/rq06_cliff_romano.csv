@@ -791,3 +791,36 @@ quartil_idade,recuperacao,Q1,Q4,70,73,-0.3223091976516634,pequeno
 quartil_idade,recuperacao,Q2,Q3,70,71,-0.032595573440643864,desprezível
 quartil_idade,recuperacao,Q2,Q4,70,73,0.09960861056751467,desprezível
 quartil_idade,recuperacao,Q3,Q4,71,73,0.13756511672776384,desprezível
+tipo_projeto,frequencia,aplicação/serviço,biblioteca/framework,17,20,0.13529411764705881,desprezível
+tipo_projeto,frequencia,aplicação/serviço,ferramenta CLI,17,8,0.4117647058823529,médio
+tipo_projeto,frequencia,aplicação/serviço,outro,17,2,0.4411764705882353,médio
+tipo_projeto,frequencia,biblioteca/framework,ferramenta CLI,20,8,0.2875,pequeno
+tipo_projeto,frequencia,biblioteca/framework,outro,20,2,0.35,médio
+tipo_projeto,frequencia,ferramenta CLI,outro,8,2,0.0,desprezível
+tipo_projeto,lead_time_release,aplicação/serviço,biblioteca/framework,17,20,-0.06470588235294118,desprezível
+tipo_projeto,lead_time_release,aplicação/serviço,ferramenta CLI,17,8,-0.4264705882352941,médio
+tipo_projeto,lead_time_release,aplicação/serviço,outro,17,2,0.5882352941176471,grande
+tipo_projeto,lead_time_release,biblioteca/framework,ferramenta CLI,20,8,-0.225,pequeno
+tipo_projeto,lead_time_release,biblioteca/framework,outro,20,2,0.7,grande
+tipo_projeto,lead_time_release,ferramenta CLI,outro,8,2,1.0,grande
+tipo_projeto,lead_time_commit,aplicação/serviço,biblioteca/framework,17,20,0.01764705882352941,desprezível
+tipo_projeto,lead_time_commit,aplicação/serviço,ferramenta CLI,17,8,-0.19117647058823528,pequeno
+tipo_projeto,lead_time_commit,aplicação/serviço,outro,17,2,0.47058823529411764,médio
+tipo_projeto,lead_time_commit,biblioteca/framework,ferramenta CLI,20,8,-0.275,pequeno
+tipo_projeto,lead_time_commit,biblioteca/framework,outro,20,2,0.5,grande
+tipo_projeto,lead_time_commit,ferramenta CLI,outro,8,2,1.0,grande
+tipo_projeto,cfr_ci,aplicação/serviço,biblioteca/framework,17,20,-0.11470588235294117,desprezível
+tipo_projeto,cfr_ci,aplicação/serviço,ferramenta CLI,17,8,-0.125,desprezível
+tipo_projeto,cfr_ci,aplicação/serviço,outro,17,2,0.6176470588235294,grande
+tipo_projeto,cfr_ci,biblioteca/framework,ferramenta CLI,20,8,-0.10625,desprezível
+tipo_projeto,cfr_ci,biblioteca/framework,outro,20,2,0.725,grande
+tipo_projeto,cfr_ci,ferramenta CLI,outro,8,2,0.6875,grande
+tipo_projeto,cfr_releases,aplicação/serviço,biblioteca/framework,17,20,0.18823529411764706,pequeno
+tipo_projeto,cfr_releases,aplicação/serviço,ferramenta CLI,17,8,0.4485294117647059,médio
+tipo_projeto,cfr_releases,aplicação/serviço,outro,17,2,0.058823529411764705,desprezível
+tipo_projeto,cfr_releases,biblioteca/framework,ferramenta CLI,20,8,0.35625,médio
+tipo_projeto,cfr_releases,biblioteca/framework,outro,20,2,-0.05,desprezível
+tipo_projeto,cfr_releases,ferramenta CLI,outro,8,2,-0.125,desprezível
+tipo_projeto,recuperacao,aplicação/serviço,biblioteca/framework,16,19,-0.6118421052631579,grande
+tipo_projeto,recuperacao,aplicação/serviço,ferramenta CLI,16,7,-0.30357142857142855,pequeno
+tipo_projeto,recuperacao,biblioteca/framework,ferramenta CLI,19,7,0.41353383458646614,médio
