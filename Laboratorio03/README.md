@@ -159,7 +159,9 @@ de Holm, ε², Cliff's δ com magnitudes de Romano, categorias por repositório
 nas combinações C1/C2/C3 e percentual de mudança/kappa ponderado linear. Os
 resultados e a interpretação estão em
 [`artigo/resultados_rq06_07.md`](artigo/resultados_rq06_07.md). O fator tipo
-de projeto depende dos rótulos consensuais em `validacao/consenso_repositorios.csv`.
+de projeto usa `validacao/consenso_repositorios.csv` quando o consenso existe;
+enquanto houver divergências sem decisão, inclui apenas rótulos idênticos dos
+dois avaliadores, deixando os demais fora dessa comparação.
 
 ### Cache e retomada
 
