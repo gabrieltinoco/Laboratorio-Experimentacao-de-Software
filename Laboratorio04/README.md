@@ -4,7 +4,7 @@ Laboratório de Experimentação de Software · PUC Minas · 2026/2
 
 Compara o **t de Welch** e o **Mann-Whitney** (par P1) no cenário *"o uso de bot de revisão muda o tempo até o merge de PRs?"*. Os dados reais (PRs do [microsoft/PowerToys](https://github.com/microsoft/PowerToys) com e sem revisão do Copilot) servem para calibrar uma simulação lognormal. Com ela medimos o erro tipo I e o poder de cada teste.
 
-- **GitHub Projects:** _<preencher com o link do Project do Lab04>_
+- **GitHub Projects:** [Projetos do repositório](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/projects)
 - **Dashboard publicado:** _<preencher na entrega final>_
 - Enunciado e plano de sprints: material da disciplina (Canvas)
 
@@ -27,6 +27,11 @@ python -m src.simulacao            # gera results/exemplo_simulado.csv (seed 42)
 streamlit run dashboard/app.py     # abre o dashboard
 ```
 
+O dashboard apresenta o cenário, compara os dados reais e simulados (G1), aplica
+o t de Welch e Mann-Whitney ao conjunto simulado e mostra suas distribuições sob
+H0 (G2). Os resultados das simulações e as seções restantes serão adicionados nas
+próximas etapas do laboratório.
+
 A coleta dos dados reais **não** precisa ser refeita: `data/real/prs.csv` está versionado. Para refazê-la, defina `GITHUB_TOKEN` (só leitura de repositórios públicos) e rode `python -m src.coleta`. Detalhes em [data/real/FONTE.md](data/real/FONTE.md).
 
 ## Estrutura
@@ -42,10 +47,14 @@ Laboratorio04/
 │   └── cenario.md            # pergunta, H0/H1, palpite, parâmetros
 ├── results/
 │   └── exemplo_simulado.csv  # um conjunto simulado (n = 30, efeito = 0,3)
+├── dashboard/
+│   └── app.py                # dashboard Streamlit com G1 e G2
 └── src/
     ├── coleta.py             # coleta via API do GitHub
     ├── parametros.py         # ajuste da lognormal aos dados reais
     ├── simulacao.py          # gerador de dados simulados
+    ├── testes.py             # Welch e Mann-Whitney, vetorizados
+    ├── graficos.py           # gráficos G1 e G2
     └── estilo.py             # cores por teste e template Plotly
 ```
 
