@@ -24,6 +24,8 @@ pip install -r requirements.txt
 ```bash
 python -m src.parametros           # ajuste da lognormal aos dados reais
 python -m src.simulacao            # gera results/exemplo_simulado.csv (seed 42)
+python -m src.experimentos         # Q1, Q2 e Q3: results/q1_q2_q3.csv (+ _alpha001), seed 42, ~5 s
+python -m src.tamanho_amostra      # poder x n com o efeito real: results/tamanho_amostra.csv
 streamlit run dashboard/app.py     # abre o dashboard
 ```
 
@@ -44,9 +46,14 @@ Laboratorio04/
 │   ├── prs.csv               # 30 PRs com bot + 30 sem bot
 │   └── FONTE.md              # origem, critério, limitações
 ├── docs/
-│   └── cenario.md            # pergunta, H0/H1, palpite, parâmetros
+│   ├── cenario.md            # pergunta, H0/H1, palpite, parâmetros
+│   ├── resultados_simulacao.md  # números de Q1, Q2, Q3, α = 0,01 e tamanho da amostra
+│   └── roteiro_apresentacao_A.md
 ├── results/
-│   └── exemplo_simulado.csv  # um conjunto simulado (n = 30, efeito = 0,3)
+│   ├── exemplo_simulado.csv  # um conjunto simulado (n = 30, efeito = 0,3)
+│   ├── q1_q2_q3.csv          # taxas de rejeição (α = 0,05), 10.000 repetições por ponto
+│   ├── q1_q2_q3_alpha001.csv # o mesmo com α = 0,01
+│   └── tamanho_amostra.csv   # poder com o efeito real para n = 30 … 1.600
 ├── dashboard/
 │   └── app.py                # dashboard Streamlit com G1 e G2
 └── src/
@@ -54,8 +61,14 @@ Laboratorio04/
     ├── parametros.py         # ajuste da lognormal aos dados reais
     ├── simulacao.py          # gerador de dados simulados
     ├── testes.py             # Welch e Mann-Whitney, vetorizados
+    ├── experimentos.py       # motor: taxa de rejeição em 10.000 repetições
+    ├── cenarios_q3.py        # situações que violam pressupostos (Q3)
+    ├── dados_reais.py        # tabela dos testes nos dados reais (seção 6)
+    ├── tamanho_amostra.py    # poder × n e n para 80% de poder
     ├── graficos.py           # gráficos G1 e G2
     └── estilo.py             # cores por teste e template Plotly
+tests/
+└── test_motor.py             # motor, Q3, dados reais, tamanho da amostra (pytest)
 ```
 
 ## Convenções
