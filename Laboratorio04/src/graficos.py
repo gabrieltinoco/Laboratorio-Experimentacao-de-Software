@@ -355,3 +355,159 @@ def grafico_g2(sem_bot: ArrayLike, com_bot: ArrayLike) -> go.Figure:
     )
     figura.update_layout(margin=dict(b=115))
     return figura
+
+
+# ------------------------------------------------------------------ G3 e G4
+
+ORDEM_SITUACOES = ("base", "assimetria_extrema", "com_outliers", "amostra_pequena")
+ROTULOS_SITUACAO = {
+    "base": "Base",
+    "assimetria_extrema": "Assimetria extrema (σ × 2)",
+    "com_outliers": "Com outliers (5% × 10)",
+    "amostra_pequena": "Amostra pequena",
+}
+_TESTES_ORDEM = ("welch", "mann_whitney")
+_COR_FAIXA = "rgba(120, 120, 120, 0.16)"
+_COR_TEXTO = "#1a1f26"
+
+
+def _linhas_situacao(df: pd.DataFrame, situacao: str) -> pd.DataFrame:
+    """Base vem da Q1 (erro tipo I) ou da Q2 (poder); as outras, da Q3."""
+    if situacao == "base":
+        return df[(df["situacao"] == "base") & (df["pergunta"].isin(["Q1", "Q2"]))]
+    return df[(df["situacao"] == situacao) & (df["pergunta"] == "Q3")]
+
+
+def _rotulo_com_n(df: pd.DataFrame, situacao: str) -> str:
+    n = int(_linhas_situacao(df, situacao)["n_por_grupo"].iloc[0])
+    return f"{ROTULOS_SITUACAO[situacao]} · n = {n}"
+
+
+def grafico_g3(df: pd.DataFrame, alpha: float = 0.05) -> go.Figure:
+    """Erro tipo I por situacao: ponto + IC 95% contra a linha de alpha.
+
+    Forma "distancia ate um alvo": o que importa e quanto cada teste se afasta
+    de alpha, nao o tamanho a partir do zero. A faixa cinza e o que o acaso
+    de 10.000 repeticoes explica (alpha ± 1,96 EP).
+    """
+    figura = go.Figure()
+    n_rep = int(df["n_rep"].iloc[0])
+    meia_faixa = 1.96 * np.sqrt(alpha * (1 - alpha) / n_rep)
+    figura.add_vrect(
+        x0=alpha - meia_faixa, x1=alpha + meia_faixa, fillcolor=_COR_FAIXA, line_width=0, layer="below",
+        annotation_text="faixa do acaso", annotation_position="top left",
+        annotation_font=dict(size=11, color="#555"),
+    )
+    figura.add_vline(
+        x=alpha, line_color="#555", line_dash="dash", line_width=1,
+        annotation_text=f"α = {str(alpha).replace('.', ',')}", annotation_position="bottom right",
+        annotation_font=dict(size=11, color="#555"),
+    )
+    posicoes = {s: len(ORDEM_SITUACOES) - 1 - i for i, s in enumerate(ORDEM_SITUACOES)}
+    deslocamento = {"welch": 0.14, "mann_whitney": -0.14}
+    maximo = alpha
+    for teste in _TESTES_ORDEM:
+        x, y, inf, sup, textos = [], [], [], [], []
+        for situacao in ORDEM_SITUACOES:
+            linhas = _linhas_situacao(df, situacao)
+            if situacao == "base":
+                linhas = linhas[linhas["pergunta"] == "Q1"]
+            linha = linhas[(linhas["teste"] == teste) & (linhas["efeito"] == 0)].iloc[0]
+            x.append(float(linha["taxa_rejeicao"]))
+            inf.append(float(linha["ic95_inf"]))
+            sup.append(float(linha["ic95_sup"]))
+            y.append(posicoes[situacao] + deslocamento[teste])
+            textos.append(ROTULOS_SITUACAO[situacao])
+            maximo = max(maximo, float(linha["ic95_sup"]))
+        x_arr, inf_arr, sup_arr = np.array(x), np.array(inf), np.array(sup)
+        figura.add_trace(
+            go.Scatter(
+                x=x_arr, y=y, mode="markers", name=NOMES_TESTE[teste],
+                marker=dict(color=CORES_TESTE[teste], size=11, line=dict(color="white", width=2)),
+                error_x=dict(type="data", symmetric=False, array=sup_arr - x_arr,
+                             arrayminus=x_arr - inf_arr, color=CORES_TESTE[teste], thickness=2, width=0),
+                customdata=np.column_stack([inf_arr, sup_arr]), text=textos,
+                hovertemplate=(
+                    "%{text}<br>Erro tipo I = %{x:.2%}<br>IC 95%: %{customdata[0]:.2%} a "
+                    "%{customdata[1]:.2%}<extra>%{fullData.name}</extra>"
+                ),
+            )
+        )
+    figura.update_yaxes(
+        tickmode="array", tickvals=[posicoes[s] for s in ORDEM_SITUACOES],
+        ticktext=[_rotulo_com_n(df, s) for s in ORDEM_SITUACOES],
+        range=[-0.9, len(ORDEM_SITUACOES) - 0.4], showgrid=False,
+    )
+    figura.update_xaxes(
+        title_text="Erro tipo I (proporção de rejeições com H0 verdadeira)",
+        tickformat=".1%", range=[-maximo * 0.03, maximo * 1.15],
+    )
+    aplicar_layout(
+        figura,
+        title=f"G3 — Erro tipo I com H0 verdadeira (α = {str(alpha).replace('.', ',')}, 10.000 repetições)",
+        height=420,
+        margin=dict(l=230, r=20, t=90, b=60),
+    )
+    return figura
+
+
+def grafico_g4(df: pd.DataFrame, alpha: float = 0.05, alvo: float = 0.80) -> go.Figure:
+    """Curvas de poder, um painel por situacao, mesmo eixo Y (0 a 100%)."""
+    figura = make_subplots(
+        rows=2, cols=2, shared_xaxes=True, shared_yaxes=True,
+        subplot_titles=[_rotulo_com_n(df, s) for s in ORDEM_SITUACOES],
+        vertical_spacing=0.14, horizontal_spacing=0.06,
+    )
+    for indice, situacao in enumerate(ORDEM_SITUACOES):
+        linha_painel, coluna_painel = divmod(indice, 2)
+        linha_painel, coluna_painel = linha_painel + 1, coluna_painel + 1
+        dados = _linhas_situacao(df, situacao)
+        if situacao == "base":
+            dados = dados[dados["pergunta"] == "Q2"]
+        for teste in _TESTES_ORDEM:
+            curva = dados[dados["teste"] == teste].sort_values("efeito")
+            x = curva["efeito"].to_numpy(dtype=float)
+            figura.add_trace(
+                go.Scatter(
+                    x=np.concatenate([x, x[::-1]]),
+                    y=np.concatenate([curva["ic95_sup"].to_numpy(), curva["ic95_inf"].to_numpy()[::-1]]),
+                    mode="none", fill="toself", fillcolor=_rgba(CORES_TESTE[teste], 0.12),
+                    name=f"IC 95% {NOMES_TESTE[teste]}", showlegend=False, hoverinfo="skip",
+                ),
+                row=linha_painel, col=coluna_painel,
+            )
+            figura.add_trace(
+                go.Scatter(
+                    x=x, y=curva["taxa_rejeicao"], mode="lines+markers", name=NOMES_TESTE[teste],
+                    legendgroup=teste, showlegend=indice == 0,
+                    line=dict(color=CORES_TESTE[teste], width=2),
+                    marker=dict(size=8, color=CORES_TESTE[teste], line=dict(color="white", width=2)),
+                    hovertemplate=(
+                        "Efeito = %{x:.1f}<br>Poder = %{y:.1%}<extra>%{fullData.name}</extra>"
+                    ),
+                ),
+                row=linha_painel, col=coluna_painel,
+            )
+            if indice == 0 and len(x):
+                figura.add_annotation(
+                    x=x[-1], y=float(curva["taxa_rejeicao"].iloc[-1]), text=NOMES_TESTE[teste],
+                    xanchor="right", yanchor="bottom", xshift=-6, showarrow=False,
+                    font=dict(color=_COR_TEXTO, size=12), row=linha_painel, col=coluna_painel,
+                )
+        figura.add_hline(
+            y=alvo, line_color="#555", line_dash="dash", line_width=1,
+            row=linha_painel, col=coluna_painel,
+        )
+    figura.add_annotation(
+        x=0, y=alvo, xref="x", yref="y", text=f"{alvo:.0%} de poder", showarrow=False,
+        xanchor="left", yanchor="bottom", font=dict(size=11, color="#555"),
+    )
+    figura.update_yaxes(range=[0, 1], tickformat=".0%")
+    figura.update_yaxes(title_text="Poder", col=1)
+    figura.update_xaxes(title_text="Efeito (redução relativa da mediana)", row=2)
+    aplicar_layout(
+        figura,
+        title=f"G4 — Poder por tamanho do efeito (α = {str(alpha).replace('.', ',')}, 10.000 repetições)",
+        height=620,
+    )
+    return figura
