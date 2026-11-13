@@ -11,7 +11,7 @@ from metricas.cfr import classificar_conclusion
 
 @dataclass(frozen=True)
 class EpisodioRecuperacao:
-    workflow_id: int | str | None
+    workflow_id: int | str
     inicio: str
     fim: str | None
     horas: float | None
@@ -54,6 +54,10 @@ def calcular_recuperacao(
                 if _instante(run, "run_started_at").date() <= limite
                 and _instante(run, "updated_at").date() <= limite
             ]
+        if not avaliaveis:
+            continue
+        if workflow_id is None or workflow_id == "":
+            raise ValueError("Workflow run válida sem workflow_id obrigatório.")
         ordenadas = sorted(avaliaveis, key=lambda run: _instante(run, "run_started_at"))
         houve_sucesso = False
         falha_ativa: dict | None = None

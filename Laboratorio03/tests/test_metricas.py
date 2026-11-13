@@ -225,7 +225,7 @@ def test_recuperacao_fixture_do_enunciado_e_ignora_cancelada_sem_timestamps():
     runs = [
         run("success", "2025-10-01T09:00:00Z"),
         run("failure", "2025-10-01T10:00:00Z", started="2025-10-01T10:00:00Z"),
-        run("cancelled", "x", started=None),
+        run("cancelled", "x", started=None, workflow=None),
         run("failure", "2025-10-01T10:30:00Z", started="2025-10-01T10:30:00Z"),
         run(
             "success",
@@ -281,6 +281,16 @@ def test_recuperacao_nao_cria_episodio_antes_de_observar_sucesso():
 def test_recuperacao_erro_claro_quando_falta_timestamp_de_run_avaliavel():
     with pytest.raises(ValueError, match="run_started_at"):
         calcular_recuperacao([{"workflow_id": 1, "conclusion": "success"}])
+
+
+def test_recuperacao_erro_claro_quando_falta_workflow_id():
+    runs = [
+        run("success", "2025-10-01T09:00:00Z", workflow=None),
+        run("failure", "2025-10-01T10:00:00Z", workflow=None),
+    ]
+
+    with pytest.raises(ValueError, match="workflow_id"):
+        calcular_recuperacao(runs)
 
 
 def test_classificacoes_dora_e_classificacao_geral():
