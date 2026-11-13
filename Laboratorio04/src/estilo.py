@@ -40,8 +40,13 @@ pio.templates[TEMPLATE] = go.layout.Template(
     layout=go.Layout(
         font=dict(family="Arial, sans-serif", size=14, color="#1a1f26"),
         title=dict(font=dict(size=18), x=0.0, xanchor="left"),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1.0),
-        margin=dict(l=60, r=20, t=80, b=60),
+        # Legenda no rodape do grafico (coordenadas do container): no topo ela caia
+        # em cima dos titulos dos subgraficos quando o Streamlit estreita a coluna.
+        legend=dict(
+            orientation="h", yref="container", y=0.01, yanchor="bottom",
+            xanchor="left", x=0.0, font=dict(size=12),
+        ),
+        margin=dict(l=60, r=20, t=80, b=120),
         plot_bgcolor="white",
         paper_bgcolor="white",
         xaxis=dict(showgrid=True, gridcolor="#e5e5e5", zeroline=False, linecolor="#888"),
