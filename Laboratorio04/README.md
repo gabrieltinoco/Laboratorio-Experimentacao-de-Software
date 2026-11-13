@@ -5,7 +5,7 @@ Laboratório de Experimentação de Software · PUC Minas · 2026/2
 Compara o **t de Welch** e o **Mann-Whitney** (par P1) no cenário *"o uso de bot de revisão muda o tempo até o merge de PRs?"*. Os dados reais (PRs do [microsoft/PowerToys](https://github.com/microsoft/PowerToys) com e sem revisão do Copilot) servem para calibrar uma simulação lognormal. Com ela medimos o erro tipo I e o poder de cada teste.
 
 - **GitHub Projects:** [Projetos do repositório](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/projects)
-- **Dashboard publicado:** _<preencher na entrega final>_
+- **Dashboard publicado:** pendente de publicação no Streamlit Community Cloud.
 - Enunciado e plano de sprints: material da disciplina (Canvas)
 
 ## Instalação
@@ -52,7 +52,8 @@ Laboratorio04/
 ├── docs/
 │   ├── cenario.md            # pergunta, H0/H1, palpite, parâmetros
 │   ├── resultados_simulacao.md  # números de Q1, Q2, Q3, α = 0,01 e tamanho da amostra
-│   └── roteiro_apresentacao_A.md
+│   ├── roteiro_apresentacao_A.md
+│   └── roteiro_apresentacao_B.md
 ├── results/
 │   ├── exemplo_simulado.csv  # um conjunto simulado (n = 30, efeito = 0,3)
 │   ├── q1_q2_q3.csv          # taxas de rejeição (α = 0,05), 10.000 repetições por ponto
@@ -74,6 +75,7 @@ Laboratorio04/
     └── estilo.py             # cores por teste e template Plotly
 tests/
 ├── test_experimentos.py      # reprodutibilidade, erro tipo I e shape
+├── test_graficos_g1.py       # distribuição e escala de G1
 ├── test_graficos_g3_g4.py    # gráficos de erro tipo I e poder
 └── test_motor.py             # motor, Q3, dados reais e tamanho da amostra
 ```

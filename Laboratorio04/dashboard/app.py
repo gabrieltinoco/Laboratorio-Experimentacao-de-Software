@@ -35,7 +35,8 @@ st.set_page_config(page_title="Lab04 — Testes de hipótese", layout="wide")
 
 st.title("Testes de hipótese por dentro")
 st.markdown(
-    "**Dashboard:** [abrir local](http://localhost:8501) · "
+    "**Dashboard local:** [abrir](http://localhost:8501) · "
+    "**Publicação:** pendente · "
     "**Repositório:** "
     "[Laboratorio-Experimentacao-de-Software]"
     "(https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software) · "
@@ -338,4 +339,47 @@ else:
     st.info("Rode `python -m src.tamanho_amostra` para gerar results/tamanho_amostra.csv.")
 
 st.header("7. Conclusão")
-st.info("A conclusão será preenchida após a comparação das simulações.")
+if ARQ_RESULTADOS.exists():
+    resultados_base = carregar_csv(str(ARQ_RESULTADOS))
+    q1_base = resultados_base[
+        (resultados_base["pergunta"] == "Q1")
+        & (resultados_base["situacao"] == "base")
+    ].set_index("teste")["taxa_rejeicao"]
+    q2_base = resultados_base[
+        (resultados_base["pergunta"] == "Q2")
+        & (resultados_base["situacao"] == "base")
+    ]
+    efeito_maximo_base = float(q2_base["efeito"].max())
+    poder_maximo_base = q2_base[q2_base["efeito"] == efeito_maximo_base].set_index("teste")[
+        "taxa_rejeicao"
+    ]
+    curvas_base = resultados_base[resultados_base["pergunta"] != "Q1"].pivot_table(
+        index=["situacao", "efeito"], columns="teste", values="taxa_rejeicao"
+    )
+    mann_whitney_superior = (
+        {"mann_whitney", "welch"}.issubset(curvas_base.columns)
+        and (curvas_base["mann_whitney"] > curvas_base["welch"]).all()
+    )
+    poder_observado = carregar_csv(str(ARQ_TAMANHO))
+    poder_n30 = poder_observado[poder_observado["n_por_grupo"] == 30].set_index("teste")[
+        "taxa_rejeicao"
+    ]
+    st.markdown(
+        f"Antes de simular, esperávamos que Mann-Whitney tivesse mais poder por causa da assimetria, "
+        f"e os resultados apoiaram esse palpite: sob H0, sua taxa de rejeição foi "
+        f"{br(100 * q1_base['mann_whitney'], 2)}%, contra {br(100 * q1_base['welch'], 2)}% do Welch, "
+        f"e {('ele teve maior poder em todos os cenários simulados.' if mann_whitney_superior else 'a vantagem de poder variou entre os cenários simulados.')} "
+        f"No maior efeito simulado ({br(100 * efeito_maximo_base, 0)}%), o poder na situação base foi "
+        f"{br(100 * poder_maximo_base['mann_whitney'], 1)}% para Mann-Whitney e "
+        f"{br(100 * poder_maximo_base['welch'], 1)}% para Welch. "
+        f"Nos dados reais, ambos não rejeitaram H0 (p = {br(welch_real['p_valor'], 3)} e "
+        f"{br(mw_real['p_valor'], 3)}); embora a mediana com bot tenha sido "
+        f"{br(dif_mediana)} h menor, com 30 PRs por grupo o poder estimado para o efeito observado "
+        f"foi apenas {br(100 * poder_n30['mann_whitney'], 1)}% e {br(100 * poder_n30['welch'], 1)}%. "
+        "Para este tempo de merge muito assimétrico, recomendamos Mann-Whitney; o Welch pode ser "
+        "preferível com dados quase simétricos e quando a pergunta científica é sobre médias. "
+        "Como o estudo é observacional, de um único repositório, e os PRs com bot eram menores, "
+        "não podemos atribuir causalmente a diferença ao bot."
+    )
+else:
+    st.info("Gere os resultados com `python run_all.py` para preencher a conclusão.")
