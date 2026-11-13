@@ -191,15 +191,17 @@ else:
     st.plotly_chart(grafico_g3(resultados_sim, alpha=escolha_alpha), use_container_width=True)
     erro_i = resultados_sim[(resultados_sim["efeito"] == 0) & (resultados_sim["pergunta"] != "Q2")]
     erro_i = erro_i.set_index(["situacao", "teste"])["taxa_rejeicao"]
+    taxa_mw = erro_i.xs("mann_whitney", level="teste")
+    taxa_welch_base = erro_i.loc[("base", "welch")]
+    taxa_welch_assimetria = erro_i.loc[("assimetria_extrema", "welch")]
     st.markdown(
-        f"Cada ponto é a proporção de rejeições em 10.000 conjuntos simulados com H0 verdadeira; "
-        f"a linha marca α e a faixa cinza é a variação que o acaso explica. "
-        f"O Mann-Whitney fica perto de α em todas as situações "
-        f"({br(100 * erro_i.xs('mann_whitney', level='teste').min(), 1)}% a "
-        f"{br(100 * erro_i.xs('mann_whitney', level='teste').max(), 1)}%), enquanto o t de Welch é "
-        f"**conservador** (abaixo de α): {br(100 * erro_i.loc[('base', 'welch')], 2)}% na base e só "
-        f"{br(100 * erro_i.loc[('assimetria_extrema', 'welch')], 2)}% com assimetria extrema. "
-        "A cauda longa infla a variância junto com a média, e |t| quase nunca fica grande."
+        f"Cada barra mostra a taxa de rejeição de H0 verdadeira em {br(resultados_sim['n_rep'].iloc[0], 0)} "
+        f"simulações, com IC de 95%; a linha horizontal marca α = {br(escolha_alpha * 100, 0)}%. "
+        f"O Mann-Whitney ficou próximo de α nas situações avaliadas "
+        f"({br(100 * taxa_mw.min(), 2)}% a {br(100 * taxa_mw.max(), 2)}%). "
+        f"O t de Welch foi conservador, com {br(100 * taxa_welch_base, 2)}% na situação base e "
+        f"{br(100 * taxa_welch_assimetria, 2)}% sob assimetria extrema, consistente com a "
+        "sensibilidade da média e da variância às caudas longas."
     )
     with st.expander("Ver os valores do G3 em tabela"):
         st.dataframe(tabela_visivel(resultados_sim[resultados_sim["efeito"] == 0]), hide_index=True)
@@ -207,21 +209,36 @@ else:
 st.header("5. Poder — G4")
 if resultados_sim is not None:
     st.plotly_chart(grafico_g4(resultados_sim, alpha=escolha_alpha), use_container_width=True)
-    poder_09 = resultados_sim[
-        (resultados_sim["efeito"] == resultados_sim["efeito"].max())
+    efeito_maximo = resultados_sim["efeito"].max()
+    poder_maximo = resultados_sim[
+        (resultados_sim["efeito"] == efeito_maximo)
         & (resultados_sim["pergunta"] != "Q1")
     ].set_index(["situacao", "teste"])["taxa_rejeicao"]
+    curvas = resultados_sim[resultados_sim["pergunta"] != "Q1"]
+    comparacao_curvas = curvas.pivot_table(
+        index=["situacao", "efeito"], columns="teste", values="taxa_rejeicao"
+    )
+    mw_superior_em_todos = (
+        {"mann_whitney", "welch"}.issubset(comparacao_curvas.columns)
+        and (comparacao_curvas["mann_whitney"] > comparacao_curvas["welch"]).all()
+    )
+    conclusao_curvas = (
+        "O Mann-Whitney teve poder maior em todos os efeitos e cenários simulados; "
+        "não houve inversão da vantagem."
+        if mw_superior_em_todos
+        else "A vantagem variou entre os cenários; compare as curvas para identificar onde cada teste teve maior poder."
+    )
     st.markdown(
-        f"Cada curva mostra a proporção de rejeições à medida que a mediana do grupo com bot cai; "
-        f"a faixa clara é o IC 95% e a linha tracejada, 80% de poder. "
-        f"O Mann-Whitney tem mais poder em todos os efeitos e em todas as situações "
-        f"(em efeito 0,9 na base: {br(100 * poder_09.loc[('base', 'mann_whitney')], 0)}% × "
-        f"{br(100 * poder_09.loc[('base', 'welch')], 0)}% do Welch), e a vantagem não muda de lado. "
-        "Ela só se inverteria com dados quase simétricos (sigma ≤ 0,3, ver "
-        "`docs/resultados_simulacao.md`)."
+        f"Cada curva mostra o poder conforme aumenta a redução relativa da mediana; a faixa clara "
+        f"é o IC de 95% e a linha tracejada marca 80%. No maior efeito simulado ({br(efeito_maximo * 100, 0)}%), "
+        f"o poder na situação base foi {br(100 * poder_maximo.loc[('base', 'mann_whitney')], 1)}% "
+        f"para Mann-Whitney e {br(100 * poder_maximo.loc[('base', 'welch')], 1)}% para Welch. "
+        f"{conclusao_curvas}"
     )
     with st.expander("Ver os valores do G4 em tabela"):
         st.dataframe(tabela_visivel(resultados_sim[resultados_sim["pergunta"] != "Q1"]), hide_index=True)
+else:
+    st.info("Rode `python -m src.experimentos` para gerar os resultados das curvas de poder.")
 st.divider()
 
 st.header("6. Testes nos dados reais")
