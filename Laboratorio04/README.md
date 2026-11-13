@@ -24,15 +24,19 @@ pip install -r requirements.txt
 ```bash
 python -m src.parametros           # ajuste da lognormal aos dados reais
 python -m src.simulacao            # gera results/exemplo_simulado.csv (seed 42)
-python -m src.experimentos         # Q1, Q2 e Q3: results/q1_q2_q3.csv (+ _alpha001), seed 42, ~5 s
+python -m src.experimentos         # Q1, Q2 e Q3: CSVs de resultados, seed 42
 python -m src.tamanho_amostra      # poder x n com o efeito real: results/tamanho_amostra.csv
+python run_all.py                  # ajusta parâmetros e gera Q1-Q3 com seed 42
+python -m pytest                   # executa os testes automatizados
 streamlit run dashboard/app.py     # abre o dashboard
 ```
 
 O dashboard apresenta o cenário, compara os dados reais e simulados (G1), aplica
-o t de Welch e Mann-Whitney ao conjunto simulado e mostra suas distribuições sob
-H0 (G2). Os resultados das simulações e as seções restantes serão adicionados nas
-próximas etapas do laboratório.
+o t de Welch e Mann-Whitney ao conjunto simulado (G2), e mostra os resultados das
+simulações Q1-Q3 (G3 e G4). `python run_all.py` ajusta os parâmetros usando os
+dados reais versionados, cria um gerador aleatório com seed 42 e gera os arquivos
+de resultados para α = 0,05 e α = 0,01. A coleta pela API do GitHub não faz parte
+desse comando.
 
 A coleta dos dados reais **não** precisa ser refeita: `data/real/prs.csv` está versionado. Para refazê-la, defina `GITHUB_TOKEN` (só leitura de repositórios públicos) e rode `python -m src.coleta`. Detalhes em [data/real/FONTE.md](data/real/FONTE.md).
 
@@ -54,8 +58,9 @@ Laboratorio04/
 │   ├── q1_q2_q3.csv          # taxas de rejeição (α = 0,05), 10.000 repetições por ponto
 │   ├── q1_q2_q3_alpha001.csv # o mesmo com α = 0,01
 │   └── tamanho_amostra.csv   # poder com o efeito real para n = 30 … 1.600
+├── run_all.py                # pipeline reproduzível completo (seed 42)
 ├── dashboard/
-│   └── app.py                # dashboard Streamlit com G1 e G2
+│   └── app.py                # dashboard Streamlit com G1, G2, G3 e G4
 └── src/
     ├── coleta.py             # coleta via API do GitHub
     ├── parametros.py         # ajuste da lognormal aos dados reais
@@ -65,10 +70,12 @@ Laboratorio04/
     ├── cenarios_q3.py        # situações que violam pressupostos (Q3)
     ├── dados_reais.py        # tabela dos testes nos dados reais (seção 6)
     ├── tamanho_amostra.py    # poder × n e n para 80% de poder
-    ├── graficos.py           # gráficos G1 e G2
+    ├── graficos.py           # gráficos G1, G2, G3 e G4
     └── estilo.py             # cores por teste e template Plotly
 tests/
-└── test_motor.py             # motor, Q3, dados reais, tamanho da amostra (pytest)
+├── test_experimentos.py      # reprodutibilidade, erro tipo I e shape
+├── test_graficos_g3_g4.py    # gráficos de erro tipo I e poder
+└── test_motor.py             # motor, Q3, dados reais e tamanho da amostra
 ```
 
 ## Convenções
