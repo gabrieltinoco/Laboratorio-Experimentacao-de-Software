@@ -86,7 +86,7 @@ def grafico_tamanho_amostra(df: pd.DataFrame, alvo: float = PODER_ALVO):
             )
         )
     fig.add_hline(
-        y=alvo, line_dash="dash", line_color="#555",
+        y=alvo, line_dash="dash", line_color="#8a8f96",
         annotation_text=f"{alvo:.0%} de poder", annotation_position="bottom right",
     )
     ns = sorted(df["n_por_grupo"].unique())

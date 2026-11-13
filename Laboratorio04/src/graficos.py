@@ -42,11 +42,23 @@ def grafico_g1(dados_reais: pd.DataFrame, dados_simulados: pd.DataFrame) -> go.F
     limites_bins = np.histogram_bin_edges(np.concatenate(valores_log), bins=20)
     largura_bin = float(limites_bins[1] - limites_bins[0])
 
+    def _mediana(df: pd.DataFrame, grupo: str) -> float:
+        return float(df.loc[df["grupo"] == grupo, "horas_ate_merge"].median())
+
+    def _h(valor: float) -> str:
+        return f"{valor:.1f}".replace(".", ",") + " h"
+
+    # As medianas vao no titulo de cada painel (e nao como anotacoes nas linhas
+    # verticais, que ficavam empilhadas umas sobre as outras e sobre o titulo).
     figura = make_subplots(
         rows=1,
         cols=2,
         shared_yaxes=True,
-        subplot_titles=[NOMES_GRUPO[grupo] for grupo in GRUPOS],
+        subplot_titles=[
+            f"{NOMES_GRUPO[grupo]}<br><sup>mediana real {_h(_mediana(dados_reais, grupo))} · "
+            f"simulada {_h(_mediana(dados_simulados, grupo))}</sup>"
+            for grupo in GRUPOS
+        ],
     )
 
     for coluna, grupo in enumerate(GRUPOS, start=1):
@@ -63,8 +75,8 @@ def grafico_g1(dados_reais: pd.DataFrame, dados_simulados: pd.DataFrame) -> go.F
                     go.Histogram(
                         x=valores,
                         xbins=dict(start=float(limites_bins[0]), end=float(limites_bins[-1]), size=largura_bin),
-                        name=nome,
-                        legendgroup=nome,
+                        name=f"{nome} · {NOMES_GRUPO[grupo]}",
+                        showlegend=False,
                         marker_color=cor,
                         opacity=0.48,
                         hovertemplate="log10(horas)=%{x:.2f}<br>Frequência=%{y:.0f}<extra>%{fullData.name}</extra>",
@@ -81,8 +93,7 @@ def grafico_g1(dados_reais: pd.DataFrame, dados_simulados: pd.DataFrame) -> go.F
                         y=frequencias,
                         mode="lines",
                         line=dict(color=cor, dash="dash", width=2),
-                        name=nome,
-                        legendgroup=nome,
+                        name=f"{nome} · {NOMES_GRUPO[grupo]}",
                         showlegend=False,
                         hovertemplate="log10(horas)=%{x:.2f}<br>Frequência=%{y:.0f}<extra>Simulados</extra>",
                     ),
@@ -90,36 +101,40 @@ def grafico_g1(dados_reais: pd.DataFrame, dados_simulados: pd.DataFrame) -> go.F
                     col=coluna,
                 )
 
-        for df, nome, tracejado in (
-            (dados_reais, "Mediana real", "solid"),
-            (dados_simulados, "Mediana simulada", "dot"),
-        ):
-            mediana = float(
-                df.loc[df["grupo"] == grupo, "horas_ate_merge"].median()
-            )
+        for df, tracejado in ((dados_reais, "solid"), (dados_simulados, "dot")):
             figura.add_vline(
-                x=float(np.log10(mediana)),
+                x=float(np.log10(_mediana(df, grupo))),
                 line_color=cor,
                 line_dash=tracejado,
                 row=1,
                 col=coluna,
-                annotation_text=f"{nome}: {mediana:.1f} h",
-                annotation_position="top",
             )
+
+    # Legenda neutra: explica a codificacao (barra, tracejado, linhas de mediana);
+    # a cor de cada grupo ja aparece no titulo do painel.
+    for nome, estilo_traco in (
+        ("Reais (barras)", dict(mode="markers", marker=dict(symbol="square", size=12, color="rgba(138,143,150,0.6)"))),
+        ("Simulados (tracejado)", dict(mode="lines", line=dict(color="#8a8f96", dash="dash", width=2))),
+        ("Mediana real", dict(mode="lines", line=dict(color="#8a8f96", width=2))),
+        ("Mediana simulada", dict(mode="lines", line=dict(color="#8a8f96", dash="dot", width=2))),
+    ):
+        figura.add_trace(go.Scatter(x=[None], y=[None], name=nome, hoverinfo="skip", **estilo_traco))
 
     ticks_horas = np.array([0.01, 0.1, 1, 10, 100, 1000, 10000])
     figura.update_xaxes(
-        title_text="Tempo até merge (horas; escala log10)",
         tickmode="array",
         tickvals=np.log10(ticks_horas),
         ticktext=[str(valor).replace(".", ",") for valor in ticks_horas],
     )
+    # Um unico titulo de eixo X: os dois iguais se encostavam em telas estreitas.
+    figura.update_xaxes(title_text="Tempo até merge (horas; escala log10)", col=1)
     figura.update_yaxes(title_text="Frequência (PRs por intervalo)", col=1)
     aplicar_layout(
         figura,
         title="G1 — Distribuição dos dados reais e simulados",
         barmode="overlay",
-        legend_title_text="Conjunto",
+        height=480,
+        margin=dict(t=110),
     )
     return figura
 
@@ -218,7 +233,10 @@ def grafico_g2(sem_bot: ArrayLike, com_bot: ArrayLike) -> go.Figure:
     figura = make_subplots(
         rows=1,
         cols=2,
-        subplot_titles=[NOMES_TESTE["welch"], NOMES_TESTE["mann_whitney"]],
+        subplot_titles=[
+            f"{NOMES_TESTE['welch']} · p = {p_welch:.3f}".replace(".", ","),
+            f"{NOMES_TESTE['mann_whitney']} · p = {p_mw:.3f}".replace(".", ","),
+        ],
     )
     grade_t = np.linspace(-extensao_t, extensao_t, 800)
     figura.add_trace(
@@ -249,7 +267,9 @@ def grafico_g2(sem_bot: ArrayLike, com_bot: ArrayLike) -> go.Figure:
         line_dash="dash",
         row=1,
         col=1,
-        annotation_text=f"t observado = {estatistica_t:.2f}",
+        annotation_text=f"t observado = {estatistica_t:.2f}".replace(".", ","),
+        annotation_position="top right",
+        annotation_font=dict(size=12),
     )
 
     centro_u = n_sem * n_com / 2
@@ -301,7 +321,9 @@ def grafico_g2(sem_bot: ArrayLike, com_bot: ArrayLike) -> go.Figure:
             line_dash="dash",
             row=1,
             col=2,
-            annotation_text=f"z observado = {z_observado:.2f}",
+            annotation_text=f"z observado = {z_observado:.2f}".replace(".", ","),
+            annotation_position="top right",
+                annotation_font=dict(size=12),
         )
     else:
         figura.add_vline(
@@ -339,20 +361,8 @@ def grafico_g2(sem_bot: ArrayLike, com_bot: ArrayLike) -> go.Figure:
         figura,
         title="G2 — Distribuições das estatísticas sob H0",
         showlegend=True,
+        height=460,
     )
-    figura.add_annotation(
-        x=0,
-        y=-0.22,
-        xref="paper",
-        yref="paper",
-        text=(
-            f"p de Welch = {p_welch:.4f} · p de Mann-Whitney = {p_mw:.4f}. "
-            "A área clara indica o p-valor bicaudal; a região mais escura indica α = 0,05."
-        ),
-        showarrow=False,
-        align="left",
-    )
-    figura.update_layout(margin=dict(b=115))
     return figura
 
 
@@ -367,7 +377,14 @@ ROTULOS_SITUACAO = {
 }
 _TESTES_ORDEM = ("welch", "mann_whitney")
 _COR_FAIXA = "rgba(120, 120, 120, 0.16)"
-_COR_TEXTO = "#1a1f26"
+# Titulos curtos dos paineis do G4: na largura de celular os rotulos longos
+# de dois paineis vizinhos se encostavam.
+_ROTULOS_CURTOS = {
+    "base": "Base",
+    "assimetria_extrema": "Assimetria σ×2",
+    "com_outliers": "Outliers 5%×10",
+    "amostra_pequena": "Amostra pequena",
+}
 
 
 def _linhas_situacao(df: pd.DataFrame, situacao: str) -> pd.DataFrame:
@@ -398,16 +415,16 @@ def grafico_g3(df: pd.DataFrame, alpha: float = 0.05) -> go.Figure:
         layer="below",
         annotation_text="faixa do acaso",
         annotation_position="top left",
-        annotation_font=dict(size=11, color="#555"),
+        annotation_font=dict(size=11, color="#8a8f96"),
     )
     figura.add_hline(
         y=alpha,
-        line_color="#555",
+        line_color="#8a8f96",
         line_dash="dash",
         line_width=1,
         annotation_text=f"α = {alpha:.0%}",
         annotation_position="bottom right",
-        annotation_font=dict(size=11, color="#555"),
+        annotation_font=dict(size=11, color="#8a8f96"),
     )
     situacoes = [
         s for s in ORDEM_SITUACOES
@@ -469,14 +486,13 @@ def grafico_g3(df: pd.DataFrame, alpha: float = 0.05) -> go.Figure:
     aplicar_layout(
         figura,
         title=(
-            f"G3 — Erro tipo I com H0 verdadeira "
-            f"(α = {str(alpha).replace('.', ',')}, "
-            f"{n_rep_rotulo} repetições)"
+            "G3 — Erro tipo I com H0 verdadeira"
+            f"<br><sup>α = {str(alpha).replace('.', ',')} · {n_rep_rotulo} repetições por situação</sup>"
         ),
-        height=420,
+        height=480,
         barmode="group",
         legend_title_text="Teste",
-        margin=dict(l=75, r=20, t=90, b=100),
+        margin=dict(l=75, r=20, t=100, b=130),
     )
     return figura
 
@@ -485,9 +501,13 @@ def grafico_g4(df: pd.DataFrame, alpha: float = 0.05, alvo: float = 0.80) -> go.
     """Curvas de poder, um painel por situacao, mesmo eixo Y (0 a 100%)."""
     figura = make_subplots(
         rows=2, cols=2, shared_xaxes=True, shared_yaxes=True,
-        subplot_titles=[_rotulo_com_n(df, s) for s in ORDEM_SITUACOES],
+        subplot_titles=[
+            f"{_ROTULOS_CURTOS[s]} · n = {int(_linhas_situacao(df, s)['n_por_grupo'].iloc[0])}"
+            for s in ORDEM_SITUACOES
+        ],
         vertical_spacing=0.14, horizontal_spacing=0.06,
     )
+    figura.update_annotations(font_size=13)  # so os titulos dos paineis existem aqui
     for indice, situacao in enumerate(ORDEM_SITUACOES):
         linha_painel, coluna_painel = divmod(indice, 2)
         linha_painel, coluna_painel = linha_painel + 1, coluna_painel + 1
@@ -521,23 +541,28 @@ def grafico_g4(df: pd.DataFrame, alpha: float = 0.05, alvo: float = 0.80) -> go.
             if indice == 0 and len(x):
                 figura.add_annotation(
                     x=x[-1], y=float(curva["taxa_rejeicao"].iloc[-1]), text=NOMES_TESTE[teste],
-                    xanchor="right", yanchor="bottom", xshift=-6, showarrow=False,
-                    font=dict(color=_COR_TEXTO, size=12), row=linha_painel, col=coluna_painel,
+                    # a esquerda do ultimo ponto: acima dele invadia o titulo do painel
+                    xanchor="right", yanchor="middle", xshift=-10, showarrow=False,
+                    font=dict(size=12), row=linha_painel, col=coluna_painel,
                 )
         figura.add_hline(
-            y=alvo, line_color="#555", line_dash="dash", line_width=1,
+            y=alvo, line_color="#8a8f96", line_dash="dash", line_width=1,
             row=linha_painel, col=coluna_painel,
         )
     figura.add_annotation(
         x=0, y=alvo, xref="x", yref="y", text=f"{alvo:.0%} de poder", showarrow=False,
-        xanchor="left", yanchor="bottom", font=dict(size=11, color="#555"),
+        xanchor="left", yanchor="bottom", font=dict(size=11, color="#8a8f96"),
     )
     figura.update_yaxes(range=[0, 1], tickformat=".0%")
     figura.update_yaxes(title_text="Poder", col=1)
-    figura.update_xaxes(title_text="Efeito (redução relativa da mediana)", row=2)
+    figura.update_xaxes(title_text="Efeito (redução relativa da mediana)", row=2, col=1)
     aplicar_layout(
         figura,
-        title=f"G4 — Poder por tamanho do efeito (α = {str(alpha).replace('.', ',')}, 10.000 repetições)",
-        height=620,
+        title=(
+            "G4 — Poder por tamanho do efeito"
+            f"<br><sup>α = {str(alpha).replace('.', ',')} · 10.000 repetições por ponto</sup>"
+        ),
+        height=700,
+        margin=dict(t=110),
     )
     return figura
