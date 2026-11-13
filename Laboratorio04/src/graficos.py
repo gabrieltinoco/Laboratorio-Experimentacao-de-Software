@@ -62,30 +62,29 @@ def grafico_g1(dados_reais: pd.DataFrame, dados_simulados: pd.DataFrame) -> go.F
                 figura.add_trace(
                     go.Histogram(
                         x=valores,
-                        histnorm="probability density",
                         xbins=dict(start=float(limites_bins[0]), end=float(limites_bins[-1]), size=largura_bin),
                         name=nome,
                         legendgroup=nome,
                         marker_color=cor,
                         opacity=0.48,
-                        hovertemplate="log10(horas)=%{x:.2f}<br>Densidade=%{y:.4f}<extra>%{fullData.name}</extra>",
+                        hovertemplate="log10(horas)=%{x:.2f}<br>Frequência=%{y:.0f}<extra>%{fullData.name}</extra>",
                     ),
                     row=1,
                     col=coluna,
                 )
             else:
-                densidade, _ = np.histogram(valores, bins=limites_bins, density=True)
+                frequencias, _ = np.histogram(valores, bins=limites_bins)
                 centros = (limites_bins[:-1] + limites_bins[1:]) / 2
                 figura.add_trace(
                     go.Scatter(
                         x=centros,
-                        y=densidade,
+                        y=frequencias,
                         mode="lines",
                         line=dict(color=cor, dash="dash", width=2),
                         name=nome,
                         legendgroup=nome,
                         showlegend=False,
-                        hovertemplate="log10(horas)=%{x:.2f}<br>Densidade=%{y:.4f}<extra>Simulados</extra>",
+                        hovertemplate="log10(horas)=%{x:.2f}<br>Frequência=%{y:.0f}<extra>Simulados</extra>",
                     ),
                     row=1,
                     col=coluna,
@@ -115,7 +114,7 @@ def grafico_g1(dados_reais: pd.DataFrame, dados_simulados: pd.DataFrame) -> go.F
         tickvals=np.log10(ticks_horas),
         ticktext=[str(valor).replace(".", ",") for valor in ticks_horas],
     )
-    figura.update_yaxes(title_text="Densidade (por unidade log10)", col=1)
+    figura.update_yaxes(title_text="Frequência (PRs por intervalo)", col=1)
     aplicar_layout(
         figura,
         title="G1 — Distribuição dos dados reais e simulados",
