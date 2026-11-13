@@ -1,9 +1,14 @@
 """Dashboard do Lab04: compara o t de Welch e o teste de Mann-Whitney."""
 
 from pathlib import Path
+import sys
 
 import streamlit as st
 import pandas as pd
+
+RAIZ = Path(__file__).resolve().parents[1]
+if str(RAIZ) not in sys.path:
+    sys.path.insert(0, str(RAIZ))
 
 from src.dados_reais import resumo_grupos, tabela_testes_reais
 from src.estilo import NOMES_TESTE
@@ -12,7 +17,6 @@ from src.parametros import ajustar_por_grupo, parametros_simulacao
 from src.tamanho_amostra import grafico_tamanho_amostra, n_para_poder
 from src.testes import teste_mann_whitney, teste_welch
 
-RAIZ = Path(__file__).resolve().parents[1]
 ARQ_CENARIO = RAIZ / "docs" / "cenario.md"
 ARQ_PRS = RAIZ / "data" / "real" / "prs.csv"
 ARQ_SIMULADO = RAIZ / "results" / "exemplo_simulado.csv"
