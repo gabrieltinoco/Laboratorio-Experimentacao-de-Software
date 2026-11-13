@@ -384,69 +384,100 @@ def _rotulo_com_n(df: pd.DataFrame, situacao: str) -> str:
 
 
 def grafico_g3(df: pd.DataFrame, alpha: float = 0.05) -> go.Figure:
-    """Erro tipo I por situacao: ponto + IC 95% contra a linha de alpha.
-
-    Forma "distancia ate um alvo": o que importa e quanto cada teste se afasta
-    de alpha, nao o tamanho a partir do zero. A faixa cinza e o que o acaso
-    de 10.000 repeticoes explica (alpha ± 1,96 EP).
-    """
+    """Compara o erro tipo I por situação com barras agrupadas e IC 95%."""
     figura = go.Figure()
-    n_rep = int(df["n_rep"].iloc[0])
+    n_rep_valores = df["n_rep"].dropna().unique()
+    if len(n_rep_valores) != 1:
+        raise ValueError("G3 espera um único número de repetições por arquivo")
+    n_rep = int(n_rep_valores[0])
     meia_faixa = 1.96 * np.sqrt(alpha * (1 - alpha) / n_rep)
-    figura.add_vrect(
-        x0=alpha - meia_faixa, x1=alpha + meia_faixa, fillcolor=_COR_FAIXA, line_width=0, layer="below",
-        annotation_text="faixa do acaso", annotation_position="top left",
+    figura.add_hrect(
+        y0=max(0, alpha - meia_faixa),
+        y1=min(1, alpha + meia_faixa),
+        fillcolor=_COR_FAIXA,
+        line_width=0,
+        layer="below",
+        annotation_text="faixa do acaso",
+        annotation_position="top left",
         annotation_font=dict(size=11, color="#555"),
     )
-    figura.add_vline(
-        x=alpha, line_color="#555", line_dash="dash", line_width=1,
-        annotation_text=f"α = {str(alpha).replace('.', ',')}", annotation_position="bottom right",
+    figura.add_hline(
+        y=alpha,
+        line_color="#555",
+        line_dash="dash",
+        line_width=1,
+        annotation_text=f"α = {alpha:.0%}",
+        annotation_position="bottom right",
         annotation_font=dict(size=11, color="#555"),
     )
-    posicoes = {s: len(ORDEM_SITUACOES) - 1 - i for i, s in enumerate(ORDEM_SITUACOES)}
-    deslocamento = {"welch": 0.14, "mann_whitney": -0.14}
-    maximo = alpha
+    situacoes = [
+        s for s in ORDEM_SITUACOES
+        if not _linhas_situacao(df, s).empty
+    ]
+    rotulos = [_rotulo_com_n(df, s) for s in situacoes]
+    maximo = alpha + meia_faixa
     for teste in _TESTES_ORDEM:
-        x, y, inf, sup, textos = [], [], [], [], []
-        for situacao in ORDEM_SITUACOES:
+        valores, inf, sup = [], [], []
+        for situacao in situacoes:
             linhas = _linhas_situacao(df, situacao)
             if situacao == "base":
                 linhas = linhas[linhas["pergunta"] == "Q1"]
-            linha = linhas[(linhas["teste"] == teste) & (linhas["efeito"] == 0)].iloc[0]
-            x.append(float(linha["taxa_rejeicao"]))
+            linhas_teste = linhas[(linhas["teste"] == teste) & (linhas["efeito"] == 0)]
+            if len(linhas_teste) != 1:
+                raise ValueError(
+                    f"esperado um resultado Q1 para teste={teste}, situação={situacao}"
+                )
+            linha = linhas_teste.iloc[0]
+            valores.append(float(linha["taxa_rejeicao"]))
             inf.append(float(linha["ic95_inf"]))
             sup.append(float(linha["ic95_sup"]))
-            y.append(posicoes[situacao] + deslocamento[teste])
-            textos.append(ROTULOS_SITUACAO[situacao])
             maximo = max(maximo, float(linha["ic95_sup"]))
-        x_arr, inf_arr, sup_arr = np.array(x), np.array(inf), np.array(sup)
-        figura.add_trace(
-            go.Scatter(
-                x=x_arr, y=y, mode="markers", name=NOMES_TESTE[teste],
-                marker=dict(color=CORES_TESTE[teste], size=11, line=dict(color="white", width=2)),
-                error_x=dict(type="data", symmetric=False, array=sup_arr - x_arr,
-                             arrayminus=x_arr - inf_arr, color=CORES_TESTE[teste], thickness=2, width=0),
-                customdata=np.column_stack([inf_arr, sup_arr]), text=textos,
-                hovertemplate=(
-                    "%{text}<br>Erro tipo I = %{x:.2%}<br>IC 95%: %{customdata[0]:.2%} a "
-                    "%{customdata[1]:.2%}<extra>%{fullData.name}</extra>"
-                ),
-            )
+        valores_arr, inf_arr, sup_arr = np.array(valores), np.array(inf), np.array(sup)
+        figura.add_bar(
+            x=rotulos,
+            y=valores_arr,
+            name=NOMES_TESTE[teste],
+            marker_color=CORES_TESTE[teste],
+            offsetgroup=teste,
+            legendgroup=teste,
+            error_y=dict(
+                type="data",
+                symmetric=False,
+                array=sup_arr - valores_arr,
+                arrayminus=valores_arr - inf_arr,
+                color=CORES_TESTE[teste],
+                thickness=1.5,
+                width=4,
+            ),
+            customdata=np.column_stack([inf_arr, sup_arr]),
+            hovertemplate=(
+                "%{x}<br>Erro tipo I = %{y:.2%}<br>IC 95%: "
+                "%{customdata[0]:.2%} a %{customdata[1]:.2%}"
+                "<extra>%{fullData.name}</extra>"
+            ),
         )
+    figura.update_xaxes(title_text="Situação simulada")
     figura.update_yaxes(
-        tickmode="array", tickvals=[posicoes[s] for s in ORDEM_SITUACOES],
-        ticktext=[_rotulo_com_n(df, s) for s in ORDEM_SITUACOES],
-        range=[-0.9, len(ORDEM_SITUACOES) - 0.4], showgrid=False,
+        title_text="Erro tipo I (%)",
+        tickformat=".0%",
+        range=[0, min(1, maximo * 1.15)],
     )
     figura.update_xaxes(
-        title_text="Erro tipo I (proporção de rejeições com H0 verdadeira)",
-        tickformat=".1%", range=[-maximo * 0.03, maximo * 1.15],
+        categoryorder="array",
+        categoryarray=rotulos,
     )
+    n_rep_rotulo = f"{n_rep:,}".replace(",", ".")
     aplicar_layout(
         figura,
-        title=f"G3 — Erro tipo I com H0 verdadeira (α = {str(alpha).replace('.', ',')}, 10.000 repetições)",
+        title=(
+            f"G3 — Erro tipo I com H0 verdadeira "
+            f"(α = {str(alpha).replace('.', ',')}, "
+            f"{n_rep_rotulo} repetições)"
+        ),
         height=420,
-        margin=dict(l=230, r=20, t=90, b=60),
+        barmode="group",
+        legend_title_text="Teste",
+        margin=dict(l=75, r=20, t=90, b=100),
     )
     return figura
 

@@ -31,29 +31,40 @@ def _df_exemplo():
     return pd.DataFrame(linhas)
 
 
-def _tracos_de_dados(fig):
-    return [t for t in fig.data if t.name in ("t de Welch", "Mann-Whitney") and t.showlegend is not False]
-
-
-def test_g3_um_ponto_por_situacao_e_teste_nas_cores_padrao():
+def test_g3_barras_agrupadas_por_situacao_com_ic_e_cores_padrao():
     fig = grafico_g3(_df_exemplo())
-    tracos = _tracos_de_dados(fig)
+    tracos = [t for t in fig.data if t.type == "bar"]
     assert {t.name: t.marker.color for t in tracos} == {"t de Welch": COR_WELCH, "Mann-Whitney": COR_MW}
     assert all(len(t.x) == len(ORDEM_SITUACOES) for t in tracos)
-    assert all(t.error_x.array is not None for t in tracos)
+    assert all(t.error_y.array is not None for t in tracos)
+    assert fig.layout.barmode == "group"
+    assert fig.layout.yaxis.title.text == "Erro tipo I (%)"
 
 
 def test_g3_usa_q1_na_situacao_base_e_efeito_zero_da_q3():
     fig = grafico_g3(_df_exemplo())
     welch = next(t for t in fig.data if t.name == "t de Welch")
-    np.testing.assert_allclose(welch.x, [0.02] * 4)  # Q1 (sem o +0,001 da Q2)
+    np.testing.assert_allclose(welch.y, [0.02] * 4)  # Q1 (sem o +0,001 da Q2)
+    assert list(welch.x) == [
+        "Base · n = 30",
+        "Assimetria extrema (σ × 2) · n = 30",
+        "Com outliers (5% × 10) · n = 30",
+        "Amostra pequena · n = 10",
+    ]
 
 
 def test_g3_linha_de_referencia_segue_o_alpha():
     for alpha in (0.05, 0.01):
         fig = grafico_g3(_df_exemplo(), alpha=alpha)
-        assert any(s.type == "line" and s.x0 == pytest.approx(alpha) for s in fig.layout.shapes)
+        assert any(s.type == "line" and s.y0 == pytest.approx(alpha) for s in fig.layout.shapes)
         assert any(s.type == "rect" for s in fig.layout.shapes)  # faixa do acaso
+
+
+def test_g3_rejeita_arquivo_com_varios_valores_de_repeticoes():
+    df = _df_exemplo()
+    df.loc[df.index[0], "n_rep"] = 5000
+    with pytest.raises(ValueError, match="único número de repetições"):
+        grafico_g3(df)
 
 
 def test_g4_um_painel_por_situacao_com_eixo_y_compartilhado():
@@ -76,3 +87,12 @@ def test_g4_usa_q2_no_painel_base():
     fig = grafico_g4(_df_exemplo())
     mw_base = next(t for t in fig.data if t.name == "Mann-Whitney" and t.xaxis in (None, "x"))
     assert mw_base.y[0] == pytest.approx(0.051)
+
+
+def test_graficos_leem_estrutura_de_csv_de_exemplo(tmp_path):
+    caminho = tmp_path / "exemplo_mock.csv"
+    _df_exemplo().to_csv(caminho, index=False)
+    dados = pd.read_csv(caminho)
+
+    assert len(grafico_g3(dados).data) == 2
+    assert len(grafico_g4(dados).data) == 16
