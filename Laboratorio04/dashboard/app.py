@@ -39,8 +39,8 @@ st.set_page_config(page_title="Lab04 — Testes de hipótese", layout="wide")
 
 st.title("Testes de hipótese por dentro")
 st.markdown(
-    "**Dashboard local:** [abrir](http://localhost:8501) · "
-    "**Publicação:** pendente · "
+    "**Dashboard publicado:** "
+    "[abrir no Streamlit Community Cloud](https://lab04-teste-hipotese.streamlit.app/) · "
     "**Repositório:** "
     "[Laboratorio-Experimentacao-de-Software]"
     "(https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software) · "

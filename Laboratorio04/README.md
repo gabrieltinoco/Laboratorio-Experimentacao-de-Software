@@ -5,7 +5,7 @@ Laboratório de Experimentação de Software · PUC Minas · 2026/2
 Compara o **t de Welch** e o **Mann-Whitney** (par P1) no cenário *"o uso de bot de revisão muda o tempo até o merge de PRs?"*. Os dados reais (PRs do [microsoft/PowerToys](https://github.com/microsoft/PowerToys) com e sem revisão do Copilot) servem para calibrar uma simulação lognormal. Com ela medimos o erro tipo I e o poder de cada teste.
 
 - **GitHub Projects:** [Projetos do repositório](https://github.com/gabrieltinoco/Laboratorio-Experimentacao-de-Software/projects)
-- **Dashboard publicado:** pendente de publicação no Streamlit Community Cloud.
+- **Dashboard publicado:** [abrir no Streamlit Community Cloud](https://lab04-teste-hipotese.streamlit.app/)
 - Enunciado e plano de sprints: material da disciplina (Canvas)
 
 ## Instalação
