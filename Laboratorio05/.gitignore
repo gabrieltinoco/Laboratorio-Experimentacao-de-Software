@@ -1,0 +1,17 @@
+# Bancos gerados: regeneráveis por `make data` (hashes em data/manifest.json)
+data/db/*
+!data/db/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+build/
+dist/
+
+# Sistema / editor
+.DS_Store
+Thumbs.db

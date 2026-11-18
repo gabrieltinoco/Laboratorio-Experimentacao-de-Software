@@ -1,0 +1,37 @@
+# Matriz experimental do LAB05 (DuckDB x SQLite).
+# Fonte única de parâmetros: todo o código lê daqui. Mudanças só por decisão
+# registrada (ex.: repetitions.full e censored_queries após o piloto, ver B-1.4).
+experiment_id: lab05-duckdb-sqlite
+seed: 20262
+
+engines:                    # 3 tratamentos
+  sqlite:    { kind: sqlite }                 # single-thread por natureza
+  duckdb_t1: { kind: duckdb, threads: 1 }     # isola o efeito do motor colunar
+  duckdb_t4: { kind: duckdb, threads: 4 }     # uso real (paralelo)
+
+scale_factors: [0.1, 1]     # ~100 MB e ~1 GB de dados
+
+workloads:
+  olap:
+    queries: [q01, q02, q03, q04, q05, q06, q07, q08, q09, q10, q11,
+              q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22]   # TPC-H completo
+  oltp:
+    ops: [point_select, insert, update]
+    n_ops: 2000
+
+sqlite_settings:            # configuração comum de produção
+  journal_mode: WAL
+  synchronous: NORMAL
+  cache_size_kib: 262144    # 256 MiB, igual ao memory_limit relativo do DuckDB
+  indexes: true             # PKs + índices nas FKs do TPC-H (lista em datagen.py)
+
+duckdb_settings:
+  memory_limit: "4GB"
+
+timeout_ms: 120000          # por consulta
+censored_queries: []        # preenchido após o piloto (ver B-1.4)
+
+limits: { cpus: 4, mem_gb: 8 }
+
+repetitions: { pilot: 3, full: 10 }   # rodadas (blocos) por (engine, sf, workload)
+reps_censored_full: 3       # rodadas para consultas em censored_queries
