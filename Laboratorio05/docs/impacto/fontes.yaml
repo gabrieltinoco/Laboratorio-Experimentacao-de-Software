@@ -1,0 +1,199 @@
+# Fontes públicas usadas nos critérios (A-1.2) e no cálculo de impacto (A-3.1).
+# Schema: {id, descricao, valor, unidade, url, acessado_em: AAAA-MM-DD, criterio: real|operacao|impacto, software: duckdb|sqlite}
+# Print de cada fonte: docs/evidencias/<acessado_em>-<id>.png. Fontes que dividem a mesma
+# página dividem o print:
+#   sqlite-smartphones, sqlite-bancos-ativos       -> 2026-11-18-sqlite-mostdeployed.png
+#   so2025-sqlite-*, so2025-duckdb-*               -> 2026-11-18-so2025-databases.png
+#   pypi-duckdb-mes, pypi-duckdb-dia               -> 2026-11-18-pypi-duckdb.png
+#   dbengines-duckdb, dbengines-sqlite             -> 2026-11-18-dbengines-duckdb-sqlite.png
+
+# ------------------------------------------------------------------ SQLite
+- id: sqlite-site-oficial
+  descricao: Site oficial e documentação do SQLite
+  valor: null
+  unidade: null
+  url: https://www.sqlite.org/
+  acessado_em: 2026-11-18
+  criterio: real
+  software: sqlite
+
+- id: sqlite-consortium
+  descricao: SQLite Consortium, associação de membros que garante a continuidade e independência do SQLite (contrato com Hipp, Wyrick & Company, Inc.)
+  valor: 23
+  unidade: dias de dedicação dos desenvolvedores por ano para cada membro
+  url: https://www.sqlite.org/consortium.html
+  acessado_em: 2026-11-18
+  criterio: real
+  software: sqlite
+
+- id: sqlite-release-3541
+  descricao: Versão estável atual 3.54.1 (patch de 3.54.0, lançada em 2026-10-09)
+  valor: 3.54.1
+  unidade: versão (lançada em 2026-10-16)
+  url: https://www.sqlite.org/releaselog/3_54_1.html
+  acessado_em: 2026-11-18
+  criterio: operacao
+  software: sqlite
+
+- id: sqlite-lts-2050
+  descricao: Compromisso de suporte de longo prazo dos desenvolvedores
+  valor: 2050
+  unidade: ano até o qual o suporte é planejado
+  url: https://www.sqlite.org/lts.html
+  acessado_em: 2026-11-18
+  criterio: operacao
+  software: sqlite
+
+- id: sqlite-famous-users
+  descricao: Usuários conhecidos em produção (Adobe, Airbus A350, Apple, Bosch, Dropbox, Facebook osquery, Google Android/Chrome, Intuit, Microsoft Windows 10, Mozilla, PHP, Python, RPM, Skype)
+  valor: null
+  unidade: null
+  url: https://www.sqlite.org/famous.html
+  acessado_em: 2026-11-18
+  criterio: operacao
+  software: sqlite
+
+- id: sqlite-smartphones
+  descricao: Smartphones em uso ativo, todos com SQLite (todo Android, iPhone/iOS, Mac, Windows 10/11, Firefox, Chrome e Safari)
+  valor: 4.0e9
+  unidade: smartphones
+  url: https://www.sqlite.org/mostdeployed.html
+  acessado_em: 2026-11-18
+  criterio: impacto
+  software: sqlite
+
+- id: sqlite-bancos-ativos
+  descricao: Estimativa oficial de bancos SQLite em uso ativo ("provavelmente mais que todos os outros motores somados")
+  valor: 1.0e12
+  unidade: bancos de dados (estimativa)
+  url: https://www.sqlite.org/mostdeployed.html
+  acessado_em: 2026-11-18
+  criterio: impacto
+  software: sqlite
+
+- id: so2025-sqlite-todos
+  descricao: Uso de SQLite no Stack Overflow Developer Survey 2025, todos os respondentes (26.083 respostas na pergunta de bancos)
+  valor: 37.5
+  unidade: "% dos respondentes"
+  url: https://survey.stackoverflow.co/2025/technology/
+  acessado_em: 2026-11-18
+  criterio: impacto
+  software: sqlite
+
+- id: so2025-sqlite-prof
+  descricao: Uso de SQLite no Stack Overflow Developer Survey 2025, desenvolvedores profissionais (21.126 respostas)
+  valor: 36.9
+  unidade: "% dos respondentes"
+  url: https://survey.stackoverflow.co/2025/technology/
+  acessado_em: 2026-11-18
+  criterio: impacto
+  software: sqlite
+
+- id: pypi-apsw-mes
+  descricao: Downloads do pacote apsw (binding Python usado para o SQLite) nos últimos 30 dias
+  valor: 2582934
+  unidade: downloads/mês
+  url: https://pypistats.org/api/packages/apsw/recent
+  acessado_em: 2026-11-18
+  criterio: impacto
+  software: sqlite
+
+# ------------------------------------------------------------------ DuckDB
+- id: duckdb-site-oficial
+  descricao: Site oficial e documentação do DuckDB
+  valor: null
+  unidade: null
+  url: https://duckdb.org/
+  acessado_em: 2026-11-18
+  criterio: real
+  software: duckdb
+
+- id: duckdb-foundation
+  descricao: Stichting DuckDB Foundation (Holanda), sem fins lucrativos, detém a PI e as marcas; licença MIT irrevogável; apoiadores AWS, MotherDuck, Posit, Cloudflare, Hugging Face, PostHog, Hex, entre outros
+  valor: null
+  unidade: null
+  url: https://duckdb.foundation/
+  acessado_em: 2026-11-18
+  criterio: real
+  software: duckdb
+
+- id: duckdb-labs
+  descricao: DuckDB Labs, empresa dos criadores que desenvolve o núcleo e presta suporte comercial
+  valor: null
+  unidade: null
+  url: https://duckdblabs.com/
+  acessado_em: 2026-11-18
+  criterio: real
+  software: duckdb
+
+- id: duckdb-release-200
+  descricao: Versão estável atual 2.0.0 LTS "Cinnamon Teal", lançada em 2026-10-21, suporte até pelo menos outubro de 2027
+  valor: 2.0.0
+  unidade: versão
+  url: https://duckdb.org/2026/10/21/announcing-duckdb-200
+  acessado_em: 2026-11-18
+  criterio: operacao
+  software: duckdb
+
+- id: duckdb-release-calendar
+  descricao: Política de suporte (a cada duas versões uma é LTS, com 1 ano de suporte comunitário); próxima versão 2.0.1 prevista para 2026-11-19
+  valor: 2027-10-22
+  unidade: fim de suporte da 2.0.0
+  url: https://duckdb.org/release_calendar
+  acessado_em: 2026-11-18
+  criterio: operacao
+  software: duckdb
+
+- id: pypi-duckdb-mes
+  descricao: Downloads do pacote duckdb no PyPI nos últimos 30 dias
+  valor: 79963100
+  unidade: downloads/mês
+  url: https://pypistats.org/api/packages/duckdb/recent
+  acessado_em: 2026-11-18
+  criterio: impacto
+  software: duckdb
+
+- id: pypi-duckdb-dia
+  descricao: Downloads do pacote duckdb no PyPI no último dia
+  valor: 3470506
+  unidade: downloads/dia
+  url: https://pypistats.org/api/packages/duckdb/recent
+  acessado_em: 2026-11-18
+  criterio: impacto
+  software: duckdb
+
+- id: so2025-duckdb-todos
+  descricao: Uso de DuckDB no Stack Overflow Developer Survey 2025, todos os respondentes
+  valor: 3.3
+  unidade: "% dos respondentes"
+  url: https://survey.stackoverflow.co/2025/technology/
+  acessado_em: 2026-11-18
+  criterio: impacto
+  software: duckdb
+
+- id: so2025-duckdb-prof
+  descricao: Uso de DuckDB no Stack Overflow Developer Survey 2025, desenvolvedores profissionais
+  valor: 3.2
+  unidade: "% dos respondentes"
+  url: https://survey.stackoverflow.co/2025/technology/
+  acessado_em: 2026-11-18
+  criterio: impacto
+  software: duckdb
+
+- id: dbengines-duckdb
+  descricao: DB-Engines Ranking (popularidade), DuckDB; score 12.18, posição 40 geral e 24 entre SGBDs relacionais (ranking de novembro de 2026)
+  valor: 40
+  unidade: posição no ranking geral
+  url: https://db-engines.com/en/system/DuckDB%3BSQLite
+  acessado_em: 2026-11-18
+  criterio: impacto
+  software: duckdb
+
+- id: dbengines-sqlite
+  descricao: DB-Engines Ranking (popularidade), SQLite; score 94.68, posição 11 geral e 8 entre SGBDs relacionais (ranking de novembro de 2026)
+  valor: 11
+  unidade: posição no ranking geral
+  url: https://db-engines.com/en/system/DuckDB%3BSQLite
+  acessado_em: 2026-11-18
+  criterio: impacto
+  software: sqlite
