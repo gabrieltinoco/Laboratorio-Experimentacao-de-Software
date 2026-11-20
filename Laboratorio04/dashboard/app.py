@@ -83,7 +83,11 @@ with st.expander("Cenário completo: palpite registrado, erros tipo I e II, par�
     st.markdown(carregar_cenario())
 
 st.header("2. Os dados — G1")
-st.plotly_chart(grafico_g1(dados_reais, dados_simulados), use_container_width=True)
+st.plotly_chart(
+    grafico_g1(dados_reais, dados_simulados),
+    use_container_width=True,
+    theme=None,
+)
 st.markdown(
     f"Os tempos reais são muito assimétricos: sem bot a mediana é de "
     f"{br(resumo_real.loc['sem_bot', 'mediana'])} h e a média de "
@@ -113,6 +117,7 @@ resultado_mw = teste_mann_whitney(sim_sem_bot, sim_com_bot)
 st.plotly_chart(
     grafico_g2(sim_sem_bot, sim_com_bot),
     use_container_width=True,
+    theme=None,
 )
 st.markdown(
     "O t de Welch compara as médias sem exigir variâncias iguais; Mann-Whitney compara "
@@ -193,7 +198,11 @@ st.header("4. Erro tipo I — G3")
 if resultados_sim is None:
     st.info("Rode `python -m src.experimentos` para gerar results/q1_q2_q3.csv.")
 else:
-    st.plotly_chart(grafico_g3(resultados_sim, alpha=escolha_alpha), use_container_width=True)
+    st.plotly_chart(
+        grafico_g3(resultados_sim, alpha=escolha_alpha),
+        use_container_width=True,
+        theme=None,
+    )
     erro_i = resultados_sim[(resultados_sim["efeito"] == 0) & (resultados_sim["pergunta"] != "Q2")]
     erro_i = erro_i.set_index(["situacao", "teste"])["taxa_rejeicao"]
     taxa_mw = erro_i.xs("mann_whitney", level="teste")
@@ -213,7 +222,11 @@ else:
 
 st.header("5. Poder — G4")
 if resultados_sim is not None:
-    st.plotly_chart(grafico_g4(resultados_sim, alpha=escolha_alpha), use_container_width=True)
+    st.plotly_chart(
+        grafico_g4(resultados_sim, alpha=escolha_alpha),
+        use_container_width=True,
+        theme=None,
+    )
     efeito_maximo = resultados_sim["efeito"].max()
     poder_maximo = resultados_sim[
         (resultados_sim["efeito"] == efeito_maximo)
@@ -318,7 +331,11 @@ if ARQ_TAMANHO.exists():
     n80_mw = n_para_poder(tamanho, "mann_whitney")
     n80_welch = n_para_poder(tamanho, "welch")
     n_max = int(tamanho["n_por_grupo"].max())
-    st.plotly_chart(grafico_tamanho_amostra(tamanho), use_container_width=True)
+    st.plotly_chart(
+        grafico_tamanho_amostra(tamanho),
+        use_container_width=True,
+        theme=None,
+    )
     st.markdown(
         f"Simulamos 10.000 conjuntos com o efeito observado nos dados reais (redução de "
         f"{br(100 * efeito_real, 0)}% na mediana ajustada) e vários n. Com o n coletado (30 por "
