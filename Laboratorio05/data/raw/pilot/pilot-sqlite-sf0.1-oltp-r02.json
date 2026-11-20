@@ -1,0 +1,40 @@
+{
+  "block": "pilot-sqlite-sf0.1-oltp-r02",
+  "env": {
+    "engine_version": "3.54.1"
+  },
+  "items": [
+    {
+      "item": "update",
+      "elapsed_ms": 18889.4695,
+      "ops_sec": 105.87909840453698,
+      "p99_ms": 14.982,
+      "rows_returned": 0,
+      "result_hash": "",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "insert",
+      "elapsed_ms": 240.018,
+      "ops_sec": 8332.708380204818,
+      "p99_ms": 0.4118,
+      "rows_returned": 0,
+      "result_hash": "",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "point_select",
+      "elapsed_ms": 18396.6434,
+      "ops_sec": 108.71548447799992,
+      "p99_ms": 18.7488,
+      "rows_returned": 0,
+      "result_hash": "",
+      "timeout": false,
+      "error": ""
+    }
+  ],
+  "complete": true,
+  "peak_rss_mb": 94.3125
+}

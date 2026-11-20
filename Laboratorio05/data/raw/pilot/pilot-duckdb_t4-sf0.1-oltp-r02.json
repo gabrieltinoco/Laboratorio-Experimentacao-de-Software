@@ -1,0 +1,40 @@
+{
+  "block": "pilot-duckdb_t4-sf0.1-oltp-r02",
+  "env": {
+    "engine_version": "2.0.0"
+  },
+  "items": [
+    {
+      "item": "update",
+      "elapsed_ms": 2916.1591,
+      "ops_sec": 685.8336364432242,
+      "p99_ms": 5.2594,
+      "rows_returned": 0,
+      "result_hash": "",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "point_select",
+      "elapsed_ms": 3411.0583,
+      "ops_sec": 586.3282958253748,
+      "p99_ms": 5.0632,
+      "rows_returned": 0,
+      "result_hash": "",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "insert",
+      "elapsed_ms": 8330.0562,
+      "ops_sec": 240.09441857066938,
+      "p99_ms": 5.6616,
+      "rows_returned": 0,
+      "result_hash": "",
+      "timeout": false,
+      "error": ""
+    }
+  ],
+  "complete": true,
+  "peak_rss_mb": 64.46484375
+}
