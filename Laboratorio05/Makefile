@@ -12,19 +12,23 @@ test:
 	$(PYTHON) -m pytest
 
 preflight:
-	@echo "TODO (B-1.3/B-1.4): checagem de CPU, RAM e disco"
+	$(PYTHON) -c "import yaml; from bench.run_matrix import preflight; preflight(yaml.safe_load(open('bench/config.yaml', encoding='utf-8'))) "
 
 data:
-	@echo "TODO (B-1.1): gerar TPC-H sf 0.1 e 1 nos dois bancos"
+	$(PYTHON) -c "from pathlib import Path; from bench.datagen import generate; [generate(sf, Path('data/db')) for sf in (0.1, 1)]"
 
 pilot:
-	@echo "TODO (B-1.4): preflight + snapshot + run_matrix --phase pilot --resume + validate + manifest"
+	$(MAKE) preflight
+	$(PYTHON) -c "from bench.env_snapshot import snapshot; snapshot()"
+	$(PYTHON) -m bench.run_matrix --phase pilot --resume
+	$(MAKE) validate
+	$(PYTHON) -c "from pathlib import Path; from analysis.lab05.manifest import write_manifest; write_manifest([p for p in (Path('data/db')).glob('*') if p.is_file()], Path('data/manifest.json'))"
 
 run:
-	@echo "TODO (B-1.4/B-2.1): run_matrix --phase full --resume"
+	$(PYTHON) -m bench.run_matrix --phase full --resume
 
 validate:
-	@echo "TODO (B-1.4): validar data/processed/results.csv"
+	$(PYTHON) -c "import yaml,pandas as pd; from analysis.lab05.validate import validate; cfg=yaml.safe_load(open('bench/config.yaml',encoding='utf-8')); df=pd.read_csv('data/processed/results.csv') if __import__('pathlib').Path('data/processed/results.csv').exists() else pd.DataFrame(); problems=validate(df,cfg,'pilot' if 'pilot' in '$(PHASE)' else 'full'); print('\n'.join(problems)); raise SystemExit(1 if any(p.startswith('PROBLEMA') for p in problems) else 0)"
 
 analyze:
 	@echo "TODO (A-2.3): python -m analysis.lab05.report --phase $(PHASE)"

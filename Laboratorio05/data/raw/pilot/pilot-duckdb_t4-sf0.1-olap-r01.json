@@ -1,0 +1,230 @@
+{
+  "block": "pilot-duckdb_t4-sf0.1-olap-r01",
+  "env": {
+    "engine_version": "2.0.0"
+  },
+  "items": [
+    {
+      "item": "q07",
+      "elapsed_ms": 48.966,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 4,
+      "result_hash": "38e54598f20433e7",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q13",
+      "elapsed_ms": 32.235,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 37,
+      "result_hash": "967532cf01b4a3ed",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q19",
+      "elapsed_ms": 16.3974,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 1,
+      "result_hash": "3f3c5af6600073d5",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q14",
+      "elapsed_ms": 7.8026,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 1,
+      "result_hash": "4ad2f8eb97b346a7",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q12",
+      "elapsed_ms": 10.053,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 2,
+      "result_hash": "688fdd03ee506286",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q10",
+      "elapsed_ms": 21.9558,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 20,
+      "result_hash": "1f8de20b74e5c5ea",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q21",
+      "elapsed_ms": 22.8633,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 47,
+      "result_hash": "2384ea1c4c5c0816",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q22",
+      "elapsed_ms": 15.5374,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 7,
+      "result_hash": "30cf784f1078ea9e",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q05",
+      "elapsed_ms": 17.4028,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 5,
+      "result_hash": "29493aa128f7bb6d",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q20",
+      "elapsed_ms": 13.3607,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 9,
+      "result_hash": "95e46b651c28f1ca",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q06",
+      "elapsed_ms": 4.5206,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 1,
+      "result_hash": "ea67e40c7a1c0746",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q03",
+      "elapsed_ms": 16.1543,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 10,
+      "result_hash": "3301b98e4451c6ad",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q04",
+      "elapsed_ms": 7.7046,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 5,
+      "result_hash": "ee093740d4b0cb06",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q18",
+      "elapsed_ms": 20.7378,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 5,
+      "result_hash": "290e2ec58b998f07",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q02",
+      "elapsed_ms": 11.7878,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 44,
+      "result_hash": "cbf72e4f019b788f",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q16",
+      "elapsed_ms": 16.8795,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 2762,
+      "result_hash": "3a50e858497b3b88",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q17",
+      "elapsed_ms": 11.7003,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 1,
+      "result_hash": "4471c135bda1671a",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q09",
+      "elapsed_ms": 25.9603,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 175,
+      "result_hash": "aab536bb60159d8c",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q11",
+      "elapsed_ms": 12.4396,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 2541,
+      "result_hash": "a296b8e227336883",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q01",
+      "elapsed_ms": 11.9952,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 4,
+      "result_hash": "30d67bde8d0aec7a",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q15",
+      "elapsed_ms": 7.684,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 1,
+      "result_hash": "fb67a748fe7bb4b9",
+      "timeout": false,
+      "error": ""
+    },
+    {
+      "item": "q08",
+      "elapsed_ms": 12.4745,
+      "ops_sec": NaN,
+      "p99_ms": NaN,
+      "rows_returned": 2,
+      "result_hash": "f07b73bb9ff5345a",
+      "timeout": false,
+      "error": ""
+    }
+  ],
+  "complete": true,
+  "peak_rss_mb": 56.9765625
+}

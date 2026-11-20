@@ -1,0 +1,11 @@
+{
+  "files": {
+    "data/db/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "data/db/tpch_sf0.01.duckdb": "d8435f52e80df4bab6496bf92d7e95639181c9ec81f2afa34c74f71170fe58a5",
+    "data/db/tpch_sf0.01.sqlite": "6fcb8aeb4bb9cfecf1a31f0ff51dc890dd1506da64d1f1c29357ee2612216b66",
+    "data/db/tpch_sf0.1.duckdb": "1e60883054a79d756a11c3f073d2f33557d3af3033ea800ce050c783790833d3",
+    "data/db/tpch_sf0.1.sqlite": "9de1d106ee9d70e5c85f6bef0da3ca6de167cd1241d6d593af69b9c0358a520f",
+    "data/db/tpch_sf1.duckdb": "10987ae6cd973255c704be59808968712ea1b6142943b060fe49d9095efbb266",
+    "data/db/tpch_sf1.sqlite": "2cc293ab8cba5df4a3c6b2b51f8e58e813876f8d1af8a5aab3d5cfd83d7f4b34"
+  }
+}
